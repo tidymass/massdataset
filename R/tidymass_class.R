@@ -12,45 +12,25 @@
 
 # library(tidyverse)
 # sxtTools::setwd_project()
-# rm(list = ls())
-# expression_data = readr::read_csv("demo_data/Peak_table_for_cleaning.csv")
-# sample_info = readr::read_csv("demo_data/sample_info.csv")
-# 
-# variable_info =
-#   expression_data %>%
-#   dplyr::select(name:rt) %>%
-#   dplyr::rename(variable_id = name)
-# 
-# sample_info =
-#   sample_info %>%
-#   dplyr::rename(sample_id = sample.name)
-# 
-# rownames(expression_data) = expression_data$name
-# 
-# expression_data =
-#   expression_data %>%
-#   dplyr::select(-c(name:rt))
-# 
-# sample_info_note =
-#   data.frame(name = colnames(sample_info),
-#              meaning = colnames(sample_info))
-# 
-# variable_info_note =
-#   data.frame(name = colnames(variable_info),
-#              meaning = colnames(variable_info))
-# 
-# 
-# rownames(expression_data) = variable_info$variable_id
+# load("demo_data/expression_data")
+# load("demo_data/sample_info")
+# load("demo_data/variable_info")
+# load("demo_data/sample_info_note")
+# load("demo_data/variable_info_note")
 # 
 # object =
-#   create_tidymass_class(expression_data = expression_data,
-#                         sample_info = sample_info,
-#                         variable_info = variable_info,
-#                         sample_info_note = sample_info_note
-#                         # variable_info_note = variable_info_note
-#                         )
+#   create_tidymass_class(
+#     expression_data = expression_data,
+#     sample_info = sample_info,
+#     variable_info = variable_info,
+#     sample_info_note = sample_info_note,
+#     variable_info_note = variable_info_note
+#   )
 # 
 # object
+# 
+# 
+# save(object, file = "demo_data/object")
 
 create_tidymass_class =
   function(expression_data,
@@ -72,11 +52,11 @@ create_tidymass_class =
       stop(check_result)
     }
     
-    if(missing(sample_info_note)){
+    if (missing(sample_info_note)) {
       sample_info_note = data.frame()
     }
     
-    if(missing(variable_info_note)){
+    if (missing(variable_info_note)) {
       variable_info_note = data.frame()
     }
     
@@ -86,15 +66,16 @@ create_tidymass_class =
     process_info$Creation$parameters = "no"
     process_info$Creation$time = Sys.time()
     
-    object <- new(Class = "tidymass",
-                  expression_data = expression_data,
-                  ms2_data = data.frame(),
-                  sample_info = sample_info,
-                  variable_info = variable_info,
-                  sample_info_note = sample_info_note,
-                  variable_info_note = variable_info_note,
-                  process_info = process_info,
-                  version = "0.9.1"
+    object <- new(
+      Class = "tidymass",
+      expression_data = expression_data,
+      ms2_data = data.frame(),
+      sample_info = sample_info,
+      variable_info = variable_info,
+      sample_info_note = sample_info_note,
+      variable_info_note = variable_info_note,
+      process_info = process_info,
+      version = "0.9.1"
     )
     invisible(object)
   }
@@ -107,7 +88,7 @@ setClass(
     expression_data = "data.frame",
     ms2_data = "data.frame",
     sample_info = "data.frame",
-    variable_info = "list",
+    variable_info = "data.frame",
     sample_info_note = "data.frame",
     variable_info_note = "data.frame",
     process_info = "list",
@@ -126,7 +107,12 @@ setMethod(
     cat(crayon::green("tidyTools version:", object@version, "\n"))
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
     cat(crayon::green("Expression data\n"))
-    cat(ncol(object@expression_data), "samples and", nrow(object@expression_data), "variables\n")
+    cat(
+      ncol(object@expression_data),
+      "samples and",
+      nrow(object@expression_data),
+      "variables\n"
+    )
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
     cat(crayon::green("Processing\n"))
     if (.hasSlot(object = object, name = "process_info") &
@@ -157,7 +143,7 @@ setMethod(
 #' #' @param slot Class of data.
 #' #' @return A data frame.
 #' #' @export
-#' 
+#'
 #' get_data = function(object,
 #'                     slot = c("Subject",
 #'                              "QC",
@@ -169,43 +155,43 @@ setMethod(
 #'   if (class(object) != "tidymass") {
 #'     stop("Only the tidymass is supported!\n")
 #'   }
-#'   
+#'
 #'   if (length(object@expression_data) > 1) {
 #'     stop("Plase align batch first.\n")
 #'   }
-#'   
+#'
 #'   # slot <- stringr::str_to_title(slot)
 #'   slot <- match.arg(slot)
-#'   
+#'
 #'   if (slot == "Tags") {
 #'     result <- object@expression_data[[1]] %>%
 #'       dplyr::select(., -one_of(object@sample.info$sample.name))
 #'     return(result)
 #'   }
-#'   
+#'
 #'   if (slot == "peak.table") {
 #'     result <- object@expression_data[[1]]
 #'     return(result)
 #'   }
-#'   
+#'
 #'   if (slot == "sample.info") {
 #'     result <- object@sample.info
 #'     return(result)
 #'   }
-#'   
+#'
 #'   result <-
 #'     try(dplyr::filter(.data = object@sample.info, class == slot)$sample.name %>%
 #'           dplyr::select(.data = object@expression_data[[1]], .))
-#'   
+#'
 #'   if (ncol(result) == 0) {
 #'     return(NULL)
 #'   }
 #'   return(result)
 #' }
-#' 
-#' 
-#' 
-#' 
+#'
+#'
+#'
+#'
 #' #' @title get_mv_plot_samples
 #' #' @description get MV plot of subject samples.
 #' #' @author Xiaotao Shen
@@ -214,7 +200,7 @@ setMethod(
 #' #' @param interactive interactive or not.
 #' #' @return A ggplot2 object.
 #' #' @export
-#' 
+#'
 #' get_mv_plot_samples = function(object,
 #'                                interactive = FALSE) {
 #'   if (class(object) != "tidymass") {
@@ -231,7 +217,7 @@ setMethod(
 #'     }
 #'   }
 #' }
-#' 
+#'
 #' #' @title calculate_rsd
 #' #' @description Calculate RSD of peaks.
 #' #' @author Xiaotao Shen
@@ -240,7 +226,7 @@ setMethod(
 #' #' @param slot Class of data.
 #' #' @return A data frame with RSD.
 #' #' @export
-#' 
+#'
 #' calculate_rsd = function(object,
 #'                          slot = c("Subject",
 #'                                   "QC",
@@ -253,22 +239,22 @@ setMethod(
 #'   if (class(object) != "tidymass") {
 #'     stop("Only the tidymass is supported!\n")
 #'   }
-#'   
+#'
 #'   data <- get_data(object = object, slot = slot)
-#'   
+#'
 #'   if (is.null(data)) {
 #'     stop("No ", slot, " in your data.\n")
 #'   }
-#'   
+#'
 #'   if (sum(is.na(data)) != 0) {
 #'     stop("Please impute MV first!\n")
 #'   }
-#'   
+#'
 #'   rsd <- apply(data, 1, function(x) {
 #'     x <- as.numeric(x)
 #'     sd(x) * 100 / mean(x)
 #'   })
-#'   
+#'
 #'   rsd <- data.frame(
 #'     index = 1:length(rsd),
 #'     name = object@expression_data[[1]]$name,
@@ -277,9 +263,9 @@ setMethod(
 #'   )
 #'   invisible(rsd)
 #' }
-#' 
-#' 
-#' 
+#'
+#'
+#'
 #' #' @title get_parameters
 #' #' @description Get parameters from a tidymass object.
 #' #' @author Xiaotao Shen
@@ -287,7 +273,7 @@ setMethod(
 #' #' @param object A tidymass object.
 #' #' @return A data frame of parameters.
 #' #' @export
-#' 
+#'
 #' get_parameters = function(object) {
 #'   if (class(object) != "tidymass") {
 #'     stop("Only the tidymass is supported!\n")
@@ -297,7 +283,7 @@ setMethod(
 #'     cat(crayon::red("No process for this dataset.\n"))
 #'     return(NULL)
 #'   }
-#'   
+#'
 #'   process_info <-
 #'     lapply(process_info, function(x) {
 #'       x <- x[which(names(x) != "plot")]
@@ -306,7 +292,7 @@ setMethod(
 #'         unlist(.) %>%
 #'         data.frame(., stringsAsFactors = FALSE) %>%
 #'         data.frame(rownames(.), ., stringsAsFactors = FALSE)
-#'       
+#'
 #'       rownames(x) <- NULL
 #'       colnames(x) <- c("Parameter", "Value")
 #'       x

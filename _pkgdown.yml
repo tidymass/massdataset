@@ -1,0 +1,107 @@
+destination: docs
+
+url: https://jaspershen.github.io/massdataset/
+
+home:
+  strip_header: false
+  title: massdataset package
+  links:
+  - text: Find me
+    href: https://shenxt.info/
+
+development:
+  mode: auto
+  version_label: danger
+  version_tooltip: "Under development"
+
+template:
+  params:
+    docsearch:
+      api_key: 21ff2860978c5d2ceb7d4150364070ff
+      index_name: massdataset
+    bootswatch: flatly
+    ganalytics: UA-000000-01
+
+reference:
+  - title: Formula operation
+    desc: Formula operation
+    contents:
+    - split_formula
+    - sum_formula
+  - title: Convert long and wide data
+    desc: Convert long and wide data
+    contents:
+    - convert2long
+    - convert2wide
+  - title: Work directory operation
+    desc: Work directory operation
+    contents:
+    - setwd_win
+    - setwd_project
+  - title: System
+    desc: System
+    contents:
+    - get_os
+  - title: MS2 spectrum
+    desc: MS2 spectrum
+    contents:
+    - msMatch
+    - ms2_plot
+    - getDP
+  - title: Other tools
+    desc: Other tools
+    contents:
+    - massdataset_logo
+    - mz_rt_match
+    - keep_one
+
+navbar:
+  title: "sparklyr"
+  # type: inverse
+  structure:
+    left: [home, references, articles, news, contact]
+    right: [github, twitter]
+  components:
+    articles:
+      text: Help documents
+      menu:
+      - text: "metflow"
+      - text: Web Server for Metabolomics Data Cleaning and Differential Metabolite Discovery
+        href: http://metflow.zhulab.cn/
+      - text: --------
+      - text: "metflow2"
+      - text: Mass spectrometry raw data processing and data cleaning
+        href: https://jaspershen.github.io/metflow2/
+      - text: --------
+      - text: "MetNormalizer"
+      - text: Metabolomimcs data normalization
+        href: https://jaspershen.github.io/MetNormalizer/
+      - text: --------
+      - text: "metID"
+      - text: Database construction and metabolite annotation
+        href: https://jaspershen.github.io/metID/
+      - text: --------
+      - text: "MetDNA"
+      - text: Metabolite identification and Dysregulated Network Analysis
+        href: http://metdna.zhulab.cn/
+      - text: --------
+      - text: "lipidflow"
+      - text: Absolute quantification for lipidomics
+        href: https://jaspershen.github.io/lipidflow/
+    twitter:
+      icon: "fab fa-twitter fa-lg"
+      href: https://twitter.com/JasperShen1990
+    contact:
+      text: Contact us
+      href: articles/contact_us.html
+    news:
+      text: News
+      menu:
+      - text: "Blog posts"
+      - text: "Version 0.4.0"
+        href: articles/massdataset.html
+      - text: "------------------"
+      - text: "Change log"
+        href: news/index.html
+toc:
+  depth: 3

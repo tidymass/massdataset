@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://jaspershen.github.io/massdataset//index.html</loc>
+  </url>
+  <url>
+    <loc>https://jaspershen.github.io/massdataset//reference/check_tidymass_class_data.html</loc>
+  </url>
+  <url>
+    <loc>https://jaspershen.github.io/massdataset//reference/create_tidymass_class.html</loc>
+  </url>
+  <url>
+    <loc>https://jaspershen.github.io/massdataset//reference/extract_expression_data.html</loc>
+  </url>
+  <url>
+    <loc>https://jaspershen.github.io/massdataset//reference/extract_sample_info.html</loc>
+  </url>
+  <url>
+    <loc>https://jaspershen.github.io/massdataset//reference/extract_sample_info_note.html</loc>
+  </url>
+  <url>
+    <loc>https://jaspershen.github.io/massdataset//reference/extract_variable_info.html</loc>
+  </url>
+  <url>
+    <loc>https://jaspershen.github.io/massdataset//reference/extract_variable_info_note.html</loc>
+  </url>
+  <url>
+    <loc>https://jaspershen.github.io/massdataset//reference/massdataset_logo.html</loc>
+  </url>
+  <url>
+    <loc>https://jaspershen.github.io/massdataset//reference/massdataset_packages.html</loc>
+  </url>
+  <url>
+    <loc>https://jaspershen.github.io/massdataset//articles/contact_us.html</loc>
+  </url>
+</urlset>
