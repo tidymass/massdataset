@@ -1,3 +1,9 @@
+# tinytools::setwd_project()
+# load("demo_data/object")
+# 
+# object
+
+
 #' @title extract_expression_data
 #' @description Extract expression data.
 #' @author Xiaotao Shen
@@ -5,6 +11,8 @@
 #' @param object tidymass class object.
 #' @return A data frame.
 #' @export
+
+# extract_expression_data(object = object)
 
 extract_expression_data = function(object) {
   expression_data = object@expression_data %>%
