@@ -22,7 +22,7 @@
 massdataset_logo <- function(){
   cat(crayon::green("Thank you for using massdataset!\n"))
   cat(crayon::green("Version 0.0.1 (2021-11-24)\n"))
-  cat(crayon::green("More information can be found at https://jaspershen.github.io/massdataset/\n"))
+  cat(crayon::green("More information can be found at https://tidymass.github.io/massdataset/\n"))
   cat(crayon::green(
     c("                          _____        _                 _   ", 
       "                         |  __ \\      | |               | |  ", 

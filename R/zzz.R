@@ -10,7 +10,7 @@
   packageStartupMessage(
     crayon::green(
       "massdataset,
-More information can be found at https://jaspershen.github.io/massdataset/
+More information can be found at https://tidymass.github.io/massdataset/
 Authors: Xiaotao Shen (shenxt@stanford.edu)
 Maintainer: Xiaotao Shen"
     )
