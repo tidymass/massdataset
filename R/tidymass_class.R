@@ -9,6 +9,21 @@
 #' @param variable_info_note Sample information name.
 #' @return A tidymass-class object.
 #' @export
+#' @examples
+#' data("expression_data")
+#' data("sample_info")
+#' data("sample_info_note")
+#' data("variable_info")
+#' data("variable_info_note")
+#' object =
+#'   create_tidymass_class(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'     sample_info_note = sample_info_note,
+#'     variable_info_note = variable_info_note
+#'   )
+#'   object
 
 # library(tidyverse)
 # sxtTools::setwd_project()
@@ -104,7 +119,7 @@ setMethod(
   definition = function(object) {
     # requireNamespace("magrittr")
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
-    cat(crayon::green("tidyTools version:", object@version, "\n"))
+    cat(crayon::green("massdataset version:", object@version, "\n"))
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
     cat(crayon::green("Expression data\n"))
     cat(

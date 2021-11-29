@@ -1,48 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jaspershen.github.io/massdataset//index.html</loc>
+    <loc>https://tidymass.github.io/massdataset//index.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/check_tidymass_class_data.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/check_tidymass_class_data.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/create_tidymass_class.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/create_tidymass_class.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/extract_expression_data.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/expression_data.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/extract_sample_info.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/extract_expression_data.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/extract_sample_info_note.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/extract_sample_info.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/extract_variable_info.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/extract_sample_info_note.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/extract_variable_info_note.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/extract_variable_info.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/get_sample_id.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/extract_variable_info_note.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/get_sample_number.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/filter_samples.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/get_variable_id.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/get_mv_number.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/get_variable_number.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/get_sample_id.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/massdataset_logo.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/get_sample_number.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//reference/massdataset_packages.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/get_variable_id.html</loc>
   </url>
   <url>
-    <loc>https://jaspershen.github.io/massdataset//articles/contact_us.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/get_variable_number.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/massdataset_logo.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/massdataset_packages.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/sample_info.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/sample_info_note.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/variable_info.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/variable_info_note.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//articles/contact_us.html</loc>
   </url>
 </urlset>

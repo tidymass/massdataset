@@ -39,7 +39,8 @@ Imports:
     readxl,
     rvest,
     xml2,
-    htmlwidgets
+    htmlwidgets,
+    leaflet
 Suggests: 
     knitr,
     rmarkdown,

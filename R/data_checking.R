@@ -9,6 +9,16 @@
 #' @param variable_info_note variable_info_note.
 #' @return Notice of data checking.
 #' @export
+#' @examples
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#'   check_tidymass_class_data(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+
 
 check_tidymass_class_data =
   function(expression_data,

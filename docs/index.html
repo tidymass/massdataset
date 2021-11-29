@@ -58,34 +58,24 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-<li class="dropdown-header">metflow</li>
+<li class="dropdown-header">Data import</li>
     <li>
-      <a href="http://metflow.zhulab.cn/">Web Server for Metabolomics Data Cleaning and Differential Metabolite Discovery</a>
+      <a href="http://metflow.zhulab.cn/">Import data and create them as a tidymass-object class</a>
     </li>
     <li class="divider">
-    <li class="dropdown-header">metflow2</li>
+    <li class="dropdown-header">Example data</li>
     <li>
-      <a href="https://jaspershen.github.io/metflow2/">Mass spectrometry raw data processing and data cleaning</a>
+      <a href="https://tidymass.github.io/metflow2/">Demo dataset for massdataset</a>
     </li>
     <li class="divider">
-    <li class="dropdown-header">MetNormalizer</li>
+    <li class="dropdown-header">Extract data</li>
     <li>
-      <a href="https://jaspershen.github.io/MetNormalizer/">Metabolomimcs data normalization</a>
+      <a href="https://tidymass.github.io/MetNormalizer/">Extract data from tidymass-class object</a>
     </li>
     <li class="divider">
-    <li class="dropdown-header">metID</li>
+    <li class="dropdown-header">Filter data</li>
     <li>
-      <a href="https://jaspershen.github.io/metID/">Database construction and metabolite annotation</a>
-    </li>
-    <li class="divider">
-    <li class="dropdown-header">MetDNA</li>
-    <li>
-      <a href="http://metdna.zhulab.cn/">Metabolite identification and Dysregulated Network Analysis</a>
-    </li>
-    <li class="divider">
-    <li class="dropdown-header">lipidflow</li>
-    <li>
-      <a href="https://jaspershen.github.io/lipidflow/">Absolute quantification for lipidomics</a>
+      <a href="https://tidymass.github.io/metID/">Filter data accordting to samples or variables</a>
     </li>
   </ul>
 </li>
@@ -144,11 +134,55 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="massdataset" class="section level1">
+
+<div id="massdataset-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#massdataset" class="anchor"></a>massdataset</h1></div>
-<p>tidymass class of dataset.</p>
+<a href="#massdataset-" class="anchor"></a>massdataset <img src="reference/figures/massdataset_logo.png" align="right" alt="" width="120">
+</h1></div>
+
+<div id="about" class="section level2">
+<h2 class="hasAnchor">
+<a href="#about" class="anchor"></a>About</h2>
+<p><code>massdataset</code> is a package which can organize the metabolomics data sets into a standard structure (tidymass-mass) which can be processed by all the packages from tidymass.</p>
 </div>
+</div>
+<div id="section" class="section level1">
+<h1 class="hasAnchor">
+<a href="#section" class="anchor"></a><img src="reference/figures/workflow_massdataset.jpg" align="middle" alt="" width="80%">
+</h1>
+<div id="installation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h2>
+<p>You can install <code>massdataset</code> from <a href="https://github.com/tidymass/massdataset">Github</a>.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/">devtools</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"tidymass/massdataset"</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="get-started" class="section level2">
+<h2 class="hasAnchor">
+<a href="#get-started" class="anchor"></a>Get started</h2>
+<p>Please see the “Help documents”.</p>
+</div>
+<div id="need-help" class="section level2">
+<h2 class="hasAnchor">
+<a href="#need-help" class="anchor"></a>Need help?</h2>
+<p>If you have any questions about <code>massdataset</code>, please don’t hesitate to email me (<a href="mailto:shenxt@stanford.edu" class="email">shenxt@stanford.edu</a>) or reach out me via the social medias below.</p>
+<p><i class="fa fa-weixin"></i> <a href="https://www.shenxt.info/files/wechat_QR.jpg">shenxt1990</a></p>
+<p><i class="fa fa-envelope"></i> <a href="mailto:shenxt@stanford.edu" class="email">shenxt@stanford.edu</a></p>
+<p><i class="fa fa-twitter"></i> <a href="https://twitter.com/JasperShen1990">Twitter</a></p>
+<p><i class="fa fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Alway+Building/@37.4322345,-122.1770883,17z/data=!3m1!4b1!4m5!3m4!1s0x808fa4d335c3be37:0x9057931f3b312c29!8m2!3d37.4322345!4d-122.1748996">M339, Alway Buidling, Cooper Lane, Palo Alto, CA 94304</a></p>
+</div>
+<div id="citation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#citation" class="anchor"></a>Citation</h2>
+<p>If you use massdataset in you publication, please cite this publication:</p>
+<p>X. Shen, R. Wang, X. Xiong, Y. Yin, Y. Cai, Z. Ma, N. Liu, and Z.-J. Zhu* (Corresponding Author), Metabolic Reaction Network-based Recursive Metabolite Annotation for Untargeted Metabolomics, Nature Communications, 2019, 10: 1516.<br><a href="https://www.nature.com/articles/s41467-019-09550-x">Web Link</a>.</p>
+<p>Thanks very much!</p>
+</div>
+</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -159,7 +193,7 @@
 </li>
 <li>Report a bug at <br><a href="https://github.com/tidymass/massdataset/issues">https://​github.com/​tidymass/​massdataset/​issues</a>
 </li>
-<li>Find me at <br><a href="https://shenxt.info/">https://​shenxt.info/​</a>
+<li>Find me at <br><a href="https://www.shenxt.info/">https://​www.shenxt.info/​</a>
 </li>
 </ul>
 </div>
@@ -178,7 +212,16 @@
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=massdataset"><img src="https://www.r-pkg.org/badges/version/massdataset?color=green"></a></li>
+<li><a href="https://github.com/tidymass/massdataset"><img src="https://img.shields.io/github/languages/code-size/tidymass/massdataset.svg"></a></li>
+<li><a href="https://cran.r-project.org/package=massdataset"><img src="https://tinyverse.netlify.com/badge/massdataset" alt="Dependencies"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
 

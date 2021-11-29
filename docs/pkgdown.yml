@@ -3,8 +3,8 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   contact_us: contact_us.html
-last_built: 2021-11-28T08:13Z
+last_built: 2021-11-29T22:09Z
 urls:
-  reference: https://jaspershen.github.io/massdataset//reference
-  article: https://jaspershen.github.io/massdataset//articles
+  reference: https://tidymass.github.io/massdataset//reference
+  article: https://tidymass.github.io/massdataset//articles
 

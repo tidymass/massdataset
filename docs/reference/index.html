@@ -106,34 +106,24 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">metflow</li>
+    <li class="dropdown-header">Data import</li>
     <li>
-      <a href="http://metflow.zhulab.cn/">Web Server for Metabolomics Data Cleaning and Differential Metabolite Discovery</a>
+      <a href="http://metflow.zhulab.cn/">Import data and create them as a tidymass-object class</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">metflow2</li>
+    <li class="dropdown-header">Example data</li>
     <li>
-      <a href="https://jaspershen.github.io/metflow2/">Mass spectrometry raw data processing and data cleaning</a>
+      <a href="https://tidymass.github.io/metflow2/">Demo dataset for massdataset</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">MetNormalizer</li>
+    <li class="dropdown-header">Extract data</li>
     <li>
-      <a href="https://jaspershen.github.io/MetNormalizer/">Metabolomimcs data normalization</a>
+      <a href="https://tidymass.github.io/MetNormalizer/">Extract data from tidymass-class object</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">metID</li>
+    <li class="dropdown-header">Filter data</li>
     <li>
-      <a href="https://jaspershen.github.io/metID/">Database construction and metabolite annotation</a>
-    </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">MetDNA</li>
-    <li>
-      <a href="http://metdna.zhulab.cn/">Metabolite identification and Dysregulated Network Analysis</a>
-    </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">lipidflow</li>
-    <li>
-      <a href="https://jaspershen.github.io/lipidflow/">Absolute quantification for lipidomics</a>
+      <a href="https://tidymass.github.io/metID/">Filter data accordting to samples or variables</a>
     </li>
   </ul>
 </li>
@@ -207,8 +197,8 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-formula-operation" class="hasAnchor"><a href="#section-formula-operation" class="anchor"></a>Formula operation</h2>
-          <p class="section-desc"><p>Formula operation</p></p>
+          <h2 id="section-create-tidymass-object-class" class="hasAnchor"><a href="#section-create-tidymass-object-class" class="anchor"></a>Create tidymass-object class</h2>
+          <p class="section-desc"><p>Import data and create them as a tidymass-object class</p></p>
         </th>
       </tr>
       
@@ -216,12 +206,24 @@
     </tbody><tbody>
       
       
-      
+      <tr>
+        
+        <td>
+          <p><code><a href="check_tidymass_class_data.html">check_tidymass_class_data()</a></code> </p>
+        </td>
+        <td><p>check_tidymass_class_data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_tidymass_class.html">create_tidymass_class()</a></code> </p>
+        </td>
+        <td><p>create_tidymass_class</p></td>
+      </tr>
     </tbody><tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-convert-long-and-wide-data" class="hasAnchor"><a href="#section-convert-long-and-wide-data" class="anchor"></a>Convert long and wide data</h2>
-          <p class="section-desc"><p>Convert long and wide data</p></p>
+          <h2 id="section-extract-data" class="hasAnchor"><a href="#section-extract-data" class="anchor"></a>Extract data</h2>
+          <p class="section-desc"><p>Extract data from tidymass-class object</p></p>
         </th>
       </tr>
       
@@ -229,12 +231,42 @@
     </tbody><tbody>
       
       
-      
+      <tr>
+        
+        <td>
+          <p><code><a href="extract_expression_data.html">extract_expression_data()</a></code> </p>
+        </td>
+        <td><p>extract_expression_data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="extract_sample_info.html">extract_sample_info()</a></code> </p>
+        </td>
+        <td><p>extract_sample_info</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="extract_variable_info.html">extract_variable_info()</a></code> </p>
+        </td>
+        <td><p>extract_variable_info</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="extract_sample_info_note.html">extract_sample_info_note()</a></code> </p>
+        </td>
+        <td><p>extract_sample_info_note</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="extract_variable_info_note.html">extract_variable_info_note()</a></code> </p>
+        </td>
+        <td><p>extract_variable_info_note</p></td>
+      </tr>
     </tbody><tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-work-directory-operation" class="hasAnchor"><a href="#section-work-directory-operation" class="anchor"></a>Work directory operation</h2>
-          <p class="section-desc"><p>Work directory operation</p></p>
+          <h2 id="section-summary" class="hasAnchor"><a href="#section-summary" class="anchor"></a>Summary</h2>
+          <p class="section-desc"><p>Summarize inforamtion of dataset</p></p>
         </th>
       </tr>
       
@@ -242,38 +274,42 @@
     </tbody><tbody>
       
       
-      
+      <tr>
+        
+        <td>
+          <p><code><a href="get_sample_id.html">get_sample_id()</a></code> </p>
+        </td>
+        <td><p>get_sample_id</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_sample_number.html">get_sample_number()</a></code> </p>
+        </td>
+        <td><p>get_sample_number</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_variable_id.html">get_variable_id()</a></code> </p>
+        </td>
+        <td><p>get_variable_id</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_variable_number.html">get_variable_number()</a></code> </p>
+        </td>
+        <td><p>get_variable_number</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_mv_number.html">get_mv_number()</a></code> </p>
+        </td>
+        <td><p>get_mv_number</p></td>
+      </tr>
     </tbody><tbody>
       <tr>
         <th colspan="2">
           <h2 id="section-system" class="hasAnchor"><a href="#section-system" class="anchor"></a>System</h2>
           <p class="section-desc"><p>System</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-ms-spectrum" class="hasAnchor"><a href="#section-ms-spectrum" class="anchor"></a>MS2 spectrum</h2>
-          <p class="section-desc"><p>MS2 spectrum</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-other-tools" class="hasAnchor"><a href="#section-other-tools" class="anchor"></a>Other tools</h2>
-          <p class="section-desc"><p>Other tools</p></p>
         </th>
       </tr>
       
@@ -287,6 +323,55 @@
           <p><code><a href="massdataset_logo.html">massdataset_logo()</a></code> </p>
         </td>
         <td><p>massdataset_logo</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="massdataset_packages.html">massdataset_packages()</a></code> </p>
+        </td>
+        <td><p>List all packages in the massdataset</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-dataset" class="hasAnchor"><a href="#section-dataset" class="anchor"></a>Dataset</h2>
+          <p class="section-desc"><p>Dataset built in package</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="expression_data.html">expression_data</a></code> </p>
+        </td>
+        <td><p>Expression data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="sample_info.html">sample_info</a></code> </p>
+        </td>
+        <td><p>Sample information</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="sample_info_note.html">sample_info_note</a></code> </p>
+        </td>
+        <td><p>Sample information note</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="variable_info.html">variable_info</a></code> </p>
+        </td>
+        <td><p>Variable information</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="variable_info_note.html">variable_info_note</a></code> </p>
+        </td>
+        <td><p>Variable information note</p></td>
       </tr>
     </tbody>
     </table>

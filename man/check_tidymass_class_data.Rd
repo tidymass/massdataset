@@ -29,6 +29,16 @@ Notice of data checking.
 \description{
 Check data format.
 }
+\examples{
+data("expression_data")
+data("sample_info")
+data("variable_info")
+  check_tidymass_class_data(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info,
+  )
+}
 \author{
 Xiaotao Shen
 \email{shenxt1990@163.com}

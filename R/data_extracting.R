@@ -1,9 +1,3 @@
-# tinytools::setwd_project()
-# load("demo_data/object")
-# 
-# object
-
-
 #' @title extract_expression_data
 #' @description Extract expression data.
 #' @author Xiaotao Shen
@@ -11,8 +5,20 @@
 #' @param object tidymass class object.
 #' @return A data frame.
 #' @export
+#' @examples
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object = 
+#'   create_tidymass_class(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+#'  expression_data2 = 
+#'  extract_expression_data(object = object)
+#'  head(expression_data2)
 
-# extract_expression_data(object = object)
 
 extract_expression_data = function(object) {
   expression_data = object@expression_data %>%
@@ -28,6 +34,19 @@ extract_expression_data = function(object) {
 #' @param object tidymass class object.
 #' @return A data frame.
 #' @export
+#' @examples
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object = 
+#'   create_tidymass_class(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+#'  sample_info2 = 
+#'  extract_sample_info(object = object)
+#'  head(sample_info2)
 
 extract_sample_info = function(object) {
   sample_info = object@sample_info %>%
@@ -43,13 +62,25 @@ extract_sample_info = function(object) {
 #' @param object tidymass class object.
 #' @return A data frame.
 #' @export
+#' @examples
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object = 
+#'   create_tidymass_class(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+#'  variable_info2 = 
+#'  extract_variable_info(object = object)
+#'  head(variable_info2)
 
 extract_variable_info = function(object) {
   variable_info = object@variable_info %>%
     as.data.frame()
   variable_info
 }
-
 
 #' @title extract_variable_info_note
 #' @description Extract variable information note.

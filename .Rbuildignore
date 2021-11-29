@@ -17,3 +17,4 @@ NEWS.md
 logo.txt
 other_files
 demo_data
+^data-raw$

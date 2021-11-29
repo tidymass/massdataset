@@ -1,13 +1,13 @@
 destination: docs
 
-url: https://jaspershen.github.io/massdataset/
+url: https://tidymass.github.io/massdataset/
 
 home:
   strip_header: false
   title: massdataset package
   links:
   - text: Find me
-    href: https://shenxt.info/
+    href: https://www.shenxt.info/
 
 development:
   mode: auto
@@ -23,38 +23,41 @@ template:
     ganalytics: UA-000000-01
 
 reference:
-  - title: Formula operation
-    desc: Formula operation
+  - title: Create tidymass-object class
+    desc: Import data and create them as a tidymass-object class
     contents:
-    - split_formula
-    - sum_formula
-  - title: Convert long and wide data
-    desc: Convert long and wide data
+    - check_tidymass_class_data
+    - create_tidymass_class
+  - title: Extract data
+    desc: Extract data from tidymass-class object
     contents:
-    - convert2long
-    - convert2wide
-  - title: Work directory operation
-    desc: Work directory operation
+    - extract_expression_data
+    - extract_sample_info
+    - extract_variable_info
+    - extract_sample_info_note
+    - extract_variable_info_note
+  - title: Summary
+    desc: Summarize inforamtion of dataset
     contents:
-    - setwd_win
-    - setwd_project
+    - get_sample_id
+    - get_sample_number
+    - get_variable_id
+    - get_variable_number
+    - get_mv_number
   - title: System
     desc: System
     contents:
-    - get_os
-  - title: MS2 spectrum
-    desc: MS2 spectrum
-    contents:
-    - msMatch
-    - ms2_plot
-    - getDP
-  - title: Other tools
-    desc: Other tools
-    contents:
     - massdataset_logo
-    - mz_rt_match
-    - keep_one
-
+    - massdataset_packages
+  - title: Dataset
+    desc: Dataset built in package
+    contents:
+    - expression_data
+    - sample_info
+    - sample_info_note
+    - variable_info
+    - variable_info_note
+  
 navbar:
   title: "sparklyr"
   # type: inverse
@@ -65,29 +68,21 @@ navbar:
     articles:
       text: Help documents
       menu:
-      - text: "metflow"
-      - text: Web Server for Metabolomics Data Cleaning and Differential Metabolite Discovery
+      - text: "Data import"
+      - text: Import data and create them as a tidymass-object class
         href: http://metflow.zhulab.cn/
       - text: --------
-      - text: "metflow2"
-      - text: Mass spectrometry raw data processing and data cleaning
-        href: https://jaspershen.github.io/metflow2/
+      - text: "Example data"
+      - text: Demo dataset for massdataset
+        href: https://tidymass.github.io/metflow2/
       - text: --------
-      - text: "MetNormalizer"
-      - text: Metabolomimcs data normalization
-        href: https://jaspershen.github.io/MetNormalizer/
+      - text: "Extract data"
+      - text: Extract data from tidymass-class object
+        href: https://tidymass.github.io/MetNormalizer/
       - text: --------
-      - text: "metID"
-      - text: Database construction and metabolite annotation
-        href: https://jaspershen.github.io/metID/
-      - text: --------
-      - text: "MetDNA"
-      - text: Metabolite identification and Dysregulated Network Analysis
-        href: http://metdna.zhulab.cn/
-      - text: --------
-      - text: "lipidflow"
-      - text: Absolute quantification for lipidomics
-        href: https://jaspershen.github.io/lipidflow/
+      - text: "Filter data"
+      - text: Filter data accordting to samples or variables
+        href: https://tidymass.github.io/metID/
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/JasperShen1990
