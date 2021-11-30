@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>filter_samples — filter_samples • massdataset</title>
+<title>Filter samples based on the conditions — filter_samples • massdataset</title>
 
 
 <!-- jquery -->
@@ -45,8 +45,8 @@
 
 
 
-<meta property="og:title" content="filter_samples — filter_samples" />
-<meta property="og:description" content="Number of samples" />
+<meta property="og:title" content="Filter samples based on the conditions — filter_samples" />
+<meta property="og:description" content="Filter samples based on the conditions" />
 
 
 
@@ -184,34 +184,94 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>filter_samples</h1>
+    <h1>Filter samples based on the conditions</h1>
     <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/sample_filtering.R'><code>R/sample_filtering.R</code></a></small>
     <div class="hidden name"><code>filter_samples.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Number of samples</p>
+    <p>Filter samples based on the conditions</p>
     </div>
 
-    <pre class="usage"><span class='fu'>filter_samples</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>filter_samples</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>flist</span>, prune <span class='op'>=</span> <span class='cn'>FALSE</span>, apply_to <span class='op'>=</span> <span class='st'>"all"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>tidymass class object.</p></td>
+      <td><p>(required) tidymass class object.</p></td>
+    </tr>
+    <tr>
+      <th>flist</th>
+      <td><p>(required) A function or list of functions that take a vector
+of abundance values and return a logical.</p></td>
+    </tr>
+    <tr>
+      <th>prune</th>
+      <td><p>(optional) A logical. Default <code>FALSE</code>. If <code>TRUE</code>, then
+the function returns the pruned tidymass-class object, rather
+than the logical vector of samples that passed the filter.</p></td>
+    </tr>
+    <tr>
+      <th>apply_to</th>
+      <td><p>what samples you want to apply this function. default is "all". If you
+only want to apply to specific samples, please set it as a vector of sample names. Other
+samples will be set as TRUE.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tidymass-class object</p>
+    <p>A logical vector equal to the number of samples in tidymass-class.
+Alternatively, if <code>prune==TRUE</code>, the pruned tidymass-class
+object is returned instead.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Xiaotao Shen
 <a href='mailto:shenxt1990@outlook.com'>shenxt1990@outlook.com</a></p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"sample_info"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
+<span class='r-in'>  <span class='fu'><a href='create_tidymass_class.html'>create_tidymass_class</a></span><span class='op'>(</span></span>
+<span class='r-in'>    expression_data <span class='op'>=</span> <span class='va'>expression_data</span>,</span>
+<span class='r-in'>    sample_info <span class='op'>=</span> <span class='va'>sample_info</span>,</span>
+<span class='r-in'>    variable_info <span class='op'>=</span> <span class='va'>variable_info</span>,</span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'> <span class='fu'>filter_samples</span><span class='op'>(</span><span class='va'>object</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.4</span><span class='op'>}</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Blank_3 Blank_4    QC_1    QC_2   PS4P1   PS4P2   PS4P3   PS4P4 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   FALSE   FALSE    TRUE    TRUE   FALSE   FALSE   FALSE   FALSE </span>
+<span class='r-in'> <span class='fu'>filter_samples</span><span class='op'>(</span><span class='va'>object</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.4</span><span class='op'>}</span>, prune <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Expression data</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 samples and 1000 variables</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>           Function used Parameter                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 create_tidymass_class        no 2021-11-29 17:11:28</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> create_tidymass_class</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> no</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2021-11-29 17:11:28</span>
+<span class='r-in'> <span class='co'>##only apply to Subject sample</span></span>
+<span class='r-in'> <span class='va'>object2</span> <span class='op'>=</span></span>
+<span class='r-in'><span class='fu'>filter_samples</span><span class='op'>(</span></span>
+<span class='r-in'> object <span class='op'>=</span> <span class='va'>object</span>,</span>
+<span class='r-in'> flist <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>   <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.2</span></span>
+<span class='r-in'> <span class='op'>}</span>,</span>
+<span class='r-in'> prune <span class='op'>=</span> <span class='cn'>FALSE</span>, </span>
+<span class='r-in'> apply_to <span class='op'>=</span> <span class='fu'><a href='get_sample_id.html'>get_sample_id</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='extract_sample_info.html'>extract_sample_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>$</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"Subject"</span><span class='op'>]</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>object2</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Blank_3 Blank_4    QC_1    QC_2   PS4P1   PS4P2   PS4P3   PS4P4 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    TRUE    TRUE    TRUE    TRUE   FALSE   FALSE   FALSE   FALSE </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

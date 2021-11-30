@@ -97,6 +97,8 @@ create_tidymass_class =
 
 
 ##S4 class for function tidymass-class
+#' An S4 class that stores the MS dataset
+#' @export
 setClass(
   Class = "tidymass",
   representation(
@@ -110,7 +112,6 @@ setClass(
     version = "character"
   )
 )
-
 
 ####show method for tidymass
 setMethod(
@@ -150,167 +151,141 @@ setMethod(
 )
 
 
-#' #' @title Get data from tidymass object.
-#' #' @description Get data from tidymass object.
-#' #' @author Xiaotao Shen
-#' #' \email{shenxt@@sioc.ac.cn}
-#' #' @param object A tidymass object.
-#' #' @param slot Class of data.
-#' #' @return A data frame.
-#' #' @export
-#'
-#' get_data = function(object,
-#'                     slot = c("Subject",
-#'                              "QC",
-#'                              "QC.DL",
-#'                              "Blank",
-#'                              "Tags",
-#'                              "peak.table",
-#'                              "sample.info")) {
-#'   if (class(object) != "tidymass") {
-#'     stop("Only the tidymass is supported!\n")
-#'   }
-#'
-#'   if (length(object@expression_data) > 1) {
-#'     stop("Plase align batch first.\n")
-#'   }
-#'
-#'   # slot <- stringr::str_to_title(slot)
-#'   slot <- match.arg(slot)
-#'
-#'   if (slot == "Tags") {
-#'     result <- object@expression_data[[1]] %>%
-#'       dplyr::select(., -one_of(object@sample.info$sample.name))
-#'     return(result)
-#'   }
-#'
-#'   if (slot == "peak.table") {
-#'     result <- object@expression_data[[1]]
-#'     return(result)
-#'   }
-#'
-#'   if (slot == "sample.info") {
-#'     result <- object@sample.info
-#'     return(result)
-#'   }
-#'
-#'   result <-
-#'     try(dplyr::filter(.data = object@sample.info, class == slot)$sample.name %>%
-#'           dplyr::select(.data = object@expression_data[[1]], .))
-#'
-#'   if (ncol(result) == 0) {
-#'     return(NULL)
-#'   }
-#'   return(result)
-#' }
-#'
-#'
-#'
-#'
-#' #' @title get_mv_plot_samples
-#' #' @description get MV plot of subject samples.
-#' #' @author Xiaotao Shen
-#' #' \email{shenxt@@sioc.ac.cn}
-#' #' @param object A tidymass object.
-#' #' @param interactive interactive or not.
-#' #' @return A ggplot2 object.
-#' #' @export
-#'
-#' get_mv_plot_samples = function(object,
-#'                                interactive = FALSE) {
-#'   if (class(object) != "tidymass") {
-#'     stop("Only the tidymass is supported!\n")
-#'   }
-#'   plot <- try(object@process_info$filterSample$plot)
-#'   if (class(plot)[1] == "try-error") {
-#'     return(NULL)
-#'   } else{
-#'     if (interactive) {
-#'       plotly::ggplotly(plot)
-#'     } else{
-#'       plot
-#'     }
-#'   }
-#' }
-#'
-#' #' @title calculate_rsd
-#' #' @description Calculate RSD of peaks.
-#' #' @author Xiaotao Shen
-#' #' \email{shenxt@@sioc.ac.cn}
-#' #' @param object A tidymass object.
-#' #' @param slot Class of data.
-#' #' @return A data frame with RSD.
-#' #' @export
-#'
-#' calculate_rsd = function(object,
-#'                          slot = c("Subject",
-#'                                   "QC",
-#'                                   "QC.DL",
-#'                                   "Blank",
-#'                                   "Tags",
-#'                                   "peak.table",
-#'                                   "sample.info")) {
-#'   slot <- match.arg(slot)
-#'   if (class(object) != "tidymass") {
-#'     stop("Only the tidymass is supported!\n")
-#'   }
-#'
-#'   data <- get_data(object = object, slot = slot)
-#'
-#'   if (is.null(data)) {
-#'     stop("No ", slot, " in your data.\n")
-#'   }
-#'
-#'   if (sum(is.na(data)) != 0) {
-#'     stop("Please impute MV first!\n")
-#'   }
-#'
-#'   rsd <- apply(data, 1, function(x) {
-#'     x <- as.numeric(x)
-#'     sd(x) * 100 / mean(x)
-#'   })
-#'
-#'   rsd <- data.frame(
-#'     index = 1:length(rsd),
-#'     name = object@expression_data[[1]]$name,
-#'     rsd,
-#'     stringsAsFactors = FALSE
-#'   )
-#'   invisible(rsd)
-#' }
-#'
-#'
-#'
-#' #' @title get_parameters
-#' #' @description Get parameters from a tidymass object.
-#' #' @author Xiaotao Shen
-#' #' \email{shenxt@@sioc.ac.cn}
-#' #' @param object A tidymass object.
-#' #' @return A data frame of parameters.
-#' #' @export
-#'
-#' get_parameters = function(object) {
-#'   if (class(object) != "tidymass") {
-#'     stop("Only the tidymass is supported!\n")
-#'   }
-#'   process_info <- object@process_info
-#'   if (length(process_info) == 0) {
-#'     cat(crayon::red("No process for this dataset.\n"))
-#'     return(NULL)
-#'   }
-#'
-#'   process_info <-
-#'     lapply(process_info, function(x) {
-#'       x <- x[which(names(x) != "plot")]
-#'       x <-
-#'         x %>%
-#'         unlist(.) %>%
-#'         data.frame(., stringsAsFactors = FALSE) %>%
-#'         data.frame(rownames(.), ., stringsAsFactors = FALSE)
-#'
-#'       rownames(x) <- NULL
-#'       colnames(x) <- c("Parameter", "Value")
-#'       x
-#'     })
-#'   process_info
-#' }
+## cannonical location for dim, dimnames
+#' @title dim
+#' @rdname dim
+#' @aliases dim
+#' @param x object
+#' @docType methods
+#' @export
+setMethod("dim", "tidymass",
+          function(x)
+          {
+            dim(x@expression_data)
+          })
+
+#' @title nrow
+#' @rdname nrow
+#' @aliases nrow
+#' @docType methods
+#' @param x object
+#' @export
+setMethod("nrow", "tidymass",
+          function(x)
+          {
+            nrow(x@expression_data)
+          })
+
+#' @title ncol
+#' @rdname ncol
+#' @aliases ncol
+#' @docType methods
+#' @param x object
+#' @export
+setMethod("ncol", "tidymass",
+          function(x)
+          {
+            ncol(x@expression_data)
+          })
+
+#' @title colnames
+#' @rdname colnames
+#' @aliases colnames
+#' @docType methods
+#' @param x object
+#' @export
+setMethod("colnames", "tidymass",
+          function(x)
+          {
+            colnames(x@expression_data)
+          })
+
+#' @title rownames
+#' @rdname rownames
+#' @aliases rownames
+#' @param x object
+#' @docType methods
+#' @export
+setMethod("rownames", "tidymass",
+          function(x)
+          {
+            rownames(x@expression_data)
+          })
+
+### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+### Subsetting
+###
+#' Extract parts of tidymass
+#' @name [
+#' @aliases [,tidymass-method
+#' @docType methods
+#' @rdname extract-methods
+#' @param x tidymass class object
+#' @param i row index
+#' @param j column index
+#' @param ... other parameters
+#' @param drop drop or not.
+#' @usage x[i,j,drop = FALSE,...]
+#' @export
+
+setMethod(f = "[", signature = c(x = "tidymass", i = "ANY", j = "ANY"),
+          function(x, i, j, ..., drop = FALSE){
+            if (missing(i) & missing(j)){
+              return(x)
+            }
+            
+            if (!missing(i)) {
+              if (is.character(i)) {
+                i <- match(i, rownames(x@expression_data))
+              }
+            }else{
+              i = 1:nrow(x@expression_data)
+            }
+            
+            if (!missing(j)) {
+              if (is.character(j)) {
+                j <- match(j, colnames(x@expression_data))
+              }
+            }else{
+              j = 1:ncol(x@expression_data)
+            }
+            
+            if(sum(is.na(j)) > 0){
+              j = j[!is.na(j)]
+              if(length(j) == 0){
+                j = 1:ncol(x)
+                warning("All sample index (j) are not in the object. Please check.")
+              }else{
+                warning("Some sample index (j) are not in the object. Please check.")
+              }
+            }
+            
+            if(any(!j %in% 1:ncol(x))){
+              warning("Some sample index (j) are not in the object. Please check.")
+              j = j[j %in% 1:ncol(x)]
+            }
+            
+            
+            
+            if(sum(is.na(i)) > 0){
+              i = i[!is.na(i)]
+              if(length(i) == 0){
+                i = 1:nrow(x)
+                warning("Some variable index (i) are not in the object. Please check.")
+              }else{
+                warning("Some variable index (i) are not in the object. Please check.")
+              }
+            
+            }
+            
+            if(any(!i %in% 1:nrow(x))){
+              warning("Some variable index (i) are not in the object. Please check.")
+              i = i[i %in% 1:nrow(x)]
+            }
+
+            
+            x@expression_data = x@expression_data[i,j,drop = drop]
+            x@sample_info = x@sample_info[j,,drop = FALSE]
+            x@variable_info = x@variable_info[i,,drop = FALSE]
+            return(x)
+          })

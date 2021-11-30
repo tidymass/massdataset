@@ -44,6 +44,14 @@ reference:
     - get_variable_id
     - get_variable_number
     - get_mv_number
+  - title: Filter samples
+    desc: Filter sample from tidymass-class object
+    contents:
+    - filter_samples
+  - title: Filter variables
+    desc: Filter variables from tidymass-class object
+    contents:
+    - filter_variables
   - title: System
     desc: System
     contents:

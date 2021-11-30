@@ -4,23 +4,82 @@
 # object
 
 
-#' @title filter_samples
-#' @description Number of samples
+#' @title Filter samples based on the conditions
+#' @description Filter samples based on the conditions
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object tidymass class object.
-#' @return A tidymass-class object
+#' @param object (required) tidymass class object.
+#' @param flist (required) A function or list of functions that take a vector
+#' of abundance values and return a logical. 
+#' @param prune (optional) A logical. Default \code{FALSE}. If \code{TRUE}, then
+#'  the function returns the pruned tidymass-class object, rather
+#'  than the logical vector of samples that passed the filter.
+#' @param apply_to what samples you want to apply this function. default is "all". If you 
+#'  only want to apply to specific samples, please set it as a vector of sample names. Other
+#'  samples will be set as TRUE.
+#' @return A logical vector equal to the number of samples in tidymass-class.
+#'  Alternatively, if \code{prune==TRUE}, the pruned tidymass-class
+#'  object is returned instead.
 #' @export
+#' @examples
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object =
+#'   create_tidymass_class(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+#'  filter_samples(object, function(x) {sum(is.na(x))/length(x) < 0.4})
+#'  filter_samples(object, function(x) {sum(is.na(x))/length(x) < 0.4}, prune = TRUE)
+#'  ##only apply to Subject sample
+#'  object2 =
+#'filter_samples(
+#'  object = object,
+#'  flist = function(x) {
+#'    sum(is.na(x))/length(x) < 0.2
+#'  },
+#'  prune = FALSE, 
+#'  apply_to = get_sample_id(object)[extract_sample_info(object)$class == "Subject"]
+#')
+#' object2
+# 
 
-# filter_samples(object = object)
-
-filter_samples = 
-  function(object) {
-  object@expression_data %>%
-    as.data.frame() %>%
-    ncol()
-}
-
-
-
-
+filter_samples =
+  function(object, 
+           flist, 
+           prune = FALSE,
+           apply_to = "all") {
+    
+    sample_id = get_sample_id(object)
+    if(any(apply_to == "all")){
+      apply_to = sample_id
+    }else{
+      apply_to = sample_id[sample_id %in% apply_to]
+    }
+    
+    if(length(apply_to) == 0){
+      stop("All the samples you provide in apply_to are not in the object.
+           Please check.")
+    }
+    
+    expression_data =
+      object@expression_data %>%
+      as.data.frame()
+    
+    result =
+      expression_data %>%
+      apply(2, flist)
+    
+    result[!names(result) %in% apply_to] = TRUE
+    
+    if (prune) {
+      idx = which(result)
+      object@expression_data = object@expression_data[,idx, drop = FALSE]
+      object@sample_info = object@sample_info[idx,,drop = FALSE]
+      return(object)
+    } else{
+      return(result)
+    }
+  }
