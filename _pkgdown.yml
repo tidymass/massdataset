@@ -52,6 +52,10 @@ reference:
     desc: Filter variables from tidymass-class object
     contents:
     - filter_variables
+  - title: Mutate variables
+    desc: Add some variabels to variables
+    contents:
+    - calculate_rsd
   - title: System
     desc: System
     contents:

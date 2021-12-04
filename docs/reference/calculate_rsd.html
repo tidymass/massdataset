@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>get_mv_number — get_mv_number • massdataset</title>
+<title>Calculate RSD for features — calculate_rsd • massdataset</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,8 +52,8 @@
 
 
 
-<meta property="og:title" content="get_mv_number — get_mv_number" />
-<meta property="og:description" content="Get missing value number/percentage in expression" />
+<meta property="og:title" content="Calculate RSD for features — calculate_rsd" />
+<meta property="og:description" content="Calculate RSD for features" />
 <meta property="og:image" content="https://tidymass.github.io/massdataset/logo.png" />
 
 
@@ -192,42 +192,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>get_mv_number</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/data_summary.R'><code>R/data_summary.R</code></a></small>
-    <div class="hidden name"><code>get_mv_number.Rd</code></div>
+    <h1>Calculate RSD for features</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/rsd_calculation.R'><code>R/rsd_calculation.R</code></a></small>
+    <div class="hidden name"><code>calculate_rsd.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get missing value number/percentage in expression</p>
+    <p>Calculate RSD for features</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_mv_number</span><span class='op'>(</span>
-  <span class='va'>object</span>,
-  by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"total"</span>, <span class='st'>"sample"</span>, <span class='st'>"variable"</span><span class='op'>)</span>,
-  show_by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"number"</span>, <span class='st'>"percentage"</span><span class='op'>)</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>calculate_rsd</span><span class='op'>(</span><span class='va'>object</span>, according_to_samples <span class='op'>=</span> <span class='st'>"all"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>tidymass class object.</p></td>
+      <td><p>(required) tidymass class object.</p></td>
     </tr>
     <tr>
-      <th>by</th>
-      <td><p>total: Missing value number in total. sample: Missing value number in each sample.
-variable: Missing value number in each variable.</p></td>
-    </tr>
-    <tr>
-      <th>show_by</th>
-      <td><p>number: missing value number. percentage: ratio.</p></td>
+      <th>according_to_samples</th>
+      <td><p>(required) What samples used to filter variables.
+Default is "all". If you
+want to use only several samples, provide they names as a vector.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A numeric vector</p>
+    <p>A logical vector equal to the number of variables in tidymass-class.
+Alternatively, if <code>prune==TRUE</code>, the pruned tidymass-class
+object is returned instead.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Xiaotao Shen
@@ -237,13 +232,16 @@ variable: Missing value number in each variable.</p></td>
     <pre class="examples"><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"sample_info"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidymass/massdataset'>massdataset</a></span><span class='op'>)</span></span>
+<span class='r-in'></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
 <span class='r-in'>  <span class='fu'><a href='create_tidymass_class.html'>create_tidymass_class</a></span><span class='op'>(</span></span>
 <span class='r-in'>    expression_data <span class='op'>=</span> <span class='va'>expression_data</span>,</span>
 <span class='r-in'>    sample_info <span class='op'>=</span> <span class='va'>sample_info</span>,</span>
 <span class='r-in'>    variable_info <span class='op'>=</span> <span class='va'>variable_info</span>,</span>
 <span class='r-in'>  <span class='op'>)</span></span>
-<span class='r-in'><span class='va'>object</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>object</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
@@ -261,20 +259,82 @@ variable: Missing value number in each variable.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_tidymass_class() 2021-12-04 11:07:11</span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='get_variable_id.html'>get_variable_id</a></span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "M136T55_2_POS" "M79T35_POS"    "M307T548_POS"  "M183T224_POS" </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [5] "M349T47_POS"   "M182T828_POS" </span>
-<span class='r-in'><span class='fu'>get_mv_number</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 3829</span>
-<span class='r-in'><span class='fu'>get_mv_number</span><span class='op'>(</span><span class='va'>object</span>, by <span class='op'>=</span> <span class='st'>"sample"</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Blank_3 Blank_4    QC_1    QC_2   PS4P1   PS4P2   PS4P3   PS4P4 </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>     682     702     397     381     424     427     405     411 </span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'>get_mv_number</span><span class='op'>(</span><span class='va'>object</span>, by <span class='op'>=</span> <span class='st'>"variable"</span>, <span class='st'>"percentage"</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M136T55_2_POS    M79T35_POS  M307T548_POS  M183T224_POS   M349T47_POS </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>         0.250         0.250         0.375         0.750         0.250 </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  M182T828_POS </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>         0.125 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_tidymass_class() 2021-12-04 11:07:08</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>##calculate RSDs according to all the samples</span></span>
+<span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
+<span class='r-in'>  <span class='fu'>calculate_rsd</span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>object</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data (extract_expression_data()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 1000 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info (extract_sample_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 8 x 4 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info (extract_variable_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 1000 x 4 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note (extract_sample_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note (extract_variable_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_tidymass_class() 2021-12-04 11:07:08</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>RSD_calculation ---------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package   Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset calculate_rsd() 2021-12-04 11:07:08</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='extract_variable_info.html'>extract_variable_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                 variable_id        mz        rt        rsd</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M136T55_2_POS M136T55_2_POS 136.06140  54.97902 0.50756560</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M79T35_POS       M79T35_POS  79.05394  35.36550 0.28257007</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M307T548_POS   M307T548_POS 307.14035 547.56641 0.35041286</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M183T224_POS   M183T224_POS 183.06209 224.32777 0.01224228</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M349T47_POS     M349T47_POS 349.01584  47.00262 0.27715030</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M182T828_POS   M182T828_POS 181.99775 828.35712 0.25534063</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>##calculate RSDs according to only QC samples</span></span>
+<span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
+<span class='r-in'>  <span class='fu'>calculate_rsd</span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span>,</span>
+<span class='r-in'>                according_to_samples <span class='op'>=</span></span>
+<span class='r-in'>              <span class='fu'><a href='get_sample_id.html'>get_sample_id</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='extract_sample_info.html'>extract_sample_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>$</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"QC"</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>object</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data (extract_expression_data()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 1000 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info (extract_sample_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 8 x 4 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info (extract_variable_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 1000 x 5 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note (extract_sample_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note (extract_variable_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_tidymass_class() 2021-12-04 11:07:08</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>RSD_calculation ---------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package   Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset calculate_rsd() 2021-12-04 11:07:08</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset calculate_rsd() 2021-12-04 11:07:08</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='extract_variable_info.html'>extract_variable_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                 variable_id        mz        rt        rsd     rsd.1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M136T55_2_POS M136T55_2_POS 136.06140  54.97902 0.50756560 0.4005551</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M79T35_POS       M79T35_POS  79.05394  35.36550 0.28257007 0.5197966</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M307T548_POS   M307T548_POS 307.14035 547.56641 0.35041286 0.2826044</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M183T224_POS   M183T224_POS 183.06209 224.32777 0.01224228        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M349T47_POS     M349T47_POS 349.01584  47.00262 0.27715030 0.5095194</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M182T828_POS   M182T828_POS 181.99775 828.35712 0.25534063        NA</span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

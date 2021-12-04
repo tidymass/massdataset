@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>List all packages in the massdataset — massdataset_packages • massdataset</title>
+<title>Export tidymass class object to csv/xlsx files — export_tidymass_class • massdataset</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,8 +52,8 @@
 
 
 
-<meta property="og:title" content="List all packages in the massdataset — massdataset_packages" />
-<meta property="og:description" content="List all packages in the massdataset" />
+<meta property="og:title" content="Export tidymass class object to csv/xlsx files — export_tidymass_class" />
+<meta property="og:description" content="Export tidymass class object to csv/xlsx files" />
 <meta property="og:image" content="https://tidymass.github.io/massdataset/logo.png" />
 
 
@@ -192,35 +192,39 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>List all packages in the massdataset</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/attach.R'><code>R/attach.R</code></a></small>
-    <div class="hidden name"><code>massdataset_packages.Rd</code></div>
+    <h1>Export tidymass class object to csv/xlsx files</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/export_tidymass_class.R'><code>R/export_tidymass_class.R</code></a></small>
+    <div class="hidden name"><code>export_tidymass_class.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>List all packages in the massdataset</p>
+    <p>Export tidymass class object to csv/xlsx files</p>
     </div>
 
-    <pre class="usage"><span class='fu'>massdataset_packages</span><span class='op'>(</span>include_self <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>export_tidymass_class</span><span class='op'>(</span><span class='va'>object</span>, file_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"csv"</span>, <span class='st'>"xlsx"</span><span class='op'>)</span>, path <span class='op'>=</span> <span class='st'>"."</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>include_self</th>
-      <td><p>Include massdataset in the list?</p></td>
+      <th>object</th>
+      <td><p>(required) tidymass class object.</p></td>
+    </tr>
+    <tr>
+      <th>file_type</th>
+      <td><p>(required) csv or xlsx</p></td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td><p>work directory.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='fu'>massdataset_packages</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "dplyr"       "magrittr"    "tibble"      "tidyr"       "stringr"    </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [6] "rstudioapi"  "ggplot2"     "methods"     "openxlsx"    "crayon"     </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "cli"         "plotly"      "pbapply"     "purrr"       "readr"      </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [16] "clisymbols"  "htmltools"   "httr"        "plyr"        "readxl"     </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [21] "rvest"       "xml2"        "htmlwidgets" "leaflet"     "massdataset"</span>
-</pre>
+    <p>Xiaotao Shen
+<a href='mailto:shenxt1990@outlook.com'>shenxt1990@outlook.com</a></p>
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

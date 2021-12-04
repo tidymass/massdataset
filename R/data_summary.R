@@ -105,9 +105,6 @@ get_variable_id = function(object) {
 }
 
 
-
-
-
 #' @title get_mv_number
 #' @description Get missing value number/percentage in expression
 #' @author Xiaotao Shen
@@ -128,10 +125,11 @@ get_variable_id = function(object) {
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#'  get_variable_id(object = object)
-#'  get_mv_number(object)
-#'  get_mv_number(object, by = "sample")
-#'  get_mv_number(object, by = "variable", "percentage")
+#' object 
+#' head(get_variable_id(object = object))
+#' get_mv_number(object)
+#' get_mv_number(object, by = "sample")
+#' head(get_mv_number(object, by = "variable", "percentage"))
 
 get_mv_number = function(object,
                          by = c("total", "sample", "variable"),

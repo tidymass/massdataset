@@ -76,11 +76,18 @@ create_tidymass_class =
     }
     
     process_info = list()
-    process_info$Creation = list()
-    process_info$Creation$function_used = "create_tidymass_class"
-    process_info$Creation$parameters = "no"
-    process_info$Creation$time = Sys.time()
-    
+   
+
+    parameter <- new(
+      Class = "tidymass_parameter",
+      pacakge_name = "massdataset",
+      function_name = "create_tidymass_class()",
+      parameter = list("no" = "no"),
+      time = Sys.time()
+    )
+   
+    process_info$Creation = parameter
+     
     object <- new(
       Class = "tidymass",
       expression_data = expression_data,
@@ -122,28 +129,68 @@ setMethod(
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
     cat(crayon::green("massdataset version:", object@version, "\n"))
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
-    cat(crayon::green("Expression data\n"))
-    cat(
-      ncol(object@expression_data),
-      "samples and",
+    cat(crayon::green("1.expression_data (extract_expression_data()):\n"))
+    cat("[",
       nrow(object@expression_data),
-      "variables\n"
+      "x",
+      ncol(object@expression_data),
+      " data.frame]\n"
+    )
+    cat(crayon::green("2.sample_info (extract_sample_info()):\n"))
+    cat("[",
+        nrow(object@sample_info),
+        "x",
+        ncol(object@sample_info),
+        "data.frame]\n"
+    )
+    cat(crayon::green("3.variable_info (extract_variable_info()):\n"))
+    cat("[",
+        nrow(object@variable_info),
+        "x",
+        ncol(object@variable_info),
+        "data.frame]\n"
+    )
+    cat(crayon::green("4.sample_info_note (extract_sample_info_note()):\n"))
+    cat("[",
+        nrow(object@sample_info_note),
+        "x",
+        ncol(object@sample_info_note),
+        "data.frame]\n"
+    )
+    cat(crayon::green("5.variable_info_note (extract_variable_info_note()):\n"))
+    cat("[",
+        nrow(object@variable_info_note),
+        "x",
+        ncol(object@variable_info_note),
+        "data.frame]\n"
     )
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
-    cat(crayon::green("Processing\n"))
+    cat(crayon::green("Processing information (extract_process_info())\n"))
     if (.hasSlot(object = object, name = "process_info") &
         length(object@process_info) != 0) {
       process_info <- object@process_info
-      mapply(function(x, y) {
-        cat(crayon::green(x, paste(rep("-", 10), collapse = ""), "\n"))
-        y$time = as.character(y$time)
-        y = as.data.frame(t(data.frame(unlist(y))))
-        colnames(y) = c("Function used", "Parameter", "Time")
-        rownames(y) <- NULL
-        print(y)
-      },
-      x = names(process_info),
-      y = process_info)
+      
+      for(idx in 1:length(process_info)){
+        cat(crayon::green(names(process_info)[idx], paste(rep("-", 10), collapse = ""), "\n"))
+        if(length(process_info[[idx]]) == 1){
+          data.frame(
+            "Package" = process_info[[idx]]@pacakge_name,
+            "Function used" = process_info[[idx]]@function_name,
+            "Time" = process_info[[idx]]@time
+          ) %>% 
+            print()
+        }else{
+          data.frame(
+            "Package" = process_info[[idx]] %>% lapply(function(x)
+              x@pacakge_name) %>% unlist(),
+            "Function used" = process_info[[idx]] %>% lapply(function(x)
+              x@function_name) %>% unlist(),
+            "Time" = process_info[[idx]] %>% lapply(function(x)
+              as.character(x@time)) %>% unlist()
+          ) %>%
+            print()  
+        }
+      }
     } else{
       cat(crayon::red("There are no processing for your data.\n"))
     }
@@ -265,8 +312,6 @@ setMethod(f = "[", signature = c(x = "tidymass", i = "ANY", j = "ANY"),
               j = j[j %in% 1:ncol(x)]
             }
             
-            
-            
             if(sum(is.na(i)) > 0){
               i = i[!is.na(i)]
               if(length(i) == 0){
@@ -283,9 +328,61 @@ setMethod(f = "[", signature = c(x = "tidymass", i = "ANY", j = "ANY"),
               i = i[i %in% 1:nrow(x)]
             }
 
+            ###add paramters
+            ####add parameters
+            process_info = x@process_info
+            
+            parameter <- new(
+              Class = "tidymass_parameter",
+              pacakge_name = "massdataset",
+              function_name = "[",
+              parameter = list("i" = i,
+                               "j" = j),
+              time = Sys.time()
+            )
+            
+            if (all(names(process_info) != "Subset")) {
+              process_info$Subset = parameter
+            }else{
+              process_info$Subset = c(process_info$Subset, parameter)  
+            }
+            
+            object@process_info = process_info
             
             x@expression_data = x@expression_data[i,j,drop = drop]
             x@sample_info = x@sample_info[j,,drop = FALSE]
             x@variable_info = x@variable_info[i,,drop = FALSE]
             return(x)
           })
+
+
+
+##S4 class for parameter
+#' An S4 class that stores the parameters
+#' @export
+setClass(
+  Class = "tidymass_parameter",
+  representation(
+    pacakge_name = "character",
+    function_name = "character",
+    parameter = "list",
+    time = "POSIXct"
+  )
+)
+
+####show method for tidymass_parameter
+setMethod(
+  f = "show",
+  signature = "tidymass_parameter",
+  definition = function(object) {
+    cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
+    cat(crayon::green("pacakge_name:", object@pacakge_name), "\n")
+    cat(crayon::green("function_name:", object@function_name), "\n")
+    cat(crayon::green("time:", object@time), "\n")
+    cat(crayon::green("parameters:\n"))
+    for(idx in 1:length(object@parameter)){
+      cat(crayon::green(names(object@parameter)[idx], ":" ,object@parameter[idx]), "\n")
+    }
+  }
+)
+

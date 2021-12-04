@@ -19,13 +19,13 @@ Extract expression data.
 data("expression_data")
 data("sample_info")
 data("variable_info")
-object = 
+object =
   create_tidymass_class(
     expression_data = expression_data,
     sample_info = sample_info,
     variable_info = variable_info,
   )
- expression_data2 = 
+ expression_data2 =
  extract_expression_data(object = object)
  head(expression_data2)
 }

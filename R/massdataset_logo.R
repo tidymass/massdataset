@@ -10,9 +10,12 @@
 #' @importFrom crayon green blue col_align red black white style make_style num_colors
 #' @importFrom plotly ggplotly
 #' @importFrom pbapply pblapply
+#' @importFrom openxlsx write.xlsx
+#' @importFrom purrr map map2
+#' @importFrom readr write_csv read_csv
 #' @import ggplot2
 #' @importFrom methods .hasSlot new
-#' @importFrom stats p.adjust rgamma
+#' @importFrom stats p.adjust rgamma sd
 #' @importFrom utils data str
 #' @importFrom magrittr %>%
 #' @export

@@ -21,53 +21,95 @@
 #'  object is returned instead.
 #' @export
 #' @examples
+#' library(tidyverse)
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
+#' 
 #' object =
 #'   create_tidymass_class(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
+#' object
 #' 
 #' ####Filter variables which have more than 50% MVs in all samples.
 #' library(tidyverse)
-#' filter_variables(object, function(x) {sum(is.na(x))/length(x) < 0.5}) %>% 
-#' head()
-#' filter_variables(object, function(x) {sum(is.na(x))/length(x) < 0.5}, 
+#' filter_variables(object, function(x) {
+#'   sum(is.na(x)) / length(x) < 0.5
+#' }, prune = FALSE) %>%
+#'   head()
+#' 
+#' filter_variables(object, function(x) {
+#'   sum(is.na(x)) / length(x) < 0.5
+#' },
 #' prune = TRUE)
 #' 
 #' ####Filter variables which have more than 50% MVs in only QC samples.
-#' filter_variables(object, flist = function(x) {sum(is.na(x))/length(x) < 0.5}, 
-#'                  prune = TRUE, 
-#'              according_to_samples = 
-#'            get_sample_id(object)[extract_sample_info(object)$class == "QC"])
+#' filter_variables(
+#'   object,
+#'   flist = function(x) {
+#'     sum(is.na(x)) / length(x) < 0.5
+#'   },
+#'   prune = TRUE,
+#'   according_to_samples =
+#'     get_sample_id(object)[extract_sample_info(object)$class == "QC"]
+#' )
 #' 
 #' ####Filter variables which have more than 50% MVs in QC or subject samples.
-#' idx1 = 
-#' filter_variables(object, flist = function(x) {sum(is.na(x))/length(x) < 0.5}, 
-#'                  according_to_samples = 
-#'          get_sample_id(object)[extract_sample_info(object)$class == "QC"])
+#' idx1 =
+#'   filter_variables(
+#'     object,
+#'     flist = function(x) {
+#'       sum(is.na(x)) / length(x) < 0.5
+#'     },
+#'     prune = FALSE,
+#'     according_to_samples =
+#'       get_sample_id(object)[extract_sample_info(object)$class == "QC"]
+#'   )
 #' 
-#' idx2 = 
-#'   filter_variables(object, 
-#'   flist = function(x) {sum(is.na(x))/length(x) < 0.5}, 
-#'        according_to_samples = 
-#'    get_sample_id(object)[extract_sample_info(object)$class == "Subject"])
+#' idx2 =
+#'   filter_variables(
+#'     object,
+#'     flist = function(x) {
+#'       sum(is.na(x)) / length(x) < 0.5
+#'     },
+#'     prune = FALSE,
+#'     according_to_samples =
+#'       get_sample_id(object)[extract_sample_info(object)$class == "Subject"]
+#'   )
+#' 
 #' idx =
 #'   which(idx1 | idx2)
 #' 
 #' object2 = object[idx,]
+#' 
 #' object2
+#' 
+#' ####filter variables with RSD (in QC samples) < 30
+#' object3 =
+#' filter_variables(
+#'   object = object,
+#'   flist = function(x) {
+#'     rsd = sd(x) * 100 / mean(x)
+#'     rsd = ifelse(is.na(rsd), 100, rsd)
+#'     rsd < 30
+#'   },
+#'   apply_to = "all",
+#'   prune = TRUE,
+#'   according_to_samples = get_sample_id(object)[extract_sample_info(object)$class == "QC"]
+#' )
+#' 
+#' object3
 
 filter_variables =
   function(object, 
            flist, 
-           prune = FALSE,
+           prune = TRUE,
            apply_to = "all",
-           according_to_samples = "all") {
-    
+           according_to_samples = "all"
+           ) {
     variable_id = get_variable_id(object)
     if(any(apply_to == "all")){
       apply_to = variable_id
@@ -81,6 +123,7 @@ filter_variables =
     }
     
     sample_id = get_sample_id(object)
+    
     if(any(according_to_samples == "all")){
       according_to_samples = sample_id
     }else{
@@ -95,12 +138,35 @@ filter_variables =
     expression_data =
       object@expression_data %>%
       as.data.frame()
-    
+
     result =
       expression_data[,according_to_samples] %>%
       apply(1, flist)
     
     result[!names(result) %in% apply_to] = TRUE
+    
+    ####add parameters
+    process_info = object@process_info
+    
+    parameter <- new(
+      Class = "tidymass_parameter",
+      pacakge_name = "massdataset",
+      function_name = "filter_variables()",
+      parameter = list("flist" = flist, 
+                       prune = prune,
+                       apply_to = apply_to,
+                       according_to_samples = according_to_samples),
+      time = Sys.time()
+    )
+    
+    if (all(names(process_info) != "Variable_filtering")) {
+      process_info$Variable_filtering = parameter
+    }else{
+      process_info$Variable_filtering = c(process_info$Variable_filtering,
+                                          parameter)  
+    }
+    
+    object@process_info = process_info
     
     if (prune) {
       idx = which(result)

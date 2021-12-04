@@ -7,7 +7,7 @@
 filter_variables(
   object,
   flist,
-  prune = FALSE,
+  prune = TRUE,
   apply_to = "all",
   according_to_samples = "all"
 )
@@ -41,45 +41,87 @@ object is returned instead.
 Filter variables based on the conditions
 }
 \examples{
+library(tidyverse)
 data("expression_data")
 data("sample_info")
 data("variable_info")
+
 object =
   create_tidymass_class(
     expression_data = expression_data,
     sample_info = sample_info,
     variable_info = variable_info,
   )
+object
 
 ####Filter variables which have more than 50\% MVs in all samples.
 library(tidyverse)
-filter_variables(object, function(x) {sum(is.na(x))/length(x) < 0.5}) \%>\% 
-head()
-filter_variables(object, function(x) {sum(is.na(x))/length(x) < 0.5}, 
+filter_variables(object, function(x) {
+  sum(is.na(x)) / length(x) < 0.5
+}, prune = FALSE) \%>\%
+  head()
+
+filter_variables(object, function(x) {
+  sum(is.na(x)) / length(x) < 0.5
+},
 prune = TRUE)
 
 ####Filter variables which have more than 50\% MVs in only QC samples.
-filter_variables(object, flist = function(x) {sum(is.na(x))/length(x) < 0.5}, 
-                 prune = TRUE, 
-             according_to_samples = 
-           get_sample_id(object)[extract_sample_info(object)$class == "QC"])
+filter_variables(
+  object,
+  flist = function(x) {
+    sum(is.na(x)) / length(x) < 0.5
+  },
+  prune = TRUE,
+  according_to_samples =
+    get_sample_id(object)[extract_sample_info(object)$class == "QC"]
+)
 
 ####Filter variables which have more than 50\% MVs in QC or subject samples.
-idx1 = 
-filter_variables(object, flist = function(x) {sum(is.na(x))/length(x) < 0.5}, 
-                 according_to_samples = 
-         get_sample_id(object)[extract_sample_info(object)$class == "QC"])
+idx1 =
+  filter_variables(
+    object,
+    flist = function(x) {
+      sum(is.na(x)) / length(x) < 0.5
+    },
+    prune = FALSE,
+    according_to_samples =
+      get_sample_id(object)[extract_sample_info(object)$class == "QC"]
+  )
 
-idx2 = 
-  filter_variables(object, 
-  flist = function(x) {sum(is.na(x))/length(x) < 0.5}, 
-       according_to_samples = 
-   get_sample_id(object)[extract_sample_info(object)$class == "Subject"])
+idx2 =
+  filter_variables(
+    object,
+    flist = function(x) {
+      sum(is.na(x)) / length(x) < 0.5
+    },
+    prune = FALSE,
+    according_to_samples =
+      get_sample_id(object)[extract_sample_info(object)$class == "Subject"]
+  )
+
 idx =
   which(idx1 | idx2)
 
 object2 = object[idx,]
+
 object2
+
+####filter variables with RSD (in QC samples) < 30
+object3 =
+filter_variables(
+  object = object,
+  flist = function(x) {
+    rsd = sd(x) * 100 / mean(x)
+    rsd = ifelse(is.na(rsd), 100, rsd)
+    rsd < 30
+  },
+  apply_to = "all",
+  prune = TRUE,
+  according_to_samples = get_sample_id(object)[extract_sample_info(object)$class == "QC"]
+)
+
+object3
 }
 \author{
 Xiaotao Shen

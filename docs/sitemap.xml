@@ -4,6 +4,9 @@
     <loc>https://tidymass.github.io/massdataset//index.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset//reference/calculate_rsd.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset//reference/check_tidymass_class_data.html</loc>
   </url>
   <url>
@@ -16,6 +19,9 @@
     <loc>https://tidymass.github.io/massdataset//reference/dim.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset//reference/export_tidymass_class.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset//reference/expression_data.html</loc>
   </url>
   <url>
@@ -23,6 +29,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/extract_expression_data.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/extract_process_info.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/extract_sample_info.html</loc>
@@ -80,6 +89,12 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/tidymass-class.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/tidymass_parameter-class.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/update_tidymass_class.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/variable_info.html</loc>

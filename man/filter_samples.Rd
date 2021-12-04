@@ -4,7 +4,7 @@
 \alias{filter_samples}
 \title{Filter samples based on the conditions}
 \usage{
-filter_samples(object, flist, prune = FALSE, apply_to = "all")
+filter_samples(object, flist, prune = TRUE, apply_to = "all")
 }
 \arguments{
 \item{object}{(required) tidymass class object.}
@@ -32,24 +32,33 @@ Filter samples based on the conditions
 data("expression_data")
 data("sample_info")
 data("variable_info")
+
 object =
   create_tidymass_class(
     expression_data = expression_data,
     sample_info = sample_info,
     variable_info = variable_info,
   )
- filter_samples(object, function(x) {sum(is.na(x))/length(x) < 0.4})
- filter_samples(object, function(x) {sum(is.na(x))/length(x) < 0.4}, prune = TRUE)
- ##only apply to Subject sample
- object2 =
+ 
+filter_samples(object, function(x) {
+  sum(is.na(x)) / length(x) < 0.4
+})
+
+filter_samples(object, function(x) {
+  sum(is.na(x)) / length(x) < 0.4
+}, prune = FALSE)
+
+##only apply to Subject sample
+object2 =
 filter_samples(
  object = object,
  flist = function(x) {
    sum(is.na(x))/length(x) < 0.2
  },
- prune = FALSE, 
+ prune = TRUE,
  apply_to = get_sample_id(object)[extract_sample_info(object)$class == "Subject"]
 )
+
 object2
 }
 \author{

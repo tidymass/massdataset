@@ -9,13 +9,13 @@
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' object = 
+#' object =
 #'   create_tidymass_class(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#'  expression_data2 = 
+#'  expression_data2 =
 #'  extract_expression_data(object = object)
 #'  head(expression_data2)
 
@@ -38,13 +38,13 @@ extract_expression_data = function(object) {
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' object = 
+#' object =
 #'   create_tidymass_class(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#'  sample_info2 = 
+#'  sample_info2 =
 #'  extract_sample_info(object = object)
 #'  head(sample_info2)
 
@@ -66,13 +66,13 @@ extract_sample_info = function(object) {
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' object = 
+#' object =
 #'   create_tidymass_class(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#'  variable_info2 = 
+#'  variable_info2 =
 #'  extract_variable_info(object = object)
 #'  head(variable_info2)
 
@@ -110,3 +110,32 @@ extract_sample_info_note = function(object) {
     as.data.frame()
   sample_info_note
 }
+
+#' @title Extract process information
+#' @description Extract process information
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@outlook.com}
+#' @param object (required) tidymass class object.
+#' @return A data.frame.
+#' @export
+#' @examples
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' library(massdataset)
+#' 
+#' object =
+#'   create_tidymass_class(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+#' 
+#' object
+#' extract_process_info(object)
+
+extract_process_info =
+  function(object) {
+    process_info = object@process_info
+    return(process_info)
+  }

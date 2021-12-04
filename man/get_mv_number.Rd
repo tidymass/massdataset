@@ -34,10 +34,11 @@ object =
     sample_info = sample_info,
     variable_info = variable_info,
   )
- get_variable_id(object = object)
- get_mv_number(object)
- get_mv_number(object, by = "sample")
- get_mv_number(object, by = "variable", "percentage")
+object 
+head(get_variable_id(object = object))
+get_mv_number(object)
+get_mv_number(object, by = "sample")
+head(get_mv_number(object, by = "variable", "percentage"))
 }
 \author{
 Xiaotao Shen

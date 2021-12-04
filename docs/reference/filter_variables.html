@@ -204,7 +204,7 @@
     <pre class="usage"><span class='fu'>filter_variables</span><span class='op'>(</span>
   <span class='va'>object</span>,
   <span class='va'>flist</span>,
-  prune <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  prune <span class='op'>=</span> <span class='cn'>TRUE</span>,
   apply_to <span class='op'>=</span> <span class='st'>"all"</span>,
   according_to_samples <span class='op'>=</span> <span class='st'>"all"</span>
 <span class='op'>)</span></pre>
@@ -254,18 +254,7 @@ object is returned instead.</p>
 <a href='mailto:shenxt1990@outlook.com'>shenxt1990@outlook.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"sample_info"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
-<span class='r-in'>  <span class='fu'><a href='create_tidymass_class.html'>create_tidymass_class</a></span><span class='op'>(</span></span>
-<span class='r-in'>    expression_data <span class='op'>=</span> <span class='va'>expression_data</span>,</span>
-<span class='r-in'>    sample_info <span class='op'>=</span> <span class='va'>sample_info</span>,</span>
-<span class='r-in'>    variable_info <span class='op'>=</span> <span class='va'>variable_info</span>,</span>
-<span class='r-in'>  <span class='op'>)</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='co'>####Filter variables which have more than 50% MVs in all samples.</span></span>
-<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+    <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> ── <span style='font-weight: bold;'>Attaching packages</span> ─────────────────────────────────────── tidyverse 1.3.1 ──</span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✓</span> <span style='color: #0000BB;'>ggplot2</span> 3.3.5     <span style='color: #00BB00;'>✓</span> <span style='color: #0000BB;'>purrr  </span> 0.3.4</span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✓</span> <span style='color: #0000BB;'>tibble </span> 3.1.3     <span style='color: #00BB00;'>✓</span> <span style='color: #0000BB;'>dplyr  </span> 1.0.7</span>
@@ -276,76 +265,173 @@ object is returned instead.</p>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>dplyr</span>::<span style='color: #00BB00;'>filter()</span>    masks <span style='color: #0000BB;'>stats</span>::filter()</span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>dplyr</span>::<span style='color: #00BB00;'>lag()</span>       masks <span style='color: #0000BB;'>stats</span>::lag()</span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>purrr</span>::<span style='color: #00BB00;'>set_names()</span> masks <span style='color: #0000BB;'>magrittr</span>::set_names()</span>
-<span class='r-in'><span class='fu'>filter_variables</span><span class='op'>(</span><span class='va'>object</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.5</span><span class='op'>}</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"sample_info"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
+<span class='r-in'>  <span class='fu'><a href='create_tidymass_class.html'>create_tidymass_class</a></span><span class='op'>(</span></span>
+<span class='r-in'>    expression_data <span class='op'>=</span> <span class='va'>expression_data</span>,</span>
+<span class='r-in'>    sample_info <span class='op'>=</span> <span class='va'>sample_info</span>,</span>
+<span class='r-in'>    variable_info <span class='op'>=</span> <span class='va'>variable_info</span>,</span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'><span class='va'>object</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data (extract_expression_data()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 1000 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info (extract_sample_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 8 x 4 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info (extract_variable_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 1000 x 3 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note (extract_sample_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note (extract_variable_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_tidymass_class() 2021-12-04 11:07:10</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>####Filter variables which have more than 50% MVs in all samples.</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>filter_variables</span><span class='op'>(</span><span class='va'>object</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.5</span></span>
+<span class='r-in'><span class='op'>}</span>, prune <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> M136T55_2_POS    M79T35_POS  M307T548_POS  M183T224_POS   M349T47_POS </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>          TRUE          TRUE          TRUE         FALSE          TRUE </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>  M182T828_POS </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>          TRUE </span>
-<span class='r-in'><span class='fu'>filter_variables</span><span class='op'>(</span><span class='va'>object</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.5</span><span class='op'>}</span>, </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>filter_variables</span><span class='op'>(</span><span class='va'>object</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.5</span></span>
+<span class='r-in'><span class='op'>}</span>,</span>
 <span class='r-in'>prune <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Expression data</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 8 samples and 422 variables</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data (extract_expression_data()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 422 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info (extract_sample_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 8 x 4 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info (extract_variable_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 422 x 3 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note (extract_sample_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note (extract_variable_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>           Function used Parameter                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 create_tidymass_class        no 2021-12-02 09:14:05</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> create_tidymass_class</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> no</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2021-12-02 09:14:05</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_tidymass_class() 2021-12-04 11:07:10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Variable_filtering ---------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package      Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_variables() 2021-12-04 11:07:10</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####Filter variables which have more than 50% MVs in only QC samples.</span></span>
-<span class='r-in'><span class='fu'>filter_variables</span><span class='op'>(</span><span class='va'>object</span>, flist <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.5</span><span class='op'>}</span>, </span>
-<span class='r-in'>                 prune <span class='op'>=</span> <span class='cn'>TRUE</span>, </span>
-<span class='r-in'>             according_to_samples <span class='op'>=</span> </span>
-<span class='r-in'>           <span class='fu'><a href='get_sample_id.html'>get_sample_id</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='extract_sample_info.html'>extract_sample_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>$</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"QC"</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>filter_variables</span><span class='op'>(</span></span>
+<span class='r-in'>  <span class='va'>object</span>,</span>
+<span class='r-in'>  flist <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>    <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.5</span></span>
+<span class='r-in'>  <span class='op'>}</span>,</span>
+<span class='r-in'>  prune <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span class='r-in'>  according_to_samples <span class='op'>=</span></span>
+<span class='r-in'>    <span class='fu'><a href='get_sample_id.html'>get_sample_id</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='extract_sample_info.html'>extract_sample_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>$</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"QC"</span><span class='op'>]</span></span>
+<span class='r-in'><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Expression data</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 8 samples and 496 variables</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data (extract_expression_data()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 496 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info (extract_sample_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 8 x 4 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info (extract_variable_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 496 x 3 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note (extract_sample_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note (extract_variable_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>           Function used Parameter                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 create_tidymass_class        no 2021-12-02 09:14:05</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> create_tidymass_class</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> no</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2021-12-02 09:14:05</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_tidymass_class() 2021-12-04 11:07:10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Variable_filtering ---------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package      Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_variables() 2021-12-04 11:07:10</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####Filter variables which have more than 50% MVs in QC or subject samples.</span></span>
-<span class='r-in'><span class='va'>idx1</span> <span class='op'>=</span> </span>
-<span class='r-in'><span class='fu'>filter_variables</span><span class='op'>(</span><span class='va'>object</span>, flist <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.5</span><span class='op'>}</span>, </span>
-<span class='r-in'>                 according_to_samples <span class='op'>=</span> </span>
-<span class='r-in'>         <span class='fu'><a href='get_sample_id.html'>get_sample_id</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='extract_sample_info.html'>extract_sample_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>$</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"QC"</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>idx1</span> <span class='op'>=</span></span>
+<span class='r-in'>  <span class='fu'>filter_variables</span><span class='op'>(</span></span>
+<span class='r-in'>    <span class='va'>object</span>,</span>
+<span class='r-in'>    flist <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>      <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.5</span></span>
+<span class='r-in'>    <span class='op'>}</span>,</span>
+<span class='r-in'>    prune <span class='op'>=</span> <span class='cn'>FALSE</span>,</span>
+<span class='r-in'>    according_to_samples <span class='op'>=</span></span>
+<span class='r-in'>      <span class='fu'><a href='get_sample_id.html'>get_sample_id</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='extract_sample_info.html'>extract_sample_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>$</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"QC"</span><span class='op'>]</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
 <span class='r-in'></span>
-<span class='r-in'><span class='va'>idx2</span> <span class='op'>=</span> </span>
-<span class='r-in'>  <span class='fu'>filter_variables</span><span class='op'>(</span><span class='va'>object</span>, </span>
-<span class='r-in'>  flist <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.5</span><span class='op'>}</span>, </span>
-<span class='r-in'>       according_to_samples <span class='op'>=</span> </span>
-<span class='r-in'>   <span class='fu'><a href='get_sample_id.html'>get_sample_id</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='extract_sample_info.html'>extract_sample_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>$</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"Subject"</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>idx2</span> <span class='op'>=</span></span>
+<span class='r-in'>  <span class='fu'>filter_variables</span><span class='op'>(</span></span>
+<span class='r-in'>    <span class='va'>object</span>,</span>
+<span class='r-in'>    flist <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>      <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.5</span></span>
+<span class='r-in'>    <span class='op'>}</span>,</span>
+<span class='r-in'>    prune <span class='op'>=</span> <span class='cn'>FALSE</span>,</span>
+<span class='r-in'>    according_to_samples <span class='op'>=</span></span>
+<span class='r-in'>      <span class='fu'><a href='get_sample_id.html'>get_sample_id</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='extract_sample_info.html'>extract_sample_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>$</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"Subject"</span><span class='op'>]</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'></span>
 <span class='r-in'><span class='va'>idx</span> <span class='op'>=</span></span>
 <span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='va'>idx1</span> <span class='op'>|</span> <span class='va'>idx2</span><span class='op'>)</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object2</span> <span class='op'>=</span> <span class='va'>object</span><span class='op'>[</span><span class='va'>idx</span>,<span class='op'>]</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in object[idx, ]:</span> object 'object' not found</span>
+<span class='r-in'></span>
 <span class='r-in'><span class='va'>object2</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in eval(expr, envir, enclos):</span> object 'object2' not found</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>####filter variables with RSD (in QC samples) &lt; 30</span></span>
+<span class='r-in'><span class='va'>object3</span> <span class='op'>=</span></span>
+<span class='r-in'><span class='fu'>filter_variables</span><span class='op'>(</span></span>
+<span class='r-in'>  object <span class='op'>=</span> <span class='va'>object</span>,</span>
+<span class='r-in'>  flist <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>    <span class='va'>rsd</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></span>
+<span class='r-in'>    <span class='va'>rsd</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>rsd</span><span class='op'>)</span>, <span class='fl'>100</span>, <span class='va'>rsd</span><span class='op'>)</span></span>
+<span class='r-in'>    <span class='va'>rsd</span> <span class='op'>&lt;</span> <span class='fl'>30</span></span>
+<span class='r-in'>  <span class='op'>}</span>,</span>
+<span class='r-in'>  apply_to <span class='op'>=</span> <span class='st'>"all"</span>,</span>
+<span class='r-in'>  prune <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span class='r-in'>  according_to_samples <span class='op'>=</span> <span class='fu'><a href='get_sample_id.html'>get_sample_id</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='extract_sample_info.html'>extract_sample_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>$</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"QC"</span><span class='op'>]</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>object3</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Expression data</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 8 samples and 642 variables</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data (extract_expression_data()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 328 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info (extract_sample_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 8 x 4 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info (extract_variable_info()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 328 x 3 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note (extract_sample_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note (extract_variable_info_note()):</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>           Function used Parameter                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 create_tidymass_class        no 2021-12-02 09:14:05</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> create_tidymass_class</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> no</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2021-12-02 09:14:05</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_tidymass_class() 2021-12-04 11:07:10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Variable_filtering ---------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package      Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_variables() 2021-12-04 11:07:10</span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

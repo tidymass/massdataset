@@ -1,8 +1,7 @@
 # tinytools::setwd_project()
 # load("demo_data/object")
-# 
+#
 # object
-
 
 #' @title Filter samples based on the conditions
 #' @description Filter samples based on the conditions
@@ -10,11 +9,11 @@
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) tidymass class object.
 #' @param flist (required) A function or list of functions that take a vector
-#' of abundance values and return a logical. 
+#' of abundance values and return a logical.
 #' @param prune (optional) A logical. Default \code{FALSE}. If \code{TRUE}, then
 #'  the function returns the pruned tidymass-class object, rather
 #'  than the logical vector of samples that passed the filter.
-#' @param apply_to what samples you want to apply this function. default is "all". If you 
+#' @param apply_to what samples you want to apply this function. default is "all". If you
 #'  only want to apply to specific samples, please set it as a vector of sample names. Other
 #'  samples will be set as TRUE.
 #' @return A logical vector equal to the number of samples in tidymass-class.
@@ -25,41 +24,48 @@
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
+#' 
 #' object =
 #'   create_tidymass_class(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#'  filter_samples(object, function(x) {sum(is.na(x))/length(x) < 0.4})
-#'  filter_samples(object, function(x) {sum(is.na(x))/length(x) < 0.4}, prune = TRUE)
-#'  ##only apply to Subject sample
-#'  object2 =
-#'filter_samples(
+#'  
+#' filter_samples(object, function(x) {
+#'   sum(is.na(x)) / length(x) < 0.4
+#' })
+#' 
+#' filter_samples(object, function(x) {
+#'   sum(is.na(x)) / length(x) < 0.4
+#' }, prune = FALSE)
+#' 
+#' ##only apply to Subject sample
+#' object2 =
+#' filter_samples(
 #'  object = object,
 #'  flist = function(x) {
 #'    sum(is.na(x))/length(x) < 0.2
 #'  },
-#'  prune = FALSE, 
+#'  prune = TRUE,
 #'  apply_to = get_sample_id(object)[extract_sample_info(object)$class == "Subject"]
-#')
+#' )
+#' 
 #' object2
-# 
 
 filter_samples =
-  function(object, 
-           flist, 
-           prune = FALSE,
+  function(object,
+           flist,
+           prune = TRUE,
            apply_to = "all") {
-    
     sample_id = get_sample_id(object)
-    if(any(apply_to == "all")){
+    if (any(apply_to == "all")) {
       apply_to = sample_id
-    }else{
+    } else{
       apply_to = sample_id[sample_id %in% apply_to]
     }
     
-    if(length(apply_to) == 0){
+    if (length(apply_to) == 0) {
       stop("All the samples you provide in apply_to are not in the object.
            Please check.")
     }
@@ -74,10 +80,32 @@ filter_samples =
     
     result[!names(result) %in% apply_to] = TRUE
     
+    process_info = object@process_info
+    
+    parameter <- new(
+      Class = "tidymass_parameter",
+      pacakge_name = "massdataset",
+      function_name = "filter_samples()",
+      parameter = list("flist" = flist, 
+                       prune = prune,
+                       apply_to = apply_to),
+      time = Sys.time()
+    )
+    
+    if (all(names(process_info) != "Sample_filtering")) {
+      process_info$Sample_filtering = parameter
+    }else{
+      process_info$Sample_filtering = c(process_info$Sample_filtering, 
+                                       parameter)  
+    }
+    
+    object@process_info = process_info
+    
+    
     if (prune) {
       idx = which(result)
-      object@expression_data = object@expression_data[,idx, drop = FALSE]
-      object@sample_info = object@sample_info[idx,,drop = FALSE]
+      object@expression_data = object@expression_data[, idx, drop = FALSE]
+      object@sample_info = object@sample_info[idx, , drop = FALSE]
       return(object)
     } else{
       return(result)
