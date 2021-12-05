@@ -123,6 +123,16 @@ setMethod(
   f = "show",
   signature = "mass_dataset",
   definition = function(object) {
+    ###check again
+    check_result = check_mass_dataset(
+      expression_data = object@expression_data,
+      sample_info = object@sample_info,
+      variable_info = object@variable_info
+    )
+    if(check_result != "all good."){
+      cat(crayon::red(check_result, "\n"))
+      cat(crayon::red("You may changed the slots, try to use update_mass_dataset().\n"))
+    }
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
     cat(crayon::green("massdataset version:", object@version, "\n"))
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
