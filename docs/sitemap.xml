@@ -114,4 +114,10 @@
   <url>
     <loc>https://tidymass.github.io/massdataset//articles/contact_us.html</loc>
   </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//articles/data_import_and_export.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//articles/tidyverse_verse.html</loc>
+  </url>
 </urlset>

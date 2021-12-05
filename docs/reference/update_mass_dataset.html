@@ -116,24 +116,12 @@ Update mass_dataset class object after give the one new item" />
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Data import</li>
     <li>
-      <a href="http://metflow.zhulab.cn/">Import data and create them as a tidymass-object class</a>
+      <a href="../articles/data_import_and_export.html">Data import and export</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Example data</li>
     <li>
-      <a href="https://tidymass.github.io/metflow2/">Demo dataset for massdataset</a>
-    </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Extract data</li>
-    <li>
-      <a href="https://tidymass.github.io/MetNormalizer/">Extract data from tidymass-class object</a>
-    </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Filter data</li>
-    <li>
-      <a href="https://tidymass.github.io/metID/">Filter data accordting to samples or variables</a>
+      <a href="../articles/tidyverse_verse.html">Operate mass_dataset using tidyverse</a>
     </li>
   </ul>
 </li>
@@ -261,7 +249,7 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:21:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:41:07</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####only remain QC samples</span></span>
 <span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
@@ -292,10 +280,10 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:21:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:41:07</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Update_mass_dataset ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####only remain feature with mz &lt; 300</span></span>
 <span class='r-in'><span class='va'>variable_info</span> <span class='op'>=</span> <span class='fu'><a href='extract_variable_info.html'>extract_variable_info</a></span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span><span class='op'>)</span></span>
@@ -325,11 +313,11 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:21:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:41:07</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Update_mass_dataset ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"sample_info"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
@@ -360,11 +348,11 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:21:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:41:07</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Update_mass_dataset ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####only remain QC samples</span></span>
 <span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
@@ -395,12 +383,12 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:21:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:41:07</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Update_mass_dataset ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####only remain feature with mz &lt; 300</span></span>
 <span class='r-in'><span class='va'>variable_info</span> <span class='op'>=</span> <span class='fu'><a href='extract_variable_info.html'>extract_variable_info</a></span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span><span class='op'>)</span></span>
@@ -430,13 +418,13 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:21:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:41:07</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Update_mass_dataset ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 4 massdataset update_mass_dataset() 2021-12-04 22:21:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4 massdataset update_mass_dataset() 2021-12-04 22:41:07</span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

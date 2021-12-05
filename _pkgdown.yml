@@ -80,21 +80,11 @@ navbar:
     articles:
       text: Help documents
       menu:
-      - text: "Data import"
-      - text: Import data and create them as a tidymass-object class
-        href: http://metflow.zhulab.cn/
+      - text: Data import and export
+        href: articles/data_import_and_export.html
       - text: --------
-      - text: "Example data"
-      - text: Demo dataset for massdataset
-        href: https://tidymass.github.io/metflow2/
-      - text: --------
-      - text: "Extract data"
-      - text: Extract data from tidymass-class object
-        href: https://tidymass.github.io/MetNormalizer/
-      - text: --------
-      - text: "Filter data"
-      - text: Filter data accordting to samples or variables
-        href: https://tidymass.github.io/metID/
+      - text: Operate mass_dataset using tidyverse
+        href: articles/tidyverse_verse.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/JasperShen1990
