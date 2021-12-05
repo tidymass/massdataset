@@ -4,22 +4,25 @@
     <loc>https://tidymass.github.io/massdataset//index.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset//reference/activate_mass_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset//reference/calculate_rsd.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/check_tidymass_class_data.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/check_mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/colnames.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/create_tidymass_class.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/create_mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/dim.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/export_tidymass_class.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/export_mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/expression_data.html</loc>
@@ -67,6 +70,9 @@
     <loc>https://tidymass.github.io/massdataset//reference/get_variable_number.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset//reference/mass_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset//reference/massdataset_logo.html</loc>
   </url>
   <url>
@@ -79,6 +85,9 @@
     <loc>https://tidymass.github.io/massdataset//reference/nrow.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset//reference/reexports.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset//reference/rownames.html</loc>
   </url>
   <url>
@@ -88,13 +97,13 @@
     <loc>https://tidymass.github.io/massdataset//reference/sample_info_note.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/tidymass-class.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/show-methods.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/tidymass_parameter-class.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/tidymass_parameter.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/update_tidymass_class.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/update_mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/variable_info.html</loc>

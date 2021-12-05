@@ -2,11 +2,11 @@
 #' @description Filter variables based on the conditions
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) tidymass class object.
+#' @param object (required) mass_dataset class object.
 #' @param flist (required) A function or list of functions that take a vector
 #' of abundance values and return a logical. 
 #' @param prune (optional) A logical. Default \code{FALSE}. If \code{TRUE}, then
-#'  the function returns the pruned tidymass-class object, rather
+#'  the function returns the pruned mass_dataset-class object, rather
 #'  than the logical vector of variables that passed the filter.
 #' @param apply_to what variables you want to apply this function. 
 #' Default is "all". If you 
@@ -16,8 +16,8 @@
 #' @param according_to_samples What samples used to filter variables.
 #' Default is "all". If you
 #' want to use only several samples, provide they names as a vector.
-#' @return A logical vector equal to the number of variables in tidymass-class.
-#'  Alternatively, if \code{prune==TRUE}, the pruned tidymass-class
+#' @return A logical vector equal to the number of variables in mass_dataset-class.
+#'  Alternatively, if \code{prune==TRUE}, the pruned mass_dataset-class
 #'  object is returned instead.
 #' @export
 #' @examples
@@ -27,7 +27,7 @@
 #' data("variable_info")
 #' 
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,

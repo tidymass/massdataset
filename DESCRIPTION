@@ -35,6 +35,7 @@ Imports:
     pbapply,
     purrr,
     readr,
+    rlang,
     clisymbols,
     htmltools,
     httr,

@@ -13,13 +13,13 @@ filter_variables(
 )
 }
 \arguments{
-\item{object}{(required) tidymass class object.}
+\item{object}{(required) mass_dataset class object.}
 
 \item{flist}{(required) A function or list of functions that take a vector
 of abundance values and return a logical.}
 
 \item{prune}{(optional) A logical. Default \code{FALSE}. If \code{TRUE}, then
-the function returns the pruned tidymass-class object, rather
+the function returns the pruned mass_dataset-class object, rather
 than the logical vector of variables that passed the filter.}
 
 \item{apply_to}{what variables you want to apply this function.
@@ -33,8 +33,8 @@ Default is "all". If you
 want to use only several samples, provide they names as a vector.}
 }
 \value{
-A logical vector equal to the number of variables in tidymass-class.
-Alternatively, if \code{prune==TRUE}, the pruned tidymass-class
+A logical vector equal to the number of variables in mass_dataset-class.
+Alternatively, if \code{prune==TRUE}, the pruned mass_dataset-class
 object is returned instead.
 }
 \description{
@@ -47,7 +47,7 @@ data("sample_info")
 data("variable_info")
 
 object =
-  create_tidymass_class(
+  create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
     variable_info = variable_info,

@@ -1,5 +1,5 @@
-#' @title create_tidymass_class
-#' @description Create tidymass object.
+#' @title create_mass_dataset
+#' @description Create mass_dataset object.
 #' @author Xiaotao Shen
 #' \email{shenxt@@sioc.ac.cn}
 #' @param expression_data MS1 peak table name. Columns are samples and rows are variables.
@@ -7,7 +7,7 @@
 #' @param variable_info MS1 peak table name. Columns are samples and rows are variables.
 #' @param sample_info_note Sample information name.
 #' @param variable_info_note Sample information name.
-#' @return A tidymass-class object.
+#' @return A mass_dataset-class object.
 #' @export
 #' @examples
 #' data("expression_data")
@@ -16,7 +16,7 @@
 #' data("variable_info")
 #' data("variable_info_note")
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
@@ -25,37 +25,14 @@
 #'   )
 #'   object
 
-# library(tidyverse)
-# sxtTools::setwd_project()
-# load("demo_data/expression_data")
-# load("demo_data/sample_info")
-# load("demo_data/variable_info")
-# load("demo_data/sample_info_note")
-# load("demo_data/variable_info_note")
-# 
-# object =
-#   create_tidymass_class(
-#     expression_data = expression_data,
-#     sample_info = sample_info,
-#     variable_info = variable_info,
-#     sample_info_note = sample_info_note,
-#     variable_info_note = variable_info_note
-#   )
-# 
-# object
-# 
-# 
-# save(object, file = "demo_data/object")
-
-create_tidymass_class =
+create_mass_dataset =
   function(expression_data,
            sample_info,
            variable_info,
            sample_info_note,
            variable_info_note) {
-    
     check_result <-
-      check_tidymass_class_data(
+      check_mass_dataset(
         expression_data = expression_data,
         sample_info = sample_info,
         variable_info = variable_info,
@@ -76,20 +53,20 @@ create_tidymass_class =
     }
     
     process_info = list()
-   
-
+    
+    
     parameter <- new(
       Class = "tidymass_parameter",
       pacakge_name = "massdataset",
-      function_name = "create_tidymass_class()",
+      function_name = "create_mass_dataset()",
       parameter = list("no" = "no"),
       time = Sys.time()
     )
-   
+    
     process_info$Creation = parameter
-     
+    
     object <- new(
-      Class = "tidymass",
+      Class = "mass_dataset",
       expression_data = expression_data,
       ms2_data = data.frame(),
       sample_info = sample_info,
@@ -103,11 +80,22 @@ create_tidymass_class =
   }
 
 
-##S4 class for function tidymass-class
+##S4 class for function mass_dataset-class
 #' An S4 class that stores the MS dataset
+#' @name mass_dataset
+#' @docType class
+#' @slot expression_data expression_data
+#' @slot ms2_data ms2_data
+#' @slot sample_info sample_info
+#' @slot variable_info variable_info
+#' @slot sample_info_note sample_info_note
+#' @slot variable_info_note variable_info_note
+#' @slot process_info process_info
+#' @slot version version
+#' @slot activated activated
 #' @export
 setClass(
-  Class = "tidymass",
+  Class = "mass_dataset",
   representation(
     expression_data = "data.frame",
     ms2_data = "data.frame",
@@ -116,21 +104,31 @@ setClass(
     sample_info_note = "data.frame",
     variable_info_note = "data.frame",
     process_info = "list",
-    version = "character"
+    version = "character",
+    activated = "character"
   )
 )
 
-####show method for tidymass
+#' show method for mass_dataset class
+#' @name show
+#' @docType methods
+#' @rdname show-methods
+#' @title show method
+#' @param object A \code{mass_dataset} instance.
+#' @return message
+#' @importFrom methods show
+#' @author Xiaotao Shen
+#' @export
 setMethod(
   f = "show",
-  signature = "tidymass",
+  signature = "mass_dataset",
   definition = function(object) {
-    # requireNamespace("magrittr")
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
     cat(crayon::green("massdataset version:", object@version, "\n"))
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
     cat(crayon::green("1.expression_data (extract_expression_data()):\n"))
-    cat("[",
+    cat(
+      "[",
       nrow(object@expression_data),
       "x",
       ncol(object@expression_data),
@@ -141,28 +139,30 @@ setMethod(
         nrow(object@sample_info),
         "x",
         ncol(object@sample_info),
-        "data.frame]\n"
-    )
+        "data.frame]\n")
     cat(crayon::green("3.variable_info (extract_variable_info()):\n"))
-    cat("[",
-        nrow(object@variable_info),
-        "x",
-        ncol(object@variable_info),
-        "data.frame]\n"
+    cat(
+      "[",
+      nrow(object@variable_info),
+      "x",
+      ncol(object@variable_info),
+      "data.frame]\n"
     )
     cat(crayon::green("4.sample_info_note (extract_sample_info_note()):\n"))
-    cat("[",
-        nrow(object@sample_info_note),
-        "x",
-        ncol(object@sample_info_note),
-        "data.frame]\n"
+    cat(
+      "[",
+      nrow(object@sample_info_note),
+      "x",
+      ncol(object@sample_info_note),
+      "data.frame]\n"
     )
     cat(crayon::green("5.variable_info_note (extract_variable_info_note()):\n"))
-    cat("[",
-        nrow(object@variable_info_note),
-        "x",
-        ncol(object@variable_info_note),
-        "data.frame]\n"
+    cat(
+      "[",
+      nrow(object@variable_info_note),
+      "x",
+      ncol(object@variable_info_note),
+      "data.frame]\n"
     )
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
     cat(crayon::green("Processing information (extract_process_info())\n"))
@@ -170,16 +170,16 @@ setMethod(
         length(object@process_info) != 0) {
       process_info <- object@process_info
       
-      for(idx in 1:length(process_info)){
+      for (idx in 1:length(process_info)) {
         cat(crayon::green(names(process_info)[idx], paste(rep("-", 10), collapse = ""), "\n"))
-        if(length(process_info[[idx]]) == 1){
+        if (length(process_info[[idx]]) == 1) {
           data.frame(
             "Package" = process_info[[idx]]@pacakge_name,
             "Function used" = process_info[[idx]]@function_name,
             "Time" = process_info[[idx]]@time
-          ) %>% 
+          ) %>%
             print()
-        }else{
+        } else{
           data.frame(
             "Package" = process_info[[idx]] %>% lapply(function(x)
               x@pacakge_name) %>% unlist(),
@@ -188,7 +188,7 @@ setMethod(
             "Time" = process_info[[idx]] %>% lapply(function(x)
               as.character(x@time)) %>% unlist()
           ) %>%
-            print()  
+            print()
         }
       }
     } else{
@@ -198,14 +198,13 @@ setMethod(
 )
 
 
-## cannonical location for dim, dimnames
 #' @title dim
 #' @rdname dim
 #' @aliases dim
 #' @param x object
 #' @docType methods
 #' @export
-setMethod("dim", "tidymass",
+setMethod("dim", "mass_dataset",
           function(x)
           {
             dim(x@expression_data)
@@ -217,7 +216,7 @@ setMethod("dim", "tidymass",
 #' @docType methods
 #' @param x object
 #' @export
-setMethod("nrow", "tidymass",
+setMethod("nrow", "mass_dataset",
           function(x)
           {
             nrow(x@expression_data)
@@ -229,7 +228,7 @@ setMethod("nrow", "tidymass",
 #' @docType methods
 #' @param x object
 #' @export
-setMethod("ncol", "tidymass",
+setMethod("ncol", "mass_dataset",
           function(x)
           {
             ncol(x@expression_data)
@@ -241,7 +240,7 @@ setMethod("ncol", "tidymass",
 #' @docType methods
 #' @param x object
 #' @export
-setMethod("colnames", "tidymass",
+setMethod("colnames", "mass_dataset",
           function(x)
           {
             colnames(x@expression_data)
@@ -253,21 +252,21 @@ setMethod("colnames", "tidymass",
 #' @param x object
 #' @docType methods
 #' @export
-setMethod("rownames", "tidymass",
+setMethod("rownames", "mass_dataset",
           function(x)
           {
             rownames(x@expression_data)
           })
-
+#'
 ### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ### Subsetting
 ###
-#' Extract parts of tidymass
+#' Extract parts of mass_dataset
 #' @name [
-#' @aliases [,tidymass-method
+#' @aliases [,mass_dataset-method
 #' @docType methods
 #' @rdname extract-methods
-#' @param x tidymass class object
+#' @param x mass_dataset class object
 #' @param i row index
 #' @param j column index
 #' @param ... other parameters
@@ -275,12 +274,14 @@ setMethod("rownames", "tidymass",
 #' @usage x[i,j,drop = FALSE,...]
 #' @export
 
-setMethod(f = "[", signature = c(x = "tidymass", i = "ANY", j = "ANY"),
+setMethod(f = "[",
+          signature = c(x = "mass_dataset", i = "ANY", j = "ANY"),
+          definition =
           function(x, i, j, ..., drop = FALSE){
             if (missing(i) & missing(j)){
               return(x)
             }
-            
+
             if (!missing(i)) {
               if (is.character(i)) {
                 i <- match(i, rownames(x@expression_data))
@@ -288,7 +289,7 @@ setMethod(f = "[", signature = c(x = "tidymass", i = "ANY", j = "ANY"),
             }else{
               i = 1:nrow(x@expression_data)
             }
-            
+
             if (!missing(j)) {
               if (is.character(j)) {
                 j <- match(j, colnames(x@expression_data))
@@ -296,7 +297,7 @@ setMethod(f = "[", signature = c(x = "tidymass", i = "ANY", j = "ANY"),
             }else{
               j = 1:ncol(x@expression_data)
             }
-            
+
             if(sum(is.na(j)) > 0){
               j = j[!is.na(j)]
               if(length(j) == 0){
@@ -306,12 +307,12 @@ setMethod(f = "[", signature = c(x = "tidymass", i = "ANY", j = "ANY"),
                 warning("Some sample index (j) are not in the object. Please check.")
               }
             }
-            
+
             if(any(!j %in% 1:ncol(x))){
               warning("Some sample index (j) are not in the object. Please check.")
               j = j[j %in% 1:ncol(x)]
             }
-            
+
             if(sum(is.na(i)) > 0){
               i = i[!is.na(i)]
               if(length(i) == 0){
@@ -320,9 +321,9 @@ setMethod(f = "[", signature = c(x = "tidymass", i = "ANY", j = "ANY"),
               }else{
                 warning("Some variable index (i) are not in the object. Please check.")
               }
-            
+
             }
-            
+
             if(any(!i %in% 1:nrow(x))){
               warning("Some variable index (i) are not in the object. Please check.")
               i = i[i %in% 1:nrow(x)]
@@ -331,7 +332,7 @@ setMethod(f = "[", signature = c(x = "tidymass", i = "ANY", j = "ANY"),
             ###add paramters
             ####add parameters
             process_info = x@process_info
-            
+
             parameter <- new(
               Class = "tidymass_parameter",
               pacakge_name = "massdataset",
@@ -340,49 +341,17 @@ setMethod(f = "[", signature = c(x = "tidymass", i = "ANY", j = "ANY"),
                                "j" = j),
               time = Sys.time()
             )
-            
+
             if (all(names(process_info) != "Subset")) {
               process_info$Subset = parameter
             }else{
-              process_info$Subset = c(process_info$Subset, parameter)  
+              process_info$Subset = c(process_info$Subset, parameter)
             }
-            
+
             object@process_info = process_info
-            
+
             x@expression_data = x@expression_data[i,j,drop = drop]
             x@sample_info = x@sample_info[j,,drop = FALSE]
             x@variable_info = x@variable_info[i,,drop = FALSE]
             return(x)
           })
-
-
-
-##S4 class for parameter
-#' An S4 class that stores the parameters
-#' @export
-setClass(
-  Class = "tidymass_parameter",
-  representation(
-    pacakge_name = "character",
-    function_name = "character",
-    parameter = "list",
-    time = "POSIXct"
-  )
-)
-
-####show method for tidymass_parameter
-setMethod(
-  f = "show",
-  signature = "tidymass_parameter",
-  definition = function(object) {
-    cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
-    cat(crayon::green("pacakge_name:", object@pacakge_name), "\n")
-    cat(crayon::green("function_name:", object@function_name), "\n")
-    cat(crayon::green("time:", object@time), "\n")
-    cat(crayon::green("parameters:\n"))
-    for(idx in 1:length(object@parameter)){
-      cat(crayon::green(names(object@parameter)[idx], ":" ,object@parameter[idx]), "\n")
-    }
-  }
-)
-

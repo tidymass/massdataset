@@ -7,7 +7,7 @@
 extract_process_info(object)
 }
 \arguments{
-\item{object}{(required) tidymass class object.}
+\item{object}{(required) mass_dataset class object.}
 }
 \value{
 A data.frame.
@@ -22,7 +22,7 @@ data("variable_info")
 library(massdataset)
 
 object =
-  create_tidymass_class(
+  create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
     variable_info = variable_info,

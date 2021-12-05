@@ -208,7 +208,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>(required) tidymass class object.</p></td>
+      <td><p>(required) mass_dataset class object.</p></td>
     </tr>
     <tr>
       <th>flist</th>
@@ -218,7 +218,7 @@ of abundance values and return a logical.</p></td>
     <tr>
       <th>prune</th>
       <td><p>(optional) A logical. Default <code>FALSE</code>. If <code>TRUE</code>, then
-the function returns the pruned tidymass-class object, rather
+the function returns the pruned mass_dataset-class object, rather
 than the logical vector of samples that passed the filter.</p></td>
     </tr>
     <tr>
@@ -231,8 +231,8 @@ samples will be set as TRUE.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A logical vector equal to the number of samples in tidymass-class.
-Alternatively, if <code>prune==TRUE</code>, the pruned tidymass-class
+    <p>A logical vector equal to the number of samples in mass_dataset-class.
+Alternatively, if <code>prune==TRUE</code>, the pruned mass_dataset-class
 object is returned instead.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
@@ -245,7 +245,7 @@ object is returned instead.</p>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
-<span class='r-in'>  <span class='fu'><a href='create_tidymass_class.html'>create_tidymass_class</a></span><span class='op'>(</span></span>
+<span class='r-in'>  <span class='fu'><a href='create_mass_dataset.html'>create_mass_dataset</a></span><span class='op'>(</span></span>
 <span class='r-in'>    expression_data <span class='op'>=</span> <span class='va'>expression_data</span>,</span>
 <span class='r-in'>    sample_info <span class='op'>=</span> <span class='va'>sample_info</span>,</span>
 <span class='r-in'>    variable_info <span class='op'>=</span> <span class='va'>variable_info</span>,</span>
@@ -270,11 +270,11 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_tidymass_class() 2021-12-04 11:07:09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:20:56</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Sample_filtering ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package    Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_samples() 2021-12-04 11:07:09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_samples() 2021-12-04 22:20:56</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='fu'>filter_samples</span><span class='op'>(</span><span class='va'>object</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span></span>
 <span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.4</span></span>
@@ -310,11 +310,11 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_tidymass_class() 2021-12-04 11:07:09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-04 22:20:56</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Sample_filtering ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package    Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_samples() 2021-12-04 11:07:09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_samples() 2021-12-04 22:20:56</span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

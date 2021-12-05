@@ -7,13 +7,13 @@
 filter_samples(object, flist, prune = TRUE, apply_to = "all")
 }
 \arguments{
-\item{object}{(required) tidymass class object.}
+\item{object}{(required) mass_dataset class object.}
 
 \item{flist}{(required) A function or list of functions that take a vector
 of abundance values and return a logical.}
 
 \item{prune}{(optional) A logical. Default \code{FALSE}. If \code{TRUE}, then
-the function returns the pruned tidymass-class object, rather
+the function returns the pruned mass_dataset-class object, rather
 than the logical vector of samples that passed the filter.}
 
 \item{apply_to}{what samples you want to apply this function. default is "all". If you
@@ -21,8 +21,8 @@ only want to apply to specific samples, please set it as a vector of sample name
 samples will be set as TRUE.}
 }
 \value{
-A logical vector equal to the number of samples in tidymass-class.
-Alternatively, if \code{prune==TRUE}, the pruned tidymass-class
+A logical vector equal to the number of samples in mass_dataset-class.
+Alternatively, if \code{prune==TRUE}, the pruned mass_dataset-class
 object is returned instead.
 }
 \description{
@@ -34,7 +34,7 @@ data("sample_info")
 data("variable_info")
 
 object =
-  create_tidymass_class(
+  create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
     variable_info = variable_info,

@@ -7,15 +7,15 @@
 calculate_rsd(object, according_to_samples = "all")
 }
 \arguments{
-\item{object}{(required) tidymass class object.}
+\item{object}{(required) mass_dataset class object.}
 
 \item{according_to_samples}{(required) What samples used to filter variables.
 Default is "all". If you
 want to use only several samples, provide they names as a vector.}
 }
 \value{
-A logical vector equal to the number of variables in tidymass-class.
-Alternatively, if \code{prune==TRUE}, the pruned tidymass-class
+A logical vector equal to the number of variables in mass_dataset-class.
+Alternatively, if \code{prune==TRUE}, the pruned mass_dataset-class
 object is returned instead.
 }
 \description{
@@ -28,7 +28,7 @@ data("variable_info")
 library(massdataset)
 
 object =
-  create_tidymass_class(
+  create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
     variable_info = variable_info,

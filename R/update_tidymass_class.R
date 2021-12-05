@@ -1,10 +1,10 @@
-#' @title Update tidymass class object after give the one new item
-#' @description Update tidymass class object after give the one new item
+#' @title Update mass_dataset class object after give the one new item
+#' @description Update mass_dataset class object after give the one new item
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) tidymass class object.
-#' @return A logical vector equal to the number of variables in tidymass-class.
-#'  Alternatively, if \code{prune==TRUE}, the pruned tidymass-class
+#' @param object (required) mass_dataset class object.
+#' @return A logical vector equal to the number of variables in mass_dataset-class.
+#'  Alternatively, if \code{prune==TRUE}, the pruned mass_dataset-class
 #'  object is returned instead.
 #' @export
 #' @examples
@@ -13,7 +13,7 @@
 #' data("variable_info")
 #' 
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
@@ -31,7 +31,7 @@
 #' 
 #' object@sample_info = sample_info
 #' 
-#' object = update_tidymass_class(object = object)
+#' object = update_mass_dataset(object = object)
 #' object
 #' 
 #' ####only remain feature with mz < 300
@@ -43,14 +43,14 @@
 #' 
 #' object@variable_info = variable_info
 #' 
-#' object = update_tidymass_class(object = object)
+#' object = update_mass_dataset(object = object)
 #' object
 
 
-update_tidymass_class =
+update_mass_dataset =
   function(object) {
-    if (class(object)[1] != "tidymass") {
-      stop("only support tidymass class object.\n")
+    if (class(object)[1] != "mass_dataset") {
+      stop("only support mass_dataset class object.\n")
     }
     
     sample_info = object@sample_info
@@ -82,17 +82,17 @@ update_tidymass_class =
     parameter <- new(
       Class = "tidymass_parameter",
       pacakge_name = "massdataset",
-      function_name = "update_tidymass_class()",
+      function_name = "update_mass_dataset()",
       parameter = list("no" = "no"),
       time = Sys.time()
     )
     
     process_info = object@process_info
     
-    if (all(names(process_info) != "Update_tiymass_class")) {
-      process_info$Update_tiymass_class = parameter
+    if (all(names(process_info) != "Update_mass_dataset")) {
+      process_info$Update_mass_dataset = parameter
     }else{
-      process_info$Update_tiymass_class = c(process_info$Update_tiymass_class, 
+      process_info$Update_mass_dataset = c(process_info$Update_mass_dataset, 
                                         parameter)  
     }
     

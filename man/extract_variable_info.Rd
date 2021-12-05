@@ -7,7 +7,7 @@
 extract_variable_info(object)
 }
 \arguments{
-\item{object}{tidymass class object.}
+\item{object}{mass_dataset class object.}
 }
 \value{
 A data frame.
@@ -20,7 +20,7 @@ data("expression_data")
 data("sample_info")
 data("variable_info")
 object =
-  create_tidymass_class(
+  create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
     variable_info = variable_info,

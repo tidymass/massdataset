@@ -2,12 +2,12 @@
 #' @description Calculate RSD for features
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) tidymass class object.
+#' @param object (required) mass_dataset class object.
 #' @param according_to_samples (required) What samples used to filter variables.
 #' Default is "all". If you
 #' want to use only several samples, provide they names as a vector.
-#' @return A logical vector equal to the number of variables in tidymass-class.
-#'  Alternatively, if \code{prune==TRUE}, the pruned tidymass-class
+#' @return A logical vector equal to the number of variables in mass_dataset-class.
+#'  Alternatively, if \code{prune==TRUE}, the pruned mass_dataset-class
 #'  object is returned instead.
 #' @export
 #' @examples
@@ -17,7 +17,7 @@
 #' library(massdataset)
 #' 
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,

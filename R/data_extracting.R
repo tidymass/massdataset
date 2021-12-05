@@ -2,7 +2,7 @@
 #' @description Extract expression data.
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object tidymass class object.
+#' @param object mass_dataset class object.
 #' @return A data frame.
 #' @export
 #' @examples
@@ -10,7 +10,7 @@
 #' data("sample_info")
 #' data("variable_info")
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
@@ -31,7 +31,7 @@ extract_expression_data = function(object) {
 #' @description Extract sample information.
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object tidymass class object.
+#' @param object mass_dataset class object.
 #' @return A data frame.
 #' @export
 #' @examples
@@ -39,7 +39,7 @@ extract_expression_data = function(object) {
 #' data("sample_info")
 #' data("variable_info")
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
@@ -59,7 +59,7 @@ extract_sample_info = function(object) {
 #' @description Extract variable information.
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object tidymass class object.
+#' @param object mass_dataset class object.
 #' @return A data frame.
 #' @export
 #' @examples
@@ -67,7 +67,7 @@ extract_sample_info = function(object) {
 #' data("sample_info")
 #' data("variable_info")
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
@@ -86,7 +86,7 @@ extract_variable_info = function(object) {
 #' @description Extract variable information note.
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object tidymass class object.
+#' @param object mass_dataset class object.
 #' @return A data frame.
 #' @export
 
@@ -101,7 +101,7 @@ extract_variable_info_note = function(object) {
 #' @description Extract sample information note.
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object tidymass class object.
+#' @param object mass_dataset class object.
 #' @return A data frame.
 #' @export
 
@@ -115,7 +115,7 @@ extract_sample_info_note = function(object) {
 #' @description Extract process information
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) tidymass class object.
+#' @param object (required) mass_dataset class object.
 #' @return A data.frame.
 #' @export
 #' @examples
@@ -125,7 +125,7 @@ extract_sample_info_note = function(object) {
 #' library(massdataset)
 #' 
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,

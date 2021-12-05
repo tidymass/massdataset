@@ -7,7 +7,7 @@
 extract_variable_info_note(object)
 }
 \arguments{
-\item{object}{tidymass class object.}
+\item{object}{mass_dataset class object.}
 }
 \value{
 A data frame.

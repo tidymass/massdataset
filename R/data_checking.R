@@ -1,4 +1,4 @@
-#' @title check_tidymass_class_data
+#' @title check_mass_dataset
 #' @description Check data format.
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@163.com}
@@ -13,14 +13,14 @@
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#'   check_tidymass_class_data(
+#'   check_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
 
 
-check_tidymass_class_data =
+check_mass_dataset =
   function(expression_data,
            sample_info,
            variable_info,

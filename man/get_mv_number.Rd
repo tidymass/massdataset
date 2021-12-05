@@ -11,7 +11,7 @@ get_mv_number(
 )
 }
 \arguments{
-\item{object}{tidymass class object.}
+\item{object}{mass_dataset class object.}
 
 \item{by}{total: Missing value number in total. sample: Missing value number in each sample.
 variable: Missing value number in each variable.}
@@ -29,7 +29,7 @@ data("expression_data")
 data("sample_info")
 data("variable_info")
 object =
-  create_tidymass_class(
+  create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
     variable_info = variable_info,

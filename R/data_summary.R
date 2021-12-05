@@ -2,7 +2,7 @@
 #' @description Number of samples
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object tidymass class object.
+#' @param object mass_dataset class object.
 #' @return A numeric.
 #' @export
 #' @examples
@@ -10,7 +10,7 @@
 #' data("sample_info")
 #' data("variable_info")
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
@@ -28,7 +28,7 @@ get_sample_number = function(object) {
 #' @description Number of variables
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object tidymass class object.
+#' @param object mass_dataset class object.
 #' @return A numeric.
 #' @export
 #' @examples
@@ -36,7 +36,7 @@ get_sample_number = function(object) {
 #' data("sample_info")
 #' data("variable_info")
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
@@ -56,7 +56,7 @@ get_variable_number = function(object) {
 #' @description Get sample names
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object tidymass class object.
+#' @param object mass_dataset class object.
 #' @return A character vector
 #' @export
 #' @examples
@@ -64,7 +64,7 @@ get_variable_number = function(object) {
 #' data("sample_info")
 #' data("variable_info")
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
@@ -82,7 +82,7 @@ get_sample_id = function(object) {
 #' @description Get sample names
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object tidymass class object.
+#' @param object mass_dataset class object.
 #' @return A character vector
 #' @export
 #' @examples
@@ -91,7 +91,7 @@ get_sample_id = function(object) {
 #' data("variable_info")
 #' library(tidyverse)
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
@@ -109,7 +109,7 @@ get_variable_id = function(object) {
 #' @description Get missing value number/percentage in expression
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object tidymass class object.
+#' @param object mass_dataset class object.
 #' @param by total: Missing value number in total. sample: Missing value number in each sample.
 #' variable: Missing value number in each variable.
 #' @param show_by number: missing value number. percentage: ratio.
@@ -120,7 +120,7 @@ get_variable_id = function(object) {
 #' data("sample_info")
 #' data("variable_info")
 #' object =
-#'   create_tidymass_class(
+#'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,

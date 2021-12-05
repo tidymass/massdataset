@@ -13,6 +13,7 @@
 #' @importFrom openxlsx write.xlsx
 #' @importFrom purrr map map2
 #' @importFrom readr write_csv read_csv
+#' @importFrom methods slot slot<-
 #' @import ggplot2
 #' @importFrom methods .hasSlot new
 #' @importFrom stats p.adjust rgamma sd
