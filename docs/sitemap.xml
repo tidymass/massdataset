@@ -7,9 +7,6 @@
     <loc>https://tidymass.github.io/massdataset//reference/activate_mass_dataset.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/calculate_rsd.html</loc>
-  </url>
-  <url>
     <loc>https://tidymass.github.io/massdataset//reference/check_mass_dataset.html</loc>
   </url>
   <url>
@@ -77,6 +74,27 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/massdataset_packages.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/mutate_mean_intensity.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/mutate_median_intensity.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/mutate_rsd.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/mutate_sample_na_freq.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/mutate_sample_na_number.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/mutate_variable_na_freq.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/mutate_variable_na_number.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/ncol.html</loc>

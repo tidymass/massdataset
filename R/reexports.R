@@ -25,3 +25,7 @@ dplyr::rename
 ##' @importFrom dplyr select
 ##' @export
 dplyr::select
+
+##' @importFrom dplyr case_when
+##' @export
+dplyr::case_when

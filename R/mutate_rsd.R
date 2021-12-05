@@ -27,7 +27,7 @@
 #' 
 #' ##calculate RSDs according to all the samples
 #' object =
-#'   calculate_rsd(object = object)
+#'   mutate_rsd(object = object)
 #' 
 #' object
 #' 
@@ -35,7 +35,7 @@
 #' 
 #' ##calculate RSDs according to only QC samples
 #' object =
-#'   calculate_rsd(object = object,
+#'   mutate_rsd(object = object,
 #'                 according_to_samples =
 #'               get_sample_id(object)[extract_sample_info(object)$class == "QC"])
 #' 
@@ -43,7 +43,7 @@
 #' 
 #' head(extract_variable_info(object))
 
-calculate_rsd =
+mutate_rsd =
   function(object, 
            according_to_samples = "all") {
     
@@ -79,7 +79,7 @@ calculate_rsd =
     parameter <- new(
       Class = "tidymass_parameter",
       pacakge_name = "massdataset",
-      function_name = "calculate_rsd()",
+      function_name = "mutate_rsd()",
       parameter = list("according_to_samples" = according_to_samples),
       time = Sys.time()
     )

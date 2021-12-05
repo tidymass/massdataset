@@ -29,22 +29,6 @@ A mass_dataset-class object.
 \description{
 Create mass_dataset object.
 }
-\examples{
-data("expression_data")
-data("sample_info")
-data("sample_info_note")
-data("variable_info")
-data("variable_info_note")
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    sample_info = sample_info,
-    variable_info = variable_info,
-    sample_info_note = sample_info_note,
-    variable_info_note = variable_info_note
-  )
-  object
-}
 \author{
 Xiaotao Shen
 \email{shenxt@sioc.ac.cn}

@@ -16,7 +16,7 @@
 #' @importFrom methods slot slot<-
 #' @import ggplot2
 #' @importFrom methods .hasSlot new
-#' @importFrom stats p.adjust rgamma sd
+#' @importFrom stats p.adjust rgamma sd median
 #' @importFrom utils data str
 #' @importFrom magrittr %>%
 #' @export
