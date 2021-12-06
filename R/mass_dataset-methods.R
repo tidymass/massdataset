@@ -126,21 +126,32 @@ ncol.mass_dataset <- function(x) {
 }
 
 
+
+#' # colnames.mass_dataset <- function(x) 
+#   x@sample_info$sample_id
+# }
+
 #' @method colnames mass_dataset
 #' @export
 #' @rdname mass_dataset-class
 #' @return message
-colnames.mass_dataset <- function(x) {
-  x@sample_info$sample_id
-}
+setMethod(f = "colnames", signature = "mass_dataset", definition = function(x){
+  colnames(x@expression_data)
+})
+
+
+# rownames.mass_dataset <- function(x) {
+#   x@variable_info$variable_id
+# }
 
 #' @method rownames mass_dataset
 #' @export
 #' @rdname mass_dataset-class
 #' @return message
-rownames.mass_dataset <- function(x) {
-  x@variable_info$variable_id
-}
+setMethod(f = "rownames", signature = "mass_dataset", definition = function(x){
+  rownames(x@expression_data)
+})
+
 
 #' @method [ mass_dataset
 #' @export
