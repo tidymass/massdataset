@@ -53,8 +53,7 @@
 
 
 <meta property="og:title" content="Update mass_dataset class object after give the one new item — update_mass_dataset" />
-<meta property="og:description" content="Update mass_dataset class object after give the one new item
-Update mass_dataset class object after give the one new item" />
+<meta property="og:description" content="Update mass_dataset class object after give the one new item" />
 <meta property="og:image" content="https://tidymass.github.io/massdataset/logo.png" />
 
 
@@ -184,18 +183,15 @@ Update mass_dataset class object after give the one new item" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Update mass_dataset class object after give the one new item</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/update_mass_dataset.R'><code>R/update_mass_dataset.R</code></a>, <a href='https://github.com/tidymass/massdataset/blob/master/R/update_tidymass_class.R'><code>R/update_tidymass_class.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/update_mass_dataset.R'><code>R/update_mass_dataset.R</code></a></small>
     <div class="hidden name"><code>update_mass_dataset.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Update mass_dataset class object after give the one new item</p>
-<p>Update mass_dataset class object after give the one new item</p>
     </div>
 
-    <pre class="usage"><span class='fu'>update_mass_dataset</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
-
-<span class='fu'>update_mass_dataset</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>update_mass_dataset</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -211,14 +207,9 @@ Update mass_dataset class object after give the one new item" />
     <p>A logical vector equal to the number of variables in mass_dataset-class.
 Alternatively, if <code>prune==TRUE</code>, the pruned mass_dataset-class
 object is returned instead.</p>
-<p>A logical vector equal to the number of variables in mass_dataset-class.
-Alternatively, if <code>prune==TRUE</code>, the pruned mass_dataset-class
-object is returned instead.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Xiaotao Shen
-<a href='mailto:shenxt1990@outlook.com'>shenxt1990@outlook.com</a></p>
-<p>Xiaotao Shen
 <a href='mailto:shenxt1990@outlook.com'>shenxt1990@outlook.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -247,7 +238,7 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 21:36:48</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 22:26:00</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####only remain QC samples</span></span>
 <span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
@@ -261,8 +252,6 @@ object is returned instead.</p>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'>=</span> <span class='fu'>update_mass_dataset</span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span><span class='op'>)</span></span>
 <span class='r-in'><span class='va'>object</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>error: class should have at least one Subject sample. </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>You may changed the slots, try to use update_mass_dataset().</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
@@ -276,10 +265,10 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 21:36:48</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 22:26:00</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Update_mass_dataset ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-05 22:26:00</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####only remain feature with mz &lt; 300</span></span>
 <span class='r-in'><span class='va'>variable_info</span> <span class='op'>=</span> <span class='fu'><a href='extract_variable_info.html'>extract_variable_info</a></span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span><span class='op'>)</span></span>
@@ -292,8 +281,6 @@ object is returned instead.</p>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'>=</span> <span class='fu'>update_mass_dataset</span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span><span class='op'>)</span></span>
 <span class='r-in'><span class='va'>object</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>error: class should have at least one Subject sample. </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>You may changed the slots, try to use update_mass_dataset().</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
@@ -307,112 +294,11 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 21:36:48</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 22:26:00</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Update_mass_dataset ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"sample_info"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
-<span class='r-in'>  <span class='fu'><a href='create_mass_dataset.html'>create_mass_dataset</a></span><span class='op'>(</span></span>
-<span class='r-in'>    expression_data <span class='op'>=</span> <span class='va'>expression_data</span>,</span>
-<span class='r-in'>    sample_info <span class='op'>=</span> <span class='va'>sample_info</span>,</span>
-<span class='r-in'>    variable_info <span class='op'>=</span> <span class='va'>variable_info</span>,</span>
-<span class='r-in'>  <span class='op'>)</span></span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in create_mass_dataset(expression_data = expression_data, sample_info = sample_info,     variable_info = variable_info, ):</span> error: class should have at least one Subject sample.</span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>error: class should have at least one Subject sample. </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>You may changed the slots, try to use update_mass_dataset().</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 740 x 2  data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 2 x 4 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 740 x 3 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 0 x 0 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note:</span>[ 0 x 0 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Update_mass_dataset ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-in'></span>
-<span class='r-in'><span class='co'>####only remain QC samples</span></span>
-<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
-<span class='r-in'><span class='va'>sample_info</span> <span class='op'>=</span> <span class='fu'><a href='extract_sample_info.html'>extract_sample_info</a></span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span><span class='op'>)</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>sample_info</span> <span class='op'>=</span></span>
-<span class='r-in'>  <span class='va'>sample_info</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"QC"</span><span class='op'>)</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span><span class='op'>@</span><span class='va'>sample_info</span> <span class='op'>=</span> <span class='va'>sample_info</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span> <span class='op'>=</span> <span class='fu'>update_mass_dataset</span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span><span class='op'>)</span></span>
-<span class='r-in'><span class='va'>object</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>error: class should have at least one Subject sample. </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>You may changed the slots, try to use update_mass_dataset().</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 740 x 2  data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 2 x 4 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 740 x 3 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 0 x 0 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note:</span>[ 0 x 0 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Update_mass_dataset ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-in'></span>
-<span class='r-in'><span class='co'>####only remain feature with mz &lt; 300</span></span>
-<span class='r-in'><span class='va'>variable_info</span> <span class='op'>=</span> <span class='fu'><a href='extract_variable_info.html'>extract_variable_info</a></span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span><span class='op'>)</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>variable_info</span> <span class='op'>=</span></span>
-<span class='r-in'>  <span class='va'>variable_info</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>mz</span> <span class='op'>&lt;</span> <span class='fl'>300</span><span class='op'>)</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span><span class='op'>@</span><span class='va'>variable_info</span> <span class='op'>=</span> <span class='va'>variable_info</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span> <span class='op'>=</span> <span class='fu'>update_mass_dataset</span><span class='op'>(</span>object <span class='op'>=</span> <span class='va'>object</span><span class='op'>)</span></span>
-<span class='r-in'><span class='va'>object</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>error: class should have at least one Subject sample. </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>You may changed the slots, try to use update_mass_dataset().</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 740 x 2  data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 2 x 4 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 740 x 3 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 0 x 0 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note:</span>[ 0 x 0 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Update_mass_dataset ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 4 massdataset update_mass_dataset() 2021-12-05 21:36:48</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset update_mass_dataset() 2021-12-05 22:26:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset update_mass_dataset() 2021-12-05 22:26:00</span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -81,15 +81,15 @@ check_mass_dataset =
         return(check_result)
       }
       
-      if (all(sample_info$class != "Subject")) {
-        check_result = "error: class should have at least one Subject sample."
-        return(check_result)
-      }
+      # if (all(sample_info$class != "Subject")) {
+      #   check_result = "error: class should have at least one Subject sample."
+      #   return(check_result)
+      # }
       
-      if (any(sample_info$class %in% c("QC", "Blank", "QC_DL"))) {
-        check_result = "warning: Blank should be named as Blank, QC should be named as
-        QC and QC_DL should be named as QC_DL."
-      }
+      # if (any(sample_info$class %in% c("QC", "Blank", "QC_DL"))) {
+      #   check_result = "warning: Blank should be named as Blank, QC should be named as
+      #   QC and QC_DL should be named as QC_DL."
+      # }
     }
     
     ##check sample_info_note format

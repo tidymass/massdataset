@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 ```
 
 
-# **Example**
+# **Example 1**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 library(massdataset)
@@ -63,4 +63,16 @@ ncol(object)
 rownames(object)
 colnames(object)
 object[1,1]
+```
+
+# **tidyverse verbs**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+object2 = 
+  object %>% 
+  activate_mass_dataset(what = "sample_info") %>% 
+  mutate(sample_id2 = sample_id)
+
+head(extract_sample_info(object))
+head(extract_sample_info(object2))
 ```

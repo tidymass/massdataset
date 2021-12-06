@@ -56,6 +56,6 @@ Suggests:
     tidyverse
 Note:
 Remotes: 
-    tidymass/metid
+    tidymass/metid,
     tidymass/tinytools
 biocViews: Metabolomics, MassSpectrometry, Data processing, Data analysis.
