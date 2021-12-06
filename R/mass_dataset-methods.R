@@ -1,5 +1,6 @@
 #' @rdname mass_dataset-class
 #' @return message
+#' @export
 #' @importFrom methods show
 setMethod(f = "show", signature = "mass_dataset", definition = function(object) {
   ###check again
