@@ -44,7 +44,9 @@ Imports:
     rvest,
     xml2,
     htmlwidgets,
-    leaflet
+    leaflet,
+    metid,
+    tinytools
 Suggests: 
     knitr,
     rmarkdown,
@@ -53,4 +55,7 @@ Suggests:
     BiocGenerics,
     tidyverse
 Note:
+Remotes: 
+    tidymass/metid
+    tidymass/tinytools
 biocViews: Metabolomics, MassSpectrometry, Data processing, Data analysis.

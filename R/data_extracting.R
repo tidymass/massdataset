@@ -19,7 +19,6 @@
 #'  extract_expression_data(object = object)
 #'  head(expression_data2)
 
-
 extract_expression_data = function(object) {
   expression_data = object@expression_data %>%
     as.data.frame()
@@ -123,14 +122,14 @@ extract_sample_info_note = function(object) {
 #' data("sample_info")
 #' data("variable_info")
 #' library(massdataset)
-#' 
+#'
 #' object =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#' 
+#'
 #' object
 #' extract_process_info(object)
 
@@ -139,3 +138,62 @@ extract_process_info =
     process_info = object@process_info
     return(process_info)
   }
+
+
+#####other functions
+
+###sample_info
+#' @rdname mass_dataset-class
+#' @return sample_info
+
+setMethod(
+  f = "sample_info",
+  signature = "mass_dataset",
+  definition = function(object)
+    object@sample_info
+)
+
+##expression_data
+#' @rdname mass_dataset-class
+#' @return expression_data
+
+setMethod(
+  f = "expression_data",
+  signature = "mass_dataset",
+  definition = function(object)
+    object@expression_data
+)
+
+
+
+##variable_info
+#' @rdname mass_dataset-class
+#' @return variable_info
+setMethod(
+  f = "variable_info",
+  signature = "mass_dataset",
+  definition = function(object)
+    object@variable_info
+)
+
+
+##process_info
+#' @rdname mass_dataset-class
+#' @return process_info
+setMethod(
+  f = "process_info",
+  signature = "mass_dataset",
+  definition = function(object)
+    object@process_info
+)
+
+
+##ms2_data
+#' @rdname mass_dataset-class
+#' @return ms2_data
+setMethod(
+  f = "ms2_data",
+  signature = "mass_dataset",
+  definition = function(object)
+    object@ms2_data
+)

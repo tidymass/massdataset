@@ -56,6 +56,12 @@ reference:
     desc: Add some variabels to variables
     contents:
     - calculate_rsd
+    - mutate_ms2
+    - mutate_mean_intensity
+    - mutate_median_intensity
+    - mutate_rsd
+    - mutate_sample_na_number
+    - mutate_variable_na_number
   - title: System
     desc: System
     contents:
@@ -82,9 +88,10 @@ navbar:
       menu:
       - text: Data import and export
         href: articles/data_import_and_export.html
-      - text: --------
       - text: Operate mass_dataset using tidyverse
         href: articles/tidyverse_verse.html
+      - text: Example
+        href: articles/example.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/JasperShen1990

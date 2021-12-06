@@ -10,22 +10,16 @@
     <loc>https://tidymass.github.io/massdataset//reference/check_mass_dataset.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/colnames.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/check_object_class.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/create_mass_dataset.html</loc>
-  </url>
-  <url>
-    <loc>https://tidymass.github.io/massdataset//reference/dim.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/export_mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/expression_data.html</loc>
-  </url>
-  <url>
-    <loc>https://tidymass.github.io/massdataset//reference/extract-methods.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/extract_expression_data.html</loc>
@@ -76,10 +70,16 @@
     <loc>https://tidymass.github.io/massdataset//reference/massdataset_packages.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset//reference/ms2_data.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset//reference/mutate_mean_intensity.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/mutate_median_intensity.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/mutate_ms2.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/mutate_rsd.html</loc>
@@ -97,16 +97,7 @@
     <loc>https://tidymass.github.io/massdataset//reference/mutate_variable_na_number.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/ncol.html</loc>
-  </url>
-  <url>
-    <loc>https://tidymass.github.io/massdataset//reference/nrow.html</loc>
-  </url>
-  <url>
     <loc>https://tidymass.github.io/massdataset//reference/reexports.html</loc>
-  </url>
-  <url>
-    <loc>https://tidymass.github.io/massdataset//reference/rownames.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/sample_info.html</loc>
@@ -134,6 +125,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//articles/data_import_and_export.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//articles/example.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//articles/tidyverse_verse.html</loc>

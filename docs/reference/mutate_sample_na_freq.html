@@ -118,9 +118,11 @@
     <li>
       <a href="../articles/data_import_and_export.html">Data import and export</a>
     </li>
-    <li class="divider"></li>
     <li>
       <a href="../articles/tidyverse_verse.html">Operate mass_dataset using tidyverse</a>
+    </li>
+    <li>
+      <a href="../articles/example.html">Example</a>
     </li>
   </ul>
 </li>
@@ -231,21 +233,17 @@ want to use only several variables, provide their names as a vector.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data (extract_expression_data()):</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 1000 x 8  data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info (extract_sample_info()):</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 8 x 4 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info (extract_variable_info()):</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 1000 x 3 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note (extract_sample_info_note()):</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note (extract_variable_info_note()):</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note:</span>[ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 00:14:46</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 21:36:46</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>##calculate NA frequency according to all the variables</span></span>
 <span class='r-in'><span class='va'>object2</span> <span class='op'>=</span></span>
@@ -283,25 +281,21 @@ want to use only several variables, provide their names as a vector.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data (extract_expression_data()):</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 1000 x 8  data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info (extract_sample_info()):</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 8 x 6 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info (extract_variable_info()):</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 1000 x 3 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note (extract_sample_info_note()):</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note (extract_variable_info_note()):</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 6 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note:</span>[ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 00:14:46</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-05 21:36:46</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>mutate_sample_na_freq ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset mutate_sample_na_freq() 2021-12-05 00:14:46</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset mutate_sample_na_freq() 2021-12-05 00:14:46</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset mutate_sample_na_freq() 2021-12-05 21:36:46</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset mutate_sample_na_freq() 2021-12-05 21:36:46</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='extract_sample_info.html'>extract_sample_info</a></span><span class='op'>(</span><span class='va'>object3</span><span class='op'>)</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>   sample_id injection.order   class   group na_freq na_freq.1</span>

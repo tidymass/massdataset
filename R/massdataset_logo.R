@@ -17,7 +17,7 @@
 #' @import ggplot2
 #' @importFrom methods .hasSlot new
 #' @importFrom stats p.adjust rgamma sd median
-#' @importFrom utils data str
+#' @importFrom utils data str head
 #' @importFrom magrittr %>%
 #' @export
 #' @examples

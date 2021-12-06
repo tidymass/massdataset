@@ -19,7 +19,6 @@
 #'     variable_info = variable_info,
 #'   )
 
-
 check_mass_dataset =
   function(expression_data,
            sample_info,
@@ -180,3 +179,20 @@ check_mass_dataset =
     }
     return("all good.")
   }
+
+
+#' @title check_object_class
+#' @description check_object_class
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@163.com}
+#' @param object object
+#' @param class object should be what class
+#' @return Notice of data checking.
+#' @export
+check_object_class = function(object,
+                              class = c("mass_dataset", "tidymass_parameter")) {
+  class = match.arg(class)
+  if (class(object)[1] != class) {
+    stop("Only support ", class)
+  }
+}
