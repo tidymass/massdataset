@@ -60,7 +60,7 @@ object
 dim(object)
 nrow(object)
 ncol(object)
-rownames(object)
+rownames(object) %>% head()
 colnames(object)
 object[1,1]
 ```
@@ -75,4 +75,46 @@ object2 =
 
 head(extract_sample_info(object))
 head(extract_sample_info(object2))
+```
+
+
+# **apply**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+##NA number in QC samples for all variables  
+object %>% 
+  activate_mass_dataset(what = "sample_info") %>% 
+  filter(class == "QC") %>% 
+  apply(1, function(x){sum(is.na(x))}) %>% 
+  head()
+
+##NA number in all samples
+object %>% 
+  apply(2, function(x){sum(is.na(x))})
+```
+
+
+# **Mutate MS2 data**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+dir.create("example")
+file.copy(
+  system.file("ms2_data", package = "massdataset"),
+  to = "example",
+  overwrite = TRUE, 
+  recursive = TRUE
+)
+
+object2 = 
+mutate_ms2(
+  object = object,
+  column = "rp",
+  polarity = "positive",
+  ms1.ms2.match.mz.tol = 10, 
+  ms1.ms2.match.rt.tol = 15, 
+  path = "example"
+)
+
+extract_ms2_data(object2)
+
 ```

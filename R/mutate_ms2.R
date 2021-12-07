@@ -47,7 +47,7 @@ mutate_ms2 =
       pattern = "mgf",
       all.files = TRUE,
       full.names = TRUE,
-      recursive = FALSE
+      recursive = TRUE
     )
     
     if(length(ms2_list) == 0){

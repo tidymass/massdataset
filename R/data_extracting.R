@@ -139,6 +139,20 @@ extract_process_info =
     return(process_info)
   }
 
+#' @title Extract ms2 data
+#' @description Extract ms2 data
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@outlook.com}
+#' @param object (required) mass_dataset class object.
+#' @return A ms2_data class object.
+#' @export
+
+extract_ms2_data =
+  function(object) {
+    ms2_data = object@ms2_data
+    return(ms2_data)
+  }
+
 
 #####other functions
 

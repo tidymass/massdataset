@@ -61,7 +61,7 @@ check_mass_dataset =
       return(check_result)
     } else{
       if (all(colnames(sample_info) != "sample_id")) {
-        check_result = "error: sample_id must have sample_id."
+        check_result = "error: sample_info must have sample_id."
         return(check_result)
       }
       
@@ -70,9 +70,8 @@ check_mass_dataset =
         return(check_result)
       }
       
-      
       if (all(colnames(sample_info) != "class")) {
-        check_result = "error: sample_id must have class."
+        check_result = "error: sample_info must have class."
         return(check_result)
       }
       

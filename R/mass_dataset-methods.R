@@ -237,92 +237,17 @@ setMethod(f = "rownames", signature = "mass_dataset", definition = function(x){
     return(x)
   }
 
-#'
-#' ### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#' ### Subsetting
-#' #' @rdname mass_dataset-class
-#' #' @return mass_dataset object
-#'
-#' setMethod(
-#'   f = "[",
-#'   signature = c(x = "mass_dataset", i = "ANY", j = "ANY"),
-#'   definition =
-#'     function(x, i, j, ..., drop = FALSE) {
-#'       if (missing(i) & missing(j)) {
-#'         return(x)
-#'       }
-#'
-#'       if (!missing(i)) {
-#'         if (is.character(i)) {
-#'           i <- match(i, rownames(x@expression_data))
-#'         }
-#'       } else{
-#'         i = 1:nrow(x@expression_data)
-#'       }
-#'
-#'       if (!missing(j)) {
-#'         if (is.character(j)) {
-#'           j <- match(j, colnames(x@expression_data))
-#'         }
-#'       } else{
-#'         j = 1:ncol(x@expression_data)
-#'       }
-#'
-#'       if (sum(is.na(j)) > 0) {
-#'         j = j[!is.na(j)]
-#'         if (length(j) == 0) {
-#'           j = 1:ncol(x)
-#'           warning("All sample index (j) are not in the object. Please check.")
-#'         } else{
-#'           warning("Some sample index (j) are not in the object. Please check.")
-#'         }
-#'       }
-#'
-#'       if (any(!j %in% 1:ncol(x))) {
-#'         warning("Some sample index (j) are not in the object. Please check.")
-#'         j = j[j %in% 1:ncol(x)]
-#'       }
-#'
-#'       if (sum(is.na(i)) > 0) {
-#'         i = i[!is.na(i)]
-#'         if (length(i) == 0) {
-#'           i = 1:nrow(x)
-#'           warning("Some variable index (i) are not in the object. Please check.")
-#'         } else{
-#'           warning("Some variable index (i) are not in the object. Please check.")
-#'         }
-#'
-#'       }
-#'
-#'       if (any(!i %in% 1:nrow(x))) {
-#'         warning("Some variable index (i) are not in the object. Please check.")
-#'         i = i[i %in% 1:nrow(x)]
-#'       }
-#'
-#'       ###add paramters
-#'       ####add parameters
-#'       process_info = x@process_info
-#'
-#'       parameter <- new(
-#'         Class = "tidymass_parameter",
-#'         pacakge_name = "massdataset",
-#'         function_name = "[",
-#'         parameter = list("i" = i,
-#'                          "j" = j),
-#'         time = Sys.time()
-#'       )
-#'
-#'       if (all(names(process_info) != "Subset")) {
-#'         process_info$Subset = parameter
-#'       } else{
-#'         process_info$Subset = c(process_info$Subset, parameter)
-#'       }
-#'
-#'       object@process_info = process_info
-#'
-#'       x@expression_data = x@expression_data[i, j, drop = drop]
-#'       x@sample_info = x@sample_info[j, , drop = FALSE]
-#'       x@variable_info = x@variable_info[i, , drop = FALSE]
-#'       return(x)
-#'     }
-#' )
+
+#' @method apply mass_dataset
+#' @export
+#' @rdname mass_dataset-class
+#' @return result
+
+setMethod(
+  f = "apply",
+  signature = "mass_dataset",
+  definition = function(X, MARGIN, FUN, ..., simplify = TRUE) {
+    apply(as.matrix(X@expression_data), MARGIN, FUN, ..., simplify = TRUE)
+  }
+)
+
