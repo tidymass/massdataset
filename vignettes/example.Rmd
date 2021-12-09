@@ -163,6 +163,13 @@ object %>%
                       show_row_names = TRUE,
                       row_names_side = "left")
 
+##show missing values plot
+show_sample_missing_values(object)
+show_sample_missing_values(object, color_by = "class")
+show_sample_missing_values(object, color_by = "class", order_by = "na")
+show_sample_missing_values(object, color_by = "class", order_by = "na",
+                           desc = TRUE)
+
 
 ```
 
