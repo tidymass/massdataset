@@ -46,7 +46,10 @@ Imports:
     htmlwidgets,
     leaflet,
     metid,
-    tinytools
+    tinytools,
+    ComplexHeatmap,
+    grid,
+    ggplotify
 Suggests: 
     knitr,
     rmarkdown,

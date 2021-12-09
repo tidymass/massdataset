@@ -3,6 +3,9 @@
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @importFrom stringr str_replace str_split str_replace_all str_trim
+#' @importFrom ComplexHeatmap Heatmap
+#' @importFrom grid gpar
+#' @importFrom ggplotify as.ggplot
 #' @importFrom dplyr filter mutate select everything
 #' @importFrom rstudioapi isAvailable hasFun getThemeInfo
 #' @importFrom utils packageDescription write.csv

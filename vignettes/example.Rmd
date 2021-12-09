@@ -118,3 +118,50 @@ mutate_ms2(
 extract_ms2_data(object2)
 
 ```
+
+
+# **Missing values**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+library(massdataset)
+library(plyr)
+data("expression_data")
+data("sample_info")
+data("variable_info")
+
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info,
+  )
+
+object
+
+##show missing values plot
+show_missing_values(object)
+
+show_missing_values(object[1:10,], cell_color = "white")
+
+###only show subject samples
+object %>%
+  activate_mass_dataset(what = "sample_info") %>%
+  filter(class == "Subject") %>%
+  show_missing_values()
+
+###only show QC samples
+object %>%
+  activate_mass_dataset(what = "expression_data") %>%
+  dplyr::select(contains("QC")) %>%
+  show_missing_values()
+
+###only show features with mz < 100
+object %>%
+  activate_mass_dataset(what = "variable_info") %>%
+  dplyr::filter(mz < 100) %>%
+  show_missing_values(cell_color = "white",
+                      show_row_names = TRUE,
+                      row_names_side = "left")
+
+
+```
