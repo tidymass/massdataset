@@ -165,3 +165,73 @@ object %>%
 
 
 ```
+
+
+
+
+
+
+
+# **log and scale**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+library(massdataset)
+library(plyr)
+data("expression_data")
+data("sample_info")
+data("variable_info")
+
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info,
+  )
+
+object
+
+##log
+x = log(object, 10)
+x
+#scale
+x2 = scale(x)
+x2
+```
+
+
+# **Accessors**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+library(massdataset)
+library(plyr)
+data("expression_data")
+data("sample_info")
+data("variable_info")
+
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info,
+  )
+
+object
+
+object[1:5,1:3]
+
+object[1:5,]
+
+object[,1:3]
+
+extract_sample_info(object) %>% 
+  head()
+
+extract_variable_info(object) %>% 
+  head()
+
+extract_expression_data(object) %>% 
+  head()
+
+
+```
+

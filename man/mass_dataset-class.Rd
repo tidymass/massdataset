@@ -14,6 +14,8 @@
 \alias{rownames,mass_dataset-method}
 \alias{[.mass_dataset}
 \alias{apply,mass_dataset-method}
+\alias{log,mass_dataset-method}
+\alias{scale,mass_dataset-method}
 \title{colnames.mass_dataset <- function(x)}
 \usage{
 \S4method{sample_info}{mass_dataset}(object)
@@ -41,6 +43,10 @@
 \method{[}{mass_dataset}(x, i, j, drop = FALSE, ...)
 
 \S4method{apply}{mass_dataset}(X, MARGIN, FUN, ..., simplify = TRUE)
+
+\S4method{log}{mass_dataset}(x, base = exp(1))
+
+\S4method{scale}{mass_dataset}(x, center = TRUE, scale = TRUE)
 }
 \value{
 sample_info
@@ -68,6 +74,10 @@ message
 mass_dataset
 
 result
+
+mass_dataset object
+
+mass_dataset object
 }
 \description{
 colnames.mass_dataset <- function(x)
