@@ -186,11 +186,6 @@ show_variable_missing_values(object, color_by = "mz",
 ```
 
 
-
-
-
-
-
 # **log and scale**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
@@ -253,4 +248,32 @@ extract_expression_data(object) %>%
 
 
 ```
+
+
+
+# **Explore**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+data("expression_data")
+data("sample_info")
+data("variable_info")
+
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info,
+  )
+
+object %>%
+  show_mz_rt_plot()
+
+object %>%
+  log(10) %>%
+  show_mz_rt_plot()
+
+object %>%
+  show_mz_rt_plot(hex = TRUE)
+```
+
 

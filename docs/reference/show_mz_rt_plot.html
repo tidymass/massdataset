@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract process information — extract_process_info • massdataset</title>
+<title>mz and rt plot — show_mz_rt_plot • massdataset</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,8 +52,8 @@
 
 
 
-<meta property="og:title" content="Extract process information — extract_process_info" />
-<meta property="og:description" content="Extract process information" />
+<meta property="og:title" content="mz and rt plot — show_mz_rt_plot" />
+<meta property="og:description" content="mz and rt plot" />
 <meta property="og:image" content="https://tidymass.github.io/massdataset/logo.png" />
 
 
@@ -182,16 +182,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract process information</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/data_extracting.R'><code>R/data_extracting.R</code></a></small>
-    <div class="hidden name"><code>extract_process_info.Rd</code></div>
+    <h1>mz and rt plot</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/show_mz_rt_plot.R'><code>R/show_mz_rt_plot.R</code></a></small>
+    <div class="hidden name"><code>show_mz_rt_plot.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Extract process information</p>
+    <p>mz and rt plot</p>
     </div>
 
-    <pre class="usage"><span class='fu'>extract_process_info</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>show_mz_rt_plot</span><span class='op'>(</span><span class='va'>object</span>, hex <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -200,21 +200,26 @@
       <th>object</th>
       <td><p>(required) mass_dataset class object.</p></td>
     </tr>
+    <tr>
+      <th>hex</th>
+      <td><p>hex or not.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame.</p>
+    <p>A ggplot2 object</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Xiaotao Shen
 <a href='mailto:shenxt1990@outlook.com'>shenxt1990@outlook.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
+    <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidymass/massdataset'>massdataset</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://had.co.nz/plyr'>plyr</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"sample_info"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidymass/massdataset'>massdataset</a></span><span class='op'>)</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
 <span class='r-in'>  <span class='fu'><a href='create_mass_dataset.html'>create_mass_dataset</a></span><span class='op'>(</span></span>
@@ -223,30 +228,18 @@
 <span class='r-in'>    variable_info <span class='op'>=</span> <span class='va'>variable_info</span>,</span>
 <span class='r-in'>  <span class='op'>)</span></span>
 <span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8  data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 1000 x 3 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 0 x 0 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note:</span>[ 0 x 0 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-09 21:07:57</span>
-<span class='r-in'><span class='fu'>extract_process_info</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> $Creation</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>pacakge_name: massdataset</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>function_name: create_mass_dataset()</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>time: 2021-12-09 21:07:57</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>parameters:</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>no : no</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>show_mz_rt_plot</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='show_mz_rt_plot-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>show_mz_rt_plot</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='show_mz_rt_plot-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>show_mz_rt_plot</span><span class='op'>(</span>hex <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='show_mz_rt_plot-3.png' alt='' width='700' height='433' /></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
