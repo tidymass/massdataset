@@ -198,6 +198,7 @@
   <span class='va'>column_names_rot</span>,
   cell_color <span class='op'>=</span> <span class='st'>"transparent"</span>,
   row_names_side <span class='op'>=</span> <span class='st'>"right"</span>,
+  percentage <span class='op'>=</span> <span class='cn'>FALSE</span>,
   <span class='va'>...</span>
 <span class='op'>)</span></pre>
 
@@ -227,6 +228,10 @@
     <tr>
       <th>row_names_side</th>
       <td><p>row names side</p></td>
+    </tr>
+    <tr>
+      <th>percentage</th>
+      <td><p>percentage or not</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -287,7 +292,7 @@
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-09 21:08:03</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-09 21:59:53</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>##show missing values plot</span></span>
 <span class='r-in'><span class='fu'>show_missing_values</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></span>
@@ -316,7 +321,8 @@
 <span class='r-in'>  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>mz</span> <span class='op'>&lt;</span> <span class='fl'>100</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span class='r-in'>  <span class='fu'>show_missing_values</span><span class='op'>(</span>cell_color <span class='op'>=</span> <span class='st'>"white"</span>,</span>
 <span class='r-in'>                      show_row_names <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
-<span class='r-in'>                      row_names_side <span class='op'>=</span> <span class='st'>"left"</span><span class='op'>)</span></span>
+<span class='r-in'>                      row_names_side <span class='op'>=</span> <span class='st'>"left"</span>, </span>
+<span class='r-in'>                      percentage <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
 <span class='r-plt img'><img src='show_missing_values-4.png' alt='' width='700' height='433' /></span>
 </pre>
   </div>

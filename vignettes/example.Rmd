@@ -181,7 +181,7 @@ show_variable_missing_values(object, color_by = "mz",
                              order_by = "na")
 show_variable_missing_values(object, color_by = "mz", 
                              order_by = "na",
-                           desc = TRUE, frequency = TRUE)
+                           desc = TRUE, percentage = TRUE)
 
 ```
 

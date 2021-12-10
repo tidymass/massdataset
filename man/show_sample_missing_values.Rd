@@ -8,7 +8,7 @@ show_sample_missing_values(
   object,
   color_by,
   order_by,
-  frequency = FALSE,
+  percentage = FALSE,
   desc = FALSE
 )
 }
@@ -19,7 +19,7 @@ show_sample_missing_values(
 
 \item{order_by}{which column (sample_info) is used to order samples}
 
-\item{frequency}{show MV frequency?}
+\item{percentage}{show MV percentage?}
 
 \item{desc}{desc}
 }

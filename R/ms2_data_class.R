@@ -9,7 +9,7 @@
 #' @slot ms2_spectra ms2_spectra
 #' @slot mz_tol mz_tol
 #' @slot rt_tol rt_tol
-#' @export
+#' @exportClass ms2_data
 setClass(
   Class = "ms2_data",
   representation(

@@ -29,5 +29,6 @@ globalVariables(names = c(
   "intensity",
   "mz",
   "sample_id",
-  "variable_id"
+  "variable_id",
+  "rt"
 ))

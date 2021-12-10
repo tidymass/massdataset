@@ -3,7 +3,7 @@
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @importFrom stringr str_replace str_split str_replace_all str_trim
-#' @importFrom ComplexHeatmap Heatmap
+#' @importFrom ComplexHeatmap Heatmap columnAnnotation anno_barplot
 #' @importFrom grid gpar
 #' @importFrom ggplotify as.ggplot
 #' @importFrom dplyr filter mutate select everything
@@ -22,6 +22,7 @@
 #' @importFrom stats p.adjust rgamma sd median
 #' @importFrom utils data str head
 #' @importFrom magrittr %>%
+#' @importFrom ggsci pal_lancet 
 #' @export
 #' @examples
 #' massdataset_logo()

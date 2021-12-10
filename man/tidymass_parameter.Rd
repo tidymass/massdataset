@@ -3,7 +3,7 @@
 \docType{class}
 \name{tidymass_parameter}
 \alias{tidymass_parameter}
-\title{An S4 class that stores the parameters}
+\title{tidymass_parameter}
 \description{
 An S4 class that stores the parameters
 }

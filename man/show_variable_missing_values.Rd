@@ -8,7 +8,7 @@ show_variable_missing_values(
   object,
   color_by,
   order_by,
-  frequency = FALSE,
+  percentage = FALSE,
   show_x_text = FALSE,
   show_x_ticks = FALSE,
   desc = FALSE
@@ -21,7 +21,7 @@ show_variable_missing_values(
 
 \item{order_by}{which column (variable_info) is used to order variables}
 
-\item{frequency}{show MV frequency?}
+\item{percentage}{show MV percentage?}
 
 \item{show_x_text}{show_x_text}
 
@@ -57,13 +57,13 @@ show_variable_missing_values(object)
 show_variable_missing_values(object, color_by = "mz")
 
 show_variable_missing_values(object, color_by = "rt") +
-  scale_color_gradient(low = "skyblue", high = "red") 
+  scale_color_gradient(low = "skyblue", high = "red")
 
-show_variable_missing_values(object, color_by = "mz", 
+show_variable_missing_values(object, color_by = "mz",
                              order_by = "na")
-show_variable_missing_values(object, color_by = "mz", 
+show_variable_missing_values(object, color_by = "mz",
                              order_by = "na",
-                           desc = TRUE, frequency = TRUE)
+                           desc = TRUE, percentage = TRUE)
 }
 \author{
 Xiaotao Shen

@@ -2,13 +2,14 @@
 
 ##S4 class for parameter
 #' An S4 class that stores the parameters
+#' @title tidymass_parameter
 #' @name tidymass_parameter
 #' @docType class
 #' @slot pacakge_name pacakge_name
 #' @slot function_name function_name
 #' @slot parameter parameter
 #' @slot time time
-#' @export
+#' @exportClass tidymass_parameter
 setClass(
   Class = "tidymass_parameter",
   representation(

@@ -2,18 +2,18 @@
 #' @importFrom dplyr left_join
 #' @export
 left_join.mass_dataset <-
-  function(.data,
+  function(x,
            y,
            by = NULL,
            copy = FALSE,
            suffix = c(".x", ".y"),
            ...) {
-    if (length(.data@activated) == 0) {
+    if (length(x@activated) == 0) {
       stop("activate you object using activate_mass_dataset first.\n")
     }
     
     x =
-      slot(object = .data, name = .data@activated)
+      slot(object = x, name = x@activated)
     
     x =
       left_join(x,
@@ -23,8 +23,8 @@ left_join.mass_dataset <-
                 suffix = suffix,
                 ...)
     
-    slot(object = .data, name = .data@activated) = x
-    return(.data)
+    slot(object = x, name = x@activated) = x
+    return(x)
   }
 
 #' @importFrom dplyr left_join
