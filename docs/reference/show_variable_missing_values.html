@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Determine the context of subsequent manipulations — activate_mass_dataset • massdataset</title>
+<title>show_variable_missing_values — show_variable_missing_values • massdataset</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,8 +52,8 @@
 
 
 
-<meta property="og:title" content="Determine the context of subsequent manipulations — activate_mass_dataset" />
-<meta property="og:description" content="Determine the context of subsequent manipulations" />
+<meta property="og:title" content="show_variable_missing_values — show_variable_missing_values" />
+<meta property="og:description" content="show_variable_missing_values" />
 <meta property="og:image" content="https://tidymass.github.io/massdataset/logo.png" />
 
 
@@ -182,55 +182,81 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Determine the context of subsequent manipulations</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/activate_mass_dataset.R'><code>R/activate_mass_dataset.R</code></a></small>
-    <div class="hidden name"><code>activate_mass_dataset.Rd</code></div>
+    <h1>show_variable_missing_values</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/missing_value_explore_plot.R'><code>R/missing_value_explore_plot.R</code></a></small>
+    <div class="hidden name"><code>show_variable_missing_values.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Determine the context of subsequent manipulations</p>
+    <p>show_variable_missing_values</p>
     </div>
 
-    <pre class="usage"><span class='fu'>activate_mass_dataset</span><span class='op'>(</span>
-  <span class='va'>.data</span>,
-  what <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sample_info"</span>, <span class='st'>"variable_info"</span>, <span class='st'>"expression_data"</span>, <span class='st'>"sample_info_note"</span>,
-    <span class='st'>"variable_info_note"</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>show_variable_missing_values</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  <span class='va'>color_by</span>,
+  <span class='va'>order_by</span>,
+  frequency <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  show_x_text <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  show_x_ticks <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  desc <span class='op'>=</span> <span class='cn'>FALSE</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>.data</th>
-      <td><p>A mass_dataset class object</p></td>
+      <th>object</th>
+      <td><p>(required) mass_dataset class object.</p></td>
     </tr>
     <tr>
-      <th>what</th>
-      <td><p>What should get activated? Possible values are <code>sample_info</code>,
-<code>expression_data</code>, <code>variable_info</code>, <code>sample_info_note</code> or
-<code>variable_info_note</code>.</p></td>
+      <th>color_by</th>
+      <td><p>which column (variable_info) is used to color variables</p></td>
+    </tr>
+    <tr>
+      <th>order_by</th>
+      <td><p>which column (variable_info) is used to order variables</p></td>
+    </tr>
+    <tr>
+      <th>frequency</th>
+      <td><p>show MV frequency?</p></td>
+    </tr>
+    <tr>
+      <th>show_x_text</th>
+      <td><p>show_x_text</p></td>
+    </tr>
+    <tr>
+      <th>show_x_ticks</th>
+      <td><p>show_x_ticks</p></td>
+    </tr>
+    <tr>
+      <th>desc</th>
+      <td><p>desc</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tidyclas class object</p>
+    <p>A ggplot2 object</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Xiaotao Shen
+<a href='mailto:shenxt1990@outlook.com'>shenxt1990@outlook.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"sample_info"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"sample_info_note"</span><span class='op'>)</span></span>
+    <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidymass/massdataset'>massdataset</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://had.co.nz/plyr'>plyr</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info_note"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
 <span class='r-in'>  <span class='fu'><a href='create_mass_dataset.html'>create_mass_dataset</a></span><span class='op'>(</span></span>
 <span class='r-in'>    expression_data <span class='op'>=</span> <span class='va'>expression_data</span>,</span>
 <span class='r-in'>    sample_info <span class='op'>=</span> <span class='va'>sample_info</span>,</span>
 <span class='r-in'>    variable_info <span class='op'>=</span> <span class='va'>variable_info</span>,</span>
-<span class='r-in'>    sample_info_note <span class='op'>=</span> <span class='va'>sample_info_note</span>,</span>
-<span class='r-in'>    variable_info_note <span class='op'>=</span> <span class='va'>variable_info_note</span></span>
 <span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'></span>
 <span class='r-in'><span class='va'>object</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
@@ -238,20 +264,32 @@
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8  data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 1000 x 3 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 0 x 0 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note:</span>[ 0 x 0 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-09 18:26:04</span>
-<span class='r-in'><span class='va'>object</span><span class='op'>@</span><span class='va'>activated</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> character(0)</span>
-<span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
-<span class='r-in'>  <span class='fu'>activate_mass_dataset</span><span class='op'>(</span>.data <span class='op'>=</span> <span class='va'>object</span>, what <span class='op'>=</span> <span class='st'>"sample_info"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='va'>object</span><span class='op'>@</span><span class='va'>activated</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "sample_info"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-09 18:26:14</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>##show missing values plot</span></span>
+<span class='r-in'><span class='fu'>show_variable_missing_values</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='show_variable_missing_values-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'>show_variable_missing_values</span><span class='op'>(</span><span class='va'>object</span>, color_by <span class='op'>=</span> <span class='st'>"mz"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='show_variable_missing_values-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>show_variable_missing_values</span><span class='op'>(</span><span class='va'>object</span>, color_by <span class='op'>=</span> <span class='st'>"rt"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_gradient.html'>scale_color_gradient</a></span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"skyblue"</span>, high <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span> </span>
+<span class='r-plt img'><img src='show_variable_missing_values-3.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>show_variable_missing_values</span><span class='op'>(</span><span class='va'>object</span>, color_by <span class='op'>=</span> <span class='st'>"mz"</span>, </span>
+<span class='r-in'>                             order_by <span class='op'>=</span> <span class='st'>"na"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='show_variable_missing_values-4.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'>show_variable_missing_values</span><span class='op'>(</span><span class='va'>object</span>, color_by <span class='op'>=</span> <span class='st'>"mz"</span>, </span>
+<span class='r-in'>                             order_by <span class='op'>=</span> <span class='st'>"na"</span>,</span>
+<span class='r-in'>                           desc <span class='op'>=</span> <span class='cn'>TRUE</span>, frequency <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='show_variable_missing_values-5.png' alt='' width='700' height='433' /></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

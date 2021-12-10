@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add NA number for each feature to variable_info — show_sample_missing_values • massdataset</title>
+<title>show_sample_missing_values — show_sample_missing_values • massdataset</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,8 +52,8 @@
 
 
 
-<meta property="og:title" content="Add NA number for each feature to variable_info — show_sample_missing_values" />
-<meta property="og:description" content="Add NA number for each feature to variable_info" />
+<meta property="og:title" content="show_sample_missing_values — show_sample_missing_values" />
+<meta property="og:description" content="show_sample_missing_values" />
 <meta property="og:image" content="https://tidymass.github.io/massdataset/logo.png" />
 
 
@@ -182,13 +182,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add NA number for each feature to variable_info</h1>
+    <h1>show_sample_missing_values</h1>
     <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/missing_value_explore_plot.R'><code>R/missing_value_explore_plot.R</code></a></small>
     <div class="hidden name"><code>show_sample_missing_values.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Add NA number for each feature to variable_info</p>
+    <p>show_sample_missing_values</p>
     </div>
 
     <pre class="usage"><span class='fu'>show_sample_missing_values</span><span class='op'>(</span>
@@ -207,28 +207,20 @@
       <td><p>(required) mass_dataset class object.</p></td>
     </tr>
     <tr>
-      <th>show_row_names</th>
-      <td><p>show_row_names. see?ComplexHeatmap::Heatmap</p></td>
+      <th>color_by</th>
+      <td><p>which column (sample_info) is used to color samples</p></td>
     </tr>
     <tr>
-      <th>show_column_names</th>
-      <td><p>show_column_names see?ComplexHeatmap::Heatmap</p></td>
+      <th>order_by</th>
+      <td><p>which column (sample_info) is used to order samples</p></td>
     </tr>
     <tr>
-      <th>column_names_rot</th>
-      <td><p>column_names_rot see?ComplexHeatmap::Heatmap</p></td>
+      <th>frequency</th>
+      <td><p>show MV frequency?</p></td>
     </tr>
     <tr>
-      <th>cell_color</th>
-      <td><p>cell color</p></td>
-    </tr>
-    <tr>
-      <th>row_names_side</th>
-      <td><p>row names side</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Other parameters for ComplexHeatmap::Heatmap</p></td>
+      <th>desc</th>
+      <td><p>desc</p></td>
     </tr>
     </table>
 
@@ -268,7 +260,7 @@
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-09 09:42:07</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-09 18:26:13</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>##show missing values plot</span></span>
 <span class='r-in'><span class='fu'>show_sample_missing_values</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></span>

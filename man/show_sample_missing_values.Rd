@@ -2,7 +2,7 @@
 % Please edit documentation in R/missing_value_explore_plot.R
 \name{show_sample_missing_values}
 \alias{show_sample_missing_values}
-\title{Add NA number for each feature to variable_info}
+\title{show_sample_missing_values}
 \usage{
 show_sample_missing_values(
   object,
@@ -15,23 +15,19 @@ show_sample_missing_values(
 \arguments{
 \item{object}{(required) mass_dataset class object.}
 
-\item{show_row_names}{show_row_names. see?ComplexHeatmap::Heatmap}
+\item{color_by}{which column (sample_info) is used to color samples}
 
-\item{show_column_names}{show_column_names see?ComplexHeatmap::Heatmap}
+\item{order_by}{which column (sample_info) is used to order samples}
 
-\item{column_names_rot}{column_names_rot see?ComplexHeatmap::Heatmap}
+\item{frequency}{show MV frequency?}
 
-\item{cell_color}{cell color}
-
-\item{row_names_side}{row names side}
-
-\item{...}{Other parameters for ComplexHeatmap::Heatmap}
+\item{desc}{desc}
 }
 \value{
 A ggplot2 object
 }
 \description{
-Add NA number for each feature to variable_info
+show_sample_missing_values
 }
 \examples{
 library(massdataset)

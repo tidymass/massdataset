@@ -170,6 +170,18 @@ show_sample_missing_values(object, color_by = "class", order_by = "na")
 show_sample_missing_values(object, color_by = "class", order_by = "na",
                            desc = TRUE)
 
+##show missing values plot
+show_variable_missing_values(object)
+show_variable_missing_values(object, color_by = "mz")
+
+show_variable_missing_values(object, color_by = "rt") +
+  scale_color_gradient(low = "skyblue", high = "red") 
+
+show_variable_missing_values(object, color_by = "mz", 
+                             order_by = "na")
+show_variable_missing_values(object, color_by = "mz", 
+                             order_by = "na",
+                           desc = TRUE, frequency = TRUE)
 
 ```
 

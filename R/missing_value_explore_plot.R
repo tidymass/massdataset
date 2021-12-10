@@ -101,17 +101,15 @@ show_missing_values =
 
 
 
-#' @title Add NA number for each feature to variable_info
-#' @description Add NA number for each feature to variable_info
+#' @title show_sample_missing_values
+#' @description show_sample_missing_values
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
-#' @param show_row_names show_row_names. see?ComplexHeatmap::Heatmap
-#' @param show_column_names show_column_names see?ComplexHeatmap::Heatmap
-#' @param column_names_rot column_names_rot see?ComplexHeatmap::Heatmap
-#' @param cell_color cell color
-#' @param row_names_side row names side
-#' @param ... Other parameters for ComplexHeatmap::Heatmap
+#' @param color_by which column (sample_info) is used to color samples
+#' @param order_by which column (sample_info) is used to order samples
+#' @param frequency show MV frequency?
+#' @param desc desc
 #' @return A ggplot2 object
 #' @export
 #' @examples
@@ -213,6 +211,156 @@ show_sample_missing_values =
       plot =
         plot +
         ggplot2::geom_point(aes(size = na, color = get(color_by)))
+    }
+    
+    return(plot)
+  }
+
+
+
+
+
+
+
+
+
+
+#' @title show_variable_missing_values
+#' @description show_variable_missing_values
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@outlook.com}
+#' @param object (required) mass_dataset class object.
+#' @param color_by which column (variable_info) is used to color variables
+#' @param order_by which column (variable_info) is used to order variables
+#' @param frequency show MV frequency?
+#' @param show_x_text show_x_text
+#' @param show_x_ticks show_x_ticks
+#' @param desc desc
+#' @return A ggplot2 object
+#' @export
+#' @examples
+#' library(massdataset)
+#' library(plyr)
+#' library(tidyverse)
+#' data("expression_data")
+#' data("variable_info")
+#' data("variable_info")
+#' 
+#' object =
+#'   create_mass_dataset(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+#' 
+#' object
+#' 
+#' ##show missing values plot
+#' show_variable_missing_values(object)
+#' show_variable_missing_values(object, color_by = "mz")
+#' 
+#' show_variable_missing_values(object, color_by = "rt") +
+#'   scale_color_gradient(low = "skyblue", high = "red") 
+#' 
+#' show_variable_missing_values(object, color_by = "mz", 
+#'                              order_by = "na")
+#' show_variable_missing_values(object, color_by = "mz", 
+#'                              order_by = "na",
+#'                            desc = TRUE, frequency = TRUE)
+
+
+
+show_variable_missing_values =
+  function(object,
+           color_by,
+           order_by,
+           frequency = FALSE,
+           show_x_text = FALSE,
+           show_x_ticks = FALSE,
+           desc = FALSE) {
+    check_object_class(object = object, class = "mass_dataset")
+    
+    if (missing(color_by)) {
+      color_by = "no"
+    } else{
+      if (all(colnames(object@variable_info) != color_by)) {
+        stop("no ", color_by, " in variable_info, please check.\n")
+      }
+    }
+    
+    if (missing(order_by)) {
+      order_by = "variable_id"
+    } else{
+      if (all(colnames(object@variable_info) != order_by) & order_by != "na") {
+        stop("no ", order_by, " in variable_info, please check.\n")
+      }
+    }
+    
+    expression_data = object@expression_data
+    variable_info = object@variable_info
+    
+    na =
+      apply(expression_data, 1, function(x) {
+        sum(is.na(x))
+      })
+    
+    if (frequency) {
+      na = na * 100 / ncol(expression_data)
+    }
+    
+    if(desc){
+      temp_data = 
+        data.frame(variable_info, na = na) %>% 
+        dplyr::arrange(desc(get(order_by))) %>%
+        dplyr::mutate(variable_id = factor(variable_id,
+                                         levels = variable_id))
+      
+    }else{
+      temp_data = 
+        data.frame(variable_info, na = na) %>% 
+        dplyr::arrange(get(order_by)) %>%
+        dplyr::mutate(variable_id = factor(variable_id,
+                                         levels = variable_id))
+    }
+    
+    
+    plot =
+      temp_data %>%
+      ggplot2::ggplot(aes(variable_id, na)) +
+      guides(color = guide_legend(title = color_by),
+             size = guide_legend(title = ifelse(frequency, "MV percentage (%)", "MV number"))) +
+      labs(x = "",
+           y = ifelse(frequency, "MV percentage (%)", "MV number")) +
+      theme_bw() +
+      theme(panel.grid = element_blank(),
+            axis.text.x = element_text(
+              angle = 45,
+              hjust = 1,
+              vjust = 1
+            ))
+    
+    if(!show_x_text){
+      plot = 
+        plot + 
+        theme(axis.text.x = element_blank()) +
+        labs(x = "Variables")
+    }
+    
+    if(!show_x_ticks){
+      plot = 
+        plot + 
+        theme(axis.ticks.x = element_blank())
+    }
+    
+    if (color_by == "no") {
+      plot =
+        plot +
+        ggplot2::geom_point(aes(size = na))
+    } else{
+      plot =
+        plot +
+        ggplot2::geom_point(aes(size = na, color = get(color_by))) +
+        guides(color = guide_legend(title = color_by))
     }
     
     return(plot)
