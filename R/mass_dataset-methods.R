@@ -137,6 +137,7 @@ ncol.mass_dataset <- function(x) {
 #' @export
 #' @rdname mass_dataset-class
 #' @return message
+ 
 setMethod(
   f = "colnames",
   signature = "mass_dataset",
@@ -146,11 +147,13 @@ setMethod(
 )
 
 
+
 #' @method rownames mass_dataset
 #' @param x x
 #' @export
 #' @rdname mass_dataset-class
 #' @return message
+
 setMethod(
   f = "rownames",
   signature = "mass_dataset",
@@ -162,8 +165,8 @@ setMethod(
 
 #' @method [ mass_dataset
 #' @param x x
-#' @param i i 
-#' @param j j 
+#' @param i i
+#' @param j j
 #' @param drop drop
 #' @param .. ..
 #' @export
@@ -269,6 +272,7 @@ setMethod(
 )
 
 
+
 #' @method log mass_dataset
 #' @param x x
 #' @param base base
@@ -281,13 +285,13 @@ setMethod(
   signature = "mass_dataset",
   definition = function(x, base = exp(1)) {
     expression_data = x@expression_data
-    
+
     expression_data = log(expression_data, base = base)
-    
+
     x@expression_data = expression_data
-    
+
     process_info = x@process_info
-    
+
     parameter <- new(
       Class = "tidymass_parameter",
       pacakge_name = "base",
@@ -295,15 +299,15 @@ setMethod(
       parameter = list("base" = base),
       time = Sys.time()
     )
-    
+
     if (all(names(process_info) != "log")) {
       process_info$log = parameter
     } else{
       process_info$log = c(process_info$log, parameter)
     }
-    
+
     x@process_info = process_info
-    
+
     return(x)
   }
 )
@@ -325,15 +329,15 @@ setMethod(
   signature = "mass_dataset",
   definition = function(x, center = TRUE, scale = TRUE) {
     expression_data = x@expression_data
-    
+
     expression_data = scale(t(expression_data), center = center, scale = scale) %>%
       t() %>%
       as.data.frame()
-    
+
     x@expression_data = expression_data
-    
+
     process_info = x@process_info
-    
+
     parameter <- new(
       Class = "tidymass_parameter",
       pacakge_name = "base",
@@ -342,15 +346,15 @@ setMethod(
                        "scale" = scale),
       time = Sys.time()
     )
-    
+
     if (all(names(process_info) != "scale")) {
       process_info$scale = parameter
     } else{
       process_info$scale = c(process_info$scale, parameter)
     }
-    
+
     x@process_info = process_info
-    
+
     return(x)
   }
 )

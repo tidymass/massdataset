@@ -23,7 +23,7 @@
 #'     sample_info_note = sample_info_note,
 #'     variable_info_note = variable_info_note
 #'   )
-#'   object
+#' object
 
 create_mass_dataset =
   function(expression_data,

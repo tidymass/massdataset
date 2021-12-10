@@ -43,7 +43,7 @@ object =
     sample_info_note = sample_info_note,
     variable_info_note = variable_info_note
   )
-  object
+object
 }
 \author{
 Xiaotao Shen

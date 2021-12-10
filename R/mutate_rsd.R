@@ -68,7 +68,7 @@ mutate_rsd =
     rsd =
       expression_data[,according_to_samples] %>%
       apply(1, function(x){
-        sd(x, na.rm = TRUE)/mean(x, na.rm = TRUE)
+        sd(x, na.rm = TRUE) * 100/mean(x, na.rm = TRUE)
       })
     
     object@variable_info =
