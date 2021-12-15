@@ -22,8 +22,8 @@ data("variable_info")
 object =
   create_mass_dataset(
     expression_data = expression_data,
-    sample_info = sample_info,
     variable_info = variable_info,
+    sample_info = sample_info
   )
  expression_data2 =
  extract_expression_data(object = object)

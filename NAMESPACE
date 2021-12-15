@@ -2,6 +2,7 @@
 
 S3method("[",mass_dataset)
 S3method(arrange,mass_dataset)
+S3method(cbind,mass_dataset)
 S3method(dim,mass_dataset)
 S3method(filter,mass_dataset)
 S3method(left_join,mass_dataset)

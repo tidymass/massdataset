@@ -43,37 +43,36 @@
 #' 
 #' head(extract_variable_info(object3))
 #' ###remain variables with mean intensity (QC) /  mean intensity (Blank) > 3
-#' qc_sample_name = 
+#' qc_sample_name =
 #'   get_sample_id(object)[extract_sample_info(object)$class == "QC"]
-#' blank_sample_name = 
+#' blank_sample_name =
 #'   get_sample_id(object)[extract_sample_info(object)$class == "Blank"]
 #' 
 #' object4 =
 #' object %>%
-#'   mutate_mean_intensity(according_to_samples = qc_sample_name, 
-#'                         na.rm = TRUE) %>% 
+#'   mutate_mean_intensity(according_to_samples = qc_sample_name,
+#'                         na.rm = TRUE) %>%
 #'   mutate_mean_intensity(according_to_samples = blank_sample_name,
-#'                         na.rm = TRUE) %>% 
-#'   activate_mass_dataset(what = "variable_info") %>% 
+#'                         na.rm = TRUE) %>%
+#'   activate_mass_dataset(what = "variable_info") %>%
 #'   mutate(mean_intensity.1 = case_when(
 #'     is.na(mean_intensity.1) ~ 0,
 #'     TRUE ~ mean_intensity.1
-#'   )) %>% 
+#'   )) %>%
 #'   mutate(mean_intensity = case_when(
 #'     is.na(mean_intensity) ~ 0,
 #'     TRUE ~ mean_intensity
-#'   )) %>% 
-#'   mutate(qc_blank_ratio = mean_intensity.1 / mean_intensity) %>% 
+#'   )) %>%
+#'   mutate(qc_blank_ratio = mean_intensity.1 / mean_intensity) %>%
 #'   mutate(qc_blank_ratio = case_when(
 #'     is.na(qc_blank_ratio) ~ 0,
 #'     TRUE ~ qc_blank_ratio
-#'   )) %>% 
+#'   )) %>%
 #'   filter(qc_blank_ratio > 3)
 #' 
 #' object4
-#' object4 %>% 
+#' object4 %>%
 #'   extract_variable_info()
-
 
 mutate_mean_intensity =
   function(object, 
@@ -106,6 +105,15 @@ mutate_mean_intensity =
     
     object@variable_info =
       data.frame(object@variable_info, mean_intensity = mean_intensity)
+    
+    new_variable_info_note = 
+      data.frame(name = setdiff(colnames(object@variable_info), 
+                                object@variable_info_note$name),
+                 meaning = NA)
+    object@variable_info_note = 
+      rbind(object@variable_info_note,
+            new_variable_info_note)
+    object@variable_info = object@variable_info[, object@variable_info_note$name] 
     
     process_info = object@process_info
     

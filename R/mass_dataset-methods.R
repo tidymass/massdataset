@@ -331,3 +331,99 @@ setMethod(
               y@sample_info$sample_id)
   }
 )
+
+#' @method cbind mass_dataset
+#' @param x x
+#' @param y y
+#' @param deparse.level deparse.level
+#' @export
+#' @rdname mass_dataset-class
+#' @return mass_dataset
+
+cbind.mass_dataset = function(x,y,deparse.level = 1){
+  if(nrow(x@variable_info) != nrow(y@variable_info)){
+    stop("rownames(x) should be same with rownames(y).\n")
+  }
+  
+  if(any(rownames(x) != rownames(y))){
+    stop("rownames(x) should be same with rownames(y).\n")
+  }
+  
+  expression_data_x = x@expression_data
+  expression_data_y = y@expression_data
+  
+  sample_info_x = x@sample_info
+  sample_info_y = y@sample_info
+  
+  sample_info_note_x = x@sample_info_note
+  sample_info_note_y = y@sample_info_note
+  
+  variable_info_x = x@variable_info
+  variable_info_y = y@variable_info
+  
+  variable_info_note_x = x@variable_info_note
+  variable_info_note_y = y@variable_info_note
+  
+  colnames(expression_data_y) =
+    purrr::map(colnames(expression_data_y), function(x) {
+      if (any(x == colnames(expression_data_x))) {
+        paste(x, 2, sep = "_")
+      } else{
+        x
+      }
+    }) %>%
+    unlist()
+  
+  sample_info_y$sample_id = colnames(expression_data_y)
+  
+  expression_data = cbind(expression_data_x, expression_data_y)
+  
+  sample_info =
+    sample_info_x %>%
+    dplyr::full_join(sample_info_y, 
+                     by = intersect(colnames(sample_info_x), colnames(sample_info_y)))
+  
+  expression_data = 
+    expression_data[,sample_info$sample_id]
+  
+  #####sample_info_note
+  sample_info_note = 
+    rbind(sample_info_note_x,
+          sample_info_note_y) %>% 
+    dplyr::distinct(name, .keep_all = TRUE)
+  
+  ####variable_info
+  variable_info = 
+    variable_info_x %>%
+    dplyr::left_join(variable_info_y, by = intersect(colnames(variable_info_x),
+                                                     colnames(variable_info_y)))
+  
+  variable_info_note = 
+    rbind(variable_info_note_x,
+          variable_info_note_y) %>% 
+    dplyr::distinct(name, .keep_all = TRUE)
+  
+  object <- new(
+    Class = "mass_dataset",
+    expression_data = expression_data,
+    ms2_data = data.frame(),
+    sample_info = sample_info,
+    variable_info = variable_info,
+    sample_info_note = sample_info_note,
+    variable_info_note = variable_info_note,
+    process_info = c(x@process_info, y@process_info),
+    version = "0.0.1"
+  )
+  
+  return(object)
+}
+
+
+# 
+# setMethod(
+#   f = "cbind",
+#   signature = "mass_dataset",
+#   definition = function(x, y, deparse.level = 1) {
+#     
+#   }
+# )

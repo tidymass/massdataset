@@ -9,6 +9,10 @@ mutate.mass_dataset <- function(.data, ...) {
     stop("activate you object using activate_mass_dataset first.\n")
   }
   
+  if (length(.data@activated) == "expression_data") {
+    stop("can not mutate new samples.\n")
+  }
+  
   temp_slot =
     slot(object = .data, name = .data@activated)
   
@@ -16,6 +20,34 @@ mutate.mass_dataset <- function(.data, ...) {
     mutate(temp_slot, !!!dots)
   
   slot(object = .data, name = .data@activated) = temp_slot
+  
+  if (.data@activated == "sample_info") {
+    if (ncol(temp_slot) > nrow(.data@sample_info_note)) {
+      new_sample_info_note =
+        data.frame(
+          name = setdiff(colnames(temp_slot), .data@sample_info_note$name),
+          meaning = NA
+        )
+      .data@sample_info_note =
+        rbind(.data@sample_info_note,
+              new_sample_info_note)
+      .data@sample_info = .data@sample_info[, .data@sample_info_note$name]
+    }
+  }
+  
+  if (.data@activated == "variable_info") {
+    if (ncol(temp_slot) > nrow(.data@variable_info_note)) {
+      new_variable_info_note =
+        data.frame(
+          name = setdiff(colnames(temp_slot), .data@variable_info_note$name),
+          meaning = NA
+        )
+      .data@variable_info_note =
+        rbind(.data@variable_info_note,
+              new_variable_info_note)
+      .data@variable_info = .data@variable_info[, .data@variable_info_note$name]
+    }
+  }
   
   process_info = .data@process_info
   
@@ -29,8 +61,8 @@ mutate.mass_dataset <- function(.data, ...) {
   
   if (all(names(process_info) != "mutate")) {
     process_info$mutate = parameter
-  }else{
-    process_info$mutate = c(process_info$mutate, parameter)  
+  } else{
+    process_info$mutate = c(process_info$mutate, parameter)
   }
   
   .data@process_info = process_info
