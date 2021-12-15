@@ -74,6 +74,18 @@ mutate_rsd =
     object@variable_info =
       data.frame(object@variable_info, rsd = rsd)
     
+    
+    ####variable_info_note
+    new_variable_info_note = 
+      data.frame(name = setdiff(colnames(object@variable_info), 
+                                object@variable_info_note$name),
+                 meaning = setdiff(colnames(object@variable_info), 
+                                   object@variable_info_note$name))
+    object@variable_info_note = 
+      rbind(object@variable_info_note,
+            new_variable_info_note)
+    object@variable_info = object@variable_info[, object@variable_info_note$name] 
+    
     process_info = object@process_info
     
     parameter <- new(

@@ -295,6 +295,11 @@ object =
 z = 
 cbind(object, object)
 z
+
+temp = rbind(object[1:5,],
+             object[11:20,])
+temp
+
 ```
 
 

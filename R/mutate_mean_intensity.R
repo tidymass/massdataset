@@ -106,10 +106,12 @@ mutate_mean_intensity =
     object@variable_info =
       data.frame(object@variable_info, mean_intensity = mean_intensity)
     
+    ####variable_info_note
     new_variable_info_note = 
       data.frame(name = setdiff(colnames(object@variable_info), 
                                 object@variable_info_note$name),
-                 meaning = NA)
+                 meaning = setdiff(colnames(object@variable_info), 
+                                   object@variable_info_note$name))
     object@variable_info_note = 
       rbind(object@variable_info_note,
             new_variable_info_note)

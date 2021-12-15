@@ -77,6 +77,20 @@ mutate_sample_na_number =
     object@sample_info =
       data.frame(object@sample_info, na_number = na_number)
     rownames(object@sample_info) = NULL
+    
+    
+    ####variable_info_note
+    new_sample_info_note = 
+      data.frame(name = setdiff(colnames(object@sample_info), 
+                                object@sample_info_note$name),
+                 meaning = setdiff(colnames(object@sample_info), 
+                                   object@sample_info_note$name))
+    object@sample_info_note = 
+      rbind(object@sample_info_note,
+            new_sample_info_note)
+    object@sample_info = object@sample_info[, object@sample_info_note$name] 
+    
+    
     process_info = object@process_info
     
     parameter <- new(

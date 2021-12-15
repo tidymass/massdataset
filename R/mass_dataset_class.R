@@ -45,11 +45,13 @@ create_mass_dataset =
     }
     
     if (missing(sample_info_note)) {
-      sample_info_note = data.frame()
+      sample_info_note = data.frame(name = colnames(sample_info),
+                                    meaning = colnames(sample_info))
     }
     
     if (missing(variable_info_note)) {
-      variable_info_note = data.frame()
+      variable_info_note = data.frame(name = colnames(variable_info),
+                                      meaning = colnames(variable_info))
     }
     
     process_info = list()
