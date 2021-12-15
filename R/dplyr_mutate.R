@@ -16,26 +16,25 @@ mutate.mass_dataset <- function(.data, ...) {
     mutate(temp_slot, !!!dots)
   
   slot(object = .data, name = .data@activated) = temp_slot
-
+  
   if (.data@activated == "expression_data") {
-    new_sample_info = 
-      matrix(ncol = ncol(.data@sample_info),
-             nrow = setdiff(colnames(temp_slot), .data@sample_info$sample_id)) %>% 
-      as.data.frame()
-    if (ncol(temp_slot) > nrow(.data@sample_info_note)) {
-      new_sample_info_note =
-        data.frame(
-          name = setdiff(colnames(temp_slot), .data@sample_info_note$name),
-          meaning = setdiff(colnames(temp_slot), .data@sample_info_note$name)
-        )
-      .data@sample_info_note =
-        rbind(.data@sample_info_note,
-              new_sample_info_note)
-      .data@sample_info = .data@sample_info[, .data@sample_info_note$name]
+    new_sample_id =
+      setdiff(colnames(temp_slot), .data@sample_info$sample_id)
+    if (length(new_sample_id) > 0) {
+      new_sample_info =
+        matrix(ncol = ncol(.data@sample_info),
+               nrow = length(new_sample_id)) %>%
+        as.data.frame()
+      colnames(new_sample_info) = colnames(.data@sample_info)
+      new_sample_info$sample_id = new_sample_id
+      .data@sample_info = 
+        rbind(.data@sample_info,
+              new_sample_id)
+      .data@expression_data = .data@expression_data[,.data@sample_info$sample_id]
     }
   }
   
-    
+  
   if (.data@activated == "sample_info") {
     if (ncol(temp_slot) > nrow(.data@sample_info_note)) {
       new_sample_info_note =
