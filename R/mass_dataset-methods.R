@@ -316,45 +316,18 @@ setMethod(
 
 
 
-#' @method scale mass_dataset
+#' @method intersect mass_dataset
 #' @param x x
-#' @param center center
-#' @param scale scale
+#' @param y y
 #' @export
 #' @rdname mass_dataset-class
 #' @return mass_dataset object
 
 setMethod(
-  f = "scale",
+  f = "intersect",
   signature = "mass_dataset",
-  definition = function(x, center = TRUE, scale = TRUE) {
-    expression_data = x@expression_data
-
-    expression_data = scale(t(expression_data), center = center, scale = scale) %>%
-      t() %>%
-      as.data.frame()
-
-    x@expression_data = expression_data
-
-    process_info = x@process_info
-
-    parameter <- new(
-      Class = "tidymass_parameter",
-      pacakge_name = "base",
-      function_name = "scale()",
-      parameter = list("center" = center,
-                       "scale" = scale),
-      time = Sys.time()
-    )
-
-    if (all(names(process_info) != "scale")) {
-      process_info$scale = parameter
-    } else{
-      process_info$scale = c(process_info$scale, parameter)
-    }
-
-    x@process_info = process_info
-
-    return(x)
+  definition = function(x, y) {
+    intersect(x@sample_info$sample_id, 
+              y@sample_info$sample_id)
   }
 )

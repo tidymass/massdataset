@@ -20,3 +20,4 @@ demo_data
 ^data-raw$
 pkgdown/
 vignettes/tidyverse_verse.Rmd
+vignettes/example.Rmd
