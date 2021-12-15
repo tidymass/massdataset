@@ -277,3 +277,24 @@ object %>%
 ```
 
 
+
+# **Merge and split**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+data("expression_data")
+data("sample_info")
+data("variable_info")
+
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info,
+  )
+
+z = 
+cbind(object, object)
+z
+```
+
+

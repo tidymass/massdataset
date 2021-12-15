@@ -316,6 +316,51 @@ setMethod(
 
 
 
+#' @method scale mass_dataset
+#' @param x x
+#' @param base base
+#' @export
+#' @rdname mass_dataset-class
+#' @return mass_dataset object
+
+setMethod(
+  f = "scale",
+  signature = "mass_dataset",
+  definition = function(x, center = TRUE, scale = TRUE) {
+    expression_data = x@expression_data
+    
+    expression_data = scale(t(expression_data), center = center,
+                            scale = scale) %>%
+      t() %>%
+      as.data.frame()
+    
+    x@expression_data = expression_data
+    
+    process_info = x@process_info
+    
+    parameter <- new(
+      Class = "tidymass_parameter",
+      pacakge_name = "base",
+      function_name = "scale()",
+      parameter = list("center" = center,
+                       "scale" = scale),
+      time = Sys.time()
+    )
+    
+    if (all(names(process_info) != "scale")) {
+      process_info$scale = parameter
+    } else{
+      process_info$scale = c(process_info$scale, parameter)
+    }
+    
+    x@process_info = process_info
+    
+    return(x)
+  }
+)
+
+
+
 #' @method intersect mass_dataset
 #' @param x x
 #' @param y y
@@ -387,10 +432,14 @@ cbind.mass_dataset = function(x,y,deparse.level = 1){
     expression_data[,sample_info$sample_id]
   
   #####sample_info_note
-  sample_info_note = 
-    rbind(sample_info_note_x,
-          sample_info_note_y) %>% 
-    dplyr::distinct(name, .keep_all = TRUE)
+  if(nrow(sample_info_note_x) != 0 | nrow(sample_info_note_y) != 0){
+    sample_info_note = 
+      rbind(sample_info_note_x,
+            sample_info_note_y) %>% 
+      dplyr::distinct(name, .keep_all = TRUE)  
+  }else{
+    sample_info_note = sample_info_note_x
+  }
   
   ####variable_info
   variable_info = 
@@ -398,10 +447,15 @@ cbind.mass_dataset = function(x,y,deparse.level = 1){
     dplyr::left_join(variable_info_y, by = intersect(colnames(variable_info_x),
                                                      colnames(variable_info_y)))
   
-  variable_info_note = 
-    rbind(variable_info_note_x,
-          variable_info_note_y) %>% 
-    dplyr::distinct(name, .keep_all = TRUE)
+  if(nrow(variable_info_note_x) != 0 | 
+     nrow(variable_info_note_y) != 0){
+    variable_info_note = 
+      rbind(variable_info_note_x,
+            variable_info_note_y) %>% 
+      dplyr::distinct(name, .keep_all = TRUE) 
+  }else{
+    variable_info_note = variable_info_note_x
+  }
   
   object <- new(
     Class = "mass_dataset",

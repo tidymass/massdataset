@@ -233,7 +233,7 @@ object is returned instead.</p>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.0.1 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8  data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
@@ -245,7 +245,7 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-09 23:12:17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 12:22:13</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>##calculate RSDs according to all the samples</span></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
@@ -253,7 +253,7 @@ object is returned instead.</p>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.0.1 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8  data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
@@ -265,19 +265,19 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-09 23:12:17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 12:22:13</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>RSD_calculation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset  mutate_rsd() 2021-12-09 23:12:17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset  mutate_rsd() 2021-12-15 12:22:13</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='extract_variable_info.html'>extract_variable_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>                 variable_id        mz        rt        rsd</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M136T55_2_POS M136T55_2_POS 136.06140  54.97902 0.50756560</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M79T35_POS       M79T35_POS  79.05394  35.36550 0.28257007</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M307T548_POS   M307T548_POS 307.14035 547.56641 0.35041286</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M183T224_POS   M183T224_POS 183.06209 224.32777 0.01224228</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M349T47_POS     M349T47_POS 349.01584  47.00262 0.27715030</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M182T828_POS   M182T828_POS 181.99775 828.35712 0.25534063</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                 variable_id        mz        rt       rsd</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M136T55_2_POS M136T55_2_POS 136.06140  54.97902 50.756560</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M79T35_POS       M79T35_POS  79.05394  35.36550 28.257007</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M307T548_POS   M307T548_POS 307.14035 547.56641 35.041286</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M183T224_POS   M183T224_POS 183.06209 224.32777  1.224228</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M349T47_POS     M349T47_POS 349.01584  47.00262 27.715030</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M182T828_POS   M182T828_POS 181.99775 828.35712 25.534063</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>##calculate RSDs according to only QC samples</span></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
@@ -287,7 +287,7 @@ object is returned instead.</p>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.9.1 </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.0.1 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8  data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
@@ -299,20 +299,20 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-09 23:12:17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 12:22:13</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>RSD_calculation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset  mutate_rsd() 2021-12-09 23:12:17</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset  mutate_rsd() 2021-12-09 23:12:17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset  mutate_rsd() 2021-12-15 12:22:13</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset  mutate_rsd() 2021-12-15 12:22:13</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='extract_variable_info.html'>extract_variable_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>                 variable_id        mz        rt        rsd     rsd.1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M136T55_2_POS M136T55_2_POS 136.06140  54.97902 0.50756560 0.4005551</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M79T35_POS       M79T35_POS  79.05394  35.36550 0.28257007 0.5197966</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M307T548_POS   M307T548_POS 307.14035 547.56641 0.35041286 0.2826044</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M183T224_POS   M183T224_POS 183.06209 224.32777 0.01224228        NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M349T47_POS     M349T47_POS 349.01584  47.00262 0.27715030 0.5095194</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> M182T828_POS   M182T828_POS 181.99775 828.35712 0.25534063        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                 variable_id        mz        rt       rsd    rsd.1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M136T55_2_POS M136T55_2_POS 136.06140  54.97902 50.756560 40.05551</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M79T35_POS       M79T35_POS  79.05394  35.36550 28.257007 51.97966</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M307T548_POS   M307T548_POS 307.14035 547.56641 35.041286 28.26044</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M183T224_POS   M183T224_POS 183.06209 224.32777  1.224228       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M349T47_POS     M349T47_POS 349.01584  47.00262 27.715030 50.95194</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> M182T828_POS   M182T828_POS 181.99775 828.35712 25.534063       NA</span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
