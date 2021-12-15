@@ -30,5 +30,8 @@ globalVariables(names = c(
   "mz",
   "sample_id",
   "variable_id",
-  "rt"
+  "rt",
+  "name",
+  "variable_id1",
+  "variable_id2"
 ))

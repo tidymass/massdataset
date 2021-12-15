@@ -300,6 +300,16 @@ temp = rbind(object[1:5,],
              object[11:20,])
 temp
 
+
+####match variables
+# library(tinytools)
+# mz_rt_match(
+#   data1 = object,
+#   data2 = object,
+#   mz.tol = 10,
+#   rt.tol = 10,
+#   rt.error.type = "abs"
+# )
 ```
 
 
