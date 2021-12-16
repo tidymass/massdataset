@@ -94,6 +94,8 @@ navbar:
         href: articles/extract_data.html
       - text: Summary information
         href: articles/summary_info.html
+      - text: Accessor
+        href: articles/accessor.html
       - text: Operate mass_dataset using tidyverse
         href: articles/tidyverse_verse.html
       - text: Example

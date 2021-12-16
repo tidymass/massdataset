@@ -1,5 +1,5 @@
 ---
-title: "Summary information"
+title: "Accessor"
 author:
 - name: Xiaotao Shen (https://www.shenxt.info/)
 - affiliation: School of Medicine, Stanford University
@@ -12,7 +12,7 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{summary_info}
+  %\VignetteIndexEntry{accessor}
   %\VignettePackage{massdataset}
   % \VignetteEngine{knitr::rmarkdown}
   % \usepackage[utf8]{inputenc}
@@ -29,9 +29,10 @@ knitr::opts_chunk$set(
 )
 ```
 
-# **Summary information**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+# **Data preparation**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
 library(tidyverse)
 
@@ -53,35 +54,21 @@ object =
 object
 ```
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
-dim(object)
-nrow(object)
-nrow(object)
 
-get_sample_number(object)
-get_variable_number(object)
-```
-
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
-colnames(object)
-rownames(object) %>% 
-  head()
-
-get_sample_id(object)
-get_variable_id(object) %>% 
-  head()
-```
-
-# **Explore**
+# **Base function**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-object %>%
-  show_mz_rt_plot()
+object[1:5,]
+object[,1:5]
+object[1:10,1:5]
+```
 
-object %>%
-  log(10) %>%
-  show_mz_rt_plot()
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+colnames(object)
+object[,"Blank_3"]
 
-object %>%
-  show_mz_rt_plot(hex = TRUE)
+rownames(object) %>% head()
+object["M136T55_2_POS",]
+
+object["M136T55_2_POS","Blank_3"]
 ```
