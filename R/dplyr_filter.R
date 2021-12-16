@@ -18,15 +18,15 @@ filter.mass_dataset <- function(.data, ..., .preserve = FALSE) {
   slot(object = .data, name = .data@activated) = x
   
   if (.data@activated == "sample_info") {
-    .data@expression_data = .data@expression_data[, x$sample_id]
+    .data@expression_data = .data@expression_data[, x$sample_id,drop = FALSE]
   }
   
   if (.data@activated == "variable_info") {
-    .data@expression_data = .data@expression_data[x$variable_id, ]
+    .data@expression_data = .data@expression_data[x$variable_id, ,drop = FALSE]
   }
   
   if (.data@activated == "expression_data") {
-    .data@variable_info = .data@variable_info[rownames(x), .data@variable_info$variable_id]
+    .data@variable_info = .data@variable_info[match(rownames(x), .data@variable_info$variable_id),,drop = FALSE]
   }
   
   process_info = .data@process_info

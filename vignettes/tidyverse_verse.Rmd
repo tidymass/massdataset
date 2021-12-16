@@ -1,5 +1,5 @@
 ---
-title: "Operate mass_dataset using tidyverse"
+title: "Process mass_dataset using tidyverse functions"
 author:
 - name: Xiaotao Shen (https://www.shenxt.info/)
 - affiliation: School of Medicine, Stanford University
@@ -30,9 +30,13 @@ knitr::opts_chunk$set(
 ```
 
 
-# **create_mass_dataset**
+# **Introduction**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+Before use the functions from tidyverse, we need to tell it which data we want to process (`activate_mass_dataset()`).
+
+# **filter() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
 library(tidyverse)
 
@@ -53,27 +57,46 @@ object =
 object
 ```
 
-# **mutate**
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object = 
+object %>% 
+  activate_mass_dataset(what = "sample_info")
+object@activated
+```
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object = 
+object %>% 
+  activate_mass_dataset(what = "variable_info")
+object@activated
+```
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object = 
+object %>% 
+  activate_mass_dataset(what = "expression_data")
+object@activated
+```
+
+## Filter samples
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 object2 = 
-  object %>% 
+object %>% 
   activate_mass_dataset(what = "sample_info") %>% 
-  mutate(sample_id2 = sample_id)
-
-head(extract_sample_info(object))
-head(extract_sample_info(object2))
+  dplyr::filter(class == "QC")
+object2
 
 ```
 
-# **filter**
+## Filter variables
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 object2 = 
-  object %>% 
-  activate_mass_dataset(what = "variable_info") %>% 
-  filter(mz > 200 & rt > 60)
+object %>% 
+  activate_mass_dataset(what = "expression_data") %>% 
+  dplyr::filter(!is.na(QC_1))
+object2
 
-head(extract_variable_info(object))
-head(extract_variable_info(object2))
 ```
+

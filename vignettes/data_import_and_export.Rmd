@@ -44,7 +44,7 @@ knitr::opts_chunk$set(
 
 # **create_mass_dataset**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
 library(tidyverse)
 
@@ -67,7 +67,7 @@ object
 
 # **Export**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 dir.create("demo_data")
 export_mass_dataset(object = object,
                     file_type = "xlsx",

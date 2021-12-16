@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 
 # **Use function**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
 library(tidyverse)
 
@@ -53,7 +53,7 @@ object =
 object
 ```
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 extract_sample_info(object)
 extract_variable_info(object) %>% head()
 extract_expression_data(object) %>% head()
@@ -64,7 +64,7 @@ extract_variable_info_note(object)
 
 # **Use slot**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 slot(object = object, name = "sample_info")
 slot(object = object, name = "variable_info") %>% head()
 slot(object = object, name = "expression_data") %>% head()
@@ -74,7 +74,7 @@ slot(object = object, name = "variable_info_note")
 
 # **Use `@`**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 object@expression_data %>% head()
 object@sample_info
 object@variable_info %>% head()

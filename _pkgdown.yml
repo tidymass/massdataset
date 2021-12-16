@@ -98,10 +98,8 @@ navbar:
         href: articles/accessor.html
       - text: Filtering samples/variables
         href: articles/filtering.html
-      - text: Operate mass_dataset using tidyverse
+      - text: Process mass_dataset using tidyverse functions
         href: articles/tidyverse_verse.html
-      - text: Example
-        href: articles/example.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/JasperShen1990
