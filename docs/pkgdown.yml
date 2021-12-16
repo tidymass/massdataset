@@ -5,8 +5,10 @@ articles:
   contact_us: contact_us.html
   data_import_and_export: data_import_and_export.html
   example: example.html
+  extract_data: extract_data.html
+  summary_info: summary_info.html
   tidyverse_verse: tidyverse_verse.html
-last_built: 2021-12-16T04:50Z
+last_built: 2021-12-16T05:31Z
 urls:
   reference: https://tidymass.github.io/massdataset//reference
   article: https://tidymass.github.io/massdataset//articles

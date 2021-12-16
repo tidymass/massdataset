@@ -1,5 +1,5 @@
 ---
-title: "Data import and export"
+title: "Extract data from mass_dataset"
 author:
 - name: Xiaotao Shen (https://www.shenxt.info/)
 - affiliation: School of Medicine, Stanford University
@@ -12,7 +12,7 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{data_import_and_export}
+  %\VignetteIndexEntry{extract_data}
   %\VignettePackage{massdataset}
   % \VignetteEngine{knitr::rmarkdown}
   % \usepackage[utf8]{inputenc}
@@ -29,20 +29,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-
-# **Data preparation**
-
-1. sample_info (required)
-
-2. variable_info (required)
-
-3. expression_data (required)
-
-4. sample_info_note (optional)
-
-5. variable_info_note (optional)
-
-# **create_mass_dataset**
+# **Use function**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 library(massdataset)
@@ -53,6 +40,7 @@ data("sample_info")
 data("sample_info_note")
 data("variable_info")
 data("variable_info_note")
+
 object =
   create_mass_dataset(
     expression_data = expression_data,
@@ -65,11 +53,32 @@ object =
 object
 ```
 
-# **Export**
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+extract_sample_info(object)
+extract_variable_info(object) %>% head()
+extract_expression_data(object) %>% head()
+extract_sample_info_note(object) 
+extract_variable_info_note(object) 
+```
+
+
+# **Use slot**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
-dir.create("demo_data")
-export_mass_dataset(object = object,
-                    file_type = "xlsx",
-                    path = "demo_data")
+slot(object = object, name = "sample_info")
+slot(object = object, name = "variable_info") %>% head()
+slot(object = object, name = "expression_data") %>% head()
+slot(object = object, name = "sample_info_note") 
+slot(object = object, name = "variable_info_note") 
+```
+
+# **Use `@`**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+object@expression_data %>% head()
+object@sample_info
+object@variable_info %>% head()
+object@sample_info_note
+object@variable_info_note
+object@process_info
 ```

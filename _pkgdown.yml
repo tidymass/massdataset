@@ -88,6 +88,12 @@ navbar:
       menu:
       - text: Data import and export
         href: articles/data_import_and_export.html
+      - text: Mutate MS2 into mass_dataset
+        href: articles/mutate_ms2.html
+      - text: Extract data
+        href: articles/extract_data.html
+      - text: Summary information
+        href: articles/summary_info.html
       - text: Operate mass_dataset using tidyverse
         href: articles/tidyverse_verse.html
       - text: Example

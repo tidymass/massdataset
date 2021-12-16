@@ -1,5 +1,5 @@
 ---
-title: "Data import and export"
+title: "Mutate MS2 into mass_dataset"
 author:
 - name: Xiaotao Shen (https://www.shenxt.info/)
 - affiliation: School of Medicine, Stanford University
@@ -12,7 +12,7 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{data_import_and_export}
+  %\VignetteIndexEntry{mutate_ms2}
   %\VignettePackage{massdataset}
   % \VignetteEngine{knitr::rmarkdown}
   % \usepackage[utf8]{inputenc}

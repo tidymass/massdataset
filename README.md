@@ -9,9 +9,9 @@
 
 ## About
 
-`massdataset` is a package which can organize the metabolomics data sets into a standard structure (tidymass-mass) which can be processed by all the packages from tidymass.
+`massdataset` is a package which can organize the metabolomics data sets into a standard structure (mass_dataset class) which can be processed by all the packages from tidymass.
 
-# <img src="man/figures/workflow_massdataset.jpg" align="middle" alt="" width = "80%"/>
+<img src="man/figures/Figure.png" align="middle" alt="" width = "80%"/>
 
 ## Installation
 
