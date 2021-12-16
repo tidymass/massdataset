@@ -96,6 +96,8 @@ navbar:
         href: articles/summary_info.html
       - text: Accessor
         href: articles/accessor.html
+      - text: Filtering samples/variables
+        href: articles/filtering.html
       - text: Operate mass_dataset using tidyverse
         href: articles/tidyverse_verse.html
       - text: Example

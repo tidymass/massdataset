@@ -131,6 +131,9 @@
       <a href="../articles/accessor.html">Accessor</a>
     </li>
     <li>
+      <a href="../articles/filtering.html">Filtering samples/variables</a>
+    </li>
+    <li>
       <a href="../articles/tidyverse_verse.html">Operate mass_dataset using tidyverse</a>
     </li>
     <li>
@@ -249,7 +252,7 @@ want to use only several samples, provide their names as a vector.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.01 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 1000 x 3 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
@@ -259,7 +262,7 @@ want to use only several samples, provide their names as a vector.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 21:53:27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 22:23:29</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>##calculate mean intensity according to all the samples</span></span>
 <span class='r-in'><span class='va'>object2</span> <span class='op'>=</span></span>
@@ -269,7 +272,7 @@ want to use only several samples, provide their names as a vector.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.01 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 1000 x 4 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
@@ -279,10 +282,10 @@ want to use only several samples, provide their names as a vector.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 21:53:27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 22:23:29</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>mutate_mean_intensity ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset mutate_mean_intensity() 2021-12-15 21:53:27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset mutate_mean_intensity() 2021-12-15 22:23:29</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='extract_variable_info.html'>extract_variable_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>     variable_id        mz        rt</span>
@@ -311,7 +314,7 @@ want to use only several samples, provide their names as a vector.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.01 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 1000 x 5 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
@@ -321,11 +324,11 @@ want to use only several samples, provide their names as a vector.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 21:53:27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 22:23:29</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>mutate_mean_intensity ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset mutate_mean_intensity() 2021-12-15 21:53:27</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset mutate_mean_intensity() 2021-12-15 21:53:27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset mutate_mean_intensity() 2021-12-15 22:23:29</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset mutate_mean_intensity() 2021-12-15 22:23:29</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='extract_variable_info.html'>extract_variable_info</a></span><span class='op'>(</span><span class='va'>object3</span><span class='op'>)</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>                 variable_id        mz        rt mean_intensity mean_intensity.1</span>
@@ -367,7 +370,7 @@ want to use only several samples, provide their names as a vector.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.01 </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 144 x 8  data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 144 x 8 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 144 x 6 data.frame]</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
@@ -377,20 +380,20 @@ want to use only several samples, provide their names as a vector.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 21:53:27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 22:23:29</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>mutate_mean_intensity ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package           Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset mutate_mean_intensity() 2021-12-15 21:53:27</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset mutate_mean_intensity() 2021-12-15 21:53:27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset mutate_mean_intensity() 2021-12-15 22:23:29</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset mutate_mean_intensity() 2021-12-15 22:23:29</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>mutate ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset      mutate() 2021-12-15 21:53:27</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset      mutate() 2021-12-15 21:53:27</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3 massdataset      mutate() 2021-12-15 21:53:27</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 4 massdataset      mutate() 2021-12-15 21:53:27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset      mutate() 2021-12-15 22:23:29</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 massdataset      mutate() 2021-12-15 22:23:29</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3 massdataset      mutate() 2021-12-15 22:23:29</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4 massdataset      mutate() 2021-12-15 22:23:29</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>filter ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset      filter() 2021-12-15 21:53:27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset      filter() 2021-12-15 22:23:29</span>
 <span class='r-in'><span class='va'>object4</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span class='r-in'>  <span class='fu'><a href='extract_variable_info.html'>extract_variable_info</a></span><span class='op'>(</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>                     variable_id        mz         rt mean_intensity</span>

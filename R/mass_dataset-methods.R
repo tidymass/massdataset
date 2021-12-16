@@ -27,7 +27,7 @@ setMethod(
       nrow(object@expression_data),
       "x",
       ncol(object@expression_data),
-      " data.frame]\n"
+      "data.frame]\n"
     )
     cat(crayon::green("2.sample_info:"))
     cat("[",
