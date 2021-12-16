@@ -32,7 +32,7 @@ knitr::opts_chunk$set(
 
 # **Example 1**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
 library(tidyverse)
 
@@ -56,7 +56,7 @@ object
 
 
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 dim(object)
 nrow(object)
 ncol(object)
@@ -67,7 +67,7 @@ object[1,1]
 
 # **tidyverse verbs**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 object2 = 
   object %>% 
   activate_mass_dataset(what = "sample_info") %>% 
@@ -80,7 +80,7 @@ head(extract_sample_info(object2))
 
 # **apply**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 ##NA number in QC samples for all variables  
 object %>% 
   activate_mass_dataset(what = "sample_info") %>% 
@@ -96,7 +96,7 @@ object %>%
 
 # **Mutate MS2 data**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 dir.create("example")
 file.copy(
   system.file("ms2_data", package = "massdataset"),
@@ -122,7 +122,7 @@ extract_ms2_data(object2)
 
 # **Missing values**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
 library(plyr)
 data("expression_data")
@@ -188,7 +188,7 @@ show_variable_missing_values(object, color_by = "mz",
 
 # **log and scale**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
 library(plyr)
 data("expression_data")
@@ -215,7 +215,7 @@ x2
 
 # **Accessors**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
 library(plyr)
 data("expression_data")
@@ -253,7 +253,7 @@ extract_expression_data(object) %>%
 
 # **Explore**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 data("expression_data")
 data("sample_info")
 data("variable_info")
@@ -280,7 +280,7 @@ object %>%
 
 # **Merge and split**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 data("expression_data")
 data("sample_info")
 data("variable_info")

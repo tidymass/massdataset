@@ -32,19 +32,7 @@ knitr::opts_chunk$set(
 
 # **Data preparation**
 
-1. sample_info (required)
-
-2. variable_info (required)
-
-3. expression_data (required)
-
-4. sample_info_note (optional)
-
-5. variable_info_note (optional)
-
-# **create_mass_dataset**
-
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
 library(tidyverse)
 
@@ -53,6 +41,7 @@ data("sample_info")
 data("sample_info_note")
 data("variable_info")
 data("variable_info_note")
+
 object =
   create_mass_dataset(
     expression_data = expression_data,
@@ -63,13 +52,30 @@ object =
   )
   
 object
+
+###MS2 data (mgf data)
+dir.create("demo_data")
+file.copy(
+  system.file("ms2_data", package = "massdataset"),
+  to = "demo_data",
+  overwrite = TRUE, 
+  recursive = TRUE
+)
 ```
 
-# **Export**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
-dir.create("demo_data")
-export_mass_dataset(object = object,
-                    file_type = "xlsx",
-                    path = "demo_data")
+# **Mutate MS2**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object2 = 
+mutate_ms2(
+  object = object,
+  column = "rp",
+  polarity = "positive",
+  ms1.ms2.match.mz.tol = 10, 
+  ms1.ms2.match.rt.tol = 15, 
+  path = "example"
+)
+
+extract_ms2_data(object2)
 ```
