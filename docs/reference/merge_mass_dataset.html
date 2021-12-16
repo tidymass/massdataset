@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract process information — extract_process_info • massdataset</title>
+<title>merge_mass_dataset — merge_mass_dataset • massdataset</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,8 +52,8 @@
 
 
 
-<meta property="og:title" content="Extract process information — extract_process_info" />
-<meta property="og:description" content="Extract process information" />
+<meta property="og:title" content="merge_mass_dataset — merge_mass_dataset" />
+<meta property="og:description" content="merge_mass_dataset" />
 <meta property="og:image" content="https://tidymass.github.io/massdataset/logo.png" />
 
 
@@ -182,29 +182,56 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract process information</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/data_extracting.R'><code>R/data_extracting.R</code></a></small>
-    <div class="hidden name"><code>extract_process_info.Rd</code></div>
+    <h1>merge_mass_dataset</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/merge_mass_dataset.R'><code>R/merge_mass_dataset.R</code></a></small>
+    <div class="hidden name"><code>merge_mass_dataset.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Extract process information</p>
+    <p>merge_mass_dataset</p>
     </div>
 
-    <pre class="usage"><span class='fu'>extract_process_info</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>merge_mass_dataset</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  sample_direction <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"left"</span>, <span class='st'>"right"</span>, <span class='st'>"full"</span>, <span class='st'>"inner"</span><span class='op'>)</span>,
+  variable_direction <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"left"</span>, <span class='st'>"right"</span>, <span class='st'>"full"</span>, <span class='st'>"inner"</span><span class='op'>)</span>,
+  sample_by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sample_id"</span><span class='op'>)</span>,
+  variable_by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"variable_id"</span>, <span class='st'>"mz"</span>, <span class='st'>"rt"</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
+      <th>x</th>
       <td><p>(required) mass_dataset class object.</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>(required) mass_dataset class object.</p></td>
+    </tr>
+    <tr>
+      <th>sample_direction</th>
+      <td><p>left, right, inner or full.</p></td>
+    </tr>
+    <tr>
+      <th>variable_direction</th>
+      <td><p>left, right, inner or full.</p></td>
+    </tr>
+    <tr>
+      <th>sample_by</th>
+      <td><p>merge samples by what columns from sample_info</p></td>
+    </tr>
+    <tr>
+      <th>variable_by</th>
+      <td><p>merge variables by what columns from variable_info</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame.</p>
+    <p>A merged mass_dataset</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Xiaotao Shen
@@ -214,7 +241,6 @@
     <pre class="examples"><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"sample_info"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidymass/massdataset'>massdataset</a></span><span class='op'>)</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'>=</span></span>
 <span class='r-in'>  <span class='fu'><a href='create_mass_dataset.html'>create_mass_dataset</a></span><span class='op'>(</span></span>
@@ -223,30 +249,57 @@
 <span class='r-in'>    variable_info <span class='op'>=</span> <span class='va'>variable_info</span>,</span>
 <span class='r-in'>  <span class='op'>)</span></span>
 <span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.01 </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 1000 x 8  data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 1000 x 3 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-15 20:50:25</span>
-<span class='r-in'><span class='fu'>extract_process_info</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> $Creation</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>pacakge_name: massdataset</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>function_name: create_mass_dataset()</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>time: 2021-12-15 20:50:25</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>parameters:</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>no : no</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='va'>x</span> <span class='op'>=</span> <span class='va'>object</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, <span class='fl'>5</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>]</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in `[.mass_dataset`(object, 1:3, 5:7):</span> object 'object' not found</span>
+<span class='r-in'><span class='va'>y</span> <span class='op'>=</span> <span class='va'>object</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span>, <span class='fl'>6</span><span class='op'>:</span><span class='fl'>8</span><span class='op'>]</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in `[.mass_dataset`(object, 2:4, 6:8):</span> object 'object' not found</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>####full merge for samples and variables</span></span>
+<span class='r-in'><span class='va'>z1</span> <span class='op'>=</span> </span>
+<span class='r-in'><span class='fu'>merge_mass_dataset</span><span class='op'>(</span></span>
+<span class='r-in'>  x <span class='op'>=</span> <span class='va'>x</span>,</span>
+<span class='r-in'>  y <span class='op'>=</span> <span class='va'>y</span>,</span>
+<span class='r-in'>  sample_direction <span class='op'>=</span> <span class='st'>"full"</span>,</span>
+<span class='r-in'>  variable_direction <span class='op'>=</span> <span class='st'>"full"</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in merge_mass_dataset(x = x, y = y, sample_direction = "full", variable_direction = "full"):</span> object 'x' not found</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>####inner merge for samples and full merge for variables</span></span>
+<span class='r-in'><span class='va'>z2</span> <span class='op'>=</span> </span>
+<span class='r-in'>  <span class='fu'>merge_mass_dataset</span><span class='op'>(</span></span>
+<span class='r-in'>    x <span class='op'>=</span> <span class='va'>x</span>,</span>
+<span class='r-in'>    y <span class='op'>=</span> <span class='va'>y</span>,</span>
+<span class='r-in'>    sample_direction <span class='op'>=</span> <span class='st'>"inner"</span>,</span>
+<span class='r-in'>    variable_direction <span class='op'>=</span> <span class='st'>"full"</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in merge_mass_dataset(x = x, y = y, sample_direction = "inner",     variable_direction = "full"):</span> object 'x' not found</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='extract_expression_data.html'>extract_expression_data</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in as.data.frame(.):</span> object 'x' not found</span>
+<span class='r-in'><span class='fu'><a href='extract_expression_data.html'>extract_expression_data</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in as.data.frame(.):</span> object 'y' not found</span>
+<span class='r-in'><span class='fu'><a href='extract_expression_data.html'>extract_expression_data</a></span><span class='op'>(</span><span class='va'>z1</span><span class='op'>)</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in as.data.frame(.):</span> object 'z1' not found</span>
+<span class='r-in'><span class='fu'><a href='extract_expression_data.html'>extract_expression_data</a></span><span class='op'>(</span><span class='va'>z2</span><span class='op'>)</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in as.data.frame(.):</span> object 'z2' not found</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>######combine pos and neg</span></span>
+<span class='r-in'><span class='va'>x</span> <span class='op'>=</span> <span class='va'>object</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, <span class='fl'>5</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>]</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in `[.mass_dataset`(object, 1:3, 5:7):</span> object 'object' not found</span>
+<span class='r-in'><span class='va'>y</span> <span class='op'>=</span> <span class='va'>object</span><span class='op'>[</span><span class='fl'>4</span><span class='op'>:</span><span class='fl'>6</span>, <span class='fl'>6</span><span class='op'>:</span><span class='fl'>8</span><span class='op'>]</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in `[.mass_dataset`(object, 4:6, 6:8):</span> object 'object' not found</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>z3</span> <span class='op'>=</span> </span>
+<span class='r-in'>  <span class='fu'>merge_mass_dataset</span><span class='op'>(</span></span>
+<span class='r-in'>    x <span class='op'>=</span> <span class='va'>x</span>,</span>
+<span class='r-in'>    y <span class='op'>=</span> <span class='va'>y</span>,</span>
+<span class='r-in'>    sample_direction <span class='op'>=</span> <span class='st'>"full"</span>,</span>
+<span class='r-in'>    variable_direction <span class='op'>=</span> <span class='st'>"full"</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in merge_mass_dataset(x = x, y = y, sample_direction = "full", variable_direction = "full"):</span> object 'x' not found</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='extract_expression_data.html'>extract_expression_data</a></span><span class='op'>(</span><span class='va'>z3</span><span class='op'>)</span></span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in as.data.frame(.):</span> object 'z3' not found</span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

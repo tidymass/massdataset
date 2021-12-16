@@ -29,7 +29,7 @@
 
 massdataset_logo <- function(){
   cat(crayon::green("Thank you for using massdataset!\n"))
-  cat(crayon::green("Version 0.0.1 (2021-11-24)\n"))
+  cat(crayon::green("Version", massdataset_version, "(", update_date, ')\n'))
   cat(crayon::green("More information can be found at https://tidymass.github.io/massdataset/\n"))
   cat(crayon::green(
     c("                          _____        _                 _   ", 
@@ -45,6 +45,8 @@ massdataset_logo <- function(){
   ), sep = "\n")
 }
 
+massdataset_version = "0.01"
+update_date = "2021-12-15"
 
 
 # library(cowsay)

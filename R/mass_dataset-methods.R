@@ -467,7 +467,7 @@ cbind.mass_dataset = function(x, y, deparse.level = 1) {
     sample_info_note = sample_info_note,
     variable_info_note = variable_info_note,
     process_info = c(x@process_info, y@process_info),
-    version = "0.0.1"
+    version = massdataset_version
   )
   
   return(object)
@@ -559,7 +559,6 @@ rbind.mass_dataset = function(x, y, deparse.level = 1) {
             sample_info_note_y) %>%
       dplyr::distinct(name, .keep_all = TRUE)
    
-  
   ####variable_info
   variable_info =
     variable_info_x %>%
@@ -581,7 +580,7 @@ rbind.mass_dataset = function(x, y, deparse.level = 1) {
     sample_info_note = sample_info_note,
     variable_info_note = variable_info_note,
     process_info = c(x@process_info, y@process_info),
-    version = "0.0.1"
+    version = massdataset_version
   )
   
   return(object)

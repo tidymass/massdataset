@@ -75,7 +75,7 @@ create_mass_dataset =
       sample_info_note = sample_info_note,
       variable_info_note = variable_info_note,
       process_info = process_info,
-      version = "0.0.1"
+      version = massdataset_version
     )
     invisible(object)
   }
