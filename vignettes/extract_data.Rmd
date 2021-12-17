@@ -30,6 +30,7 @@ knitr::opts_chunk$set(
 ```
 
 # **Use function**
+hello
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
