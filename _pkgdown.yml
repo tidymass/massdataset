@@ -100,6 +100,8 @@ navbar:
         href: articles/filtering.html
       - text: Process mass_dataset using tidyverse functions
         href: articles/tidyverse_verse.html
+      - text: R base functions for mass_dataset
+        href: articles/base_function.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/JasperShen1990

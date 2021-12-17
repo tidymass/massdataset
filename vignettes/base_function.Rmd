@@ -1,5 +1,5 @@
 ---
-title: "Process mass_dataset using tidyverse functions"
+title: "R base functions for mass_dataset"
 author:
 - name: Xiaotao Shen (https://www.shenxt.info/)
 - affiliation: School of Medicine, Stanford University
@@ -12,7 +12,7 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{tidyverse_verse}
+  %\VignetteIndexEntry{base_function}
   %\VignettePackage{massdataset}
   % \VignetteEngine{knitr::rmarkdown}
   % \usepackage[utf8]{inputenc}
@@ -30,11 +30,7 @@ knitr::opts_chunk$set(
 ```
 
 
-# **Introduction**
-
-Before use the functions from tidyverse, we need to tell it which data we want to process (`activate_mass_dataset()`).
-
-# **filter() function**
+`mass_dataset` object support many R base functions.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
@@ -45,6 +41,7 @@ data("sample_info")
 data("sample_info_note")
 data("variable_info")
 data("variable_info_note")
+
 object =
   create_mass_dataset(
     expression_data = expression_data,
@@ -53,50 +50,43 @@ object =
     sample_info_note = sample_info_note,
     variable_info_note = variable_info_note
   )
-  
-object
 ```
+
+For example, you can get the information of your object.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-object = 
-object %>% 
-  activate_mass_dataset(what = "sample_info")
-object@activated
+dim(object)
+nrow(object)
+ncol(object)
 ```
+
+This means that `object` has 1000 variables and 8 samples.
+
+You can also get the sample ids and variables.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-object = 
-object %>% 
-  activate_mass_dataset(what = "variable_info")
-object@activated
+colnames(object)
+head(rownames(object))
 ```
+
+
+Use `[` to select variables and samples from object.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-object = 
-object %>% 
-  activate_mass_dataset(what = "expression_data")
-object@activated
+##only remain first 5 variables
+object[1:5,]
+
+##only remain first 5 samples
+object[,1:5]
+
+##only remain first 5 samples and 5 variables
+object[1:5,1:5]
 ```
 
-## Filter samples
+If you know the variables or sample names you want to select, you can also use the samples ids or variables ids.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-object2 = 
-object %>% 
-  activate_mass_dataset(what = "sample_info") %>% 
-  dplyr::filter(class == "QC")
-object2
+colnames(object)
+object[,c("Blank_3", "Blank_4")]
 
 ```
-
-## Filter variables
-
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-object2 = 
-object %>% 
-  activate_mass_dataset(what = "expression_data") %>% 
-  dplyr::filter(!is.na(QC_1))
-object2
-
-```
-
