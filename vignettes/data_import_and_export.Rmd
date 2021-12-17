@@ -34,6 +34,8 @@ knitr::opts_chunk$set(
 
 1. sample_info (required)
 
+![](../man/figures/Screen Shot 2021-12-17 at 3.17.09 PM.png)
+
 2. variable_info (required)
 
 3. expression_data (required)
