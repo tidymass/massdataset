@@ -32,6 +32,10 @@ knitr::opts_chunk$set(
 
 # **Data preparation**
 
+The massdataset project includes support for completely different categories of merging data objects, eg: expression_data,sample_info,variable_info. etc. The first files are required (sample_info, variable_info and expression_data), sample_info_note and variable_info_note are optional.
+
+Let's first prepare the data objects according to the attached figure for each file.
+
 1. sample_info (required)
 
 ![](../man/figures/Screen Shot 2021-12-17 at 3.17.09 PM.png)
