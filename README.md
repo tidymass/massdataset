@@ -9,7 +9,11 @@
 
 ## About
 
-`massdataset` is a package which can organize the metabolomics data sets into a standard structure (mass_dataset class) which can be processed by all the packages from tidymass.
+`massdataset` aims to organize the metabolomics data sets into a standard structure (mass_dataset class) which can be processed by all the packages from tidymass.
+
+Merging separate data objects is useful for manually-imported data objects, especially for metabolomics data analysis. It's significant to keep unified format before analysis. While the first category of merging functions is useful for direct manipulations of the data for analytical purposes, `massdataset` is a convenience/support tool to help get your data into the right format.
+
+`massdataset` also combines different functionalities in order to provide an easy way to process MS1/MS2 data and extract data sets.
 
 <img src="man/figures/Figure.png" align="middle" alt="" width = "80%"/>
 
