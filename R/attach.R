@@ -1,4 +1,4 @@
-core <- c("magrittr")
+core <- c("magrittr", "tinytools")
 
 core_unloaded <- function() {
   search <- paste0("package:", core)
