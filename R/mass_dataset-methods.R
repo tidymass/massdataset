@@ -244,7 +244,7 @@ setMethod(
       process_info$Subset = c(process_info$Subset, parameter)
     }
     
-    object@process_info = process_info
+    x@process_info = process_info
     
     x@expression_data = x@expression_data[i, j, drop = drop]
     x@sample_info = x@sample_info[j, , drop = FALSE]
