@@ -294,7 +294,7 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-17 15:21:40</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-19 01:38:26</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####Filter variables which have more than 50% MVs in all samples.</span></span>
 <span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
@@ -324,10 +324,10 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-17 15:21:40</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-19 01:38:26</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Variable_filtering ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package      Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_variables() 2021-12-17 15:21:40</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_variables() 2021-12-19 01:38:26</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####Filter variables which have more than 50% MVs in only QC samples.</span></span>
 <span class='r-in'><span class='fu'>filter_variables</span><span class='op'>(</span></span>
@@ -352,10 +352,10 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-17 15:21:40</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-19 01:38:26</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Variable_filtering ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package      Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_variables() 2021-12-17 15:21:40</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_variables() 2021-12-19 01:38:26</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####Filter variables which have more than 50% MVs in QC or subject samples.</span></span>
 <span class='r-in'><span class='va'>idx1</span> <span class='op'>=</span></span>
@@ -384,10 +384,25 @@ object is returned instead.</p>
 <span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='va'>idx1</span> <span class='op'>|</span> <span class='va'>idx2</span><span class='op'>)</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object2</span> <span class='op'>=</span> <span class='va'>object</span><span class='op'>[</span><span class='va'>idx</span>,<span class='op'>]</span></span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in `[.mass_dataset`(object, idx, ):</span> object 'object' not found</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>object2</span></span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in eval(expr, envir, enclos):</span> object 'object2' not found</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>massdataset version: 0.01 </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>1.expression_data:</span>[ 642 x 8 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>3.variable_info:</span>[ 642 x 3 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>-------------------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-19 01:38:26</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Subset ---------- </span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       Package Function.used                Time</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset             [ 2021-12-19 01:38:26</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>####filter variables with RSD (in QC samples) &lt; 30</span></span>
 <span class='r-in'><span class='va'>object3</span> <span class='op'>=</span></span>
@@ -417,10 +432,10 @@ object is returned instead.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-17 15:21:40</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-19 01:38:26</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Variable_filtering ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package      Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_variables() 2021-12-17 15:21:40</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset filter_variables() 2021-12-19 01:38:26</span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

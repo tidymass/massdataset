@@ -307,28 +307,28 @@
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Processing information (extract_process_info())</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>Creation ---------- </span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>       Package         Function.used                Time</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-17 15:21:48</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-19 01:38:31</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>##show missing values plot</span></span>
 <span class='r-in'><span class='fu'>show_missing_values</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></span>
 <span class='r-plt img'><img src='show_missing_values-1.png' alt='' width='700' height='433' /></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='fu'>show_missing_values</span><span class='op'>(</span><span class='va'>object</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>,<span class='op'>]</span>, cell_color <span class='op'>=</span> <span class='st'>"white"</span><span class='op'>)</span></span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in `[.mass_dataset`(object, 1:10, ):</span> object 'object' not found</span>
+<span class='r-plt img'><img src='show_missing_values-2.png' alt='' width='700' height='433' /></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>###only show subject samples</span></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span class='r-in'>  <span class='fu'><a href='activate_mass_dataset.html'>activate_mass_dataset</a></span><span class='op'>(</span>what <span class='op'>=</span> <span class='st'>"sample_info"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span class='r-in'>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"Subject"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span class='r-in'>  <span class='fu'>show_missing_values</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-plt img'><img src='show_missing_values-2.png' alt='' width='700' height='433' /></span>
+<span class='r-plt img'><img src='show_missing_values-3.png' alt='' width='700' height='433' /></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>###only show QC samples</span></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span class='r-in'>  <span class='fu'><a href='activate_mass_dataset.html'>activate_mass_dataset</a></span><span class='op'>(</span>what <span class='op'>=</span> <span class='st'>"expression_data"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span class='r-in'>  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span><span class='op'>(</span><span class='st'>"QC"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span class='r-in'>  <span class='fu'>show_missing_values</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-plt img'><img src='show_missing_values-3.png' alt='' width='700' height='433' /></span>
+<span class='r-plt img'><img src='show_missing_values-4.png' alt='' width='700' height='433' /></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>###only show features with mz &lt; 100</span></span>
 <span class='r-in'><span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
@@ -338,7 +338,7 @@
 <span class='r-in'>                      show_row_names <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
 <span class='r-in'>                      row_names_side <span class='op'>=</span> <span class='st'>"left"</span>, </span>
 <span class='r-in'>                      percentage <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
-<span class='r-plt img'><img src='show_missing_values-4.png' alt='' width='700' height='433' /></span>
+<span class='r-plt img'><img src='show_missing_values-5.png' alt='' width='700' height='433' /></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
