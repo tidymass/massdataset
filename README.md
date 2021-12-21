@@ -7,6 +7,10 @@
 [![Dependencies](https://tinyverse.netlify.com/badge/massdataset)](https://cran.r-project.org/package=massdataset)
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
+`massdataset` is a part of [tidymass](https://tidymass.github.io/tidymass/).
+
+------
+
 ## About
 
 `massdataset` aims to organize the metabolomics data sets into a standard structure (mass_dataset class) which can be processed by all the packages from tidymass.
