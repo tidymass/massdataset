@@ -92,10 +92,10 @@ filter_samples =
       time = Sys.time()
     )
     
-    if (all(names(process_info) != "Sample_filtering")) {
-      process_info$Sample_filtering = parameter
+    if (all(names(process_info) != "filter_samples")) {
+      process_info$filter_samples = parameter
     }else{
-      process_info$Sample_filtering = c(process_info$Sample_filtering, 
+      process_info$filter_samples = c(process_info$filter_samples, 
                                        parameter)  
     }
     

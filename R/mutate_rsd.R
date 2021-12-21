@@ -96,10 +96,10 @@ mutate_rsd =
       time = Sys.time()
     )
     
-    if (all(names(process_info) != "RSD_calculation")) {
-      process_info$RSD_calculation = parameter
+    if (all(names(process_info) != "mutate_rsd")) {
+      process_info$mutate_rsd = parameter
     }else{
-      process_info$RSD_calculation = c(process_info$RSD_calculation, 
+      process_info$mutate_rsd = c(process_info$mutate_rsd, 
                                        parameter)  
     }
     

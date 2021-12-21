@@ -238,10 +238,10 @@ setMethod(
       time = Sys.time()
     )
     
-    if (all(names(process_info) != "Subset")) {
-      process_info$Subset = parameter
+    if (all(names(process_info) != "subset")) {
+      process_info$subset = parameter
     } else{
-      process_info$Subset = c(process_info$Subset, parameter)
+      process_info$subset = c(process_info$subset, parameter)
     }
     
     x@process_info = process_info

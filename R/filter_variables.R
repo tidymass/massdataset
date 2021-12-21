@@ -159,10 +159,10 @@ filter_variables =
       time = Sys.time()
     )
     
-    if (all(names(process_info) != "Variable_filtering")) {
-      process_info$Variable_filtering = parameter
+    if (all(names(process_info) != "filter_variables")) {
+      process_info$filter_variables = parameter
     }else{
-      process_info$Variable_filtering = c(process_info$Variable_filtering,
+      process_info$filter_variables = c(process_info$filter_variables,
                                           parameter)  
     }
     

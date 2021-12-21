@@ -88,10 +88,10 @@ update_mass_dataset =
     
     process_info = object@process_info
     
-    if (all(names(process_info) != "Update_mass_dataset")) {
-      process_info$Update_mass_dataset = parameter
+    if (all(names(process_info) != "update_mass_dataset")) {
+      process_info$update_mass_dataset = parameter
     } else{
-      process_info$Update_mass_dataset = c(process_info$Update_mass_dataset,
+      process_info$update_mass_dataset = c(process_info$update_mass_dataset,
                                            parameter)
     }
     
