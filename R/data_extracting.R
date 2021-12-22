@@ -78,6 +78,20 @@ extract_sample_info = function(object) {
 extract_variable_info = function(object) {
   variable_info = object@variable_info %>%
     as.data.frame()
+  
+  if (nrow(object@annotation_table) != 0) {
+    annotation_table =
+      object@annotation_table %>%
+      dplyr::group_by(variable_id) %>%
+      dplyr::slice_head(n = 1) %>%
+      dplyr::ungroup()
+    
+    variable_info =
+      variable_info %>%
+      dplyr::left_join(annotation_table %>%
+                         dplyr::select(-c(ms2_files_id:ms2_spectrum_id)),
+                       by = "variable_id")
+  }
   variable_info
 }
 
