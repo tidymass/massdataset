@@ -220,7 +220,7 @@ mutate_ms2 =
     } else{
       name = paste(sort(ms2_data_name), collapse = ";")
       if(any(names(object@ms2_data) == name)){
-        object@ms2_data[[match(name, names(ms2_data))]] = ms2_data
+        object@ms2_data[[match(name, names(object@ms2_data))]] = ms2_data
       }else{
         object@ms2_data = c(object@ms2_data, ms2_data)
         names(object@ms2_data)[length(names(object@ms2_data))] = name

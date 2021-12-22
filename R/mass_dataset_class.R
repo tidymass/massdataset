@@ -69,7 +69,8 @@ create_mass_dataset =
     object <- new(
       Class = "mass_dataset",
       expression_data = expression_data,
-      ms2_data = data.frame(),
+      ms2_data = list(),
+      annotation_table = data.frame(),
       sample_info = sample_info,
       variable_info = variable_info,
       sample_info_note = sample_info_note,
@@ -87,6 +88,7 @@ create_mass_dataset =
 #' @docType class
 #' @slot expression_data expression_data
 #' @slot ms2_data ms2_data
+#' @slot annotation_table annotation_table
 #' @slot sample_info sample_info
 #' @slot variable_info variable_info
 #' @slot sample_info_note sample_info_note
@@ -100,6 +102,7 @@ setClass(
   representation(
     expression_data = "data.frame",
     ms2_data = "list",
+    annotation_table = "data.frame",
     sample_info = "data.frame",
     variable_info = "data.frame",
     sample_info_note = "data.frame",

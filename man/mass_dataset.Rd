@@ -14,6 +14,8 @@ An S4 class that stores the MS dataset
 
 \item{\code{ms2_data}}{ms2_data}
 
+\item{\code{annotation_table}}{annotation_table}
+
 \item{\code{sample_info}}{sample_info}
 
 \item{\code{variable_info}}{variable_info}
