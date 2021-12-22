@@ -4,7 +4,10 @@
 \alias{check_object_class}
 \title{check_object_class}
 \usage{
-check_object_class(object, class = c("mass_dataset", "tidymass_parameter"))
+check_object_class(
+  object,
+  class = c("mass_dataset", "tidymass_parameter", "databaseClass", "metIdentifyClass")
+)
 }
 \arguments{
 \item{object}{object}

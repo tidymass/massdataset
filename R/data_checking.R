@@ -189,7 +189,10 @@ check_mass_dataset =
 #' @return Notice of data checking.
 #' @export
 check_object_class = function(object,
-                              class = c("mass_dataset", "tidymass_parameter")) {
+                              class = c("mass_dataset", 
+                                        "tidymass_parameter", 
+                                        "databaseClass",
+                                        "metIdentifyClass")) {
   class = match.arg(class)
   if (class(object)[1] != class) {
     stop("Only support ", class)

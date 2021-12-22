@@ -95,6 +95,35 @@ extract_variable_info = function(object) {
   variable_info
 }
 
+
+
+#' @title extract_annotation_table
+#' @description Extract variable information.
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@outlook.com}
+#' @param object mass_dataset class object.
+#' @return A data frame.
+#' @export
+#' @examples
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object =
+#'   create_mass_dataset(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+#'  annotation_table =
+#'  extract_annotation_table(object = object)
+#'  head(annotation_table)
+
+extract_annotation_table = function(object) {
+  annotation_table = object@annotation_table %>%
+    as.data.frame()
+  annotation_table
+}
+
 #' @title extract_variable_info_note
 #' @description Extract variable information note.
 #' @author Xiaotao Shen

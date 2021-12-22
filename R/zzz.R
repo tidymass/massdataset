@@ -21,18 +21,5 @@ is_attached <- function(x) {
   paste0("package:", x) %in% search()
 }
 
-globalVariables(names = c(
-  "Exp.intensity",
-  "Exp.mz",
-  "Lib.intensity",
-  "Lib.mz",
-  "intensity",
-  "mz",
-  "sample_id",
-  "variable_id",
-  "rt",
-  "name",
-  "variable_id1",
-  "variable_id2"
-))
+
 
