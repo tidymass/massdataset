@@ -17,6 +17,9 @@ setClass(
     polarity = "character",
     variable_id = "character",
     ms2_spectrum_id = "character",
+    ms2_mz = "numeric",
+    ms2_rt = "numeric",
+    ms2_file = "character",
     ms2_spectra = "list",
     mz_tol = "numeric",
     rt_tol = "numeric"

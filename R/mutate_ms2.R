@@ -11,19 +11,31 @@
 #' @return A mass_dataset object.
 #' @export
 #' @examples
-#' data("expression_data")
-#' data("sample_info")
-#' data("variable_info")
-#' library(massdataset)
-#' 
-#' object =
-#'   create_mass_dataset(
-#'     expression_data = expression_data,
-#'     sample_info = sample_info,
-#'     variable_info = variable_info,
-#'   )
-#' 
-#' object
+#' \dontrun{
+#'data("expression_data")
+# data("sample_info")
+# data("variable_info")
+# library(massdataset)
+# 
+# object =
+#   create_mass_dataset(
+#     expression_data = expression_data,
+#     sample_info = sample_info,
+#     variable_info = variable_info,
+#   )
+# 
+# object
+# 
+# dir.create("demo_data")
+# system.file("ms2_data", package = "metid")
+# file.copy(file.path(system.file("ms2_data", package = "massdataset"), "QC_MS2_NCE25_1.mgf"),
+#           to = "demo_data", overwrite = TRUE)
+# 
+# object =
+#   mutate_ms2(object = object, column = "rp", polarity = "positive")
+# 
+# object@ms2_data 
+#' }
 
 mutate_ms2 =
   function(object, 
@@ -193,17 +205,20 @@ mutate_ms2 =
         polarity = polarity,
         variable_id = match.result$MS1.peak.name,
         ms2_spectrum_id = match.result$MS2.spectra.name,
+        ms2_mz = ms1.info$mz[match.result$Index.ms2.spectra],
+        ms2_rt = ms1.info$rt[match.result$Index.ms2.spectra],
+        ms2_file = ms1.info$file[match.result$Index.ms2.spectra],
         ms2_spectra = ms2.info[match.result$Index.ms2.spectra],
         mz_tol = ms1.ms2.match.mz.tol,
         rt_tol = ms1.ms2.match.rt.tol)
     
     if(length(object@ms2_data) == 0) {
-      name = paste(sort(ms2_data_name), collapse = "_")
+      name = paste(sort(ms2_data_name), collapse = ";")
       ms2_data = list(name = ms2_data)
       names(ms2_data) = name
       object@ms2_data = ms2_data
     } else{
-      name = paste(sort(ms2_data_name), collapse = "_")
+      name = paste(sort(ms2_data_name), collapse = ";")
       if(any(names(object@ms2_data) == name)){
         object@ms2_data[[match(name, names(ms2_data))]] = ms2_data
       }else{

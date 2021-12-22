@@ -33,19 +33,9 @@ A mass_dataset object.
 Mutate MS2 spectra for each variable
 }
 \examples{
+\dontrun{
 data("expression_data")
-data("sample_info")
-data("variable_info")
-library(massdataset)
-
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    sample_info = sample_info,
-    variable_info = variable_info,
-  )
-
-object
+}
 }
 \author{
 Xiaotao Shen
