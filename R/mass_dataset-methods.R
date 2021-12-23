@@ -1,7 +1,4 @@
-#' @rdname mass_dataset-class
-#' @return message
-#' @export
-#' @importFrom methods show
+
 setMethod(
   f = "show",
   signature = "mass_dataset",
@@ -378,14 +375,16 @@ setMethod(
 )
 
 #' @method cbind mass_dataset
-#' @param x x
-#' @param y y
+#' @param ... mass_dataset objects
 #' @param deparse.level deparse.level
 #' @export
 #' @rdname mass_dataset-class
 #' @return mass_dataset
 
-cbind.mass_dataset = function(x, y, deparse.level = 1) {
+cbind.mass_dataset = function(..., deparse.level = 1) {
+  xy = list(...)
+  x = xy[[1]]
+  y = xy[[2]]
   if (nrow(x@variable_info) != nrow(y@variable_info)) {
     stop("rownames(x) should be same with rownames(y).\n")
   }
@@ -479,14 +478,16 @@ cbind.mass_dataset = function(x, y, deparse.level = 1) {
 
 
 #' @method rbind mass_dataset
-#' @param x x
-#' @param y y
+#' @param ... mass_datasets
 #' @param deparse.level deparse.level
 #' @export
 #' @rdname mass_dataset-class
 #' @return mass_dataset
 
-rbind.mass_dataset = function(x, y, deparse.level = 1) {
+rbind.mass_dataset = function(..., deparse.level = 1) {
+  xy = list(...)
+  x = xy[[1]]
+  y = xy[[2]]
   if (nrow(x@sample_info) != nrow(y@sample_info)) {
     stop("rownames(x) should be same with rownames(y).\n")
   }

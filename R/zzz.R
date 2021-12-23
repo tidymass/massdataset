@@ -5,21 +5,15 @@
   
   crayon::num_colors(TRUE)
   massdataset_attach()
+
+  if (!"package:conflicted" %in% search()) {
+    x <- massdataset_conflicts()
+    msg(massdataset_conflict_message(x), startup = TRUE)
+  }
   
   
-  packageStartupMessage(
-    crayon::green(
-      "massdataset,
-More information can be found at https://tidymass.github.io/massdataset/
-Authors: Xiaotao Shen (shenxt@stanford.edu)
-Maintainer: Xiaotao Shen"
-    )
-  )
 }
 
 is_attached <- function(x) {
   paste0("package:", x) %in% search()
 }
-
-
-

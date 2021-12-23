@@ -115,24 +115,29 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Data import</li>
     <li>
-      <a href="http://metflow.zhulab.cn/">Import data and create them as a tidymass-object class</a>
+      <a href="../articles/data_import_and_export.html">Data import and export</a>
     </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Example data</li>
     <li>
-      <a href="https://tidymass.github.io/metflow2/">Demo dataset for massdataset</a>
+      <a href="../articles/mutate_ms2.html">Mutate MS2 into mass_dataset</a>
     </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Extract data</li>
     <li>
-      <a href="https://tidymass.github.io/MetNormalizer/">Extract data from tidymass-class object</a>
+      <a href="../articles/extract_data.html">Extract data</a>
     </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Filter data</li>
     <li>
-      <a href="https://tidymass.github.io/metID/">Filter data accordting to samples or variables</a>
+      <a href="../articles/summary_info.html">Summary information</a>
+    </li>
+    <li>
+      <a href="../articles/accessor.html">Accessor</a>
+    </li>
+    <li>
+      <a href="../articles/filtering.html">Filtering samples/variables</a>
+    </li>
+    <li>
+      <a href="../articles/tidyverse_verse.html">Process mass_dataset using tidyverse functions</a>
+    </li>
+    <li>
+      <a href="../articles/base_function.html">R base functions for mass_dataset</a>
     </li>
   </ul>
 </li>
@@ -193,7 +198,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>An S4 class that stores the parameters</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/tidymass_class.R'><code>R/tidymass_class.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/tidymass_parameter_class.R'><code>R/tidymass_parameter_class.R</code></a></small>
     <div class="hidden name"><code>tidymass_parameter-class.Rd</code></div>
     </div>
 
@@ -203,6 +208,20 @@
 
 
 
+    <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
+
+    
+
+<dl>
+<dt><code>pacakge_name</code></dt><dd><p>pacakge_name</p></dd>
+
+<dt><code>function_name</code></dt><dd><p>function_name</p></dd>
+
+<dt><code>parameter</code></dt><dd><p>parameter</p></dd>
+
+<dt><code>time</code></dt><dd><p>time</p></dd>
+
+</dl>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -2,14 +2,11 @@
 
 ##S4 class for parameter
 #' An S4 class that stores the parameters
-#' @title tidymass_parameter
-#' @name tidymass_parameter
-#' @docType class
+#' 
 #' @slot pacakge_name pacakge_name
 #' @slot function_name function_name
 #' @slot parameter parameter
 #' @slot time time
-#' @exportClass tidymass_parameter
 setClass(
   Class = "tidymass_parameter",
   representation(
@@ -20,16 +17,6 @@ setClass(
   )
 )
 
-#' show method for tidymass_parameter
-#' @name show
-#' @docType methods
-#' @rdname show-methods
-#' @title show method
-#' @param object A \code{tidymass_parameter} instance.
-#' @return message
-#' @importFrom methods show
-#' @export
-#' @author Xiaotao Shen
 setMethod(
   f = "show",
   signature(object = "tidymass_parameter"),

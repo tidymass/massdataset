@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>colnames.mass_dataset &lt;- function(x) — sample_info,mass_dataset-method • massdataset</title>
+<title>An S4 class that stores the MS dataset — sample_info,mass_dataset-method • massdataset</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,8 +52,8 @@
 
 
 
-<meta property="og:title" content="colnames.mass_dataset &lt;- function(x) — sample_info,mass_dataset-method" />
-<meta property="og:description" content="colnames.mass_dataset &amp;lt;- function(x)" />
+<meta property="og:title" content="An S4 class that stores the MS dataset — sample_info,mass_dataset-method" />
+<meta property="og:description" content="An S4 class that stores the MS dataset" />
 <meta property="og:image" content="https://tidymass.github.io/massdataset/logo.png" />
 
 
@@ -119,10 +119,25 @@
       <a href="../articles/data_import_and_export.html">Data import and export</a>
     </li>
     <li>
-      <a href="../articles/tidyverse_verse.html">Operate mass_dataset using tidyverse</a>
+      <a href="../articles/mutate_ms2.html">Mutate MS2 into mass_dataset</a>
     </li>
     <li>
-      <a href="../articles/example.html">Example</a>
+      <a href="../articles/extract_data.html">Extract data</a>
+    </li>
+    <li>
+      <a href="../articles/summary_info.html">Summary information</a>
+    </li>
+    <li>
+      <a href="../articles/accessor.html">Accessor</a>
+    </li>
+    <li>
+      <a href="../articles/filtering.html">Filtering samples/variables</a>
+    </li>
+    <li>
+      <a href="../articles/tidyverse_verse.html">Process mass_dataset using tidyverse functions</a>
+    </li>
+    <li>
+      <a href="../articles/base_function.html">R base functions for mass_dataset</a>
     </li>
   </ul>
 </li>
@@ -182,13 +197,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>colnames.mass_dataset &lt;- function(x)</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/data_extracting.R'><code>R/data_extracting.R</code></a>, <a href='https://github.com/tidymass/massdataset/blob/master/R/mass_dataset-methods.R'><code>R/mass_dataset-methods.R</code></a></small>
+    <h1>An S4 class that stores the MS dataset</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymass/massdataset/blob/master/R/data_extracting.R'><code>R/data_extracting.R</code></a>, <a href='https://github.com/tidymass/massdataset/blob/master/R/mass_dataset-methods.R'><code>R/mass_dataset-methods.R</code></a>, <a href='https://github.com/tidymass/massdataset/blob/master/R/mass_dataset_class.R'><code>R/mass_dataset_class.R</code></a>, and 1 more</small>
     <div class="hidden name"><code>mass_dataset-class.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>colnames.mass_dataset &lt;- function(x)</p>
+    <p>An S4 class that stores the MS dataset</p>
     </div>
 
     <pre class="usage"># S4 method for mass_dataset
@@ -205,9 +220,6 @@ process_info(object)
 
 # S4 method for mass_dataset
 ms2_data(object)
-
-# S4 method for mass_dataset
-show(object)
 
 # S3 method for mass_dataset
 dim(x)
@@ -234,8 +246,102 @@ apply(X, MARGIN, FUN, ..., simplify = TRUE)
 log(x, base = exp(1))
 
 # S4 method for mass_dataset
-scale(x, center = TRUE, scale = TRUE)</pre>
+scale(x, center = TRUE, scale = TRUE)
 
+# S4 method for mass_dataset
+intersect(x, y)
+
+# S3 method for mass_dataset
+cbind(..., deparse.level = 1)
+
+# S3 method for mass_dataset
+rbind(..., deparse.level = 1)
+
+# S4 method for mass_dataset
+mz_rt_match(
+  data1,
+  data2,
+  mz.tol = 10,
+  rt.tol = 30,
+  rt.error.type = c("abs", "relative")
+)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>x</p></td>
+    </tr>
+    <tr>
+      <th>i</th>
+      <td><p>i</p></td>
+    </tr>
+    <tr>
+      <th>j</th>
+      <td><p>j</p></td>
+    </tr>
+    <tr>
+      <th>drop</th>
+      <td><p>drop</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>mass_datasets</p></td>
+    </tr>
+    <tr>
+      <th>X</th>
+      <td><p>X</p></td>
+    </tr>
+    <tr>
+      <th>MARGIN</th>
+      <td><p>MARGIN</p></td>
+    </tr>
+    <tr>
+      <th>FUN</th>
+      <td><p>FUN</p></td>
+    </tr>
+    <tr>
+      <th>simplify</th>
+      <td><p>simplify</p></td>
+    </tr>
+    <tr>
+      <th>base</th>
+      <td><p>base</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>y</p></td>
+    </tr>
+    <tr>
+      <th>deparse.level</th>
+      <td><p>deparse.level</p></td>
+    </tr>
+    <tr>
+      <th>data1</th>
+      <td><p>data1</p></td>
+    </tr>
+    <tr>
+      <th>data2</th>
+      <td><p>data2</p></td>
+    </tr>
+    <tr>
+      <th>mz.tol</th>
+      <td><p>mz.tol</p></td>
+    </tr>
+    <tr>
+      <th>rt.tol</th>
+      <td><p>rt.tol</p></td>
+    </tr>
+    <tr>
+      <th>rt.error.type</th>
+      <td><p>rt.error.type abs or relative</p></td>
+    </tr>
+    <tr>
+      <th>..</th>
+      <td><p>..</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -249,11 +355,40 @@ scale(x, center = TRUE, scale = TRUE)</pre>
 <p>message</p>
 <p>message</p>
 <p>message</p>
-<p>message</p>
 <p>mass_dataset</p>
 <p>result</p>
 <p>mass_dataset object</p>
 <p>mass_dataset object</p>
+<p>mass_dataset object</p>
+<p>mass_dataset</p>
+<p>mass_dataset</p>
+<p>mass_dataset object</p>
+    <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
+
+    
+
+<dl>
+<dt><code>expression_data</code></dt><dd><p>expression_data</p></dd>
+
+<dt><code>ms2_data</code></dt><dd><p>ms2_data</p></dd>
+
+<dt><code>annotation_table</code></dt><dd><p>annotation_table</p></dd>
+
+<dt><code>sample_info</code></dt><dd><p>sample_info</p></dd>
+
+<dt><code>variable_info</code></dt><dd><p>variable_info</p></dd>
+
+<dt><code>sample_info_note</code></dt><dd><p>sample_info_note</p></dd>
+
+<dt><code>variable_info_note</code></dt><dd><p>variable_info_note</p></dd>
+
+<dt><code>process_info</code></dt><dd><p>process_info</p></dd>
+
+<dt><code>version</code></dt><dd><p>version</p></dd>
+
+<dt><code>activated</code></dt><dd><p>activated</p></dd>
+
+</dl>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

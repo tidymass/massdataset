@@ -1,6 +1,9 @@
-core <- c("magrittr", "tinytools")
+core <-
+  c(
+    "tinytools"
+  )
 
-core_unloaded <- function() {
+massdataset_core_unloaded <- function() {
   search <- paste0("package:", core)
   core[!search %in% search()]
 }
@@ -20,19 +23,18 @@ same_library <- function(pkg) {
 }
 
 massdataset_attach <- function() {
-  to_load <- core_unloaded()
+  to_load <- massdataset_core_unloaded()
   if (length(to_load) == 0)
     return(invisible())
   
-  # msg(
-  #   cli::rule(
-  #     left = crayon::bold("Attaching packages"),
-  #     right = paste0("massdataset ", package_version("massdataset"))
-  #   ),
-  #   startup = TRUE
-  # )
+  msg(cli::rule(
+    left = crayon::bold("Attaching packages"),
+    right = paste0("massdataset ", massdataset_package_version("massdataset"))
+  ),
+  startup = TRUE)
   
-  versions <- vapply(to_load, package_version, character(1))
+  versions <-
+    vapply(to_load, massdataset_package_version, character(1))
   packages <- paste0(
     crayon::green(cli::symbol$tick),
     " ",
@@ -54,7 +56,7 @@ massdataset_attach <- function() {
   invisible()
 }
 
-package_version <- function(x) {
+massdataset_package_version <- function(x) {
   version <- as.character(unclass(utils::packageVersion(x))[[1]])
   
   if (length(version) > 3) {
@@ -64,65 +66,3 @@ package_version <- function(x) {
   paste0(version, collapse = ".")
 }
 
-
-msg <- function(..., startup = FALSE) {
-  if (startup) {
-    if (!isTRUE(getOption("massdataset.quiet"))) {
-      packageStartupMessage(text_col(...))
-    }
-  } else {
-    message(text_col(...))
-  }
-}
-
-text_col <- function(x) {
-  # If RStudio not available, messages already printed in black
-  if (!rstudioapi::isAvailable()) {
-    return(x)
-  }
-  
-  if (!rstudioapi::hasFun("getThemeInfo")) {
-    return(x)
-  }
-  
-  theme <- rstudioapi::getThemeInfo()
-  
-  if (isTRUE(theme$dark))
-    crayon::white(x)
-  else
-    crayon::black(x)
-  
-}
-
-#' List all packages in the massdataset
-#'
-#' @param include_self Include massdataset in the list?
-#' @export
-#' @examples
-#' massdataset_packages()
-massdataset_packages <- function(include_self = TRUE) {
-  raw <- utils::packageDescription("massdataset")$Imports
-  imports <- strsplit(raw, ",")[[1]]
-  parsed <- gsub("^\\s+|\\s+$", "", imports)
-  names <-
-    vapply(strsplit(parsed, "\\s+"), "[[", 1, FUN.VALUE = character(1))
-  
-  if (include_self) {
-    names <- c(names, "massdataset")
-  }
-  
-  names
-}
-
-invert <- function(x) {
-  if (length(x) == 0)
-    return()
-  stacked <- utils::stack(x)
-  tapply(as.character(stacked$ind), stacked$values, list)
-}
-
-
-style_grey <- function(level, ...) {
-  crayon::style(paste0(...),
-                crayon::make_style(grDevices::grey(level), grey = TRUE))
-}

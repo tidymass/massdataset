@@ -1,7 +1,5 @@
 ##S4 class for ms2_data
 #' An S4 class that stores the ms2_data
-#' @name ms2_data
-#' @docType class
 #' @slot column column
 #' @slot polarity polarity
 #' @slot variable_id variable_id
@@ -9,7 +7,6 @@
 #' @slot ms2_spectra ms2_spectra
 #' @slot mz_tol mz_tol
 #' @slot rt_tol rt_tol
-#' @exportClass ms2_data
 setClass(
   Class = "ms2_data",
   representation(
@@ -26,16 +23,6 @@ setClass(
   )
 )
 
-#' show method for ms2_data
-#' @name show
-#' @docType methods
-#' @rdname show-methods
-#' @title show method
-#' @param object A \code{ms2_data} instance.
-#' @return message
-#' @importFrom methods show
-#' @export
-#' @author Xiaotao Shen
 setMethod(
   f = "show",
   signature(object = "ms2_data"),

@@ -2,8 +2,6 @@
 title: "Process mass_dataset using tidyverse functions"
 author:
 - name: Xiaotao Shen (https://www.shenxt.info/)
-- affiliation: School of Medicine, Stanford University
-- url: http://shenxt.info/
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
 output:
   html_document:

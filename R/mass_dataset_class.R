@@ -84,8 +84,6 @@ create_mass_dataset =
 
 ##S4 class for function mass_dataset-class
 #' An S4 class that stores the MS dataset
-#' @name mass_dataset
-#' @docType class
 #' @slot expression_data expression_data
 #' @slot ms2_data ms2_data
 #' @slot annotation_table annotation_table
@@ -96,7 +94,7 @@ create_mass_dataset =
 #' @slot process_info process_info
 #' @slot version version
 #' @slot activated activated
-#' @exportClass mass_dataset
+
 setClass(
   Class = "mass_dataset",
   representation(

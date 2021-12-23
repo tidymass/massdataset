@@ -22,6 +22,9 @@
     <loc>https://tidymass.github.io/massdataset//reference/expression_data.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset//reference/extract_annotation_table.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset//reference/extract_expression_data.html</loc>
   </url>
   <url>
@@ -64,7 +67,13 @@
     <loc>https://tidymass.github.io/massdataset//reference/get_variable_number.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/mass_dataset.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/intensity_plot.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/mass_dataset-class.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset//reference/massdataset_conflicts.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/massdataset_logo.html</loc>
@@ -76,7 +85,7 @@
     <loc>https://tidymass.github.io/massdataset//reference/merge_mass_dataset.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/ms2_data.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/ms2_data-class.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/mutate_mean_intensity.html</loc>
@@ -112,9 +121,6 @@
     <loc>https://tidymass.github.io/massdataset//reference/sample_info_note.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/show-methods.html</loc>
-  </url>
-  <url>
     <loc>https://tidymass.github.io/massdataset//reference/show_missing_values.html</loc>
   </url>
   <url>
@@ -127,7 +133,7 @@
     <loc>https://tidymass.github.io/massdataset//reference/show_variable_missing_values.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massdataset//reference/tidymass_parameter.html</loc>
+    <loc>https://tidymass.github.io/massdataset//reference/tidymass_parameter-class.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset//reference/update_mass_dataset.html</loc>
