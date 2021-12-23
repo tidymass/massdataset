@@ -7,6 +7,7 @@
 #' @param rt.error.type rt.error.type abs or relative
 #' @export
 #' @rdname mass_dataset-class
+#' @importFrom tinytools mz_rt_match
 #' @return mass_dataset object
 
 setMethod(

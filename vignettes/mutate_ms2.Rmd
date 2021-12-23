@@ -72,7 +72,7 @@ mutate_ms2(
   polarity = "positive",
   ms1.ms2.match.mz.tol = 10, 
   ms1.ms2.match.rt.tol = 15, 
-  path = "example"
+  path = "demo_data"
 )
 
 extract_ms2_data(object2)

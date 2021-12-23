@@ -18,6 +18,12 @@ An S4 class that stores the ms2_data
 
 \item{\code{ms2_spectrum_id}}{ms2_spectrum_id}
 
+\item{\code{ms2_mz}}{ms2_mz}
+
+\item{\code{ms2_rt}}{ms2_rt}
+
+\item{\code{ms2_file}}{ms2_file}
+
 \item{\code{ms2_spectra}}{ms2_spectra}
 
 \item{\code{mz_tol}}{mz_tol}

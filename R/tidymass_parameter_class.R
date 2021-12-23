@@ -7,6 +7,8 @@
 #' @slot function_name function_name
 #' @slot parameter parameter
 #' @slot time time
+#' @exportClass tidymass_parameter
+
 setClass(
   Class = "tidymass_parameter",
   representation(

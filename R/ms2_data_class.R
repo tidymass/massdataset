@@ -4,9 +4,13 @@
 #' @slot polarity polarity
 #' @slot variable_id variable_id
 #' @slot ms2_spectrum_id ms2_spectrum_id
+#' @slot ms2_mz ms2_mz
+#' @slot ms2_rt ms2_rt
+#' @slot ms2_file ms2_file
 #' @slot ms2_spectra ms2_spectra
 #' @slot mz_tol mz_tol
 #' @slot rt_tol rt_tol
+#' @exportClass ms2_data
 setClass(
   Class = "ms2_data",
   representation(

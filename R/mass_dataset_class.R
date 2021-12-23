@@ -94,6 +94,7 @@ create_mass_dataset =
 #' @slot process_info process_info
 #' @slot version version
 #' @slot activated activated
+#' @exportClass mass_dataset
 
 setClass(
   Class = "mass_dataset",
