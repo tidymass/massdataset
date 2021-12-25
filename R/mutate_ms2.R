@@ -70,7 +70,7 @@ mutate_ms2 =
     
     ms2_data <-
       purrr::map(.x = ms2_list, function(temp_ms2_data) {
-        metid::read_mgf(file = temp_ms2_data)
+        tinytools::read_mgf(file = temp_ms2_data)
       })
     
     names(ms2_data) <- ms2_data_name

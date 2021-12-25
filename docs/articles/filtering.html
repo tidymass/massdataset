@@ -34,6 +34,8 @@
 </script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -46,18 +48,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Under development">0.0.1</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Help documents
@@ -103,7 +99,8 @@
       <a href="../articles/massdataset.html">Version 0.4.0</a>
     </li>
     <li class="divider">
-    <li>
+    </li>
+<li>
       <a href="../news/index.html">Change log</a>
     </li>
   </ul>
@@ -111,19 +108,16 @@
 <li>
   <a href="../articles/contact_us.html">Contact us</a>
 </li>
-<li>
-  <a href="../reference/index.html">Reference</a>
-</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/tidymass/massdataset/">
+  <a href="https://github.com/tidymass/massdataset/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/JasperShen1990">
+  <a href="https://twitter.com/JasperShen1990" class="external-link">
     <span class="fab fa-twitter fa-lg"></span>
      
   </a>
@@ -144,34 +138,34 @@
 
       
 
-      </header><script src="filtering_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Filtering samples/variables</h1>
-                        <h4 class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="uri">https://www.shenxt.info/</a>)</h4>
+                        <h4 data-toc-skip class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 class="date">Created on 2021-12-04 and updated on 2021-12-23</h4>
+            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2021-12-24</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/master/vignettes/filtering.Rmd"><code>vignettes/filtering.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/filtering.Rmd" class="external-link"><code>vignettes/filtering.Rmd</code></a></small>
       <div class="hidden name"><code>filtering.Rmd</code></div>
 
     </div>
 
     
     
-<div id="filtering-samples" class="section level1">
-<h1 class="hasAnchor">
-<a href="#filtering-samples" class="anchor"></a><strong>Filtering samples</strong>
+<div class="section level1">
+<h1 id="filtering-samples">
+<strong>Filtering samples</strong><a class="anchor" aria-label="anchor" href="#filtering-samples"></a>
 </h1>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset">massdataset</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span>
 
 <span class="va">object</span> <span class="op">=</span>
   <span class="fu"><a href="../reference/create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span>
@@ -183,192 +177,192 @@
   <span class="op">)</span>
   
 <span class="va">object</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; massdataset version: 0.01 </span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; 1.expression_data:[ 1000 x 8 data.frame]</span>
-<span class="co">#&gt; 2.sample_info:[ 8 x 4 data.frame]</span>
-<span class="co">#&gt; 3.variable_info:[ 1000 x 3 data.frame]</span>
-<span class="co">#&gt; 4.sample_info_note:[ 4 x 2 data.frame]</span>
-<span class="co">#&gt; 5.variable_info_note:[ 3 x 2 data.frame]</span>
-<span class="co">#&gt; 6.ms2_data:[ 0 variables x 0 MS2 spectra]</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; Processing information (extract_process_info())</span>
-<span class="co">#&gt; Creation ---------- </span>
-<span class="co">#&gt;       Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-23 00:13:02</span></code></pre></div>
-<div id="filter_samples-function" class="section level2">
-<h2 class="hasAnchor">
-<a href="#filter_samples-function" class="anchor"></a><strong>filter_samples() function</strong>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.01 </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span></code></pre></div>
+<div class="section level2">
+<h2 id="filter_samples-function">
+<strong>filter_samples() function</strong><a class="anchor" aria-label="anchor" href="#filter_samples-function"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">###only remain the samples with NA number &lt; 4 in all variables</span>
 <span class="fu"><a href="../reference/filter_samples.html">filter_samples</a></span><span class="op">(</span><span class="va">object</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.4</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.4</span>
 <span class="op">}</span><span class="op">)</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; massdataset version: 0.01 </span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; 1.expression_data:[ 1000 x 2 data.frame]</span>
-<span class="co">#&gt; 2.sample_info:[ 2 x 4 data.frame]</span>
-<span class="co">#&gt; 3.variable_info:[ 1000 x 3 data.frame]</span>
-<span class="co">#&gt; 4.sample_info_note:[ 4 x 2 data.frame]</span>
-<span class="co">#&gt; 5.variable_info_note:[ 3 x 2 data.frame]</span>
-<span class="co">#&gt; 6.ms2_data:[ 0 variables x 0 MS2 spectra]</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; Processing information (extract_process_info())</span>
-<span class="co">#&gt; Creation ---------- </span>
-<span class="co">#&gt;       Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-23 00:13:02</span>
-<span class="co">#&gt; filter_samples ---------- </span>
-<span class="co">#&gt;       Package    Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset filter_samples() 2021-12-23 00:13:02</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.01 </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 2 x 4 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span>
+<span class="co">#&gt; <span style="color: #00BB00;">filter_samples ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package    Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset filter_samples() 2021-12-24 16:59:42</span>
 
 <span class="co">###give the index</span>
 <span class="fu"><a href="../reference/filter_samples.html">filter_samples</a></span><span class="op">(</span><span class="va">object</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.4</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.4</span>
 <span class="op">}</span>, prune <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; Blank_3 Blank_4    QC_1    QC_2   PS4P1   PS4P2   PS4P3   PS4P4 </span>
 <span class="co">#&gt;   FALSE   FALSE    TRUE    TRUE   FALSE   FALSE   FALSE   FALSE</span></code></pre></div>
 </div>
-<div id="dplyrfilter-function" class="section level2">
-<h2 class="hasAnchor">
-<a href="#dplyrfilter-function" class="anchor"></a><strong>dplyr::filter() function</strong>
+<div class="section level2">
+<h2 id="dplyrfilter-function">
+<strong>dplyr::filter() function</strong><a class="anchor" aria-label="anchor" href="#dplyrfilter-function"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">###only remain the "QC" samples</span>
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">class</span> <span class="op">==</span> <span class="st">"QC"</span><span class="op">)</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; massdataset version: 0.01 </span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; 1.expression_data:[ 1000 x 2 data.frame]</span>
-<span class="co">#&gt; 2.sample_info:[ 2 x 4 data.frame]</span>
-<span class="co">#&gt; 3.variable_info:[ 1000 x 3 data.frame]</span>
-<span class="co">#&gt; 4.sample_info_note:[ 4 x 2 data.frame]</span>
-<span class="co">#&gt; 5.variable_info_note:[ 3 x 2 data.frame]</span>
-<span class="co">#&gt; 6.ms2_data:[ 0 variables x 0 MS2 spectra]</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; Processing information (extract_process_info())</span>
-<span class="co">#&gt; Creation ---------- </span>
-<span class="co">#&gt;       Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-23 00:13:02</span>
-<span class="co">#&gt; filter ---------- </span>
-<span class="co">#&gt;       Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset      filter() 2021-12-23 00:13:02</span></code></pre></div>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">class</span> <span class="op">==</span> <span class="st">"QC"</span><span class="op">)</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.01 </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 2 x 4 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span>
+<span class="co">#&gt; <span style="color: #00BB00;">filter ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset      filter() 2021-12-24 16:59:42</span></code></pre></div>
 </div>
-<div id="dplyrselect-function" class="section level2">
-<h2 class="hasAnchor">
-<a href="#dplyrselect-function" class="anchor"></a><strong>dplyr::select() function</strong>
+<div class="section level2">
+<h2 id="dplyrselect-function">
+<strong>dplyr::select() function</strong><a class="anchor" aria-label="anchor" href="#dplyrselect-function"></a>
 </h2>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">###only remain samples whose names contain "QC"</span>
 <span class="va">object2</span> <span class="op">=</span> 
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"QC"</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"QC"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span>
 <span class="co">#&gt; [1] "QC_1" "QC_2"</span>
 
 <span class="co">###only remain first 3 samples</span>
 <span class="va">object2</span> <span class="op">=</span> 
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Blank_3" "Blank_4" "QC_1"</span></code></pre></div>
 </div>
 </div>
-<div id="filtering-variables" class="section level1">
-<h1 class="hasAnchor">
-<a href="#filtering-variables" class="anchor"></a><strong>Filtering variables</strong>
+<div class="section level1">
+<h1 id="filtering-variables">
+<strong>Filtering variables</strong><a class="anchor" aria-label="anchor" href="#filtering-variables"></a>
 </h1>
-<div id="filter_variables-function" class="section level2">
-<h2 class="hasAnchor">
-<a href="#filter_variables-function" class="anchor"></a><strong>filter_variables() function</strong>
+<div class="section level2">
+<h2 id="filter_variables-function">
+<strong>filter_variables() function</strong><a class="anchor" aria-label="anchor" href="#filter_variables-function"></a>
 </h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">####Filter variables which have more than 50% MVs in all samples.</span>
 <span class="fu"><a href="../reference/filter_variables.html">filter_variables</a></span><span class="op">(</span><span class="va">object</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.5</span>
-<span class="op">}</span>, prune <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.5</span>
+<span class="op">}</span>, prune <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; M136T55_2_POS    M79T35_POS  M307T548_POS  M183T224_POS   M349T47_POS </span>
 <span class="co">#&gt;          TRUE          TRUE          TRUE         FALSE          TRUE </span>
 <span class="co">#&gt;  M182T828_POS </span>
 <span class="co">#&gt;          TRUE</span>
 
 <span class="fu"><a href="../reference/filter_variables.html">filter_variables</a></span><span class="op">(</span><span class="va">object</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.5</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.5</span>
 <span class="op">}</span>,
 prune <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; massdataset version: 0.01 </span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; 1.expression_data:[ 422 x 8 data.frame]</span>
-<span class="co">#&gt; 2.sample_info:[ 8 x 4 data.frame]</span>
-<span class="co">#&gt; 3.variable_info:[ 422 x 3 data.frame]</span>
-<span class="co">#&gt; 4.sample_info_note:[ 4 x 2 data.frame]</span>
-<span class="co">#&gt; 5.variable_info_note:[ 3 x 2 data.frame]</span>
-<span class="co">#&gt; 6.ms2_data:[ 0 variables x 0 MS2 spectra]</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; Processing information (extract_process_info())</span>
-<span class="co">#&gt; Creation ---------- </span>
-<span class="co">#&gt;       Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-23 00:13:02</span>
-<span class="co">#&gt; filter_variables ---------- </span>
-<span class="co">#&gt;       Package      Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset filter_variables() 2021-12-23 00:13:02</span></code></pre></div>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.01 </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 422 x 8 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 422 x 3 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span>
+<span class="co">#&gt; <span style="color: #00BB00;">filter_variables ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package      Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset filter_variables() 2021-12-24 16:59:42</span></code></pre></div>
 </div>
-<div id="dplyrfilter-function-1" class="section level2">
-<h2 class="hasAnchor">
-<a href="#dplyrfilter-function-1" class="anchor"></a><strong>dplyr::filter() function</strong>
+<div class="section level2">
+<h2 id="dplyrfilter-function-1">
+<strong>dplyr::filter() function</strong><a class="anchor" aria-label="anchor" href="#dplyrfilter-function-1"></a>
 </h2>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">####Filter variables which mz &gt; 500</span>
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mz</span> <span class="op">&gt;</span> <span class="fl">500</span><span class="op">)</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; massdataset version: 0.01 </span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; 1.expression_data:[ 0 x 8 data.frame]</span>
-<span class="co">#&gt; 2.sample_info:[ 8 x 4 data.frame]</span>
-<span class="co">#&gt; 3.variable_info:[ 0 x 3 data.frame]</span>
-<span class="co">#&gt; 4.sample_info_note:[ 4 x 2 data.frame]</span>
-<span class="co">#&gt; 5.variable_info_note:[ 3 x 2 data.frame]</span>
-<span class="co">#&gt; 6.ms2_data:[ 0 variables x 0 MS2 spectra]</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; Processing information (extract_process_info())</span>
-<span class="co">#&gt; Creation ---------- </span>
-<span class="co">#&gt;       Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-23 00:13:02</span>
-<span class="co">#&gt; filter ---------- </span>
-<span class="co">#&gt;       Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset      filter() 2021-12-23 00:13:02</span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">mz</span> <span class="op">&gt;</span> <span class="fl">500</span><span class="op">)</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.01 </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 0 x 8 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 0 x 3 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span>
+<span class="co">#&gt; <span style="color: #00BB00;">filter ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset      filter() 2021-12-24 16:59:42</span>
 
 <span class="co">####Filter variables which mz &gt; 500 and rt &gt; 100</span>
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mz</span> <span class="op">&gt;</span> <span class="fl">500</span> <span class="op">&amp;</span> <span class="va">rt</span> <span class="op">&gt;</span> <span class="fl">100</span><span class="op">)</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; massdataset version: 0.01 </span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; 1.expression_data:[ 0 x 8 data.frame]</span>
-<span class="co">#&gt; 2.sample_info:[ 8 x 4 data.frame]</span>
-<span class="co">#&gt; 3.variable_info:[ 0 x 3 data.frame]</span>
-<span class="co">#&gt; 4.sample_info_note:[ 4 x 2 data.frame]</span>
-<span class="co">#&gt; 5.variable_info_note:[ 3 x 2 data.frame]</span>
-<span class="co">#&gt; 6.ms2_data:[ 0 variables x 0 MS2 spectra]</span>
-<span class="co">#&gt; -------------------- </span>
-<span class="co">#&gt; Processing information (extract_process_info())</span>
-<span class="co">#&gt; Creation ---------- </span>
-<span class="co">#&gt;       Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-23 00:13:02</span>
-<span class="co">#&gt; filter ---------- </span>
-<span class="co">#&gt;       Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset      filter() 2021-12-23 00:13:02</span></code></pre></div>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">mz</span> <span class="op">&gt;</span> <span class="fl">500</span> <span class="op">&amp;</span> <span class="va">rt</span> <span class="op">&gt;</span> <span class="fl">100</span><span class="op">)</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.01 </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 0 x 8 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 0 x 3 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span>
+<span class="co">#&gt; <span style="color: #00BB00;">filter ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset      filter() 2021-12-24 16:59:42</span></code></pre></div>
 </div>
 </div>
   </div>
@@ -384,11 +378,13 @@ prune <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</
 
 
       <footer><div class="copyright">
-  <p>Developed by Xiaotao Shen.</p>
+  <p></p>
+<p>Developed by Xiaotao Shen.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>

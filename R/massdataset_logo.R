@@ -23,6 +23,7 @@
 #' @importFrom utils data str head
 #' @importFrom magrittr %>%
 #' @importFrom ggsci pal_lancet 
+#' @importFrom tinytools read_mgf
 #' @export
 #' @examples
 #' massdataset_logo()
@@ -54,7 +55,7 @@ update_date = "2021-12-15"
 # # writeLines(capture.output(say("Hello"), type = "message"), con = "ascii_art.txt")
 # art <- readLines("logo.txt")
 # dput(art)
-# metid_logo <-
+# massdataset_logo <-
 #   c("                          _____        _                 _   ", 
 #     "                         |  __ \\      | |               | |  ", 
 #     "  _ __ ___   __ _ ___ ___| |  | | __ _| |_ __ _ ___  ___| |_ ", 
@@ -64,4 +65,4 @@ update_date = "2021-12-15"
 #     "                                                             ", 
 #     "                                                             "
 #   )
-# cat(metid_logo, sep = "\n")
+# cat(massdataset_logo, sep = "\n")

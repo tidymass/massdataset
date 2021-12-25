@@ -45,7 +45,6 @@ Imports:
     xml2,
     htmlwidgets,
     leaflet,
-    metid,
     tinytools,
     ComplexHeatmap,
     grid,
@@ -60,6 +59,5 @@ Suggests:
     tidyverse
 Note:
 Remotes: 
-    tidymass/metid,
     tidymass/tinytools
 biocViews: Metabolomics, MassSpectrometry, Data processing, Data analysis.
