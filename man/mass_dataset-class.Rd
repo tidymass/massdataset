@@ -67,6 +67,8 @@
 )
 }
 \arguments{
+\item{object}{mass_dataset class object}
+
 \item{x}{x}
 
 \item{i}{i}
@@ -86,6 +88,10 @@
 \item{simplify}{simplify}
 
 \item{base}{base}
+
+\item{center}{center}
+
+\item{scale}{scale}
 
 \item{y}{y}
 

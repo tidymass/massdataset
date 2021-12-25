@@ -144,7 +144,6 @@ setMethod(
 )
 
 
-
 #' @method rownames mass_dataset
 #' @param x x
 #' @export
@@ -315,7 +314,8 @@ setMethod(
 
 #' @method scale mass_dataset
 #' @param x x
-#' @param base base
+#' @param center center
+#' @param scale scale
 #' @export
 #' @rdname mass_dataset-class
 #' @return mass_dataset object

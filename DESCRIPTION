@@ -58,6 +58,5 @@ Suggests:
     BiocGenerics,
     tidyverse
 Note:
-Remotes: 
-    github::tidymass/tinytools
+Remotes: tidymass/tinytools
 biocViews: Metabolomics, MassSpectrometry, Data processing, Data analysis.

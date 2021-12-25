@@ -201,6 +201,7 @@ extract_ms2_data =
 
 ###sample_info
 #' @rdname mass_dataset-class
+#' @param object mass_dataset class object
 #' @return sample_info
 
 setMethod(
@@ -212,6 +213,7 @@ setMethod(
 
 ##expression_data
 #' @rdname mass_dataset-class
+#' @param object mass_dataset class object
 #' @return expression_data
 
 setMethod(
@@ -225,6 +227,7 @@ setMethod(
 
 ##variable_info
 #' @rdname mass_dataset-class
+#' @param object mass_dataset class object
 #' @return variable_info
 setMethod(
   f = "variable_info",
@@ -236,6 +239,7 @@ setMethod(
 
 ##process_info
 #' @rdname mass_dataset-class
+#' @param object mass_dataset class object
 #' @return process_info
 setMethod(
   f = "process_info",
@@ -247,6 +251,7 @@ setMethod(
 
 ##ms2_data
 #' @rdname mass_dataset-class
+#' @param object mass_dataset class object
 #' @return ms2_data
 setMethod(
   f = "ms2_data",
