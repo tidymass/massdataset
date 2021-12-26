@@ -20,6 +20,18 @@ Notice of data checking.
 \description{
 check_object_class
 }
+\examples{
+data("expression_data")
+data("sample_info")
+data("variable_info")
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info,
+  )
+check_object_class(object, "mass_dataset")
+}
 \author{
 Xiaotao Shen
 \email{shenxt1990@163.com}

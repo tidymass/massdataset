@@ -13,6 +13,9 @@ export_mass_dataset(object, file_type = c("csv", "xlsx"), path = ".")
 
 \item{path}{work directory.}
 }
+\value{
+csv or xlsx files.
+}
 \description{
 Export mass_dataset class object to csv/xlsx files
 }

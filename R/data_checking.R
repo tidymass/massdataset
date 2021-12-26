@@ -25,7 +25,6 @@ check_mass_dataset =
            variable_info,
            sample_info_note,
            variable_info_note) {
-    # browser()
     if (missing(expression_data) |
         missing(sample_info) | missing(variable_info)) {
       check_result = "error: expression_data, sample_info and variable_info should be provided."
@@ -188,6 +187,18 @@ check_mass_dataset =
 #' @param class object should be what class
 #' @return Notice of data checking.
 #' @export
+#' @examples 
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object =
+#'   create_mass_dataset(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+#' check_object_class(object, "mass_dataset")
+
 check_object_class = function(object,
                               class = c("mass_dataset", 
                                         "tidymass_parameter", 

@@ -15,6 +15,20 @@ A data frame.
 \description{
 Extract variable information note.
 }
+\examples{
+data("expression_data")
+data("sample_info")
+data("variable_info")
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info,
+  )
+ test =
+ extract_variable_info_note(object = object)
+ head(test)
+}
 \author{
 Xiaotao Shen
 \email{shenxt1990@outlook.com}

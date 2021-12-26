@@ -39,8 +39,6 @@ A ggplot2 object
 Add NA number for each feature to variable_info
 }
 \examples{
-library(massdataset)
-library(plyr)
 data("expression_data")
 data("sample_info")
 data("variable_info")

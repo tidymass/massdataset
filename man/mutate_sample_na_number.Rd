@@ -20,10 +20,9 @@ A mass_dataset class object
 Add NA number for each sample to sample_info
 }
 \examples{
-library(massdataset)
 data("expression_data")
 data("sample_info")
-data("sample_info")
+data("variable_info")
 
 object =
   create_mass_dataset(

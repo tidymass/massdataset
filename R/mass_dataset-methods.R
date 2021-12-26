@@ -72,7 +72,7 @@ setMethod(
         length(object@process_info) != 0) {
       process_info <- object@process_info
       
-      for (idx in 1:length(process_info)) {
+      for (idx in seq_along(process_info)) {
         cat(crayon::green(names(process_info)[idx], paste(rep("-", 10), collapse = ""), "\n"))
         if (length(process_info[[idx]]) == 1) {
           data.frame(
@@ -179,7 +179,7 @@ setMethod(
         i <- match(i, rownames(x@expression_data))
       }
     } else{
-      i = 1:nrow(x@expression_data)
+      i = seq_len(nrow(x@expression_data))
     }
     
     if (!missing(j)) {
@@ -187,28 +187,28 @@ setMethod(
         j <- match(j, colnames(x@expression_data))
       }
     } else{
-      j = 1:ncol(x@expression_data)
+      j = seq_len(ncol(x@expression_data))
     }
     
     if (sum(is.na(j)) > 0) {
       j = j[!is.na(j)]
       if (length(j) == 0) {
-        j = 1:ncol(x)
+        j = seq_len(ncol(x))
         warning("All sample index (j) are not in the object. Please check.")
       } else{
         warning("Some sample index (j) are not in the object. Please check.")
       }
     }
     
-    if (any(!j %in% 1:ncol(x))) {
+    if (any(!j %in% seq_len(ncol(x)))) {
       warning("Some sample index (j) are not in the object. Please check.")
-      j = j[j %in% 1:ncol(x)]
+      j = j[j %in% seq_len(ncol(x))]
     }
     
     if (sum(is.na(i)) > 0) {
       i = i[!is.na(i)]
       if (length(i) == 0) {
-        i = 1:nrow(x)
+        i = seq_len(nrow(x))
         warning("Some variable index (i) are not in the object. Please check.")
       } else{
         warning("Some variable index (i) are not in the object. Please check.")
@@ -216,9 +216,9 @@ setMethod(
       
     }
     
-    if (any(!i %in% 1:nrow(x))) {
+    if (any(!i %in% seq_len(nrow(x)))) {
       warning("Some variable index (i) are not in the object. Please check.")
-      i = i[i %in% 1:nrow(x)]
+      i = i[i %in% seq_len(nrow(x))]
     }
     
     ###add paramters

@@ -19,14 +19,13 @@ Get sample names
 data("expression_data")
 data("sample_info")
 data("variable_info")
-library(tidyverse)
 object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
     variable_info = variable_info,
   )
- get_variable_id(object = object) \%>\% head()
+ head(get_variable_id(object = object))
 }
 \author{
 Xiaotao Shen

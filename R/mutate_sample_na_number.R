@@ -9,10 +9,9 @@
 #' @return A mass_dataset class object
 #' @export
 #' @examples
-#' library(massdataset)
 #' data("expression_data")
 #' data("sample_info")
-#' data("sample_info")
+#' data("variable_info")
 #' 
 #' object =
 #'   create_mass_dataset(
@@ -128,10 +127,9 @@ mutate_sample_na_number =
 #' @return A mass_dataset class object
 #' @export
 #' @examples
-#' library(massdataset)
 #' data("expression_data")
 #' data("sample_info")
-#' data("sample_info")
+#' data("variable_info")
 #' 
 #' object =
 #'   create_mass_dataset(
@@ -150,9 +148,9 @@ mutate_sample_na_number =
 #' head(extract_sample_info(object2))
 #' 
 #' ##calculate NA frequency according to only variables with mz > 100
-#' variable_id = 
-#' object2 %>% 
-#'   activate_mass_dataset(what = "variable_info") %>% 
+#' variable_id =
+#' object2 %>%
+#'   activate_mass_dataset(what = "variable_info") %>%
 #'   filter(mz > 100) %>%
 #'   pull(variable_id)
 #' 

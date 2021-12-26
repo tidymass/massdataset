@@ -1,6 +1,6 @@
 Package: massdataset
 Title: massdataset
-Version: 0.0.1
+Version: 0.99.1
 Date: 2021-11-24
 Authors@R: 
     person(given = "Xiaotao",
@@ -8,14 +8,15 @@ Authors@R:
            role = c("aut", "cre"),
            email = "shenxt1990@outlook.com",
            comment = c(ORCID = "0000-0002-9608-9964"))
-Maintainer: Xiaotao Shen<shenxt1990@outlook.com>
-Description: This is used to creat ad handle a tidymass-class object.
+Description: massdata provide a uniform and stanford data structure of mass spectrometry experimental
+    data. Which can be used to storage the metabolomics and lipidomics data. All the packages in tidymass
+    support this class.
 URL: https://github.com/tidymass/massdataset
 BugReports: https://github.com/tidymass/massdataset/issues
-Depends: R (>= 3.0)
+Depends: R (>= 4.1)
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
@@ -23,7 +24,6 @@ Imports:
     dplyr,
     magrittr,
     tibble,
-    tidyr,
     stringr,
     rstudioapi,
     ggplot2,
@@ -36,27 +36,25 @@ Imports:
     purrr,
     readr,
     rlang,
-    clisymbols,
-    htmltools,
-    httr,
     plyr,
-    readxl,
-    rvest,
-    xml2,
-    htmlwidgets,
     leaflet,
     tinytools,
     ComplexHeatmap,
     grid,
     ggplotify,
-    ggsci
+    ggsci,
+    stats,
+    utils
 Suggests: 
     knitr,
     rmarkdown,
     BiocStyle,
     RUnit,
     BiocGenerics,
-    tidyverse
+    tidyverse,
+    testthat (>= 3.0.0)
 Note:
-Remotes: tidymass/tinytools
-biocViews: Metabolomics, MassSpectrometry, Data processing, Data analysis.
+Remotes: 
+    tidymass/tinytools
+biocViews: Metabolomics, MassSpectrometry
+Config/testthat/edition: 3

@@ -15,6 +15,19 @@ A ms2_data class object.
 \description{
 Extract ms2 data
 }
+\examples{
+data("expression_data")
+data("sample_info")
+data("variable_info")
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info,
+  )
+ test =
+ extract_ms2_data(object = object)
+}
 \author{
 Xiaotao Shen
 \email{shenxt1990@outlook.com}

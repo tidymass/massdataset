@@ -9,7 +9,6 @@
 #' @return A mass_dataset class object
 #' @export
 #' @examples
-#' library(massdataset)
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -107,7 +106,6 @@ mutate_variable_na_number =
 #' @return A mass_dataset class object
 #' @export
 #' @examples
-#' library(massdataset)
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")

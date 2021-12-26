@@ -10,6 +10,7 @@
 #'
 #' @export
 #' @examples
+#' @return massdataset conflicts
 #' massdataset_conflicts()
 massdataset_conflicts <- function() {
   envs <- grep("^package:", search(), value = TRUE)

@@ -11,7 +11,7 @@
 #' data("sample_info_note")
 #' data("variable_info")
 #' data("variable_info_note")
-#' 
+#'
 #' object =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
@@ -26,15 +26,16 @@
 #'   activate_mass_dataset(.data = object, what = "sample_info")
 #' object@activated
 
-activate_mass_dataset <- function(.data,
-                              what = c(
-                                "sample_info",
-                                "variable_info",
-                                "expression_data",
-                                "sample_info_note",
-                                "variable_info_note"
-                              )) {
-  what = match.arg(what)
-  .data@activated = what
-  return(.data)
-}
+activate_mass_dataset <-
+  function(.data,
+           what = c(
+             "sample_info",
+             "variable_info",
+             "expression_data",
+             "sample_info_note",
+             "variable_info_note"
+           )) {
+    what = match.arg(what)
+    .data@activated = what
+    return(.data)
+  }

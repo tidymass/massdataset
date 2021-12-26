@@ -29,7 +29,7 @@ setMethod(
         "\n")
     cat(crayon::green("time:", object@time), "\n")
     cat(crayon::green("parameters:\n"))
-    for (idx in 1:length(object@parameter)) {
+    for (idx in seq_along(object@parameter)) {
       cat(crayon::green(names(object@parameter)[idx], ":" , object@parameter[idx]), "\n")
     }
   }

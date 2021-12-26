@@ -1,7 +1,5 @@
 core <-
-  c(
-    "tinytools"
-  )
+  c("tinytools")
 
 massdataset_core_unloaded <- function() {
   search <- paste0("package:", core)
@@ -65,4 +63,3 @@ massdataset_package_version <- function(x) {
   }
   paste0(version, collapse = ".")
 }
-

@@ -32,12 +32,10 @@ object =
 object
 
 ####only remain QC samples
-library(tidyverse)
 sample_info = extract_sample_info(object = object)
 
 sample_info =
-  sample_info \%>\%
-  dplyr::filter(class == "QC")
+  dplyr::filter(sample_info, class == "QC")
 
 object@sample_info = sample_info
 
@@ -48,8 +46,7 @@ object
 variable_info = extract_variable_info(object = object)
 
 variable_info =
-  variable_info \%>\%
-  dplyr::filter(mz < 300)
+  dplyr::filter(variable_info, mz < 300)
 
 object@variable_info = variable_info
 

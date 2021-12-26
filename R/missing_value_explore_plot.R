@@ -13,8 +13,6 @@
 #' @return A ggplot2 object
 #' @export
 #' @examples
-#' library(massdataset)
-#' library(plyr)
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -141,8 +139,6 @@ show_missing_values =
 #' @return A ggplot2 object
 #' @export
 #' @examples
-#' library(massdataset)
-#' library(plyr)
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -272,11 +268,8 @@ show_sample_missing_values =
 #' @return A ggplot2 object
 #' @export
 #' @examples
-#' library(massdataset)
-#' library(plyr)
-#' library(tidyverse)
 #' data("expression_data")
-#' data("variable_info")
+#' data("sample_info")
 #' data("variable_info")
 #'
 #' object =
@@ -291,9 +284,9 @@ show_sample_missing_values =
 #' ##show missing values plot
 #' show_variable_missing_values(object)
 #' show_variable_missing_values(object, color_by = "mz")
-#'
+#' library(ggplot2)
 #' show_variable_missing_values(object, color_by = "rt") +
-#'   scale_color_gradient(low = "skyblue", high = "red")
+#'   ggplot2::scale_color_gradient(low = "skyblue", high = "red")
 #'
 #' show_variable_missing_values(object, color_by = "mz",
 #'                              order_by = "na")

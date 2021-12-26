@@ -14,7 +14,6 @@
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' library(massdataset)
 #' 
 #' object =
 #'   create_mass_dataset(

@@ -131,6 +131,19 @@ extract_annotation_table = function(object) {
 #' @param object mass_dataset class object.
 #' @return A data frame.
 #' @export
+#' @examples 
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object =
+#'   create_mass_dataset(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+#'  test =
+#'  extract_variable_info_note(object = object)
+#'  head(test)
 
 extract_variable_info_note = function(object) {
   variable_info_note = object@variable_info_note %>%
@@ -146,6 +159,19 @@ extract_variable_info_note = function(object) {
 #' @param object mass_dataset class object.
 #' @return A data frame.
 #' @export
+#' @examples 
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object =
+#'   create_mass_dataset(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+#'  test =
+#'  extract_sample_info_note(object = object)
+#'  head(test)
 
 extract_sample_info_note = function(object) {
   sample_info_note = object@sample_info_note %>%
@@ -164,7 +190,6 @@ extract_sample_info_note = function(object) {
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' library(massdataset)
 #'
 #' object =
 #'   create_mass_dataset(
@@ -189,6 +214,18 @@ extract_process_info =
 #' @param object (required) mass_dataset class object.
 #' @return A ms2_data class object.
 #' @export
+#' @examples 
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object =
+#'   create_mass_dataset(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'   )
+#'  test =
+#'  extract_ms2_data(object = object)
 
 extract_ms2_data =
   function(object) {

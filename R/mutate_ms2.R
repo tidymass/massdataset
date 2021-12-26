@@ -15,8 +15,6 @@
 #'data("expression_data")
 # data("sample_info")
 # data("variable_info")
-# library(massdataset)
-# 
 # object =
 #   create_mass_dataset(
 #     expression_data = expression_data,
@@ -118,7 +116,7 @@ mutate_ms2 =
     if (length(duplicated.name) > 0) {
       lapply(duplicated.name, function(x) {
         ms1.info$name[which(ms1.info$name == x)] <-
-          paste(x, c(1:sum(ms1.info$name == x)), sep = "_")
+          paste(x, c(seq_len(sum(ms1.info$name == x))), sep = "_")
       })
     }
     
@@ -169,7 +167,7 @@ mutate_ms2 =
         return(c(idx, idx2[which.max(unlist(lapply(temp.ms2.info, function(y) {
           y <- y[order(y[, 2], decreasing = TRUE), , drop = FALSE]
           if (nrow(y) > 5)
-            y <- y[1:5,]
+            y <- y[seq_len(5),]
           sum(y[, 2])
         })))]))
       }

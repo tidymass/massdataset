@@ -30,8 +30,6 @@ A ggplot2 object
 show_sample_missing_values
 }
 \examples{
-library(massdataset)
-library(plyr)
 data("expression_data")
 data("sample_info")
 data("variable_info")

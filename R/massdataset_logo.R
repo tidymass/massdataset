@@ -7,9 +7,11 @@
 #' @importFrom grid gpar
 #' @importFrom ggplotify as.ggplot
 #' @importFrom dplyr filter mutate select everything
+#' @importFrom plyr dlply .
 #' @importFrom rstudioapi isAvailable hasFun getThemeInfo
 #' @importFrom utils packageDescription write.csv
 #' @importFrom cli rule symbol
+#' @import leaflet
 #' @importFrom crayon green blue col_align red black white style make_style num_colors
 #' @importFrom plotly ggplotly
 #' @importFrom pbapply pblapply
@@ -25,13 +27,14 @@
 #' @importFrom ggsci pal_lancet 
 #' @importFrom tinytools read_mgf
 #' @export
+#' @return logo
 #' @examples
 #' massdataset_logo()
 
 massdataset_logo <- function(){
   cat(crayon::green("Thank you for using massdataset!\n"))
   cat(crayon::green("Version", massdataset_version, "(", update_date, ')\n'))
-  cat(crayon::green("More information can be found at https://tidymass.github.io/massdataset/\n"))
+  cat(crayon::green("More information: search 'tidymass massdataset'.\n"))
   cat(crayon::green(
     c("                          _____        _                 _   ", 
       "                         |  __ \\      | |               | |  ", 
@@ -46,8 +49,20 @@ massdataset_logo <- function(){
   ), sep = "\n")
 }
 
-massdataset_version = "0.01"
+massdataset_version = "0.99.1"
 update_date = "2021-12-15"
+
+#' @title get_massdataset_version
+#' @description get_massdataset_version
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@outlook.com}
+#' @export
+#' @return version
+#' @examples
+#' get_massdataset_version()
+get_massdataset_version = function() {
+  return(massdataset_version)
+}
 
 
 # library(cowsay)

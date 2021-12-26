@@ -9,6 +9,9 @@ massdataset_packages(include_self = TRUE)
 \arguments{
 \item{include_self}{Include massdataset in the list?}
 }
+\value{
+massdataset packages
+}
 \description{
 List all packages in the massdataset
 }

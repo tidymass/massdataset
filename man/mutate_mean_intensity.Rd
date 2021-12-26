@@ -22,7 +22,6 @@ A mass_dataset class object
 Add mean intensity for each feature to variable_info
 }
 \examples{
-library(massdataset)
 data("expression_data")
 data("sample_info")
 data("variable_info")

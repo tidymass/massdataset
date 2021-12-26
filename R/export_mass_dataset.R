@@ -5,6 +5,7 @@
 #' @param object (required) mass_dataset class object.
 #' @param file_type (required) csv or xlsx
 #' @param path work directory.
+#' @return csv or xlsx files.
 #' @export
 
 export_mass_dataset =

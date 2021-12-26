@@ -18,8 +18,6 @@ A ggplot2 object
 mz and rt plot
 }
 \examples{
-library(massdataset)
-library(plyr)
 data("expression_data")
 data("sample_info")
 data("variable_info")
@@ -31,15 +29,10 @@ object =
     variable_info = variable_info,
   )
 
-object \%>\%
-  show_mz_rt_plot()
+  show_mz_rt_plot(object)
+  show_mz_rt_plot(log(object, 10))
 
-object \%>\%
-  log(10) \%>\%
-  show_mz_rt_plot()
-
-object \%>\%
-  show_mz_rt_plot(hex = TRUE)
+  show_mz_rt_plot(object, hex = TRUE)
 }
 \author{
 Xiaotao Shen

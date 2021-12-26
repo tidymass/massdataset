@@ -33,6 +33,7 @@ text_col <- function(x) {
 #'
 #' @param include_self Include massdataset in the list?
 #' @export
+#' @return massdataset packages
 #' @examples
 #' massdataset_packages()
 massdataset_packages <- function(include_self = TRUE) {
