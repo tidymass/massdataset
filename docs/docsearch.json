@@ -2,21 +2,21 @@
   "index_name": "massdataset",
   "start_urls": [
     {
-      "url": "https://tidymass.github.io/massdataset//index.html",
+      "url": "https://tidymass.github.io/massdataset/index.html",
       "selectors_key": "homepage",
       "tags": [
         "homepage"
       ]
     },
     {
-      "url": "https://tidymass.github.io/massdataset//reference",
+      "url": "https://tidymass.github.io/massdataset/reference",
       "selectors_key": "reference",
       "tags": [
         "reference"
       ]
     },
     {
-      "url": "https://tidymass.github.io/massdataset//articles",
+      "url": "https://tidymass.github.io/massdataset/articles",
       "selectors_key": "articles",
       "tags": [
         "articles"
@@ -30,7 +30,7 @@
     "/articles/index.html"
   ],
   "sitemap_urls": [
-    "https://tidymass.github.io/massdataset//sitemap.xml"
+    "https://tidymass.github.io/massdataset/sitemap.xml"
   ],
   "selectors": {
     "homepage": {

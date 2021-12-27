@@ -6,13 +6,12 @@ articles:
   base_function: base_function.html
   contact_us: contact_us.html
   data_import_and_export: data_import_and_export.html
-  example: example.html
   extract_data: extract_data.html
   filtering: filtering.html
   mutate_ms2: mutate_ms2.html
   summary_info: summary_info.html
   tidyverse_verse: tidyverse_verse.html
-last_built: 2021-12-25T00:58Z
+last_built: 2021-12-27T19:23Z
 urls:
   reference: https://tidymass.github.io/massdataset/reference
   article: https://tidymass.github.io/massdataset/articles
