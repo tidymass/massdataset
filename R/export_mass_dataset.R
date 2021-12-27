@@ -13,6 +13,7 @@ export_mass_dataset =
            file_type = c("csv", "xlsx"),
            path = ".") {
     file_type = match.arg(file_type)
+    dir.create(path, showWarnings = FALSE)
     if (class(object)[1] != "mass_dataset") {
       stop("Only support mass_dataset class object.\n")
     }

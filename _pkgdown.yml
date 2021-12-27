@@ -86,6 +86,8 @@ navbar:
     articles:
       text: Help documents
       menu:
+      - text: Install massdataset
+        href: articles/massdataset_install.html
       - text: Data import and export
         href: articles/data_import_and_export.html
       - text: Mutate MS2 into mass_dataset
