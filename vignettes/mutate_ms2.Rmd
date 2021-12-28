@@ -27,53 +27,61 @@ knitr::opts_chunk$set(
 )
 ```
 
+`mass_data` class object can also contain MS2 data. 
 
 # **Data preparation**
 
+## **MS1 data**
+
+We need to create a `mass_data` class object first, [see this document](https://tidymass.github.io/massdataset/articles/data_import_and_export.html). And here we use the data from this step as examples.
+
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-library(massdataset)
-library(tidyverse)
-
-data("expression_data")
-data("sample_info")
-data("sample_info_note")
-data("variable_info")
-data("variable_info_note")
-
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    sample_info = sample_info,
-    variable_info = variable_info,
-    sample_info_note = sample_info_note,
-    variable_info_note = variable_info_note
-  )
-  
-object
-
-###MS2 data (mgf data)
-dir.create("demo_data")
-file.copy(
-  system.file("ms2_data", package = "massdataset"),
-  to = "demo_data",
-  overwrite = TRUE, 
-  recursive = TRUE
-)
+load("feature_table/object_pos")
+load("feature_table/object_neg")
 ```
 
+## **MS2 data**
 
-# **Mutate MS2**
+The MS2 raw data should be converted to mgf format data. Please [refer this document](https://tidymass.github.io/metid/articles/database_construction.html).
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-object2 = 
+Here we use the demo data for `tidymass`, please download it and put it in the `feature_table` folder.
+
+[Download linke is here.](https://drive.google.com/file/d/1lDf9i49jQQ-Ar98EMdj0EwhlmtDBbG0g/view?usp=sharing)
+
+Then uncompress it.
+
+# **Mutate MS2 to `mass_dataset` class object**
+
+Positive mode.
+
+```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object_pos2 = 
 mutate_ms2(
-  object = object,
+  object = object_pos,
   column = "rp",
   polarity = "positive",
   ms1.ms2.match.mz.tol = 10, 
   ms1.ms2.match.rt.tol = 15, 
-  path = "demo_data"
+  path = "feature_table/MS2_data/POS/"
 )
+```
 
-extract_ms2_data(object2)
+Negative mode.
+
+```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object_neg2 = 
+mutate_ms2(
+  object = object_neg,
+  column = "rp",
+  polarity = "negative",
+  ms1.ms2.match.mz.tol = 10, 
+  ms1.ms2.match.rt.tol = 15, 
+  path = "feature_table/MS2_data/NEG/"
+)
+```
+
+# **Session information**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
 ```
