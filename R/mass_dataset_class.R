@@ -64,7 +64,7 @@ create_mass_dataset =
       time = Sys.time()
     )
     
-    process_info$Creation = parameter
+    process_info$create_mass_dataset = parameter
     
     object <- new(
       Class = "mass_dataset",
