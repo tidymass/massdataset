@@ -32,6 +32,11 @@
 \alias{rowSums,mass_dataset-method}
 \alias{colMeans,mass_dataset-method}
 \alias{rowMeans,mass_dataset-method}
+\alias{length,mass_dataset-method}
+\alias{names,mass_dataset-method}
+\alias{dimnames,mass_dataset-method}
+\alias{head,mass_dataset-method}
+\alias{tail,mass_dataset-method}
 \alias{mass_dataset-class}
 \alias{mz_rt_match,mass_dataset-method}
 \title{An S4 class that stores the MS dataset}
@@ -93,6 +98,16 @@
 \S4method{colMeans}{mass_dataset}(x, na.rm = FALSE, dims = 1)
 
 \S4method{rowMeans}{mass_dataset}(x, na.rm = FALSE, dims = 1)
+
+\S4method{length}{mass_dataset}(x)
+
+\S4method{names}{mass_dataset}(x)
+
+\S4method{dimnames}{mass_dataset}(x)
+
+\S4method{head}{mass_dataset}(x, ...)
+
+\S4method{tail}{mass_dataset}(x, ...)
 
 \S4method{mz_rt_match}{mass_dataset}(
   data1,
@@ -211,6 +226,16 @@ vector object
 vector object
 
 vector object
+
+vector object
+
+vector object
+
+vector object
+
+mass_dataset class object
+
+mass_dataset class object
 
 mass_dataset object
 }
