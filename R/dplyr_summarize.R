@@ -4,7 +4,7 @@
 #' @export
 summarize.mass_dataset <- 
   function(.data, ...) {
-  dots <- quos(...)
+  dots <- rlang::quos(...)
   
   if (length(.data@activated) == 0) {
     stop("activate you object using activate_mass_dataset first.\n")
@@ -26,7 +26,7 @@ summarize.mass_dataset <-
 #' @export
 summarise.mass_dataset <- 
   function(.data, ...) {
-    dots <- quos(...)
+    dots <- rlang::quos(...)
     
     if (length(.data@activated) == 0) {
       stop("activate you object using activate_mass_dataset first.\n")

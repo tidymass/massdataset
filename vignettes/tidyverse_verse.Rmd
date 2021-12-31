@@ -27,10 +27,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 # **Introduction**
 
-Before use the functions from tidyverse, we need to tell it which data we want to process (`activate_mass_dataset()`).
+`mass_dataset` can be processed using most of the functions from `tidyverse` (`dplyr`).  Before use the functions from `tidyverse`, we need to tell it which dataset we want to process (`activate_mass_dataset()`). 
 
 # **filter() function**
 
@@ -89,12 +88,42 @@ object2
 
 ## Filter variables
 
+Only remain variables which are not NA in QC_1.
+
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 object2 = 
 object %>% 
   activate_mass_dataset(what = "expression_data") %>% 
   dplyr::filter(!is.na(QC_1))
 object2
+```
 
+
+Only remain variables with RSD > 30 in subject samples
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+subject_id = 
+  object %>% 
+  activate_mass_dataset(what = "sample_info") %>% 
+  filter(class == "Subject") %>% 
+  pull(sample_id)
+
+object2 = 
+object %>% 
+  mutate_rsd(according_to_samples = subject_id) %>% 
+  activate_mass_dataset(what = "variable_info") %>% 
+  dplyr::filter(rsd > 50)
+object2
+
+extract_variable_info(object2) %>% 
+  head()
+```
+
+
+
+# **Session information**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
 ```
 

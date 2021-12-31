@@ -148,3 +148,10 @@ show_variable_missing_values(object, color_by = "mz",
                            desc = TRUE, percentage = TRUE)
 
 ```
+
+
+# **Session information**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
+```

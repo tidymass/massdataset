@@ -126,3 +126,9 @@ object %>%
   activate_mass_dataset(what = "variable_info") %>% 
   filter(mz > 500 & rt > 100)
 ```
+
+# **Session information**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
+```

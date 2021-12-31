@@ -8,7 +8,7 @@ count.mass_dataset <-
            wt = NULL,
            sort = FALSE,
            name = NULL) {
-    dots <- quos(...)
+    dots <- rlang::quos(...)
     
     if (length(x@activated) == 0) {
       stop("activate you object using activate_mass_dataset first.\n")

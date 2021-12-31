@@ -88,3 +88,10 @@ colnames(object)
 object[,c("Blank_3", "Blank_4")]
 
 ```
+
+
+# **Session information**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
+```

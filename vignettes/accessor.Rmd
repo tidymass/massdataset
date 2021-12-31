@@ -69,3 +69,9 @@ object["M136T55_2_POS",]
 
 object["M136T55_2_POS","Blank_3"]
 ```
+
+# **Session information**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
+```

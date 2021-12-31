@@ -81,3 +81,10 @@ object@sample_info_note
 object@variable_info_note
 object@process_info
 ```
+
+
+# **Session information**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
+```
