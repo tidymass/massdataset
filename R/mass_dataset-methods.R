@@ -3,6 +3,9 @@
 
 
 
+
+
+
 setMethod(
   f = "show",
   signature = "mass_dataset",
@@ -892,3 +895,74 @@ summary.mass_dataset <- function(object, ...) {
   out
 }
 
+
+#' @method length
+#' @param x x
+#' @export
+#' @rdname mass_dataset-class
+#' @return vector object
+
+setMethod(f = "length",
+          signature("mass_dataset"), function (x) {
+            length(x@expression_data)
+          })
+
+
+
+#' @method names
+#' @param x x
+#' @export
+#' @rdname mass_dataset-class
+#' @return vector object
+
+setMethod(f = "names",
+          signature("mass_dataset"), function (x) {
+            names(x@expression_data)
+          })
+
+
+#' @method dimnames
+#' @param x x
+#' @export
+#' @rdname mass_dataset-class
+#' @return vector object
+
+setMethod(f = "dimnames",
+          signature("mass_dataset"), function (x) {
+            dimnames(x@expression_data)
+          })
+
+
+
+
+
+
+
+
+
+#' @method head
+#' @param x x
+#' @export
+#' @rdname mass_dataset-class
+#' @return mass_dataset class object
+
+setMethod(f = "head",
+          signature("mass_dataset"), function (x, ...) {
+            x@expression_data = head(x@expression_data, ...)
+            x = update_mass_dataset(x)
+            return(x)
+          })
+
+
+#' @method tail
+#' @param x x
+#' @export
+#' @rdname mass_dataset-class
+#' @return mass_dataset class object
+
+setMethod(f = "tail",
+          signature("mass_dataset"), function (x, ...) {
+            x@expression_data = tail(x@expression_data, ...)
+            x = update_mass_dataset(x)
+            return(x)
+          })

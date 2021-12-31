@@ -444,9 +444,6 @@ setReplaceMethod("sample_info_note", "mass_dataset", function(object, value) {
 })
 
 
-
-
-
 ####replacement method for variable_info_note
 "variable_info_note<-" <- function(object, value) {
   object
@@ -478,11 +475,10 @@ setReplaceMethod("variable_info_note", "mass_dataset", function(object, value) {
   object
 }
 
-setReplaceMethod("ms2_data", "mass_dataset", function(object, value) {
+setReplaceMethod(f = "ms2_data", "mass_dataset", function(object, value) {
   object@ms2_data <- value
   return(object)
 })
-
 
 ####replacement method for process_info
 "process_info<-" <- function(object, value) {
