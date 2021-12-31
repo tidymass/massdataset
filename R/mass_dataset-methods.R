@@ -1,4 +1,8 @@
 
+
+
+
+
 setMethod(
   f = "show",
   signature = "mass_dataset",
@@ -242,9 +246,17 @@ setMethod(
     
     x@process_info = process_info
     
+    expression_data = x@expression_data[i, j, drop = drop]
+    
+    if (!is.data.frame(expression_data)) {
+      # expression_data = as.numeric(expression_data)
+      return(expression_data)
+    }
+    
     x@expression_data = x@expression_data[i, j, drop = drop]
     x@sample_info = x@sample_info[j, , drop = FALSE]
     x@variable_info = x@variable_info[i, , drop = FALSE]
+    
     return(x)
   }
 
@@ -308,6 +320,89 @@ setMethod(
   }
 )
 
+
+
+
+
+
+#' @method abs mass_dataset
+#' @param x x
+#' @export
+#' @rdname mass_dataset-class
+#' @return mass_dataset object
+
+setMethod(
+  f = "abs",
+  signature = "mass_dataset",
+  definition = function(x) {
+    expression_data = x@expression_data
+    
+    expression_data = abs(expression_data)
+    
+    x@expression_data = expression_data
+    
+    process_info = x@process_info
+    
+    parameter <- new(
+      Class = "tidymass_parameter",
+      pacakge_name = "base",
+      function_name = "abs()",
+      parameter = list(),
+      time = Sys.time()
+    )
+    
+    if (all(names(process_info) != "abs")) {
+      process_info$abs = parameter
+    } else{
+      process_info$abs = c(process_info$abs, parameter)
+    }
+    
+    x@process_info = process_info
+    
+    return(x)
+  }
+)
+
+
+
+
+#' @method sqrt mass_dataset
+#' @param x x
+#' @export
+#' @rdname mass_dataset-class
+#' @return mass_dataset object
+
+setMethod(
+  f = "sqrt",
+  signature = "mass_dataset",
+  definition = function(x) {
+    expression_data = x@expression_data
+    
+    expression_data = sqrt(expression_data)
+    
+    x@expression_data = expression_data
+    
+    process_info = x@process_info
+    
+    parameter <- new(
+      Class = "tidymass_parameter",
+      pacakge_name = "base",
+      function_name = "sqrt()",
+      parameter = list(),
+      time = Sys.time()
+    )
+    
+    if (all(names(process_info) != "sqrt")) {
+      process_info$sqrt = parameter
+    } else{
+      process_info$sqrt = c(process_info$sqrt, parameter)
+    }
+    
+    x@process_info = process_info
+    
+    return(x)
+  }
+)
 
 
 
@@ -525,24 +620,24 @@ rbind.mass_dataset = function(..., deparse.level = 1) {
   
   expression_data = rbind(expression_data_x, expression_data_y)
   
-  sample_info_y = 
-    sample_info_y %>% 
+  sample_info_y =
+    sample_info_y %>%
     dplyr::select(-sample_id)
   
-  sample_info_note_y = 
-    sample_info_note_y %>% 
+  sample_info_note_y =
+    sample_info_note_y %>%
     dplyr::filter(!name %in% "sample_id")
   
-  colnames(sample_info_y) = 
-  colnames(sample_info_y) %>% 
-    purrr::map(function(x){
-      if(x %in% colnames(sample_info_x)){
+  colnames(sample_info_y) =
+    colnames(sample_info_y) %>%
+    purrr::map(function(x) {
+      if (x %in% colnames(sample_info_x)) {
         x = paste(x, 2, sep = "_")
         x
-      }else{
+      } else{
         x
       }
-    }) %>% 
+    }) %>%
     unlist()
   
   sample_info_note_y$name = colnames(sample_info_y)
@@ -555,22 +650,22 @@ rbind.mass_dataset = function(..., deparse.level = 1) {
     expression_data[, sample_info$sample_id]
   
   #####sample_info_note
-    sample_info_note =
-      rbind(sample_info_note_x,
-            sample_info_note_y) %>%
-      dplyr::distinct(name, .keep_all = TRUE)
-   
+  sample_info_note =
+    rbind(sample_info_note_x,
+          sample_info_note_y) %>%
+    dplyr::distinct(name, .keep_all = TRUE)
+  
   ####variable_info
   variable_info =
     variable_info_x %>%
     dplyr::full_join(variable_info_y, by = intersect(colnames(variable_info_x),
                                                      colnames(variable_info_y)))
-
-    variable_info_note =
-      rbind(variable_info_note_x,
-            variable_info_note_y) %>%
-      dplyr::distinct(name, .keep_all = TRUE)
-
+  
+  variable_info_note =
+    rbind(variable_info_note_x,
+          variable_info_note_y) %>%
+    dplyr::distinct(name, .keep_all = TRUE)
+  
   
   object <- new(
     Class = "mass_dataset",
@@ -586,3 +681,214 @@ rbind.mass_dataset = function(..., deparse.level = 1) {
   
   return(object)
 }
+
+
+#' @method + mass_dataset
+#' @param e1 a mass_dataset class object
+#' @param e2 numeric
+#' @export
+#' @rdname mass_dataset-class
+#' @return mass_dataset object
+
+setMethod(f = "+",
+          signature(e1 = "mass_dataset", e2 = "numeric"), function (e1, e2) {
+            e1@expression_data = e1@expression_data + e2
+            
+            process_info = e1@process_info
+            
+            parameter <- new(
+              Class = "tidymass_parameter",
+              pacakge_name = "base",
+              function_name = "+",
+              parameter = list(),
+              time = Sys.time()
+            )
+            
+            if (all(names(process_info) != "plus")) {
+              process_info$plus = parameter
+            } else{
+              process_info$plus = c(process_info$plus, parameter)
+            }
+            
+            e1@process_info = process_info
+            return(e1)
+          })
+
+
+
+
+#' @method - mass_dataset
+#' @param e1 a mass_dataset class object
+#' @param e2 numeric
+#' @export
+#' @rdname mass_dataset-class
+#' @return mass_dataset object
+
+setMethod(f = "-",
+          signature(e1 = "mass_dataset", e2 = "numeric"), function (e1, e2) {
+            e1@expression_data = e1@expression_data - e2
+            
+            process_info = e1@process_info
+            
+            parameter <- new(
+              Class = "tidymass_parameter",
+              pacakge_name = "base",
+              function_name = "-",
+              parameter = list(),
+              time = Sys.time()
+            )
+            
+            if (all(names(process_info) != "minus")) {
+              process_info$minus = parameter
+            } else{
+              process_info$minus = c(process_info$minus, parameter)
+            }
+            e1@process_info = process_info
+            return(e1)
+          })
+
+
+
+
+
+
+#' @method * mass_dataset
+#' @param e1 a mass_dataset class object
+#' @param e2 numeric
+#' @export
+#' @rdname mass_dataset-class
+#' @return mass_dataset object
+
+setMethod(f = "*",
+          signature(e1 = "mass_dataset", e2 = "numeric"), function (e1, e2) {
+            e1@expression_data = e1@expression_data * e2
+            
+            process_info = e1@process_info
+            
+            parameter <- new(
+              Class = "tidymass_parameter",
+              pacakge_name = "base",
+              function_name = "*",
+              parameter = list(),
+              time = Sys.time()
+            )
+            
+            if (all(names(process_info) != "times")) {
+              process_info$times = parameter
+            } else{
+              process_info$times = c(process_info$times, parameter)
+            }
+            e1@process_info = process_info
+            return(e1)
+          })
+
+
+
+
+#' @method / mass_dataset
+#' @param e1 a mass_dataset class object
+#' @param e2 numeric
+#' @export
+#' @rdname mass_dataset-class
+#' @return mass_dataset object
+
+setMethod(f = "/",
+          signature(e1 = "mass_dataset", e2 = "numeric"), function (e1, e2) {
+            e1@expression_data = e1@expression_data / e2
+            
+            process_info = e1@process_info
+            
+            parameter <- new(
+              Class = "tidymass_parameter",
+              pacakge_name = "base",
+              function_name = "/",
+              parameter = list(),
+              time = Sys.time()
+            )
+            
+            if (all(names(process_info) != "divide")) {
+              process_info$divide = parameter
+            } else{
+              process_info$divide = c(process_info$divide, parameter)
+            }
+            e1@process_info = process_info
+            return(e1)
+          })
+
+
+#' @method colSums
+#' @param x x
+#' @param na.rm na.rm
+#' @param dims dims
+#' @export
+#' @rdname mass_dataset-class
+#' @return vector object
+
+setMethod(f = "colSums",
+          signature("mass_dataset"), function (x, na.rm = FALSE, dims = 1) {
+            colSums(x@expression_data, na.rm = na.rm, dims = dims)
+          })
+
+
+#' @method rowSums
+#' @param x x
+#' @param na.rm na.rm
+#' @param dims dims
+#' @export
+#' @rdname mass_dataset-class
+#' @return vector object
+
+setMethod(f = "rowSums",
+          signature("mass_dataset"), function (x, na.rm = FALSE, dims = 1) {
+            rowSums(x@expression_data, na.rm = na.rm, dims = dims)
+          })
+
+
+#' @method colMeans
+#' @param x x
+#' @param na.rm na.rm
+#' @param dims dims
+#' @export
+#' @rdname mass_dataset-class
+#' @return vector object
+
+setMethod(f = "colMeans",
+          signature("mass_dataset"), function (x, na.rm = FALSE, dims = 1) {
+            colMeans(x@expression_data, na.rm = na.rm, dims = dims)
+          })
+
+
+#' @method rowMeans
+#' @param x x
+#' @param na.rm na.rm
+#' @param dims dims
+#' @export
+#' @rdname mass_dataset-class
+#' @return vector object
+
+setMethod(f = "rowMeans",
+          signature("mass_dataset"), function (x, na.rm = FALSE, dims = 1) {
+            rowMeans(x@expression_data, na.rm = na.rm, dims = dims)
+          })
+
+
+#' @method summary mass_dataset
+#' @param object object
+#' @param ... other parameters
+#' @export
+summary.mass_dataset <- function(object, ...) {
+  summary(object@expression_data, ...)
+}
+
+
+#' @rdname subsetting
+#' @param name A [name] or a string.
+#' @export
+`$.mass_dataset` <- function(x, name) {
+  out <- .subset2(x@expression_data, name)
+  if (is.null(out)) {
+    warn(paste0("Unknown or uninitialised column: ", tick(name), "."))
+  }
+  out
+}
+

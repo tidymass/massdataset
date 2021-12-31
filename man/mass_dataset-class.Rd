@@ -16,10 +16,20 @@
 \alias{[.mass_dataset}
 \alias{apply,mass_dataset-method}
 \alias{log,mass_dataset-method}
+\alias{abs,mass_dataset-method}
+\alias{sqrt,mass_dataset-method}
 \alias{scale,mass_dataset-method}
 \alias{intersect,mass_dataset-method}
 \alias{cbind.mass_dataset}
 \alias{rbind.mass_dataset}
+\alias{+,mass_dataset,numeric-method}
+\alias{-,mass_dataset,numeric-method}
+\alias{*,mass_dataset,numeric-method}
+\alias{/,mass_dataset,numeric-method}
+\alias{colSums,mass_dataset-method}
+\alias{rowSums,mass_dataset-method}
+\alias{colMeans,mass_dataset-method}
+\alias{rowMeans,mass_dataset-method}
 \alias{mass_dataset-class}
 \alias{mz_rt_match,mass_dataset-method}
 \title{An S4 class that stores the MS dataset}
@@ -50,6 +60,10 @@
 
 \S4method{log}{mass_dataset}(x, base = exp(1))
 
+\S4method{abs}{mass_dataset}(x)
+
+\S4method{sqrt}{mass_dataset}(x)
+
 \S4method{scale}{mass_dataset}(x, center = TRUE, scale = TRUE)
 
 \S4method{intersect}{mass_dataset}(x, y)
@@ -57,6 +71,22 @@
 \method{cbind}{mass_dataset}(..., deparse.level = 1)
 
 \method{rbind}{mass_dataset}(..., deparse.level = 1)
+
+\S4method{+}{mass_dataset,numeric}(e1, e2)
+
+\S4method{-}{mass_dataset,numeric}(e1, e2)
+
+\S4method{*}{mass_dataset,numeric}(e1, e2)
+
+\S4method{/}{mass_dataset,numeric}(e1, e2)
+
+\S4method{colSums}{mass_dataset}(x, na.rm = FALSE, dims = 1)
+
+\S4method{rowSums}{mass_dataset}(x, na.rm = FALSE, dims = 1)
+
+\S4method{colMeans}{mass_dataset}(x, na.rm = FALSE, dims = 1)
+
+\S4method{rowMeans}{mass_dataset}(x, na.rm = FALSE, dims = 1)
 
 \S4method{mz_rt_match}{mass_dataset}(
   data1,
@@ -96,6 +126,14 @@
 \item{y}{y}
 
 \item{deparse.level}{deparse.level}
+
+\item{e1}{a mass_dataset class object}
+
+\item{e2}{numeric}
+
+\item{na.rm}{na.rm}
+
+\item{dims}{dims}
 
 \item{data1}{data1}
 
@@ -140,9 +178,29 @@ mass_dataset object
 
 mass_dataset object
 
+mass_dataset object
+
+mass_dataset object
+
 mass_dataset
 
 mass_dataset
+
+mass_dataset object
+
+mass_dataset object
+
+mass_dataset object
+
+mass_dataset object
+
+vector object
+
+vector object
+
+vector object
+
+vector object
 
 mass_dataset object
 }
