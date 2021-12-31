@@ -131,7 +131,7 @@ extract_annotation_table = function(object) {
 #' @param object mass_dataset class object.
 #' @return A data frame.
 #' @export
-#' @examples 
+#' @examples
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -159,7 +159,7 @@ extract_variable_info_note = function(object) {
 #' @param object mass_dataset class object.
 #' @return A data frame.
 #' @export
-#' @examples 
+#' @examples
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -214,7 +214,7 @@ extract_process_info =
 #' @param object (required) mass_dataset class object.
 #' @return A ms2_data class object.
 #' @export
-#' @examples 
+#' @examples
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -296,3 +296,200 @@ setMethod(
   definition = function(object)
     object@ms2_data
 )
+
+
+
+##sample_info_note
+#' @rdname mass_dataset-class
+#' @param object mass_dataset class object
+#' @return sample_info_note
+setMethod(
+  f = "sample_info_note",
+  signature = "mass_dataset",
+  definition = function(object)
+    object@sample_info_note
+)
+
+
+##variable_info_note
+#' @rdname mass_dataset-class
+#' @param object mass_dataset class object
+#' @return variable_info_note
+setMethod(
+  f = "variable_info_note",
+  signature = "mass_dataset",
+  definition = function(object)
+    object@variable_info_note
+)
+
+
+####replacement method for sample_info
+
+"sample_info<-" <- function(object, value) {
+  object
+}
+
+setReplaceMethod("sample_info", "mass_dataset", function(object, value) {
+  object@sample_info <- value
+  check_result <-
+    check_mass_dataset(
+      expression_data = object@expression_data,
+      sample_info = object@sample_info,
+      variable_info = object@variable_info,
+      sample_info_note = object@sample_info_note,
+      variable_info_note = object@variable_info_note
+    )
+  
+  if (stringr::str_detect(check_result, "error")) {
+    stop(check_result)
+  }
+  
+  return(object)
+  
+})
+
+
+
+
+
+
+
+
+
+####replacement method for variable_info
+
+"variable_info<-" <- function(object, value) {
+  object
+}
+
+setReplaceMethod("variable_info", "mass_dataset", function(object, value) {
+  object@variable_info <- value
+  check_result <-
+    check_mass_dataset(
+      expression_data = object@expression_data,
+      sample_info = object@sample_info,
+      variable_info = object@variable_info,
+      sample_info_note = object@sample_info_note,
+      variable_info_note = object@variable_info_note
+    )
+  
+  if (stringr::str_detect(check_result, "error")) {
+    stop(check_result)
+  }
+  
+  return(object)
+  
+})
+
+
+
+
+
+
+
+####replacement method for expression_data
+
+"expression_data<-" <- function(object, value) {
+  object
+}
+
+setReplaceMethod("expression_data", "mass_dataset", function(object, value) {
+  object@expression_data <- value
+  check_result <-
+    check_mass_dataset(
+      expression_data = object@expression_data,
+      sample_info = object@sample_info,
+      variable_info = object@variable_info,
+      sample_info_note = object@sample_info_note,
+      variable_info_note = object@variable_info_note
+    )
+  
+  if (stringr::str_detect(check_result, "error")) {
+    stop(check_result)
+  }
+  
+  return(object)
+  
+})
+
+
+
+
+
+
+
+
+####replacement method for sample_info_note
+"sample_info_note<-" <- function(object, value) {
+  object
+}
+
+setReplaceMethod("sample_info_note", "mass_dataset", function(object, value) {
+  object@sample_info_note <- value
+  check_result <-
+    check_mass_dataset(
+      expression_data = object@expression_data,
+      sample_info = object@sample_info,
+      variable_info = object@variable_info,
+      sample_info_note = object@sample_info_note,
+      variable_info_note = object@variable_info_note
+    )
+  
+  if (stringr::str_detect(check_result, "error")) {
+    stop(check_result)
+  }
+  
+  return(object)
+  
+})
+
+
+
+
+
+####replacement method for variable_info_note
+"variable_info_note<-" <- function(object, value) {
+  object
+}
+
+setReplaceMethod("variable_info_note", "mass_dataset", function(object, value) {
+  object@variable_info_note <- value
+  check_result <-
+    check_mass_dataset(
+      expression_data = object@expression_data,
+      sample_info = object@sample_info,
+      variable_info = object@variable_info,
+      sample_info_note = object@sample_info_note,
+      variable_info_note = object@variable_info_note
+    )
+  
+  if (stringr::str_detect(check_result, "error")) {
+    stop(check_result)
+  }
+  
+  return(object)
+  
+})
+
+
+
+####replacement method for ms2_data
+"ms2_data<-" <- function(object, value) {
+  object
+}
+
+setReplaceMethod("ms2_data", "mass_dataset", function(object, value) {
+  object@ms2_data <- value
+  return(object)
+})
+
+
+####replacement method for process_info
+"process_info<-" <- function(object, value) {
+  object
+}
+
+setReplaceMethod("process_info", "mass_dataset", function(object, value) {
+  object@process_info <- value
+  return(object)
+})

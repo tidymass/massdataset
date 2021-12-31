@@ -27,3 +27,18 @@ setGeneric(
   def = function(object, ...)
     standardGeneric(f = "ms2_data")
 )
+
+setGeneric(
+  name = "sample_info_note",
+  def = function(object, ...)
+    standardGeneric(f = "sample_info_note")
+)
+
+setGeneric(
+  name = "variable_info_note",
+  def = function(object, ...)
+    standardGeneric(f = "variable_info_note")
+)
+
+
+

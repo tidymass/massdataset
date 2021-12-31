@@ -8,6 +8,8 @@
 \alias{variable_info,mass_dataset-method}
 \alias{process_info,mass_dataset-method}
 \alias{ms2_data,mass_dataset-method}
+\alias{sample_info_note,mass_dataset-method}
+\alias{variable_info_note,mass_dataset-method}
 \alias{dim.mass_dataset}
 \alias{nrow.mass_dataset}
 \alias{ncol.mass_dataset}
@@ -43,6 +45,10 @@
 \S4method{process_info}{mass_dataset}(object)
 
 \S4method{ms2_data}{mass_dataset}(object)
+
+\S4method{sample_info_note}{mass_dataset}(object)
+
+\S4method{variable_info_note}{mass_dataset}(object)
 
 \method{dim}{mass_dataset}(x)
 
@@ -157,6 +163,10 @@ variable_info
 process_info
 
 ms2_data
+
+sample_info_note
+
+variable_info_note
 
 message
 
