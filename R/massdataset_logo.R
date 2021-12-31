@@ -26,6 +26,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom ggsci pal_lancet 
 #' @importFrom tinytools read_mgf
+#' @importFrom rlang warn quo_is_null abort seq2
 #' @export
 #' @return logo
 #' @examples

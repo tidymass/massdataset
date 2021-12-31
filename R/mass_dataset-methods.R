@@ -966,3 +966,8 @@ setMethod(f = "tail",
             x = update_mass_dataset(x)
             return(x)
           })
+
+
+tick <- function(x) {
+  ifelse(is.na(x), "NA", encodeString(x, quote = "`"))
+}

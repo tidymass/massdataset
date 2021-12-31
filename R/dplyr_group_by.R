@@ -1,8 +1,8 @@
-#' @method arrange mass_dataset
+#' @method group_by mass_dataset
 #' @importFrom rlang quos !!!
-#' @importFrom dplyr arrange
+#' @importFrom dplyr group_by
 #' @export
-arrange.mass_dataset <- 
+group_by.mass_dataset <- 
   function(.data, ...) {
   dots <- quos(...)
   
@@ -14,7 +14,7 @@ arrange.mass_dataset <-
     slot(object = .data, name = .data@activated)
   
   x =
-    arrange(x, !!!dots)
+    group_by(x, !!!dots)
   
   slot(object = .data, name = .data@activated) = x
   
@@ -29,9 +29,9 @@ arrange.mass_dataset <-
   return(.data)
 }
 
-#' @importFrom dplyr arrange
+#' @importFrom dplyr group_by
 #' @export
-dplyr::arrange
+dplyr::group_by
 
 #' @importFrom dplyr desc
 #' @export

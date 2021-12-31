@@ -44,7 +44,9 @@ Imports:
     ggplotify,
     ggsci,
     stats,
-    utils
+    utils,
+    tidyselect,
+    vctrs
 Suggests: 
     knitr,
     rmarkdown,
