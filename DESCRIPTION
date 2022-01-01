@@ -46,7 +46,8 @@ Imports:
     stats,
     utils,
     tidyselect,
-    vctrs
+    vctrs,
+    tidyr
 Suggests: 
     knitr,
     rmarkdown,
