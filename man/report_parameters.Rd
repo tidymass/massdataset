@@ -42,6 +42,14 @@ object =
   activate_mass_dataset(what = "expression_data") \%>\%
   filter(!is.na(QC_2))
 
+object =
+object \%>\%
+  mutate_mean_intensity()
+
+object =
+  object \%>\%
+  mutate_median_intensity() \%>\% 
+  mutate_rsd()
 
 report_parameters(object = object, path = "demo_data")
 }

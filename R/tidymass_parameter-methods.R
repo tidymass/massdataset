@@ -26,8 +26,8 @@ translate_tidymass_parameters =
       function_name = object@function_name,
       parameter = purrr::map2(names(object@parameter),
                               object@parameter, function(name, value) {
-                                if (length(value) > 5) {
-                                  value = head(value, 5)
+                                if (length(value) > 100000) {
+                                  value = head(value, 100000)
                                   value = paste(c(value, "..."), collapse = ',')
                                 } else{
                                   value = paste(value, collapse = ',')

@@ -10,9 +10,10 @@ articles:
   filtering: filtering.html
   massdataset_install: massdataset_install.html
   mutate_ms2: mutate_ms2.html
+  process_info: process_info.html
   summary_info: summary_info.html
   tidyverse_verse: tidyverse_verse.html
-last_built: 2022-01-02T02:01Z
+last_built: 2022-01-02T19:30Z
 urls:
   reference: https://tidymass.github.io/massdataset/reference
   article: https://tidymass.github.io/massdataset/articles

@@ -34,17 +34,24 @@
      
     <span class="caret"></span>
   </a>
-  <ul class="dropdown-menu" role="menu"><li>
+  <ul class="dropdown-menu" role="menu"><li class="divider">
+    <li class="dropdown-header">Installation</li>
+    <li>
       <a href="../articles/massdataset_install.html">Install massdataset</a>
     </li>
     <li>
       <a href="../articles/data_import_and_export.html">Data import and export</a>
     </li>
     <li>
-      <a href="../articles/mutate_ms2.html">Mutate MS2 into mass_dataset</a>
+      <a href="../articles/mutate_ms2.html">Add MS2 into mass_dataset</a>
     </li>
+    <li class="divider">
+    <li class="dropdown-header">Information from mass_dataset</li>
     <li>
       <a href="../articles/extract_data.html">Extract data from mass_dataset</a>
+    </li>
+    <li>
+      <a href="../articles/process_info.html">Processing information</a>
     </li>
     <li>
       <a href="../articles/summary_info.html">Summary information</a>
@@ -170,7 +177,7 @@ object is returned instead.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-01 18:01:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-02 11:30:48</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">##calculate RSDs according to all the samples</span></span>
 <span class="r-in"><span class="va">object</span> <span class="op">=</span></span>
@@ -190,10 +197,10 @@ object is returned instead.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-01 18:01:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-02 11:30:48</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_rsd ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset  mutate_rsd() 2022-01-01 18:01:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset  mutate_rsd() 2022-01-02 11:30:48</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract_variable_info.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 variable_id        mz        rt       rsd</span>
@@ -224,11 +231,11 @@ object is returned instead.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-01 18:01:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-02 11:30:48</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_rsd ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset  mutate_rsd() 2022-01-01 18:01:43</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset  mutate_rsd() 2022-01-01 18:01:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset  mutate_rsd() 2022-01-02 11:30:48</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset  mutate_rsd() 2022-01-02 11:30:48</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract_variable_info.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 variable_id        mz        rt       rsd    rsd.1</span>

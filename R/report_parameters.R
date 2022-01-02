@@ -31,6 +31,14 @@
 #'   activate_mass_dataset(what = "expression_data") %>%
 #'   filter(!is.na(QC_2))
 #'
+#' object =
+#' object %>%
+#'   mutate_mean_intensity()
+#' 
+#' object =
+#'   object %>%
+#'   mutate_median_intensity() %>% 
+#'   mutate_rsd()
 #'
 #' report_parameters(object = object, path = "demo_data")
 #' }
@@ -38,7 +46,7 @@
 report_parameters =
   function(object,
            path = ".") {
-    
+    options(warn = -1)
     dir.create(path, showWarnings = FALSE)
     
     ###path
@@ -97,4 +105,5 @@ report_parameters =
               to = file.path(path, "parameter_report.html"), overwrite = TRUE)
     unlink(file.path(output_path), recursive = TRUE, force = TRUE)
     cat(crayon::yellow("Done.\n"))
+    options(warn = 0)
   }

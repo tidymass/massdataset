@@ -86,23 +86,29 @@ navbar:
     articles:
       text: Help documents
       menu:
-      - text: Install massdataset
+      - text: --------
+      - text: "Installation"
+      - text: "Install massdataset"
         href: articles/massdataset_install.html
-      - text: Data import and export
+      - text: "Data import and export"
         href: articles/data_import_and_export.html
-      - text: Mutate MS2 into mass_dataset
+      - text: "Add MS2 into mass_dataset"
         href: articles/mutate_ms2.html
-      - text: Extract data from mass_dataset
+      - text: --------
+      - text: "Information from mass_dataset"
+      - text: "Extract data from mass_dataset"
         href: articles/extract_data.html
-      - text: Summary information
+      - text: "Processing information"
+        href: articles/process_info.html
+      - text: "Summary information"
         href: articles/summary_info.html
-      - text: Accessor
+      - text: "Accessor"
         href: articles/accessor.html
-      - text: Filtering samples/variables
+      - text: "Filtering samples/variables"
         href: articles/filtering.html
-      - text: Process mass_dataset using tidyverse functions
+      - text: "Process mass_dataset using tidyverse functions"
         href: articles/tidyverse_verse.html
-      - text: R base functions for mass_dataset
+      - text: "R base functions for mass_dataset"
         href: articles/base_function.html
     twitter:
       icon: "fab fa-twitter fa-lg"

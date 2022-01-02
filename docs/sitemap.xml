@@ -37,6 +37,9 @@
     <loc>https://tidymass.github.io/massdataset/articles/mutate_ms2.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/articles/process_info.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/articles/summary_info.html</loc>
   </url>
   <url>
@@ -205,6 +208,9 @@
     <loc>https://tidymass.github.io/massdataset/reference/reexports.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/reference/report_parameters.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/reference/rownames.html</loc>
   </url>
   <url>
@@ -236,6 +242,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/tidymass_parameter.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/tidymass_parameters-class.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/update_mass_dataset.html</loc>
