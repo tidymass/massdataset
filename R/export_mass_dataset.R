@@ -4,6 +4,7 @@
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
 #' @param file_type (required) csv or xlsx
+#' @param ms2_file_type msp or mgf
 #' @param path work directory.
 #' @return csv or xlsx files.
 #' @export
@@ -11,8 +12,11 @@
 export_mass_dataset =
   function(object,
            file_type = c("csv", "xlsx"),
-           path = ".") {
+           ms2_file_type = c("csv", "xlsx"),
+           path = "."
+           ) {
     file_type = match.arg(file_type)
+    ms2_file_type = match.arg(ms2_file_type)
     dir.create(path, showWarnings = FALSE)
     if (class(object)[1] != "mass_dataset") {
       stop("Only support mass_dataset class object.\n")
@@ -65,5 +69,65 @@ export_mass_dataset =
           overwrite = TRUE
         )
       }
+      
+      ###ms2_data
+      export_ms2_data(object = object,
+                      file_type = ms2_file_type,
+                      path = path)
     }
+  }
+
+
+#' @title Export mass_dataset's ms2_data to mgf/msp
+#' @description Export mass_dataset's ms2_data to mgf/msp
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@outlook.com}
+#' @param object (required) mass_dataset class object.
+#' @param file_type (required) mgf, msp
+#' @param path work directory.
+#' @return mgf, msp
+#' @export
+
+export_ms2_data =
+  function(object,
+           file_type = c("mgf", "msp"),
+           path = ".") {
+    file_type = match.arg(file_type)
+    dir.create(path, showWarnings = FALSE)
+    if (class(object)[1] != "mass_dataset") {
+      stop("Only support mass_dataset class object.\n")
+    }
+    
+    if (length(object@ms2_data) == 0) {
+      warning("No MS2 data.\n")
+      return(NULL)
+    }
+    
+    cat(crayon::yellow("Write MS2 data...\n"))
+    
+    purrr::walk2(
+      .x = names(object@ms2_data),
+      .y = object@ms2_data,
+      .f = function(temp_name, temp_data) {
+        cat(crayon::yellow(temp_name, "\n"))
+        file_name =
+          paste("ms2_data_",
+                match(temp_name, names(object@ms2_data)),
+                sep = "")
+        unlink(
+          x = file.path(path, file_name),
+          recursive = TRUE,
+          force = TRUE
+        )
+        
+        write_ms2_data(
+          object = temp_data,
+          file_type = file_type,
+          file_name = file_name,
+          path = path
+        )
+        
+      }
+    )
+    cat(crayon::green("Done.\n"))
   }

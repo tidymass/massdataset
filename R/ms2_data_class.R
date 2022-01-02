@@ -37,12 +37,20 @@ setMethod(
     cat(crayon::green("mz_tol:", object@mz_tol), "\n")
     cat(crayon::green("rt_tol (second):", object@rt_tol), "\n")
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
-    cat(crayon::green(length(unique(object@variable_id)), 
-                      "variables:\n"))
-    cat(crayon::green(head(unique(object@variable_id), 5)))
+    cat(crayon::green(length(unique(
+      object@variable_id
+    )),
+    "variables:\n"))
+    cat(crayon::green(head(unique(
+      object@variable_id
+    ), 5)))
     cat(crayon::green("...\n"))
-    cat(crayon::green(length(unique(object@ms2_spectrum_id)), "MS2 spectra.\n"))
-    cat(crayon::green(head(unique(object@ms2_spectrum_id), 5)))
+    cat(crayon::green(length(unique(
+      object@ms2_spectrum_id
+    )), "MS2 spectra.\n"))
+    cat(crayon::green(head(unique(
+      object@ms2_spectrum_id
+    ), 5)))
     cat(crayon::green("...\n"))
   }
 )

@@ -4,12 +4,19 @@
 \alias{export_mass_dataset}
 \title{Export mass_dataset class object to csv/xlsx files}
 \usage{
-export_mass_dataset(object, file_type = c("csv", "xlsx"), path = ".")
+export_mass_dataset(
+  object,
+  file_type = c("csv", "xlsx"),
+  ms2_file_type = c("csv", "xlsx"),
+  path = "."
+)
 }
 \arguments{
 \item{object}{(required) mass_dataset class object.}
 
 \item{file_type}{(required) csv or xlsx}
+
+\item{ms2_file_type}{msp or mgf}
 
 \item{path}{work directory.}
 }
