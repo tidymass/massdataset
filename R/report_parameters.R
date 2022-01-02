@@ -38,7 +38,25 @@
 report_parameters =
   function(object,
            path = ".") {
+    
     dir.create(path, showWarnings = FALSE)
+    
+    ###path
+    if (length(grep("Parameter_report", dir(path))) > 0) {
+      output_path = file.path(path, paste('Parameter_report', length(grep(
+        "Parameter_report", dir(path)
+      )) + 1, sep = "_"))
+    } else{
+      output_path = file.path(path, "Parameter_report")
+    }
+    
+    rmarkdown::draft(
+      file = output_path,
+      template = "tidymass_parameters",
+      package = "massdataset",
+      create_dir = TRUE,
+      edit = FALSE
+    )
     
     ###get parameters
     parameters =
@@ -55,31 +73,31 @@ report_parameters =
       }) %>%
       dplyr::bind_rows()
     
-    save(parameters, file = file.path(path, "parameters.rda"))
-    
-    rmarkdown::draft(
-      file = path,
-      template = "tidymass_parameters",
-      package = "massdataset",
-      create_dir = TRUE,
-      edit = FALSE
-    )
-    
+    save(parameters, file = file.path(output_path, "parameters.rda"))
     
     rmarkdown::render(
-      file.path(path, "tidymass_parameters.template.Rmd"),
+      file.path(output_path, "tidymass_parameters.template.Rmd"),
       rmarkdown::html_document()
     )
+    
     file.rename(
-      from = file.path(path, "tidymass_parameters.template.html"),
-      to = file.path(path, "massqc_report.html")
+      from = file.path(output_path, "tidymass_parameters.template.html"),
+      to = file.path(output_path, "parameter_report.html")
     )
     
-    file = dir(path)
+    file = dir(output_path)
     remove_file = grep("png|Rmd|parameters|rda", file, value = TRUE)
     unlink(
-      x = file.path(path, remove_file),
+      x = file.path(output_path, remove_file),
       recursive = TRUE,
       force = TRUE
     )
+  
+    file.copy(from = file.path(output_path, "parameter_report.html"), 
+              to = file.path(path, "parameter_report.html"), overwrite = TRUE)
+    
+    unlink(file.path(output_path), recursive = TRUE, force = TRUE)
+    
+    cat(crayon::yellow("Done.\n"))
+    
   }
