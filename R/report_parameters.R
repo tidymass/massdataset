@@ -95,9 +95,6 @@ report_parameters =
   
     file.copy(from = file.path(output_path, "parameter_report.html"), 
               to = file.path(path, "parameter_report.html"), overwrite = TRUE)
-    
     unlink(file.path(output_path), recursive = TRUE, force = TRUE)
-    
     cat(crayon::yellow("Done.\n"))
-    
   }
