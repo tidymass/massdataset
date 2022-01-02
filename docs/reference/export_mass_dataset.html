@@ -44,7 +44,7 @@
       <a href="../articles/mutate_ms2.html">Mutate MS2 into mass_dataset</a>
     </li>
     <li>
-      <a href="../articles/extract_data.html">xtract data from mass_dataset</a>
+      <a href="../articles/extract_data.html">Extract data from mass_dataset</a>
     </li>
     <li>
       <a href="../articles/summary_info.html">Summary information</a>
@@ -119,7 +119,12 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">export_mass_dataset</span><span class="op">(</span><span class="va">object</span>, file_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"csv"</span>, <span class="st">"xlsx"</span><span class="op">)</span>, path <span class="op">=</span> <span class="st">"."</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">export_mass_dataset</span><span class="op">(</span>
+  <span class="va">object</span>,
+  file_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"csv"</span>, <span class="st">"xlsx"</span><span class="op">)</span>,
+  ms2_file_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"csv"</span>, <span class="st">"xlsx"</span><span class="op">)</span>,
+  path <span class="op">=</span> <span class="st">"."</span>
+<span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -128,6 +133,8 @@
 <dd><p>(required) mass_dataset class object.</p></dd>
 <dt>file_type</dt>
 <dd><p>(required) csv or xlsx</p></dd>
+<dt>ms2_file_type</dt>
+<dd><p>msp or mgf</p></dd>
 <dt>path</dt>
 <dd><p>work directory.</p></dd>
 </dl></div>
