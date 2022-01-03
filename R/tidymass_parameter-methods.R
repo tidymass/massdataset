@@ -25,9 +25,9 @@ translate_tidymass_parameter =
     
     check_object_class(object = object, class = "tidymass_parameter")
     
-    data.frame(
-      pacakge_name = object@pacakge_name,
-      function_name = object@function_name,
+    if(length(object@parameter) == 0){
+      parameter = "no:no"  
+    }else{
       parameter = purrr::map2(names(object@parameter),
                               object@parameter, function(name, value) {
                                 if (length(value) > 100000) {
@@ -37,7 +37,13 @@ translate_tidymass_parameter =
                                   value = paste(value, collapse = ',')
                                 }
                                 paste(name, value, sep = ":")
-                              }) %>% unlist(),
+                              }) %>% unlist() 
+    }
+    
+    data.frame(
+      pacakge_name = object@pacakge_name,
+      function_name = object@function_name,
+      parameter = parameter,
       time = object@time
     )
   }
