@@ -86,7 +86,7 @@
       <a href="../articles/process_info.html">Processing information</a>
     </li>
     <li>
-      <a href="../articles/htmp_process_info.html">Output htmp process_info</a>
+      <a href="../articles/html_process_info.html">Output htmp process_info</a>
     </li>
     <li class="divider">
     </li>
@@ -341,12 +341,29 @@
 <span class="co">#&gt; <span style="color: #00BB00;">subset ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
 <span class="co">#&gt; 1 massdataset             [ 2021-12-24 16:59:11</span></code></pre></div>
+<p>If set <code>drop = TRUE</code>, then it will return a numeric vector, not a <code>mass_dataset</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">object</span><span class="op">[</span>,<span class="st">"Blank_3"</span>, drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">)</span>
+<span class="co">#&gt; [1]      NA      NA      NA      NA      NA 3761893</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">object</span><span class="op">[</span><span class="st">"M136T55_2_POS"</span>,,drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span> <span class="op">)</span>
+<span class="co">#&gt; Blank_3 Blank_4    QC_1    QC_2   PS4P1   PS4P2   PS4P3   PS4P4 </span>
+<span class="co">#&gt;      NA      NA 1857925 1037764 1494436 3496912 1959179 1005419</span>
+
+<span class="va">object</span><span class="op">[</span><span class="st">"M136T55_2_POS"</span>,<span class="st">"Blank_3"</span>,drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span>
+<span class="co">#&gt; [1] NA</span></code></pre></div>
+<p>We can also get the values from one <code>mass_dataset</code> class use <code>$</code> like a <code>data.frame</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">object</span><span class="op">$</span><span class="va">Blank_3</span>, <span class="fl">20</span><span class="op">)</span>
+<span class="co">#&gt;  [1]        NA        NA        NA        NA        NA 3761892.6        NA</span>
+<span class="co">#&gt;  [8]        NA        NA  249352.6        NA        NA        NA        NA</span>
+<span class="co">#&gt; [15]        NA        NA 3579849.0        NA        NA        NA</span></code></pre></div>
 </div>
 <div class="section level1">
 <h1 id="session-information">
 <strong>Session information</strong><a class="anchor" aria-label="anchor" href="#session-information"></a>
 </h1>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; R version 4.1.0 (2021-05-18)</span>
 <span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>

@@ -69,6 +69,21 @@ object["M136T55_2_POS",]
 
 object["M136T55_2_POS","Blank_3"]
 ```
+If set `drop = TRUE`, then it will return a numeric vector, not a `mass_dataset`.
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+head(object[,"Blank_3", drop = TRUE])
+
+unlist(object["M136T55_2_POS",,drop = TRUE] )
+
+object["M136T55_2_POS","Blank_3",drop = TRUE]
+```
+
+We can also get the values from one `mass_dataset` class use `$` like a `data.frame`.
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+head(object$Blank_3, 20)
+```
 
 # **Session information**
 
