@@ -1,16 +1,17 @@
-#' @title Get peak intensity distributation plot
-#' @description Get peak intensity distributation plot.
+#' @title intensity_plot
+#' @description Get intensity distributation plot for one specific feature.
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object A metflowClass object.
-#' @param variable_id variable_id
-#' @param variable_index variable_index
-#' @param color_by which column (variable_info) is used to color variables
-#' @param order_by which column (variable_info) is used to order variables
-#' @param desc desc
-#' @param interactive Interactive plot or not.
+#' @param object (required) A mass_dataset object.
+#' @param variable_id Variable id. 
+#' @param variable_index Variable index. You need to provide this or variable_id.
+#' @param color_by which column (in variable_info) is used to color variables
+#' @param order_by which column (in variable_info) is used to order variables
+#' @param desc Descend the order? TRUE or FALSE.
+#' @param interactive Interactive plot or not. TRUE or FALSE.
 #' @export
-#' @return A ggplot2 object.
+#' @return A ggplot2 class object.
 #' @examples
 #' data("expression_data")
 #' data("sample_info")

@@ -40,7 +40,3 @@ setGeneric(
     standardGeneric(f = "variable_info_note")
 )
 
-
-
-
-

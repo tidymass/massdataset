@@ -1,10 +1,11 @@
-#' @title translate_tidymass_parameters tidymass_parameters
-#' @description translate_tidymass_parameters tidymass_parameters
+#' @title translate_tidymass_parameter 
+#' @description translate tidymass_parameter to data.frame.
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) tidymass_parameters class object.
 #' @rdname tidymass_parameters-class
-#' @return data.frame
+#' @return A data.frame
 #' @export
 #' @examples
 #' data("expression_data")
@@ -17,10 +18,13 @@
 #'     variable_info = variable_info
 #'   )
 #' object
-#' translate_tidymass_parameters(object@process_info[[1]])
+#' translate_tidymass_parameter(object@process_info[[1]])
 
-translate_tidymass_parameters =
+translate_tidymass_parameter =
   function(object) {
+    
+    check_object_class(object = object, class = "tidymass_parameter")
+    
     data.frame(
       pacakge_name = object@pacakge_name,
       function_name = object@function_name,

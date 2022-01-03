@@ -1,5 +1,6 @@
 ##S4 class for ms2_data
 #' An S4 class that stores the ms2_data
+#' @docType class
 #' @slot column column
 #' @slot polarity polarity
 #' @slot variable_id variable_id

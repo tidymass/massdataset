@@ -1,10 +1,12 @@
 #' @title Add median intensity for each feature to variable_info
 #' @description Add median intensity for each feature to variable_info
+#' @docType methods
+#' @rdname add_new_column-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
-#' @param according_to_samples (required) What samples used to filter variables.
-#' Default is "all". If you
+#' @param according_to_samples (required) What samples used to calculate median
+#' intensity. Default is "all". If you
 #' want to use only several samples, provide their names as a vector.
 #' @param na.rm na.rm
 #' @return A mass_dataset class object
@@ -46,7 +48,7 @@ mutate_median_intensity =
   function(object, 
            according_to_samples = "all",
            na.rm = TRUE) {
-    
+    check_object_class(object = object, class = "mass_dataset")
     variable_id = get_variable_id(object)
     sample_id = get_sample_id(object)
     
@@ -106,5 +108,4 @@ mutate_median_intensity =
     object@process_info = process_info
     
     return(object)
-      
   }

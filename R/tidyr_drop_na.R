@@ -1,4 +1,4 @@
-#' @method drop_na mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!!
 #' @importFrom tidyr drop_na
 #' @export

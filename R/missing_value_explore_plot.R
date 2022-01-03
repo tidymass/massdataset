@@ -1,16 +1,18 @@
-#' @title Add NA number for each feature to variable_info
-#' @description Add NA number for each feature to variable_info
+#' @title show_missing_values
+#' @description Show the missing value distributation.
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
-#' @param show_row_names show_row_names. see?ComplexHeatmap::Heatmap
-#' @param show_column_names show_column_names see?ComplexHeatmap::Heatmap
-#' @param column_names_rot column_names_rot see?ComplexHeatmap::Heatmap
-#' @param cell_color cell color
-#' @param row_names_side row names side
-#' @param percentage percentage or not
+#' @param show_row_names show row names or not. see?ComplexHeatmap::Heatmap
+#' @param show_column_names show column names or not. 
+#' see?ComplexHeatmap::Heatmap
+#' @param column_names_rot column names rot see?ComplexHeatmap::Heatmap
+#' @param cell_color Cell color.
+#' @param row_names_side Row names side. left or right.
+#' @param percentage percentage or not.
 #' @param ... Other parameters for ComplexHeatmap::Heatmap
-#' @return A ggplot2 object
+#' @return A ggplot2 class object
 #' @export
 #' @examples
 #' data("expression_data")
@@ -122,20 +124,16 @@ show_missing_values =
 
 
 
-
-
-
-
-
 #' @title show_sample_missing_values
-#' @description show_sample_missing_values
+#' @description show missing values for each sample
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param color_by which column (sample_info) is used to color samples
-#' @param order_by which column (sample_info) is used to order samples
-#' @param percentage show MV percentage?
-#' @param desc desc
+#' @param object (required) A mass_dataset class object.
+#' @param color_by which column (in sample_info) is used to color samples
+#' @param order_by which column (in sample_info) is used to order samples
+#' @param percentage show MV percentage? TRUE or FALSE.
+#' @param desc descend sample order or not. TRUE or FALSE.
 #' @return A ggplot2 object
 #' @export
 #' @examples
@@ -158,7 +156,6 @@ show_missing_values =
 #' show_sample_missing_values(object, color_by = "class", order_by = "na")
 #' show_sample_missing_values(object, color_by = "class", order_by = "na",
 #'                            desc = TRUE)
-
 
 show_sample_missing_values =
   function(object,
@@ -255,16 +252,17 @@ show_sample_missing_values =
 
 
 #' @title show_variable_missing_values
-#' @description show_variable_missing_values
+#' @description show missing values for each variable
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
-#' @param color_by which column (variable_info) is used to color variables
-#' @param order_by which column (variable_info) is used to order variables
-#' @param percentage show MV percentage?
-#' @param show_x_text show_x_text
-#' @param show_x_ticks show_x_ticks
-#' @param desc desc
+#' @param color_by which column (in variable_info) is used to color variables
+#' @param order_by which column (in variable_info) is used to order variables
+#' @param percentage show MV percentage? TRUE or FALSE
+#' @param show_x_text show x axis text or not? TRUE or FALSE
+#' @param show_x_ticks show x ticks or not? TRUE or FALSE
+#' @param desc descend sample order or not. TRUE or FALSE.
 #' @return A ggplot2 object
 #' @export
 #' @examples

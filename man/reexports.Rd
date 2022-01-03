@@ -31,6 +31,7 @@
 \alias{summarize}
 \alias{\%>\%}
 \alias{case_when}
+\alias{summarise}
 \alias{drop_na}
 \alias{mz_rt_match}
 \title{Objects exported from other packages}
@@ -40,11 +41,11 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{dplyr}{\code{\link[dplyr]{arrange}}, \code{\link[dplyr]{arrange}}, \code{\link[dplyr]{case_when}}, \code{\link[dplyr]{count}}, \code{\link[dplyr]{count}}, \code{\link[dplyr]{desc}}, \code{\link[dplyr]{desc}}, \code{\link[dplyr]{desc}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr]{group_by}}, \code{\link[dplyr:mutate-joins]{left_join}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{mutate_all}}, \code{\link[dplyr:mutate_all]{mutate_at}}, \code{\link[dplyr:context]{n}}, \code{\link[dplyr:context]{n}}, \code{\link[dplyr:context]{n}}, \code{\link[dplyr]{pull}}, \code{\link[dplyr]{relocate}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr:slice]{slice_head}}, \code{\link[dplyr:slice]{slice_max}}, \code{\link[dplyr:slice]{slice_min}}, \code{\link[dplyr:slice]{slice_sample}}, \code{\link[dplyr:slice]{slice_tail}}, \code{\link[dplyr:summarise]{summarize}}, \code{\link[dplyr:mutate]{transmute}}}
+  \item{dplyr}{\code{\link[dplyr]{arrange}}, \code{\link[dplyr]{arrange}}, \code{\link[dplyr]{case_when}}, \code{\link[dplyr]{count}}, \code{\link[dplyr]{count}}, \code{\link[dplyr]{count}}, \code{\link[dplyr]{desc}}, \code{\link[dplyr]{desc}}, \code{\link[dplyr]{desc}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr]{group_by}}, \code{\link[dplyr]{group_by}}, \code{\link[dplyr:mutate-joins]{left_join}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{mutate_all}}, \code{\link[dplyr:mutate_all]{mutate_at}}, \code{\link[dplyr:context]{n}}, \code{\link[dplyr:context]{n}}, \code{\link[dplyr:context]{n}}, \code{\link[dplyr]{pull}}, \code{\link[dplyr]{relocate}}, \code{\link[dplyr]{relocate}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr:slice]{slice_head}}, \code{\link[dplyr:slice]{slice_max}}, \code{\link[dplyr:slice]{slice_min}}, \code{\link[dplyr:slice]{slice_sample}}, \code{\link[dplyr:slice]{slice_tail}}, \code{\link[dplyr]{summarise}}, \code{\link[dplyr:summarise]{summarize}}, \code{\link[dplyr:summarise]{summarize}}, \code{\link[dplyr:mutate]{transmute}}}
 
   \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
 
-  \item{tidyr}{\code{\link[tidyr]{drop_na}}}
+  \item{tidyr}{\code{\link[tidyr]{drop_na}}, \code{\link[tidyr]{drop_na}}}
 
   \item{tinytools}{\code{\link[tinytools]{mz_rt_match}}}
 }}

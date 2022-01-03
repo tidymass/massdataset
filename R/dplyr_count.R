@@ -1,4 +1,5 @@
 #' @method count mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!! !! enquo
 #' @importFrom dplyr count
 #' @export
@@ -27,6 +28,7 @@ count.mass_dataset <-
 
 
 #' @method tally mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!! !! enquo
 #' @importFrom dplyr tally
 #' @export

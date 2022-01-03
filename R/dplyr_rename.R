@@ -1,4 +1,5 @@
 #' @method rename mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!!
 #' @importFrom dplyr rename
 #' @export

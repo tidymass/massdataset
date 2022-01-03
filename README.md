@@ -13,21 +13,11 @@
 
 # About
 
-`massdataset` provide the `mass_dataset` class which is specifically developed and designed to organize the **metabolomics data sets** into a standard structure, and the `mass_dataset` class can be processed by all the packages from [`tidymass`](https://tidymass.github.io/tidymass/).
+`massdataset` provide the `mass_dataset` class which is specifically developed and designed to organize the rectangular **metabolomics data sets** into a standard structure. `massdataset` package also provide a lot of base processing functions to process and operate the `mass_dataset` class. In additional, the `mass_dataset` class can be processed by all the packages from [`tidymass`](https://tidymass.github.io/tidymass/).
+
+<img src="man/figures/Figure.png" align="middle" alt="" width = "100%"/>
 
 Merging separate data objects is useful for manually-imported data objects, especially for metabolomics data analysis. It's significant to keep unified format before analysis. While the first category of merging functions is useful for direct manipulations of the data for analytical purposes, `massdataset` is a convenience/support tool to help get your data into the right format.
-
-`massdataset` also combines different functionalities in order to provide an easy way to process MS1/MS2 data and extract data sets.
-
-The `mass_dataset` class is used to store rectangular matrices of experimental results, which are commonly produced by sequencing and microarray experiments. Note that SummarizedExperiment can simultaneously manage several experimental results or assays as long as they be of the same dimensions.
-
-Each object stores observations of one or more samples, along with additional meta-data describing both the observations (features) and samples (phenotypes).
-
-A key aspect of the SummarizedExperiment class is the coordination of the meta-data and assays when subsetting. For example, if you want to exclude a given sample you can do for both the meta-data and assay in one operation, which ensures the meta-data and observed data will remain in sync. Improperly accounting for meta and observational data has resulted in a number of incorrect results and retractions so this is a very desirable property.
-
-SummarizedExperiment is in many ways similar to the historical ExpressionSet, the main distinction being that SummarizedExperiment is more flexible in it’s row information, allowing both GRanges based as well as those described by arbitrary DataFrames. This makes it ideally suited to a variety of experiments, particularly sequencing based experiments such as RNA-Seq and ChIp-Seq.
-
-<img src="man/figures/Figure.png" align="middle" alt="" width = "80%"/>
 
 # Installation
 

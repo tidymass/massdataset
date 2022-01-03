@@ -1,5 +1,6 @@
 #' @title report_parameters
-#' @description report_parameters
+#' @description Export the parameters of mass_dataset object as a html file.
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) tidymass_parameters class object.
@@ -46,6 +47,9 @@
 report_parameters =
   function(object,
            path = ".") {
+    
+    check_object_class(object = object, class = "mass_dataset")
+    
     options(warn = -1)
     dir.create(path, showWarnings = FALSE)
     
@@ -70,10 +74,10 @@ report_parameters =
     parameters =
       lapply(object@process_info, function(x) {
         if (class(x)[1] == "tidymass_parameter") {
-          translate_tidymass_parameters(object = x)
+          translate_tidymass_parameter(object = x)
         } else{
           lapply(x, function(y) {
-            translate_tidymass_parameters(object = y)
+            translate_tidymass_parameter(object = y)
           }) %>%
             dplyr::bind_rows()
         }

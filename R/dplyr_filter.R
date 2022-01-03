@@ -1,4 +1,5 @@
 #' @method filter mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!!
 #' @importFrom dplyr filter
 #' @export

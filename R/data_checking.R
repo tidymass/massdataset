@@ -1,7 +1,8 @@
 #' @title check_mass_dataset
-#' @description Check data format.
+#' @description Check data format fpr mass_dataset class object.
+#' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@163.com}
+#' \email{shenxt1990@@outlook.com}
 #' @param expression_data expression_data.
 #' @param sample_info sample_info.
 #' @param variable_info variable_info.
@@ -27,7 +28,8 @@ check_mass_dataset =
            variable_info_note) {
     if (missing(expression_data) |
         missing(sample_info) | missing(variable_info)) {
-      check_result = "error: expression_data, sample_info and variable_info should be provided."
+      check_result = "error: expression_data, 
+      sample_info and variable_info should be provided."
       return(check_result)
     }
     
@@ -180,14 +182,15 @@ check_mass_dataset =
 
 
 #' @title check_object_class
-#' @description check_object_class
+#' @description Check if one object is one specific class.
+#' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@163.com}
+#' \email{shenxt1990@@outlook.com}
 #' @param object object
 #' @param class object should be what class
 #' @return Notice of data checking.
 #' @export
-#' @examples 
+#' @examples
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -199,13 +202,17 @@ check_mass_dataset =
 #'   )
 #' check_object_class(object, "mass_dataset")
 
-check_object_class = function(object,
-                              class = c("mass_dataset", 
-                                        "tidymass_parameter", 
-                                        "databaseClass",
-                                        "metIdentifyClass")) {
-  class = match.arg(class)
-  if (class(object)[1] != class) {
-    stop("Only support ", class)
+check_object_class =
+  function(object,
+           class = c(
+             "mass_dataset",
+             "tidymass_parameter",
+             "databaseClass",
+             "metIdentifyClass",
+             "ms2_data"
+           )) {
+    class = match.arg(class)
+    if (class(object)[1] != class) {
+      stop("Only support ", class)
+    }
   }
-}

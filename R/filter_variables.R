@@ -1,5 +1,7 @@
-#' @title Filter variables based on the conditions
-#' @description Filter variables based on the conditions
+#' @title filter_variables
+#' @description Filter variables based on the conditions.
+#' @docType methods
+#' @rdname filter-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
@@ -8,12 +10,11 @@
 #' @param prune (optional) A logical. Default \code{FALSE}. If \code{TRUE}, then
 #'  the function returns the pruned mass_dataset-class object, rather
 #'  than the logical vector of variables that passed the filter.
-#' @param apply_to what variables you want to apply this function. 
-#' Default is "all". If you 
-#'  only want to apply to specific variables, 
-#'  please set it as a vector of sample names. Other
-#'  variables will be set as TRUE.
-#' @param according_to_samples What samples used to filter variables.
+#' @param apply_to (required) what variables you want to apply this function. 
+#' Default is "all". If you only want to apply to specific variables, 
+#' please set it as a vector of sample names. 
+#' Other variables will be set as TRUE.
+#' @param according_to_samples (required) What samples used to filter variables.
 #' Default is "all". If you
 #' want to use only several samples, provide they names as a vector.
 #' @return A logical vector equal to the number of variables in mass_dataset-class.
@@ -110,6 +111,9 @@ filter_variables =
            apply_to = "all",
            according_to_samples = "all"
            ) {
+    
+    check_object_class(object = object, class = "mass_dataset")
+    
     variable_id = get_variable_id(object)
     if(any(apply_to == "all")){
       apply_to = variable_id

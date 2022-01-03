@@ -7,10 +7,10 @@
 #' \code{union}, \code{setequal}, and \code{setdiff} from dplyr. These functions
 #' make the base equivalents generic, so shouldn't negatively affect any
 #' existing code.
-#'
+#' @docType methods
 #' @export
-#' @examples
 #' @return massdataset conflicts
+#' @examples
 #' massdataset_conflicts()
 massdataset_conflicts <- function() {
   envs <- grep("^package:", search(), value = TRUE)

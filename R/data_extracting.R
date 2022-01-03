@@ -1,9 +1,11 @@
-#' @title extract_expression_data
-#' @description Extract expression data.
+#' @title Extract expression_data from mass_dataset
+#' @description Extract expression_data from mass_dataset
+#' @docType methods
+#' @rdname extract-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object mass_dataset class object.
-#' @return A data frame.
+#' @param object (required) mass_dataset class object.
+#' @return A data frame (expression_data).
 #' @export
 #' @examples
 #' data("expression_data")
@@ -20,6 +22,7 @@
 #'  head(expression_data2)
 
 extract_expression_data = function(object) {
+  check_object_class(object = object, class = "mass_dataset")
   expression_data = object@expression_data %>%
     as.data.frame()
   expression_data
@@ -28,10 +31,12 @@ extract_expression_data = function(object) {
 
 #' @title extract_sample_info
 #' @description Extract sample information.
+#' @docType methods
+#' @rdname extract-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object mass_dataset class object.
-#' @return A data frame.
+#' @param object (required) mass_dataset class object.
+#' @return A data frame (sample_info).
 #' @export
 #' @examples
 #' data("expression_data")
@@ -48,6 +53,7 @@ extract_expression_data = function(object) {
 #'  head(sample_info2)
 
 extract_sample_info = function(object) {
+  check_object_class(object = object, class = "mass_dataset")
   sample_info = object@sample_info %>%
     as.data.frame()
   sample_info
@@ -56,10 +62,12 @@ extract_sample_info = function(object) {
 
 #' @title extract_variable_info
 #' @description Extract variable information.
+#' @docType methods
+#' @rdname extract-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object mass_dataset class object.
-#' @return A data frame.
+#' @param object (required) mass_dataset class object.
+#' @return A data frame (variable_info).
 #' @export
 #' @examples
 #' data("expression_data")
@@ -76,6 +84,7 @@ extract_sample_info = function(object) {
 #'  head(variable_info2)
 
 extract_variable_info = function(object) {
+  check_object_class(object = object, class = "mass_dataset")
   variable_info = object@variable_info %>%
     as.data.frame()
   
@@ -99,10 +108,12 @@ extract_variable_info = function(object) {
 
 #' @title extract_annotation_table
 #' @description Extract variable information.
+#' @rdname extract-mass_dataset
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object mass_dataset class object.
-#' @return A data frame.
+#' @param object (required) mass_dataset class object.
+#' @return A data frame (annotation_table).
 #' @export
 #' @examples
 #' data("expression_data")
@@ -119,6 +130,7 @@ extract_variable_info = function(object) {
 #'  head(annotation_table)
 
 extract_annotation_table = function(object) {
+  check_object_class(object = object, class = "mass_dataset")
   annotation_table = object@annotation_table %>%
     as.data.frame()
   annotation_table
@@ -126,10 +138,12 @@ extract_annotation_table = function(object) {
 
 #' @title extract_variable_info_note
 #' @description Extract variable information note.
+#' @docType methods
+#' @rdname extract-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object mass_dataset class object.
-#' @return A data frame.
+#' @param object (required) mass_dataset class object.
+#' @return A data frame (variable_info_note).
 #' @export
 #' @examples
 #' data("expression_data")
@@ -146,6 +160,7 @@ extract_annotation_table = function(object) {
 #'  head(test)
 
 extract_variable_info_note = function(object) {
+  check_object_class(object = object, class = "mass_dataset")
   variable_info_note = object@variable_info_note %>%
     as.data.frame()
   variable_info_note
@@ -154,10 +169,12 @@ extract_variable_info_note = function(object) {
 
 #' @title extract_sample_info_note
 #' @description Extract sample information note.
+#' @docType methods
+#' @rdname extract-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object mass_dataset class object.
-#' @return A data frame.
+#' @param object (required) mass_dataset class object.
+#' @return A data frame (sample_info_note).
 #' @export
 #' @examples
 #' data("expression_data")
@@ -174,6 +191,7 @@ extract_variable_info_note = function(object) {
 #'  head(test)
 
 extract_sample_info_note = function(object) {
+  check_object_class(object = object, class = "mass_dataset")
   sample_info_note = object@sample_info_note %>%
     as.data.frame()
   sample_info_note
@@ -181,10 +199,12 @@ extract_sample_info_note = function(object) {
 
 #' @title Extract process information
 #' @description Extract process information
+#' @docType methods
+#' @rdname extract-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
-#' @return A data.frame.
+#' @return A list of tidymass_parameter.
 #' @export
 #' @examples
 #' data("expression_data")
@@ -203,12 +223,15 @@ extract_sample_info_note = function(object) {
 
 extract_process_info =
   function(object) {
+    check_object_class(object = object, class = "mass_dataset")
     process_info = object@process_info
     return(process_info)
   }
 
 #' @title Extract ms2 data
 #' @description Extract ms2 data
+#' @docType methods
+#' @rdname extract-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
@@ -229,6 +252,7 @@ extract_process_info =
 
 extract_ms2_data =
   function(object) {
+    check_object_class(object = object, class = "mass_dataset")
     ms2_data = object@ms2_data
     return(ms2_data)
   }
@@ -237,9 +261,11 @@ extract_ms2_data =
 #####other functions
 
 ###sample_info
-#' @rdname mass_dataset-class
-#' @param object mass_dataset class object
-#' @return sample_info
+#' @method sample_info mass_dataset
+#' @docType methods
+#' @rdname extract-mass_dataset
+#' @param object (required) mass_dataset class object
+#' @return A data.frame (sample_info)
 
 setMethod(
   f = "sample_info",
@@ -249,9 +275,11 @@ setMethod(
 )
 
 ##expression_data
-#' @rdname mass_dataset-class
-#' @param object mass_dataset class object
-#' @return expression_data
+#' @method expression_data mass_dataset
+#' @docType methods
+#' @rdname extract-mass_dataset
+#' @param object (required) mass_dataset class object
+#' @return A data.frame (expression_data)
 
 setMethod(
   f = "expression_data",
@@ -260,12 +288,12 @@ setMethod(
     object@expression_data
 )
 
-
-
 ##variable_info
-#' @rdname mass_dataset-class
-#' @param object mass_dataset class object
-#' @return variable_info
+#' @method variable_info mass_dataset
+#' @docType methods
+#' @rdname extract-mass_dataset
+#' @param object (required) mass_dataset class object
+#' @return A data.frame (variable_info)
 setMethod(
   f = "variable_info",
   signature = "mass_dataset",
@@ -275,9 +303,11 @@ setMethod(
 
 
 ##process_info
-#' @rdname mass_dataset-class
-#' @param object mass_dataset class object
-#' @return process_info
+#' @method process_info mass_dataset
+#' @docType methods
+#' @rdname extract-mass_dataset
+#' @param object (required) mass_dataset class object
+#' @return A list of tidymass_parameter class objects
 setMethod(
   f = "process_info",
   signature = "mass_dataset",
@@ -285,11 +315,12 @@ setMethod(
     object@process_info
 )
 
-
 ##ms2_data
-#' @rdname mass_dataset-class
-#' @param object mass_dataset class object
-#' @return ms2_data
+#' @method ms2_data mass_dataset
+#' @docType methods
+#' @rdname extract-mass_dataset
+#' @param object (required) mass_dataset class object
+#' @return A ms2_data class object.
 setMethod(
   f = "ms2_data",
   signature = "mass_dataset",
@@ -297,12 +328,12 @@ setMethod(
     object@ms2_data
 )
 
-
-
 ##sample_info_note
-#' @rdname mass_dataset-class
-#' @param object mass_dataset class object
-#' @return sample_info_note
+#' @method sample_info_note mass_dataset
+#' @docType methods
+#' @rdname extract-mass_dataset
+#' @param object (required) mass_dataset class object
+#' @return A data.frame (sample_info_note)
 setMethod(
   f = "sample_info_note",
   signature = "mass_dataset",
@@ -312,9 +343,11 @@ setMethod(
 
 
 ##variable_info_note
-#' @rdname mass_dataset-class
-#' @param object mass_dataset class object
-#' @return variable_info_note
+#' @method variable_info_note mass_dataset
+#' @docType methods
+#' @rdname extract-mass_dataset
+#' @param object (required) mass_dataset class object
+#' @return A data.frame (variable_info_note)
 setMethod(
   f = "variable_info_note",
   signature = "mass_dataset",
@@ -347,11 +380,6 @@ setReplaceMethod("sample_info", "mass_dataset", function(object, value) {
   return(object)
   
 })
-
-
-
-
-
 
 
 

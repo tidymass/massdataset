@@ -1,11 +1,12 @@
-#' @title Export mass_dataset class object to csv/xlsx files
+#' @title export_mass_dataset
 #' @description Export mass_dataset class object to csv/xlsx files
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
 #' @param file_type (required) csv or xlsx
-#' @param ms2_file_type msp or mgf
-#' @param path work directory.
+#' @param ms2_file_type (required) msp or mgf
+#' @param path (required) work directory.
 #' @return csv or xlsx files.
 #' @export
 
@@ -15,6 +16,7 @@ export_mass_dataset =
            ms2_file_type = c("csv", "xlsx"),
            path = "."
            ) {
+    check_object_class(object = object, class = "mass_dataset")
     file_type = match.arg(file_type)
     ms2_file_type = match.arg(ms2_file_type)
     dir.create(path, showWarnings = FALSE)
@@ -78,20 +80,22 @@ export_mass_dataset =
   }
 
 
-#' @title Export mass_dataset's ms2_data to mgf/msp
+#' @title export_ms2_data
 #' @description Export mass_dataset's ms2_data to mgf/msp
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
 #' @param file_type (required) mgf, msp
-#' @param path work directory.
-#' @return mgf, msp
+#' @param path (required) work directory.
+#' @return mgf, msp files
 #' @export
 
 export_ms2_data =
   function(object,
            file_type = c("mgf", "msp"),
            path = ".") {
+    check_object_class(object = object, class = "ms2_data")
     file_type = match.arg(file_type)
     dir.create(path, showWarnings = FALSE)
     if (class(object)[1] != "mass_dataset") {

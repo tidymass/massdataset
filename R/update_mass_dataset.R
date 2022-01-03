@@ -1,11 +1,10 @@
 #' @title Update mass_dataset class object after give the one new item
 #' @description Update mass_dataset class object after give the one new item
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
-#' @return A logical vector equal to the number of variables in mass_dataset-class.
-#'  Alternatively, if \code{prune==TRUE}, the pruned mass_dataset-class
-#'  object is returned instead.
+#' @return A mass_dataset class object.
 #' @export
 #' @examples
 #' data("expression_data")
@@ -45,9 +44,8 @@
 
 update_mass_dataset =
   function(object) {
-    if (class(object)[1] != "mass_dataset") {
-      stop("only support mass_dataset class object.\n")
-    }
+    
+    check_object_class(object = object, class = "mass_dataset")
     
     sample_info = object@sample_info
     sample_info_note = object@sample_info_note

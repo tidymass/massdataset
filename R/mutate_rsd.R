@@ -1,14 +1,14 @@
 #' @title Calculate RSD for features
 #' @description Calculate RSD for features
+#' @docType methods
+#' @rdname add_new_column-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
-#' @param according_to_samples (required) What samples used to filter variables.
+#' @param according_to_samples (required) What samples used to calcualte RSDs.
 #' Default is "all". If you
 #' want to use only several samples, provide they names as a vector.
-#' @return A logical vector equal to the number of variables in mass_dataset-class.
-#'  Alternatively, if \code{prune==TRUE}, the pruned mass_dataset-class
-#'  object is returned instead.
+#' @return A mass_data class object.
 #' @export
 #' @examples
 #' data("expression_data")
@@ -45,6 +45,8 @@
 mutate_rsd =
   function(object, 
            according_to_samples = "all") {
+    
+    check_object_class(object = object, class = "mass_dataset")
     
     variable_id = get_variable_id(object)
     sample_id = get_sample_id(object)

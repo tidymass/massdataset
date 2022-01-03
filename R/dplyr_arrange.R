@@ -1,4 +1,5 @@
 #' @method arrange mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!!
 #' @importFrom dplyr arrange
 #' @export

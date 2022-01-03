@@ -1,4 +1,5 @@
 #' @method group_by mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!!
 #' @importFrom dplyr group_by
 #' @export

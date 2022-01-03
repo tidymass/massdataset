@@ -1,10 +1,12 @@
 #' @title Add NA number for each sample to sample_info
-#' @description Add NA number for each sample to sample_info
+#' @description Add NA number for each sample to sample_info.
+#' @docType methods
+#' @rdname add_new_column-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
-#' @param according_to_variables (required) What variables used to filter variables.
-#' Default is "all". If you
+#' @param according_to_variables (required) What variables used to calculate 
+#' NA number or percentage. Default is "all". If you
 #' want to use only several variables, provide their names as a vector.
 #' @return A mass_dataset class object
 #' @export
@@ -48,6 +50,8 @@
 mutate_sample_na_number =
   function(object, 
            according_to_variables = "all") {
+    
+    check_object_class(object = object, class = "mass_dataset")
     
     variable_id = get_variable_id(object)
     sample_id = get_sample_id(object)
@@ -118,11 +122,13 @@ mutate_sample_na_number =
 
 #' @title Add NA frequency for each sample to sample_info
 #' @description Add NA frequency for each sample to sample_info
+#' @docType methods
+#' @rdname add_new_column-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
-#' @param according_to_variables (required) What variables used to filter variables.
-#' Default is "all". If you
+#' @param according_to_variables (required) What variables used to calculate 
+#' NA number or percentage. Default is "all". If you
 #' want to use only several variables, provide their names as a vector.
 #' @return A mass_dataset class object
 #' @export
@@ -166,6 +172,8 @@ mutate_sample_na_number =
 mutate_sample_na_freq =
   function(object, 
            according_to_variables = "all") {
+    
+    check_object_class(object = object, class = "mass_dataset")
     
     variable_id = get_variable_id(object)
     sample_id = get_sample_id(object)

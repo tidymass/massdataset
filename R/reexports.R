@@ -30,3 +30,35 @@ dplyr::select
 ##' @export
 dplyr::case_when
 
+##' @importFrom dplyr count
+##' @export
+dplyr::count
+
+
+##' @importFrom dplyr group_by
+##' @export
+dplyr::group_by
+
+
+##' @importFrom dplyr relocate
+##' @export
+dplyr::relocate
+
+
+##' @importFrom dplyr slice
+##' @export
+dplyr::slice
+
+
+##' @importFrom dplyr summarise
+##' @export
+dplyr::summarise
+
+##' @importFrom dplyr summarize
+##' @export
+dplyr::summarize
+
+##' @importFrom tidyr drop_na
+##' @export
+tidyr::drop_na
+

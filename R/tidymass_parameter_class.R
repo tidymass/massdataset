@@ -1,9 +1,6 @@
-
-
-
 ##S4 class for parameter
 #' An S4 class that stores the parameters
-#'
+#' @docType class
 #' @slot pacakge_name pacakge_name
 #' @slot function_name function_name
 #' @slot parameter parameter

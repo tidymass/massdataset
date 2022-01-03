@@ -58,6 +58,12 @@
     <loc>https://tidymass.github.io/massdataset/reference/activate_mass_dataset.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/reference/add_new_column-mass_dataset.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/arithmetic-mass_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/reference/calculate_rsd.html</loc>
   </url>
   <url>
@@ -94,6 +100,9 @@
     <loc>https://tidymass.github.io/massdataset/reference/expression_data.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/reference/extract-mass_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/reference/extract-methods.html</loc>
   </url>
   <url>
@@ -119,6 +128,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/extract_variable_info_note.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/filter-mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/filter_samples.html</loc>
@@ -205,6 +217,9 @@
     <loc>https://tidymass.github.io/massdataset/reference/nrow.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/reference/processing-mass_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/reference/reexports.html</loc>
   </url>
   <url>
@@ -233,6 +248,12 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/show_variable_missing_values.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/subsetting-mass_dataset.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/summary-mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/tidymass-class.html</loc>

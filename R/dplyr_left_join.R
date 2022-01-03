@@ -1,4 +1,5 @@
 #' @method left_join mass_dataset
+#' @docType methods
 #' @importFrom dplyr left_join
 #' @export
 left_join.mass_dataset <-

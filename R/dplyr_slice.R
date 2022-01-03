@@ -1,4 +1,5 @@
 #' @method slice mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!! !! enquo
 #' @importFrom dplyr slice any_of
 #' @importFrom tidyselect eval_select
@@ -60,6 +61,7 @@ dplyr::slice
 
 
 #' @method slice_head mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!! !! enquo
 #' @importFrom dplyr slice_head any_of
 #' @export
@@ -145,8 +147,8 @@ dplyr::slice_head
 
 
 
-
 #' @method slice_tail mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!! !! enquo
 #' @importFrom dplyr slice_tail any_of
 #' @export
@@ -230,8 +232,8 @@ dplyr::slice_tail
 
 
 
-
 #' @method slice_sample mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!! !! enquo
 #' @importFrom dplyr slice_sample any_of
 #' @export
@@ -335,8 +337,8 @@ dplyr::slice_sample
 
 
 
-
 #' @method slice_min mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!! !! enquo
 #' @importFrom dplyr slice_min any_of
 #' @export
@@ -440,8 +442,8 @@ dplyr::slice_min
 
 
 
-
 #' @method slice_max mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!! !! enquo
 #' @importFrom dplyr slice_max any_of
 #' @export

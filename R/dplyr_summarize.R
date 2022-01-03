@@ -1,4 +1,5 @@
 #' @method summarize mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!!
 #' @importFrom dplyr summarize
 #' @export
@@ -21,6 +22,7 @@ summarize.mass_dataset <-
 
 
 #' @method summarise mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!!
 #' @importFrom dplyr summarise
 #' @export

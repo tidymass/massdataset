@@ -1,4 +1,5 @@
 #' @method relocate mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!! !! enquo
 #' @importFrom dplyr relocate any_of
 #' @importFrom tidyselect eval_select

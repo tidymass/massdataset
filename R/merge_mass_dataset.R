@@ -1,65 +1,69 @@
 #' @title merge_mass_dataset
-#' @description merge_mass_dataset
+#' @description Merge two mass_dataset objects. More information can be found 
+#' here \url{https://tidymass.github.io/massdataset/articles/process_info.html}
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param x (required) mass_dataset class object.
-#' @param y (required) mass_dataset class object.
-#' @param sample_direction left, right, inner or full.
-#' @param variable_direction left, right, inner or full.
-#' @param sample_by merge samples by what columns from sample_info
+#' @param x (required) A mass_dataset class object.
+#' @param y (required) A mass_dataset class object.
+#' @param sample_direction How to merge samples, should be 
+#' left, right, inner or full. See ?left_join
+#' @param variable_direction How to merge variables, 
+#' should be left, right, inner or full.
+#' @param sample_by merge samples by what columns from sample_info.
 #' @param variable_by merge variables by what columns from variable_info
-#' @return A merged mass_dataset
+#' @return A merged mass_dataset.
 #' @export
 #' @examples
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' 
+#'
 #' object =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#' 
+#'
 #' x = object[1:3, 5:7]
 #' y = object[2:4, 6:8]
-#' 
+#'
 #' ####full merge for samples and variables
-#' z1 = 
+#' z1 =
 #' merge_mass_dataset(
 #'   x = x,
 #'   y = y,
 #'   sample_direction = "full",
 #'   variable_direction = "full"
 #' )
-#' 
+#'
 #' ####inner merge for samples and full merge for variables
-#' z2 = 
+#' z2 =
 #'   merge_mass_dataset(
 #'     x = x,
 #'     y = y,
 #'     sample_direction = "inner",
 #'     variable_direction = "full"
 #'   )
-#' 
+#'
 #' extract_expression_data(x)
 #' extract_expression_data(y)
 #' extract_expression_data(z1)
 #' extract_expression_data(z2)
-#' 
+#'
 #' ######combine pos and neg
 #' x = object[1:3, 5:7]
 #' y = object[4:6, 6:8]
-#' 
-#' z3 = 
+#'
+#' z3 =
 #'   merge_mass_dataset(
 #'     x = x,
 #'     y = y,
 #'     sample_direction = "full",
 #'     variable_direction = "full"
 #'   )
-#' 
+#'
 #' extract_expression_data(z3)
 
 merge_mass_dataset =
@@ -69,7 +73,6 @@ merge_mass_dataset =
            variable_direction = c("left", "right", "full", "inner"),
            sample_by = c("sample_id"),
            variable_by = c("variable_id", "mz", "rt")) {
-    
     sample_direction = match.arg(sample_direction)
     variable_direction = match.arg(variable_direction)
     
@@ -191,11 +194,11 @@ merge_mass_dataset =
           colnames(expression_data_x),
           colnames(expression_data_y)
         ))
-      ) %>% 
+      ) %>%
       tibble::column_to_rownames(var = "variable_id")
     
-    expression_data = 
-      expression_data[variable_info$variable_id,sample_info$sample_id]
+    expression_data =
+      expression_data[variable_info$variable_id, sample_info$sample_id]
     
     object <- new(
       Class = "mass_dataset",
@@ -208,6 +211,31 @@ merge_mass_dataset =
       process_info = c(x@process_info, y@process_info),
       version = massdataset_version
     )
+    
+    ###add paramters
+    ####add parameters
+    process_info = object@process_info
+    
+    parameter <- new(
+      Class = "tidymass_parameter",
+      pacakge_name = "massdataset",
+      function_name = "merge_mass_dataset",
+      parameter = list(
+        sample_direction = sample_direction,
+        variable_direction = variable_direction,
+        sample_by = sample_by,
+        variable_by = variable_by
+      ),
+      time = Sys.time()
+    )
+    
+    if (all(names(process_info) != "merge_mass_dataset")) {
+      process_info$merge_mass_dataset = parameter
+    } else{
+      process_info$merge_mass_dataset = c(process_info$merge_mass_dataset, parameter)
+    }
+    
+    object@process_info = process_info
     
     return(object)
   }

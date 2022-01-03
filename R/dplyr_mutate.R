@@ -1,4 +1,5 @@
 #' @method mutate mass_dataset
+#' @docType methods
 #' @importFrom rlang quos !!!
 #' @importFrom dplyr mutate
 #' @export

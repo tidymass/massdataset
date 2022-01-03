@@ -1,5 +1,6 @@
 #' @title mz and rt plot
-#' @description mz and rt plot
+#' @description mz and rt plot of one mass_dataset class object.
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.

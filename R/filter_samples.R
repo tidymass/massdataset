@@ -1,10 +1,7 @@
-# tinytools::setwd_project()
-# load("demo_data/object")
-#
-# object
-
-#' @title Filter samples based on the conditions
+#' @title filter_samples
 #' @description Filter samples based on the conditions
+#' @docType methods
+#' @rdname filter-mass_dataset
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
@@ -13,7 +10,7 @@
 #' @param prune (optional) A logical. Default \code{FALSE}. If \code{TRUE}, then
 #'  the function returns the pruned mass_dataset-class object, rather
 #'  than the logical vector of samples that passed the filter.
-#' @param apply_to what samples you want to apply this function. default is "all". If you
+#' @param apply_to (required) what samples you want to apply this function. default is "all". If you
 #'  only want to apply to specific samples, please set it as a vector of sample names. Other
 #'  samples will be set as TRUE.
 #' @return A logical vector equal to the number of samples in mass_dataset-class.
@@ -58,6 +55,9 @@ filter_samples =
            flist,
            prune = TRUE,
            apply_to = "all") {
+    
+    check_object_class(object = object, class = "mass_dataset")
+    
     sample_id = get_sample_id(object)
     if (any(apply_to == "all")) {
       apply_to = sample_id

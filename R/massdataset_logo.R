@@ -1,5 +1,6 @@
 #' @title massdataset_logo
-#' @description Get the detailed of massdataset package.
+#' @description Get the detailed information of massdataset package.
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @importFrom stringr str_replace str_split str_replace_all str_trim
@@ -22,7 +23,7 @@
 #' @import ggplot2
 #' @importFrom methods .hasSlot new
 #' @importFrom stats p.adjust rgamma sd median
-#' @importFrom utils data str head
+#' @importFrom utils data str head tail
 #' @importFrom magrittr %>%
 #' @importFrom ggsci pal_lancet 
 #' @importFrom tinytools read_mgf
@@ -54,7 +55,8 @@ massdataset_version = "0.99.1"
 update_date = "2021-12-15"
 
 #' @title get_massdataset_version
-#' @description get_massdataset_version
+#' @description Get massdataset package version
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @export

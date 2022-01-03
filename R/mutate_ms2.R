@@ -1,5 +1,6 @@
 #' @title Mutate MS2 spectra for each variable
 #' @description Mutate MS2 spectra for each variable
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
@@ -7,8 +8,8 @@
 #' @param polarity positive or negative
 #' @param ms1.ms2.match.mz.tol default is 15 ppm.
 #' @param ms1.ms2.match.rt.tol default is 30 seconds.
-#' @param path work directory.
-#' @return A mass_dataset object.
+#' @param path work directory. In this path, please provide MS2 msp data.
+#' @return A mass_dataset object with new added ms2 data.
 #' @export
 #' @examples
 #' \dontrun{
@@ -42,10 +43,12 @@ mutate_ms2 =
            ms1.ms2.match.mz.tol = 15,
            ms1.ms2.match.rt.tol = 30,
            path = ".") {
-    column = match.arg(column)
-    polarity = match.arg(polarity)
+    
     check_object_class(object = object, class = "mass_dataset")
     
+    column = match.arg(column)
+    polarity = match.arg(polarity)
+
     object =
       update_mass_dataset(object)
     

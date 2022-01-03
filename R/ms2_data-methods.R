@@ -1,12 +1,13 @@
-#' @title write_ms2_data mass_dataset
-#' @description write_ms2_data mass_dataset
+#' @title write_ms2_data
+#' @description Write ms2_data class object to msp or mgf
+#' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
-#' @param file_type mgf or msp
-#' @param file_name output file name
-#' @param path path
-#' @rdname mass_dataset-class
+#' @param file_type (required) mgf or msp
+#' @param file_name (required) output file name. 
+#' @param path (required) working directory.
+#' @rdname ms2_data-class
 #' @return msp or mgf
 #' @export
 
@@ -15,6 +16,7 @@ write_ms2_data =
            file_type = c("mgf", "msp"),
            file_name = "ms2_data",
            path = ".") {
+    check_object_class(object = object, class = "ms2_data")
     file_type = match.arg(file_type)
     
     file_name =

@@ -1,12 +1,19 @@
 #' @title create_mass_dataset
-#' @description Create mass_dataset object.
+#' @description Create the mass_dataset object.
+#' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt@@sioc.ac.cn}
-#' @param expression_data MS1 peak table name. Columns are samples and rows are variables.
+#' \email{shenxt1990@@outlook.com}
+#' @param expression_data MS1 peak table name. 
+#' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
 #' @param sample_info Sample information name.
-#' @param variable_info MS1 peak table name. Columns are samples and rows are variables.
+#' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
+#' @param variable_info MS1 peak table name. 
+#' Columns are samples and rows are variables.
+#' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
 #' @param sample_info_note Sample information name.
-#' @param variable_info_note Sample information name.
+#' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
+#' @param variable_info_note Sample information name. 
+#' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
 #' @return A mass_dataset-class object.
 #' @export
 #' @examples
@@ -84,14 +91,15 @@ create_mass_dataset =
 
 ##S4 class for function mass_dataset-class
 #' An S4 class that stores the MS dataset
-#' @slot expression_data expression_data
-#' @slot ms2_data ms2_data
-#' @slot annotation_table annotation_table
-#' @slot sample_info sample_info
-#' @slot variable_info variable_info
-#' @slot sample_info_note sample_info_note
-#' @slot variable_info_note variable_info_note
-#' @slot process_info process_info
+#' @docType class
+#' @slot expression_data expression data
+#' @slot ms2_data ms2 data
+#' @slot annotation_table annotation table
+#' @slot sample_info sample info
+#' @slot variable_info variable info
+#' @slot sample_info_note sample info note
+#' @slot variable_info_note variable info note
+#' @slot process_info process info
 #' @slot version version
 #' @slot activated activated
 #' @exportClass mass_dataset
