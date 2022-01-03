@@ -23,13 +23,13 @@ template:
     ganalytics: UA-000000-01
 
 reference:
-  - title: Create tidymass-object class
-    desc: Import data and create them as a tidymass-object class
+  - title: Create mass_dataset-class object
+    desc: Import data and create them as a mass_dataset-object class
     contents:
-    - check_tidymass_class_data
-    - create_tidymass_class
+    - check_mass_dataset
+    - create_mass_dataset
   - title: Extract data
-    desc: Extract data from tidymass-class object
+    desc: Extract data from mass_dataset-class object
     contents:
     - extract_expression_data
     - extract_sample_info
@@ -45,11 +45,11 @@ reference:
     - get_variable_number
     - get_mv_number
   - title: Filter samples
-    desc: Filter sample from tidymass-class object
+    desc: Filter sample from mass_dataset-class object
     contents:
     - filter_samples
   - title: Filter variables
-    desc: Filter variables from tidymass-class object
+    desc: Filter variables from mass_dataset-class object
     contents:
     - filter_variables
   - title: Mutate variables
@@ -90,6 +90,8 @@ navbar:
       - text: "Installation"
       - text: "Install massdataset"
         href: articles/massdataset_install.html
+      - text: --------
+      - text: "mass_dataset-class object"
       - text: "Data import and export"
         href: articles/data_import_and_export.html
       - text: "Add MS2 into mass_dataset"
@@ -100,12 +102,18 @@ navbar:
         href: articles/extract_data.html
       - text: "Processing information"
         href: articles/process_info.html
+      - text: "Output htmp process_info"
+        href: articles/html_process_info.html
+      - text: --------
+      - text: "Processing of mass_dataset"
       - text: "Summary information"
         href: articles/summary_info.html
-      - text: "Accessor"
-        href: articles/accessor.html
       - text: "Filtering samples/variables"
         href: articles/filtering.html
+      - text: "Accessor"
+        href: articles/accessor.html
+      - text: --------
+      - text: "Others"
       - text: "Process mass_dataset using tidyverse functions"
         href: articles/tidyverse_verse.html
       - text: "R base functions for mass_dataset"
