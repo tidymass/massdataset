@@ -31,9 +31,7 @@ knitr::opts_chunk$set(
 
 `mass_dataset` can be processed using most of the functions from `tidyverse` (`dplyr`).  Before use the functions from `tidyverse`, we need to tell it which dataset we want to process (`activate_mass_dataset()`). 
 
-# **filter() function**
-
-This is very usefull to filter rows in `expression_data`, `sample_info` and `variable_info`.
+# **Data preparation**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
@@ -44,6 +42,7 @@ data("sample_info")
 data("sample_info_note")
 data("variable_info")
 data("variable_info_note")
+
 object =
   create_mass_dataset(
     expression_data = expression_data,
@@ -52,9 +51,9 @@ object =
     sample_info_note = sample_info_note,
     variable_info_note = variable_info_note
   )
-  
-object
 ```
+
+# **filter() function**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 object = 
@@ -120,6 +119,152 @@ object2
 extract_variable_info(object2) %>% 
   head()
 ```
+
+# **mutate() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+###add new column in sample_info
+object2 = 
+  object %>% 
+  activate_mass_dataset(what = "sample_info") %>% 
+  mutate(sample_id2 = sample_id)
+extract_sample_info(object2)
+
+###add new column in variabe_info
+object2 = 
+  object %>% 
+  activate_mass_dataset(what = "variable_info") %>% 
+  mutate(variable_id2 = variable_id)
+extract_variable_info(object2)
+
+###add new samples in expression_data
+object2 = 
+  object %>% 
+  activate_mass_dataset(what = "expression_data") %>% 
+  mutate(new_sample = QC_2)
+head(extract_expression_data(object2[,1:5]))
+```
+
+
+
+# **left_join() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+new_sample_info = 
+  data.frame(sample_id = c("PS4P1", "PS4P2"), 
+             BMI = c(20, 22))
+
+object2 =
+object %>% 
+  activate_mass_dataset(what = "sample_info") %>% 
+  left_join(new_sample_info, by = "sample_id")
+
+extract_sample_info(object2) %>% head()
+```
+
+
+# **pull() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object %>% 
+  activate_mass_dataset(what = "sample_info") %>% 
+  pull(group)
+```
+
+# **rename() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object2 = 
+object %>% 
+  activate_mass_dataset(what = "expression_data") %>% 
+  rename(Blank_10 = Blank_3)
+colnames(object2)
+extract_sample_info(object2)
+```
+
+
+# **arrange() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object2 = 
+object %>% 
+  activate_mass_dataset(what = "sample_info") %>% 
+  arrange(desc(class))
+extract_sample_info(object)
+extract_sample_info(object2)
+```
+# **relocate() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object2 = 
+object %>% 
+  activate_mass_dataset(what = "expression_data") %>% 
+  relocate(QC_1, everything())
+colnames(object)
+colnames(object2)
+```
+
+# **slice() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object %>%
+  activate_mass_dataset(what = "expression_data") %>% 
+  slice(1:10)
+
+object %>%
+  activate_mass_dataset(what = "expression_data") %>% 
+  dplyr::arrange(QC_2) %>% 
+  slice_head(n = 3)
+```
+
+# **select() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object2 =
+  object %>%
+  activate_mass_dataset(what = "expression_data") %>%
+  select(-Blank_3)
+
+colnames(object2)
+
+object2 =
+  object %>%
+  activate_mass_dataset(what = "expression_data") %>%
+  select(-contains("Blank"))
+colnames(object2)
+```
+
+
+# **group_by() and summarize() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object %>% 
+  activate_mass_dataset(what = "sample_info") %>% 
+  group_by(class) %>% 
+  summarise(n = n())
+```
+
+# **count() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object %>% 
+  activate_mass_dataset(what = "sample_info") %>% 
+  count(class)
+```
+
+# **drop_na() function**
+
+`drop_na()` from `tidyr` package.
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object2 = 
+object %>% 
+  activate_mass_dataset(what = "expression_data") %>% 
+  drop_na(QC_2)
+object$QC_2
+object2$QC_2
+```
+
 
 # **Session information**
 

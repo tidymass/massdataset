@@ -95,10 +95,22 @@
       <a href="../articles/summary_info.html">Summary information</a>
     </li>
     <li>
+      <a href="../articles/add_information.html">Add new information to mass_dataset</a>
+    </li>
+    <li>
       <a href="../articles/filtering.html">Filtering samples/variables</a>
     </li>
     <li>
       <a href="../articles/accessor.html">Accessor</a>
+    </li>
+    <li class="divider">
+    </li>
+<li class="dropdown-header">Merge mass_dataset</li>
+    <li>
+      <a href="../articles/cbind_rbind_mass_dataset.html">rbind or cbind mass_dataset</a>
+    </li>
+    <li>
+      <a href="../articles/merge_two_mass_dataset.html">Merge two mass_dataset</a>
     </li>
     <li class="divider">
     </li>
@@ -171,7 +183,7 @@
       <h1 data-toc-skip>Summary information</h1>
                         <h4 data-toc-skip class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-01-05</h4>
+            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-01-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/summary_info.Rmd" class="external-link"><code>vignettes/summary_info.Rmd</code></a></small>
       <div class="hidden name"><code>summary_info.Rmd</code></div>
@@ -180,9 +192,10 @@
 
     
     
+<p>For one <code>mass_dataset</code> class object, we can get the summary information of it.</p>
 <div class="section level1">
-<h1 id="summary-information">
-<strong>Summary information</strong><a class="anchor" aria-label="anchor" href="#summary-information"></a>
+<h1 id="data-preparation">
+<strong>Data preparation</strong><a class="anchor" aria-label="anchor" href="#data-preparation"></a>
 </h1>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
@@ -190,22 +203,24 @@
 
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span>
 
 <span class="va">object</span> <span class="op">=</span>
   <span class="fu"><a href="../reference/create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span>
     expression_data <span class="op">=</span> <span class="va">expression_data</span>,
     sample_info <span class="op">=</span> <span class="va">sample_info</span>,
-    variable_info <span class="op">=</span> <span class="va">variable_info</span>,
-    sample_info_note <span class="op">=</span> <span class="va">sample_info_note</span>,
-    variable_info_note <span class="op">=</span> <span class="va">variable_info_note</span>
-  <span class="op">)</span>
-  
-<span class="va">object</span>
+    variable_info <span class="op">=</span> <span class="va">variable_info</span>
+  <span class="op">)</span></code></pre></div>
+</div>
+<div class="section level1">
+<h1 id="summary-information">
+<strong>Summary information</strong><a class="anchor" aria-label="anchor" href="#summary-information"></a>
+</h1>
+<p>Just type this object in the R session.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">object</span>
 <span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.01 </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.1 </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
 <span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
@@ -215,33 +230,46 @@
 <span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:57</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-01-05 21:46:41</span></code></pre></div>
+<p>We can just basic information of the object.</p>
+</div>
+<div class="section level1">
+<h1 id="use-functions-to-get-the-summary-information">
+<strong>Use functions to get the summary information</strong><a class="anchor" aria-label="anchor" href="#use-functions-to-get-the-summary-information"></a>
+</h1>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">##dim of object</span>
+<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1000    8</span>
+<span class="co">##row number</span>
 <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1000</span>
-<span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
-<span class="co">#&gt; [1] 1000</span>
-
+<span class="co">##column number</span>
+<span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
+<span class="co">#&gt; [1] 8</span>
+<span class="co">##sample number</span>
 <span class="fu"><a href="../reference/summary-mass_dataset.html">get_sample_number</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
 <span class="co">#&gt; [1] 8</span>
+<span class="co">#variable number</span>
 <span class="fu"><a href="../reference/summary-mass_dataset.html">get_variable_number</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1000</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">##sample id</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Blank_3" "Blank_4" "QC_1"    "QC_2"    "PS4P1"   "PS4P2"   "PS4P3"  </span>
 <span class="co">#&gt; [8] "PS4P4"</span>
+<span class="co">##variable id</span>
 <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] "M136T55_2_POS" "M79T35_POS"    "M307T548_POS"  "M183T224_POS" </span>
 <span class="co">#&gt; [5] "M349T47_POS"   "M182T828_POS"</span>
-
+<span class="co">##sample id</span>
 <span class="fu"><a href="../reference/summary-mass_dataset.html">get_sample_id</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Blank_3" "Blank_4" "QC_1"    "QC_2"    "PS4P1"   "PS4P2"   "PS4P3"  </span>
 <span class="co">#&gt; [8] "PS4P4"</span>
+<span class="co">##variable id</span>
 <span class="fu"><a href="../reference/summary-mass_dataset.html">get_variable_id</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] "M136T55_2_POS" "M79T35_POS"    "M307T548_POS"  "M183T224_POS" </span>
@@ -251,80 +279,53 @@
 <h1 id="explore">
 <strong>Explore</strong><a class="anchor" aria-label="anchor" href="#explore"></a>
 </h1>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/show_mz_rt_plot.html">show_mz_rt_plot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-5-1.png" width="100%"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
+<code class="sourceCode R"><span class="co">###show mz rt plot</span>
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="../reference/show_mz_rt_plot.html">show_mz_rt_plot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><img src="summary_info_files/figure-html/unnamed-chunk-6-1.png" width="100%"></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">###should log</span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">`+`</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/show_mz_rt_plot.html">show_mz_rt_plot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-5-2.png" width="100%"></p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
+<p><img src="summary_info_files/figure-html/unnamed-chunk-6-2.png" width="100%"></p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">###use hex</span>
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/show_mz_rt_plot.html">show_mz_rt_plot</a></span><span class="op">(</span>hex <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-5-3.png" width="100%"></p>
+<p><img src="summary_info_files/figure-html/unnamed-chunk-6-3.png" width="100%"></p>
 </div>
 <div class="section level1">
 <h1 id="missing-values">
 <strong>Missing values</strong><a class="anchor" aria-label="anchor" href="#missing-values"></a>
 </h1>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://had.co.nz/plyr" class="external-link">plyr</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span>
-
-<span class="va">object</span> <span class="op">=</span>
-  <span class="fu"><a href="../reference/create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span>
-    expression_data <span class="op">=</span> <span class="va">expression_data</span>,
-    sample_info <span class="op">=</span> <span class="va">sample_info</span>,
-    variable_info <span class="op">=</span> <span class="va">variable_info</span>,
-  <span class="op">)</span>
-
-<span class="va">object</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.01 </span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:59</span>
-
-<span class="co">##show missing values plot</span>
-<span class="fu"><a href="../reference/show_missing_values.html">show_missing_values</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-1.png" width="100%"></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">##show missing values plot</span>
+<span class="fu"><a href="../reference/show_missing_values.html">show_missing_values</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></code></pre></div>
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-1.png" width="100%"></p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu"><a href="../reference/show_missing_values.html">show_missing_values</a></span><span class="op">(</span><span class="va">object</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span>, cell_color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-2.png" width="100%"></p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-2.png" width="100%"></p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co">###only show subject samples</span>
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">class</span> <span class="op">==</span> <span class="st">"Subject"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/show_missing_values.html">show_missing_values</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-3.png" width="100%"></p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-3.png" width="100%"></p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co">###only show QC samples</span>
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"QC"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/show_missing_values.html">show_missing_values</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-4.png" width="100%"></p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-4.png" width="100%"></p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co">###only show features with mz &lt; 100</span>
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
@@ -333,51 +334,51 @@
   <span class="fu"><a href="../reference/show_missing_values.html">show_missing_values</a></span><span class="op">(</span>cell_color <span class="op">=</span> <span class="st">"white"</span>,
                       show_row_names <span class="op">=</span> <span class="cn">TRUE</span>,
                       row_names_side <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-5.png" width="100%"></p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-5.png" width="100%"></p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co">##show missing values plot</span>
 <span class="fu"><a href="../reference/show_sample_missing_values.html">show_sample_missing_values</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-6.png" width="100%"></p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/show_sample_missing_values.html">show_sample_missing_values</a></span><span class="op">(</span><span class="va">object</span>, color_by <span class="op">=</span> <span class="st">"class"</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-7.png" width="100%"></p>
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-6.png" width="100%"></p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/show_sample_missing_values.html">show_sample_missing_values</a></span><span class="op">(</span><span class="va">object</span>, color_by <span class="op">=</span> <span class="st">"class"</span>, order_by <span class="op">=</span> <span class="st">"na"</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-8.png" width="100%"></p>
+<code class="sourceCode R"><span class="fu"><a href="../reference/show_sample_missing_values.html">show_sample_missing_values</a></span><span class="op">(</span><span class="va">object</span>, color_by <span class="op">=</span> <span class="st">"class"</span><span class="op">)</span></code></pre></div>
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-7.png" width="100%"></p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/show_sample_missing_values.html">show_sample_missing_values</a></span><span class="op">(</span><span class="va">object</span>, color_by <span class="op">=</span> <span class="st">"class"</span>, order_by <span class="op">=</span> <span class="st">"na"</span><span class="op">)</span></code></pre></div>
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-8.png" width="100%"></p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/show_sample_missing_values.html">show_sample_missing_values</a></span><span class="op">(</span><span class="va">object</span>, color_by <span class="op">=</span> <span class="st">"class"</span>, order_by <span class="op">=</span> <span class="st">"na"</span>,
                            desc <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-9.png" width="100%"></p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-9.png" width="100%"></p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co">##show missing values plot</span>
 <span class="fu"><a href="../reference/show_variable_missing_values.html">show_variable_missing_values</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-10.png" width="100%"></p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/show_variable_missing_values.html">show_variable_missing_values</a></span><span class="op">(</span><span class="va">object</span>, color_by <span class="op">=</span> <span class="st">"mz"</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-11.png" width="100%"></p>
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-10.png" width="100%"></p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/show_variable_missing_values.html">show_variable_missing_values</a></span><span class="op">(</span><span class="va">object</span>, color_by <span class="op">=</span> <span class="st">"mz"</span><span class="op">)</span></code></pre></div>
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-11.png" width="100%"></p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu"><a href="../reference/show_variable_missing_values.html">show_variable_missing_values</a></span><span class="op">(</span><span class="va">object</span>, color_by <span class="op">=</span> <span class="st">"rt"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">scale_color_gradient</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"skyblue"</span>, high <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> </code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-12.png" width="100%"></p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-12.png" width="100%"></p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu"><a href="../reference/show_variable_missing_values.html">show_variable_missing_values</a></span><span class="op">(</span><span class="va">object</span>, color_by <span class="op">=</span> <span class="st">"mz"</span>, 
                              order_by <span class="op">=</span> <span class="st">"na"</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-13.png" width="100%"></p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-13.png" width="100%"></p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/show_variable_missing_values.html">show_variable_missing_values</a></span><span class="op">(</span><span class="va">object</span>, color_by <span class="op">=</span> <span class="st">"mz"</span>, 
                              order_by <span class="op">=</span> <span class="st">"na"</span>,
                            desc <span class="op">=</span> <span class="cn">TRUE</span>, percentage <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p><img src="summary_info_files/figure-html/unnamed-chunk-6-14.png" width="100%"></p>
+<p><img src="summary_info_files/figure-html/unnamed-chunk-7-14.png" width="100%"></p>
 </div>
 <div class="section level1">
 <h1 id="session-information">
 <strong>Session information</strong><a class="anchor" aria-label="anchor" href="#session-information"></a>
 </h1>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; R version 4.1.0 (2021-05-18)</span>
 <span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>
@@ -400,39 +401,41 @@
 <span class="co">#&gt; [13] massdataset_0.99.1</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;  [1] matrixStats_0.60.0   fs_1.5.0             lubridate_1.7.10    </span>
-<span class="co">#&gt;  [4] doParallel_1.0.16    RColorBrewer_1.1-2   httr_1.4.2          </span>
-<span class="co">#&gt;  [7] rprojroot_2.0.2      ggsci_2.9            backports_1.2.1     </span>
-<span class="co">#&gt; [10] tools_4.1.0          bslib_0.3.1          utf8_1.2.2          </span>
-<span class="co">#&gt; [13] R6_2.5.0             DBI_1.1.1            BiocGenerics_0.38.0 </span>
-<span class="co">#&gt; [16] lazyeval_0.2.2       colorspace_2.0-2     GetoptLong_1.0.5    </span>
-<span class="co">#&gt; [19] withr_2.4.2          tidyselect_1.1.1     leaflet_2.0.4.1     </span>
-<span class="co">#&gt; [22] compiler_4.1.0       rvest_1.0.1          textshaping_0.3.6   </span>
-<span class="co">#&gt; [25] cli_3.0.1            Cairo_1.5-12.2       xml2_1.3.2          </span>
-<span class="co">#&gt; [28] desc_1.3.0           plotly_4.9.4.1       sass_0.4.0          </span>
-<span class="co">#&gt; [31] scales_1.1.1         pbapply_1.4-3        pkgdown_2.0.1       </span>
-<span class="co">#&gt; [34] systemfonts_1.0.2    digest_0.6.27        rmarkdown_2.9       </span>
-<span class="co">#&gt; [37] pkgconfig_2.0.3      htmltools_0.5.2      dbplyr_2.1.1        </span>
-<span class="co">#&gt; [40] fastmap_1.1.0        readxl_1.3.1         htmlwidgets_1.5.3   </span>
-<span class="co">#&gt; [43] rlang_0.4.11         GlobalOptions_0.1.2  rstudioapi_0.13     </span>
-<span class="co">#&gt; [46] shape_1.4.6          gridGraphics_0.5-1   jquerylib_0.1.4     </span>
-<span class="co">#&gt; [49] generics_0.1.0       jsonlite_1.7.2       crosstalk_1.1.1     </span>
-<span class="co">#&gt; [52] zip_2.2.0            ggplotify_0.0.8      Rcpp_1.0.7          </span>
-<span class="co">#&gt; [55] munsell_0.5.0        S4Vectors_0.30.0     fansi_0.5.0         </span>
-<span class="co">#&gt; [58] lifecycle_1.0.0      stringi_1.7.3        yaml_2.2.1          </span>
-<span class="co">#&gt; [61] grid_4.1.0           parallel_4.1.0       crayon_1.4.1        </span>
-<span class="co">#&gt; [64] haven_2.4.1          circlize_0.4.14      hms_1.1.0           </span>
-<span class="co">#&gt; [67] knitr_1.33           ComplexHeatmap_2.8.0 pillar_1.6.2        </span>
-<span class="co">#&gt; [70] rjson_0.2.20         codetools_0.2-18     stats4_4.1.0        </span>
-<span class="co">#&gt; [73] reprex_2.0.0         glue_1.4.2           evaluate_0.14       </span>
-<span class="co">#&gt; [76] modelr_0.1.8         data.table_1.14.0    BiocManager_1.30.16 </span>
-<span class="co">#&gt; [79] tzdb_0.1.2           png_0.1-7            vctrs_0.3.8         </span>
-<span class="co">#&gt; [82] foreach_1.5.1        cellranger_1.1.0     gtable_0.3.0        </span>
-<span class="co">#&gt; [85] clue_0.3-59          assertthat_0.2.1     cachem_1.0.5        </span>
-<span class="co">#&gt; [88] xfun_0.24            openxlsx_4.2.4       broom_0.7.9         </span>
-<span class="co">#&gt; [91] ragg_1.1.3           viridisLite_0.4.0    iterators_1.0.13    </span>
-<span class="co">#&gt; [94] rvcheck_0.1.8        memoise_2.0.0        IRanges_2.26.0      </span>
-<span class="co">#&gt; [97] cluster_2.1.2        ellipsis_0.3.2</span></code></pre></div>
+<span class="co">#&gt;   [1] matrixStats_0.60.0   fs_1.5.0             lubridate_1.7.10    </span>
+<span class="co">#&gt;   [4] doParallel_1.0.16    RColorBrewer_1.1-2   httr_1.4.2          </span>
+<span class="co">#&gt;   [7] rprojroot_2.0.2      ggsci_2.9            backports_1.2.1     </span>
+<span class="co">#&gt;  [10] tools_4.1.0          bslib_0.3.1          utf8_1.2.2          </span>
+<span class="co">#&gt;  [13] R6_2.5.0             DBI_1.1.1            BiocGenerics_0.38.0 </span>
+<span class="co">#&gt;  [16] lazyeval_0.2.2       colorspace_2.0-2     GetoptLong_1.0.5    </span>
+<span class="co">#&gt;  [19] withr_2.4.2          tidyselect_1.1.1     leaflet_2.0.4.1     </span>
+<span class="co">#&gt;  [22] compiler_4.1.0       rvest_1.0.1          textshaping_0.3.6   </span>
+<span class="co">#&gt;  [25] cli_3.0.1            Cairo_1.5-12.2       xml2_1.3.2          </span>
+<span class="co">#&gt;  [28] desc_1.3.0           plotly_4.9.4.1       labeling_0.4.2      </span>
+<span class="co">#&gt;  [31] sass_0.4.0           scales_1.1.1         hexbin_1.28.2       </span>
+<span class="co">#&gt;  [34] pbapply_1.4-3        pkgdown_2.0.1        systemfonts_1.0.2   </span>
+<span class="co">#&gt;  [37] digest_0.6.27        rmarkdown_2.9        pkgconfig_2.0.3     </span>
+<span class="co">#&gt;  [40] htmltools_0.5.2      highr_0.9            dbplyr_2.1.1        </span>
+<span class="co">#&gt;  [43] fastmap_1.1.0        readxl_1.3.1         htmlwidgets_1.5.3   </span>
+<span class="co">#&gt;  [46] rlang_0.4.11         GlobalOptions_0.1.2  rstudioapi_0.13     </span>
+<span class="co">#&gt;  [49] farver_2.1.0         shape_1.4.6          gridGraphics_0.5-1  </span>
+<span class="co">#&gt;  [52] jquerylib_0.1.4      generics_0.1.0       jsonlite_1.7.2      </span>
+<span class="co">#&gt;  [55] crosstalk_1.1.1      zip_2.2.0            ggplotify_0.0.8     </span>
+<span class="co">#&gt;  [58] Rcpp_1.0.7           munsell_0.5.0        S4Vectors_0.30.0    </span>
+<span class="co">#&gt;  [61] fansi_0.5.0          lifecycle_1.0.0      stringi_1.7.3       </span>
+<span class="co">#&gt;  [64] yaml_2.2.1           grid_4.1.0           parallel_4.1.0      </span>
+<span class="co">#&gt;  [67] crayon_1.4.1         lattice_0.20-44      haven_2.4.1         </span>
+<span class="co">#&gt;  [70] circlize_0.4.14      hms_1.1.0            magick_2.7.2        </span>
+<span class="co">#&gt;  [73] knitr_1.33           ComplexHeatmap_2.8.0 pillar_1.6.2        </span>
+<span class="co">#&gt;  [76] rjson_0.2.20         codetools_0.2-18     stats4_4.1.0        </span>
+<span class="co">#&gt;  [79] reprex_2.0.0         glue_1.4.2           evaluate_0.14       </span>
+<span class="co">#&gt;  [82] modelr_0.1.8         data.table_1.14.0    BiocManager_1.30.16 </span>
+<span class="co">#&gt;  [85] tzdb_0.1.2           png_0.1-7            vctrs_0.3.8         </span>
+<span class="co">#&gt;  [88] foreach_1.5.1        cellranger_1.1.0     gtable_0.3.0        </span>
+<span class="co">#&gt;  [91] clue_0.3-59          assertthat_0.2.1     cachem_1.0.5        </span>
+<span class="co">#&gt;  [94] xfun_0.24            openxlsx_4.2.4       broom_0.7.9         </span>
+<span class="co">#&gt;  [97] ragg_1.1.3           viridisLite_0.4.0    iterators_1.0.13    </span>
+<span class="co">#&gt; [100] rvcheck_0.1.8        memoise_2.0.0        IRanges_2.26.0      </span>
+<span class="co">#&gt; [103] cluster_2.1.2        ellipsis_0.3.2</span></code></pre></div>
 </div>
   </div>
 

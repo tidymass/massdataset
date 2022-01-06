@@ -108,10 +108,18 @@ navbar:
       - text: "Processing of mass_dataset"
       - text: "Summary information"
         href: articles/summary_info.html
+      - text: "Add new information to mass_dataset"
+        href: articles/add_information.html
       - text: "Filtering samples/variables"
         href: articles/filtering.html
       - text: "Accessor"
         href: articles/accessor.html
+      - text: --------
+      - text: "Merge mass_dataset"
+      - text: "rbind or cbind mass_dataset"
+        href: articles/cbind_rbind_mass_dataset.html
+      - text: "Merge two mass_dataset"
+        href: articles/merge_two_mass_dataset.html
       - text: --------
       - text: "Others"
       - text: "Process mass_dataset using tidyverse functions"

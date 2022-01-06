@@ -3,18 +3,21 @@ pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   accessor: accessor.html
+  add_information: add_information.html
   base_function: base_function.html
+  cbind_rbind_mass_dataset: cbind_rbind_mass_dataset.html
   contact_us: contact_us.html
   data_import_and_export: data_import_and_export.html
   extract_data: extract_data.html
   filtering: filtering.html
   html_process_info: html_process_info.html
   massdataset_install: massdataset_install.html
+  merge_two_mass_dataset: merge_two_mass_dataset.html
   mutate_ms2: mutate_ms2.html
   process_info: process_info.html
   summary_info: summary_info.html
   tidyverse_verse: tidyverse_verse.html
-last_built: 2022-01-06T05:21Z
+last_built: 2022-01-06T08:57Z
 urls:
   reference: https://tidymass.github.io/massdataset/reference
   article: https://tidymass.github.io/massdataset/articles

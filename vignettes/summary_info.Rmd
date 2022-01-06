@@ -27,7 +27,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-# **Summary information**
+For one `mass_dataset` class object, we can get the summary information of it.
+
+# **Data preparation**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
@@ -35,37 +37,49 @@ library(tidyverse)
 
 data("expression_data")
 data("sample_info")
-data("sample_info_note")
 data("variable_info")
-data("variable_info_note")
 
 object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
-    sample_info_note = sample_info_note,
-    variable_info_note = variable_info_note
+    variable_info = variable_info
   )
-  
-object
 ```
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-dim(object)
-nrow(object)
-nrow(object)
+# **Summary information**
 
+Just type this object in the R session.
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object
+```
+We can just basic information of the object.
+
+# **Use functions to get the summary information**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+##dim of object
+dim(object)
+##row number
+nrow(object)
+##column number
+ncol(object)
+##sample number
 get_sample_number(object)
+#variable number
 get_variable_number(object)
 ```
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+##sample id
 colnames(object)
+##variable id
 rownames(object) %>% 
   head()
-
+##sample id
 get_sample_id(object)
+##variable id
 get_variable_id(object) %>% 
   head()
 ```
@@ -73,13 +87,15 @@ get_variable_id(object) %>%
 # **Explore**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+###show mz rt plot
 object %>%
   show_mz_rt_plot()
-
+###should log
 object %>%
+  `+`(1) %>% 
   log(10) %>%
   show_mz_rt_plot()
-
+###use hex
 object %>%
   show_mz_rt_plot(hex = TRUE)
 ```
@@ -87,21 +103,6 @@ object %>%
 # **Missing values**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-library(massdataset)
-library(plyr)
-data("expression_data")
-data("sample_info")
-data("variable_info")
-
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    sample_info = sample_info,
-    variable_info = variable_info,
-  )
-
-object
-
 ##show missing values plot
 show_missing_values(object)
 

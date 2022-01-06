@@ -95,10 +95,22 @@
       <a href="../articles/summary_info.html">Summary information</a>
     </li>
     <li>
+      <a href="../articles/add_information.html">Add new information to mass_dataset</a>
+    </li>
+    <li>
       <a href="../articles/filtering.html">Filtering samples/variables</a>
     </li>
     <li>
       <a href="../articles/accessor.html">Accessor</a>
+    </li>
+    <li class="divider">
+    </li>
+<li class="dropdown-header">Merge mass_dataset</li>
+    <li>
+      <a href="../articles/cbind_rbind_mass_dataset.html">rbind or cbind mass_dataset</a>
+    </li>
+    <li>
+      <a href="../articles/merge_two_mass_dataset.html">Merge two mass_dataset</a>
     </li>
     <li class="divider">
     </li>
@@ -171,7 +183,7 @@
       <h1 data-toc-skip>R base functions for mass_dataset</h1>
                         <h4 data-toc-skip class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-01-05</h4>
+            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-01-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/base_function.Rmd" class="external-link"><code>vignettes/base_function.Rmd</code></a></small>
       <div class="hidden name"><code>base_function.Rmd</code></div>
@@ -206,7 +218,263 @@
 <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1000</span>
 <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
-<span class="co">#&gt; [1] 8</span></code></pre></div>
+<span class="co">#&gt; [1] 8</span>
+<span class="fu"><a href="https://rdrr.io/r/base/dimnames.html" class="external-link">dimnames</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt;    [1] "M136T55_2_POS"   "M79T35_POS"      "M307T548_POS"    "M183T224_POS"   </span>
+<span class="co">#&gt;    [5] "M349T47_POS"     "M182T828_POS"    "M299T359_POS"    "M348T844_POS"   </span>
+<span class="co">#&gt;    [9] "M344T471_POS"    "M181T436_POS"    "M345T195_POS"    "M304T825_POS"   </span>
+<span class="co">#&gt;   [13] "M137T196_POS"    "M359T638_POS"    "M270T507_POS"    "M339T634_POS"   </span>
+<span class="co">#&gt;   [17] "M93T311_POS"     "M309T619_POS"    "M267T242_POS"    "M332T108_POS"   </span>
+<span class="co">#&gt;   [21] "M155T899_POS"    "M294T509_POS"    "M231T587_POS"    "M87T884_POS"    </span>
+<span class="co">#&gt;   [25] "M206T536_POS"    "M341T526_POS"    "M290T596_2_POS"  "M291T246_POS"   </span>
+<span class="co">#&gt;   [29] "M117T151_POS"    "M179T382_POS"    "M215T41_POS"     "M289T72_POS"    </span>
+<span class="co">#&gt;   [33] "M361T609_POS"    "M154T978_POS"    "M333T576_POS"    "M215T575_POS"   </span>
+<span class="co">#&gt;   [37] "M215T860_POS"    "M317T1035_POS"   "M147T659_POS"    "M355T511_POS"   </span>
+<span class="co">#&gt;   [41] "M270T586_POS"    "M306T548_POS"    "M203T194_POS"    "M206T34_POS"    </span>
+<span class="co">#&gt;   [45] "M211T824_POS"    "M184T61_POS"     "M146T232_POS"    "M121T825_POS"   </span>
+<span class="co">#&gt;   [49] "M118T1021_POS"   "M142T200_POS"    "M294T582_POS"    "M321T414_POS"   </span>
+<span class="co">#&gt;   [53] "M349T632_POS"    "M273T569_POS"    "M233T830_2_POS"  "M335T277_POS"   </span>
+<span class="co">#&gt;   [57] "M297T826_POS"    "M330T588_POS"    "M245T401_POS"    "M195T398_POS"   </span>
+<span class="co">#&gt;   [61] "M263T419_POS"    "M226T378_POS"    "M192T437_POS"    "M249T327_POS"   </span>
+<span class="co">#&gt;   [65] "M175T216_POS"    "M164T603_POS"    "M178T837_POS"    "M102T310_POS"   </span>
+<span class="co">#&gt;   [69] "M149T825_POS"    "M353T207_1_POS"  "M243T60_POS"     "M119T964_POS"   </span>
+<span class="co">#&gt;   [73] "M254T533_POS"    "M224T585_POS"    "M196T397_POS"    "M79T768_POS"    </span>
+<span class="co">#&gt;   [77] "M168T868_POS"    "M288T32_POS"     "M343T415_POS"    "M165T910_2_POS" </span>
+<span class="co">#&gt;   [81] "M138T837_2_POS"  "M203T220_POS"    "M343T577_POS"    "M291T50_POS"    </span>
+<span class="co">#&gt;   [85] "M304T63_POS"     "M329T519_POS"    "M206T228_2_POS"  "M353T276_POS"   </span>
+<span class="co">#&gt;   [89] "M355T636_POS"    "M347T489_POS"    "M195T376_POS"    "M357T765_POS"   </span>
+<span class="co">#&gt;   [93] "M332T576_POS"    "M169T826_POS"    "M309T314_POS"    "M340T611_POS"   </span>
+<span class="co">#&gt;   [97] "M294T389_POS"    "M184T643_POS"    "M224T34_POS"     "M251T340_POS"   </span>
+<span class="co">#&gt;  [101] "M136T408_POS"    "M336T629_POS"    "M337T313_1_POS"  "M134T211_POS"   </span>
+<span class="co">#&gt;  [105] "M331T32_POS"     "M357T67_POS"     "M325T33_POS"     "M210T826_POS"   </span>
+<span class="co">#&gt;  [109] "M293T559_POS"    "M295T408_POS"    "M231T313_POS"    "M355T47_POS"    </span>
+<span class="co">#&gt;  [113] "M239T582_POS"    "M251T598_POS"    "M179T703_POS"    "M299T199_POS"   </span>
+<span class="co">#&gt;  [117] "M254T423_POS"    "M183T353_POS"    "M232T843_POS"    "M105T1010_POS"  </span>
+<span class="co">#&gt;  [121] "M146T832_POS"    "M234T361_POS"    "M359T292_POS"    "M336T325_POS"   </span>
+<span class="co">#&gt;  [125] "M331T277_POS"    "M310T298_POS"    "M255T440_2_POS"  "M171T519_POS"   </span>
+<span class="co">#&gt;  [129] "M295T441_POS"    "M169T33_POS"     "M298T212_1_POS"  "M233T34_1_POS"  </span>
+<span class="co">#&gt;  [133] "M224T392_POS"    "M181T449_POS"    "M355T397_POS"    "M233T478_POS"   </span>
+<span class="co">#&gt;  [137] "M295T651_POS"    "M104T1036_POS"   "M175T40_POS"     "M259T522_POS"   </span>
+<span class="co">#&gt;  [141] "M205T34_2_POS"   "M178T54_POS"     "M193T164_POS"    "M141T292_POS"   </span>
+<span class="co">#&gt;  [145] "M307T455_POS"    "M287T143_POS"    "M221T165_POS"    "M352T649_POS"   </span>
+<span class="co">#&gt;  [149] "M183T821_POS"    "M341T682_POS"    "M324T475_POS"    "M273T446_POS"   </span>
+<span class="co">#&gt;  [153] "M135T188_POS"    "M127T409_POS"    "M145T60_POS"     "M217T829_POS"   </span>
+<span class="co">#&gt;  [157] "M257T200_POS"    "M271T32_POS"     "M206T237_POS"    "M308T555_POS"   </span>
+<span class="co">#&gt;  [161] "M312T436_POS"    "M147T565_POS"    "M178T290_POS"    "M247T829_POS"   </span>
+<span class="co">#&gt;  [165] "M317T485_POS"    "M186T829_POS"    "M307T550_POS"    "M359T440_2_POS" </span>
+<span class="co">#&gt;  [169] "M315T440_POS"    "M215T275_POS"    "M277T497_POS"    "M242T425_POS"   </span>
+<span class="co">#&gt;  [173] "M178T488_POS"    "M226T489_POS"    "M201T33_POS"     "M79T394_POS"    </span>
+<span class="co">#&gt;  [177] "M199T630_POS"    "M223T205_POS"    "M172T174_POS"    "M363T369_2_POS" </span>
+<span class="co">#&gt;  [181] "M137T208_POS"    "M338T529_POS"    "M100T38_POS"     "M210T415_POS"   </span>
+<span class="co">#&gt;  [185] "M178T183_POS"    "M175T575_POS"    "M273T66_POS"     "M79T415_POS"    </span>
+<span class="co">#&gt;  [189] "M353T566_POS"    "M154T60_POS"     "M303T165_POS"    "M180T33_POS"    </span>
+<span class="co">#&gt;  [193] "M339T650_POS"    "M262T365_2_POS"  "M293T124_POS"    "M264T471_POS"   </span>
+<span class="co">#&gt;  [197] "M231T531_POS"    "M359T650_POS"    "M268T293_POS"    "M199T120_POS"   </span>
+<span class="co">#&gt;  [201] "M297T548_POS"    "M195T1031_POS"   "M195T440_POS"    "M181T891_POS"   </span>
+<span class="co">#&gt;  [205] "M151T362_POS"    "M161T1024_1_POS" "M107T249_POS"    "M265T428_POS"   </span>
+<span class="co">#&gt;  [209] "M258T582_POS"    "M130T830_1_POS"  "M269T612_POS"    "M347T369_POS"   </span>
+<span class="co">#&gt;  [213] "M248T34_POS"     "M112T220_POS"    "M136T39_POS"     "M219T53_POS"    </span>
+<span class="co">#&gt;  [217] "M210T158_POS"    "M229T337_POS"    "M105T262_POS"    "M362T494_POS"   </span>
+<span class="co">#&gt;  [221] "M292T34_POS"     "M135T179_POS"    "M234T321_POS"    "M341T605_1_POS" </span>
+<span class="co">#&gt;  [225] "M145T40_2_POS"   "M261T829_1_POS"  "M122T229_POS"    "M286T610_3_POS" </span>
+<span class="co">#&gt;  [229] "M316T588_POS"    "M300T632_POS"    "M285T463_POS"    "M81T32_1_POS"   </span>
+<span class="co">#&gt;  [233] "M155T34_POS"     "M267T516_POS"    "M151T555_POS"    "M99T461_POS"    </span>
+<span class="co">#&gt;  [237] "M315T413_POS"    "M330T195_POS"    "M338T553_POS"    "M204T966_POS"   </span>
+<span class="co">#&gt;  [241] "M227T488_POS"    "M241T619_POS"    "M138T827_POS"    "M335T552_POS"   </span>
+<span class="co">#&gt;  [245] "M286T499_POS"    "M305T555_POS"    "M349T512_POS"    "M359T621_POS"   </span>
+<span class="co">#&gt;  [249] "M183T34_1_POS"   "M156T827_POS"    "M343T432_POS"    "M179T40_POS"    </span>
+<span class="co">#&gt;  [253] "M213T185_POS"    "M288T579_POS"    "M220T376_POS"    "M179T535_POS"   </span>
+<span class="co">#&gt;  [257] "M198T407_POS"    "M206T468_POS"    "M191T291_POS"    "M276T410_POS"   </span>
+<span class="co">#&gt;  [261] "M184T90_POS"     "M155T915_POS"    "M302T341_2_POS"  "M224T827_POS"   </span>
+<span class="co">#&gt;  [265] "M258T298_POS"    "M181T341_POS"    "M246T401_POS"    "M147T624_POS"   </span>
+<span class="co">#&gt;  [269] "M327T68_POS"     "M230T825_POS"    "M266T409_POS"    "M119T200_POS"   </span>
+<span class="co">#&gt;  [273] "M186T186_POS"    "M310T610_POS"    "M164T1036_POS"   "M284T247_POS"   </span>
+<span class="co">#&gt;  [277] "M311T299_POS"    "M358T653_POS"    "M351T467_POS"    "M273T62_POS"    </span>
+<span class="co">#&gt;  [281] "M351T369_2_POS"  "M353T656_POS"    "M181T241_POS"    "M343T468_POS"   </span>
+<span class="co">#&gt;  [285] "M324T192_POS"    "M166T62_1_POS"   "M178T232_POS"    "M343T557_POS"   </span>
+<span class="co">#&gt;  [289] "M341T399_1_POS"  "M253T42_POS"     "M102T112_POS"    "M356T465_POS"   </span>
+<span class="co">#&gt;  [293] "M178T968_2_POS"  "M181T462_POS"    "M275T627_2_POS"  "M263T686_POS"   </span>
+<span class="co">#&gt;  [297] "M281T649_POS"    "M161T230_POS"    "M206T930_POS"    "M135T264_POS"   </span>
+<span class="co">#&gt;  [301] "M140T877_POS"    "M316T385_1_POS"  "M281T596_4_POS"  "M241T822_POS"   </span>
+<span class="co">#&gt;  [305] "M289T618_1_POS"  "M182T388_POS"    "M225T190_POS"    "M353T663_POS"   </span>
+<span class="co">#&gt;  [309] "M265T40_POS"     "M140T53_POS"     "M238T517_POS"    "M140T305_POS"   </span>
+<span class="co">#&gt;  [313] "M272T218_POS"    "M253T419_POS"    "M293T294_POS"    "M175T1021_POS"  </span>
+<span class="co">#&gt;  [317] "M163T294_POS"    "M179T409_POS"    "M192T122_POS"    "M350T530_POS"   </span>
+<span class="co">#&gt;  [321] "M282T606_POS"    "M337T667_POS"    "M195T155_POS"    "M272T543_1_POS" </span>
+<span class="co">#&gt;  [325] "M160T126_POS"    "M299T440_POS"    "M360T676_POS"    "M103T707_POS"   </span>
+<span class="co">#&gt;  [329] "M139T983_POS"    "M356T474_POS"    "M337T334_POS"    "M125T40_POS"    </span>
+<span class="co">#&gt;  [333] "M136T909_POS"    "M205T317_POS"    "M322T299_POS"    "M231T59_POS"    </span>
+<span class="co">#&gt;  [337] "M249T33_POS"     "M305T225_POS"    "M89T835_POS"     "M238T260_POS"   </span>
+<span class="co">#&gt;  [341] "M287T360_POS"    "M295T667_POS"    "M280T452_POS"    "M149T591_POS"   </span>
+<span class="co">#&gt;  [345] "M186T198_POS"    "M191T39_POS"     "M277T467_POS"    "M322T668_POS"   </span>
+<span class="co">#&gt;  [349] "M250T629_POS"    "M287T429_POS"    "M335T238_POS"    "M291T521_POS"   </span>
+<span class="co">#&gt;  [353] "M105T344_POS"    "M167T402_POS"    "M200T271_POS"    "M214T423_1_POS" </span>
+<span class="co">#&gt;  [357] "M323T643_POS"    "M317T1008_POS"   "M227T281_2_POS"  "M355T232_POS"   </span>
+<span class="co">#&gt;  [361] "M363T637_POS"    "M313T477_POS"    "M183T1017_POS"   "M119T1029_POS"  </span>
+<span class="co">#&gt;  [365] "M185T363_POS"    "M190T401_POS"    "M232T235_POS"    "M178T220_POS"   </span>
+<span class="co">#&gt;  [369] "M194T958_POS"    "M194T200_POS"    "M299T227_POS"    "M269T192_POS"   </span>
+<span class="co">#&gt;  [373] "M100T967_POS"    "M200T874_POS"    "M140T512_POS"    "M189T842_POS"   </span>
+<span class="co">#&gt;  [377] "M133T103_POS"    "M296T350_POS"    "M209T415_POS"    "M316T413_POS"   </span>
+<span class="co">#&gt;  [381] "M140T156_POS"    "M287T521_POS"    "M232T522_POS"    "M274T523_POS"   </span>
+<span class="co">#&gt;  [385] "M362T440_POS"    "M74T146_POS"     "M262T69_POS"     "M106T33_POS"    </span>
+<span class="co">#&gt;  [389] "M164T168_POS"    "M242T286_POS"    "M207T186_POS"    "M317T293_POS"   </span>
+<span class="co">#&gt;  [393] "M165T59_POS"     "M192T1003_POS"   "M228T538_POS"    "M223T548_POS"   </span>
+<span class="co">#&gt;  [397] "M277T246_POS"    "M313T481_POS"    "M261T295_POS"    "M95T1017_POS"   </span>
+<span class="co">#&gt;  [401] "M141T80_POS"     "M347T35_2_POS"   "M168T931_POS"    "M190T864_POS"   </span>
+<span class="co">#&gt;  [405] "M254T247_POS"    "M255T591_POS"    "M153T353_POS"    "M173T866_POS"   </span>
+<span class="co">#&gt;  [409] "M244T392_POS"    "M293T824_POS"    "M133T154_POS"    "M154T848_POS"   </span>
+<span class="co">#&gt;  [413] "M312T474_POS"    "M324T34_POS"     "M99T89_POS"      "M323T658_POS"   </span>
+<span class="co">#&gt;  [417] "M287T248_POS"    "M329T398_POS"    "M148T630_POS"    "M205T570_POS"   </span>
+<span class="co">#&gt;  [421] "M276T163_POS"    "M216T61_POS"     "M140T472_POS"    "M331T333_POS"   </span>
+<span class="co">#&gt;  [425] "M153T72_POS"     "M215T232_POS"    "M160T33_1_POS"   "M325T537_POS"   </span>
+<span class="co">#&gt;  [429] "M340T529_POS"    "M298T615_POS"    "M114T170_POS"    "M164T426_POS"   </span>
+<span class="co">#&gt;  [433] "M160T1010_POS"   "M263T200_POS"    "M237T464_POS"    "M220T854_POS"   </span>
+<span class="co">#&gt;  [437] "M353T479_POS"    "M247T37_POS"     "M314T471_POS"    "M271T276_POS"   </span>
+<span class="co">#&gt;  [441] "M360T653_POS"    "M308T576_POS"    "M109T863_POS"    "M362T574_POS"   </span>
+<span class="co">#&gt;  [445] "M329T461_POS"    "M359T481_POS"    "M105T684_POS"    "M117T1034_POS"  </span>
+<span class="co">#&gt;  [449] "M201T213_POS"    "M249T503_POS"    "M172T298_POS"    "M312T52_POS"    </span>
+<span class="co">#&gt;  [453] "M175T384_POS"    "M122T484_POS"    "M193T104_POS"    "M169T939_POS"   </span>
+<span class="co">#&gt;  [457] "M205T298_POS"    "M129T382_POS"    "M301T387_POS"    "M296T454_POS"   </span>
+<span class="co">#&gt;  [461] "M337T332_POS"    "M253T328_POS"    "M345T135_POS"    "M90T294_POS"    </span>
+<span class="co">#&gt;  [465] "M168T993_POS"    "M167T461_1_POS"  "M201T227_POS"    "M284T537_POS"   </span>
+<span class="co">#&gt;  [469] "M101T38_POS"     "M149T574_POS"    "M190T41_POS"     "M297T618_POS"   </span>
+<span class="co">#&gt;  [473] "M354T637_1_POS"  "M273T389_POS"    "M152T101_POS"    "M203T217_POS"   </span>
+<span class="co">#&gt;  [477] "M190T971_POS"    "M195T984_POS"    "M132T185_POS"    "M251T243_POS"   </span>
+<span class="co">#&gt;  [481] "M145T914_POS"    "M197T982_POS"    "M303T333_2_POS"  "M215T46_POS"    </span>
+<span class="co">#&gt;  [485] "M162T50_POS"     "M184T533_POS"    "M215T829_1_POS"  "M363T631_POS"   </span>
+<span class="co">#&gt;  [489] "M132T888_POS"    "M274T636_2_POS"  "M267T619_POS"    "M237T529_POS"   </span>
+<span class="co">#&gt;  [493] "M152T33_2_POS"   "M177T854_POS"    "M171T190_POS"    "M225T461_POS"   </span>
+<span class="co">#&gt;  [497] "M256T567_POS"    "M122T808_POS"    "M189T40_POS"     "M151T175_3_POS" </span>
+<span class="co">#&gt;  [501] "M211T38_POS"     "M280T440_POS"    "M186T171_POS"    "M289T113_POS"   </span>
+<span class="co">#&gt;  [505] "M334T561_POS"    "M224T529_POS"    "M326T619_POS"    "M297T529_POS"   </span>
+<span class="co">#&gt;  [509] "M330T491_POS"    "M286T325_POS"    "M294T441_POS"    "M247T458_POS"   </span>
+<span class="co">#&gt;  [513] "M257T905_POS"    "M185T849_POS"    "M289T618_2_POS"  "M337T579_POS"   </span>
+<span class="co">#&gt;  [517] "M309T277_2_POS"  "M182T556_POS"    "M240T392_POS"    "M233T33_POS"    </span>
+<span class="co">#&gt;  [521] "M113T864_POS"    "M333T36_POS"     "M117T351_POS"    "M293T499_POS"   </span>
+<span class="co">#&gt;  [525] "M147T602_POS"    "M300T576_POS"    "M165T32_POS"     "M231T70_POS"    </span>
+<span class="co">#&gt;  [529] "M321T642_POS"    "M173T55_1_POS"   "M295T563_POS"    "M288T534_POS"   </span>
+<span class="co">#&gt;  [533] "M287T828_POS"    "M163T193_POS"    "M95T829_POS"     "M189T32_POS"    </span>
+<span class="co">#&gt;  [537] "M122T448_POS"    "M158T157_POS"    "M172T238_POS"    "M140T253_POS"   </span>
+<span class="co">#&gt;  [541] "M218T154_POS"    "M296T520_POS"    "M165T448_2_POS"  "M338T512_POS"   </span>
+<span class="co">#&gt;  [545] "M132T427_POS"    "M105T333_POS"    "M149T518_POS"    "M300T230_POS"   </span>
+<span class="co">#&gt;  [549] "M134T408_POS"    "M255T387_POS"    "M284T497_POS"    "M362T331_POS"   </span>
+<span class="co">#&gt;  [553] "M87T33_3_POS"    "M299T551_POS"    "M157T481_POS"    "M148T705_POS"   </span>
+<span class="co">#&gt;  [557] "M173T94_POS"     "M276T336_2_POS"  "M184T102_POS"    "M337T598_POS"   </span>
+<span class="co">#&gt;  [561] "M273T562_POS"    "M356T428_POS"    "M356T511_POS"    "M208T228_POS"   </span>
+<span class="co">#&gt;  [565] "M250T187_POS"    "M280T377_POS"    "M187T91_POS"     "M158T973_POS"   </span>
+<span class="co">#&gt;  [569] "M273T440_1_POS"  "M261T433_POS"    "M349T501_POS"    "M213T497_POS"   </span>
+<span class="co">#&gt;  [573] "M240T1011_POS"   "M336T659_POS"    "M218T412_POS"    "M154T52_POS"    </span>
+<span class="co">#&gt;  [577] "M102T925_POS"    "M361T510_POS"    "M230T51_POS"     "M317T511_2_POS" </span>
+<span class="co">#&gt;  [581] "M330T473_POS"    "M183T450_POS"    "M312T369_POS"    "M216T1000_POS"  </span>
+<span class="co">#&gt;  [585] "M182T1018_POS"   "M140T261_POS"    "M160T33_2_POS"   "M266T197_POS"   </span>
+<span class="co">#&gt;  [589] "M145T40_1_POS"   "M236T181_POS"    "M319T212_POS"    "M155T955_POS"   </span>
+<span class="co">#&gt;  [593] "M201T930_POS"    "M217T314_POS"    "M201T922_POS"    "M141T271_POS"   </span>
+<span class="co">#&gt;  [597] "M263T192_POS"    "M325T520_POS"    "M342T356_POS"    "M245T471_POS"   </span>
+<span class="co">#&gt;  [601] "M341T609_POS"    "M328T538_POS"    "M264T325_POS"    "M246T221_POS"   </span>
+<span class="co">#&gt;  [605] "M140T50_POS"     "M184T335_POS"    "M219T832_POS"    "M303T242_POS"   </span>
+<span class="co">#&gt;  [609] "M227T311_POS"    "M133T1031_POS"   "M306T246_POS"    "M215T163_POS"   </span>
+<span class="co">#&gt;  [613] "M223T581_1_POS"  "M265T367_POS"    "M105T644_POS"    "M235T316_POS"   </span>
+<span class="co">#&gt;  [617] "M342T644_POS"    "M280T137_POS"    "M149T619_POS"    "M313T478_POS"   </span>
+<span class="co">#&gt;  [621] "M312T269_POS"    "M238T354_1_POS"  "M337T478_POS"    "M167T199_POS"   </span>
+<span class="co">#&gt;  [625] "M237T40_POS"     "M279T568_POS"    "M187T154_POS"    "M297T415_POS"   </span>
+<span class="co">#&gt;  [629] "M156T165_POS"    "M148T122_POS"    "M348T616_POS"    "M265T443_POS"   </span>
+<span class="co">#&gt;  [633] "M339T485_POS"    "M347T469_POS"    "M147T326_POS"    "M183T49_POS"    </span>
+<span class="co">#&gt;  [637] "M357T561_POS"    "M254T475_POS"    "M243T147_POS"    "M318T424_POS"   </span>
+<span class="co">#&gt;  [641] "M188T104_POS"    "M189T31_1_POS"   "M271T448_POS"    "M217T357_POS"   </span>
+<span class="co">#&gt;  [645] "M181T415_POS"    "M252T947_POS"    "M274T642_POS"    "M207T824_POS"   </span>
+<span class="co">#&gt;  [649] "M306T667_POS"    "M250T481_POS"    "M159T199_POS"    "M255T88_POS"    </span>
+<span class="co">#&gt;  [653] "M261T522_POS"    "M363T563_POS"    "M218T277_POS"    "M347T496_2_POS" </span>
+<span class="co">#&gt;  [657] "M360T547_POS"    "M360T482_POS"    "M324T320_POS"    "M341T283_POS"   </span>
+<span class="co">#&gt;  [661] "M221T699_POS"    "M282T361_POS"    "M249T293_POS"    "M274T232_2_POS" </span>
+<span class="co">#&gt;  [665] "M119T827_POS"    "M192T150_POS"    "M334T548_POS"    "M359T592_POS"   </span>
+<span class="co">#&gt;  [669] "M301T471_POS"    "M175T266_1_POS"  "M217T193_POS"    "M273T296_POS"   </span>
+<span class="co">#&gt;  [673] "M247T134_POS"    "M198T56_POS"     "M325T619_POS"    "M282T481_POS"   </span>
+<span class="co">#&gt;  [677] "M292T635_POS"    "M305T447_POS"    "M172T33_POS"     "M293T596_POS"   </span>
+<span class="co">#&gt;  [681] "M315T591_POS"    "M326T458_POS"    "M237T314_POS"    "M347T545_POS"   </span>
+<span class="co">#&gt;  [685] "M359T33_POS"     "M334T521_POS"    "M285T199_POS"    "M200T37_POS"    </span>
+<span class="co">#&gt;  [689] "M293T40_POS"     "M182T262_POS"    "M297T370_POS"    "M271T508_POS"   </span>
+<span class="co">#&gt;  [693] "M293T359_POS"    "M349T439_POS"    "M225T529_POS"    "M293T254_POS"   </span>
+<span class="co">#&gt;  [697] "M252T192_POS"    "M237T292_POS"    "M115T851_POS"    "M297T651_POS"   </span>
+<span class="co">#&gt;  [701] "M341T605_2_POS"  "M139T277_POS"    "M265T165_2_POS"  "M284T234_POS"   </span>
+<span class="co">#&gt;  [705] "M121T36_3_POS"   "M192T404_POS"    "M156T112_POS"    "M189T881_POS"   </span>
+<span class="co">#&gt;  [709] "M289T549_POS"    "M211T245_POS"    "M213T619_POS"    "M195T75_1_POS"  </span>
+<span class="co">#&gt;  [713] "M151T546_POS"    "M271T591_POS"    "M363T385_POS"    "M293T358_POS"   </span>
+<span class="co">#&gt;  [717] "M349T411_2_POS"  "M143T40_POS"     "M187T955_POS"    "M355T555_POS"   </span>
+<span class="co">#&gt;  [721] "M159T990_POS"    "M177T433_POS"    "M286T135_POS"    "M301T568_POS"   </span>
+<span class="co">#&gt;  [725] "M140T586_POS"    "M314T640_POS"    "M213T84_POS"     "M232T40_POS"    </span>
+<span class="co">#&gt;  [729] "M319T599_POS"    "M327T548_POS"    "M148T63_POS"     "M352T192_POS"   </span>
+<span class="co">#&gt;  [733] "M160T40_POS"     "M290T565_POS"    "M293T507_POS"    "M283T645_POS"   </span>
+<span class="co">#&gt;  [737] "M338T640_POS"    "M181T294_2_POS"  "M162T33_POS"     "M153T968_POS"   </span>
+<span class="co">#&gt;  [741] "M257T379_POS"    "M200T488_POS"    "M302T408_POS"    "M166T737_POS"   </span>
+<span class="co">#&gt;  [745] "M185T1004_POS"   "M117T833_POS"    "M357T490_POS"    "M153T33_1_POS"  </span>
+<span class="co">#&gt;  [749] "M219T372_POS"    "M351T517_POS"    "M158T957_POS"    "M180T313_POS"   </span>
+<span class="co">#&gt;  [753] "M175T104_POS"    "M357T495_POS"    "M212T298_POS"    "M207T339_POS"   </span>
+<span class="co">#&gt;  [757] "M190T249_POS"    "M312T316_POS"    "M294T498_POS"    "M319T286_POS"   </span>
+<span class="co">#&gt;  [761] "M283T404_POS"    "M220T963_POS"    "M283T241_POS"    "M231T38_POS"    </span>
+<span class="co">#&gt;  [765] "M357T596_POS"    "M362T428_POS"    "M289T272_POS"    "M209T534_POS"   </span>
+<span class="co">#&gt;  [769] "M105T448_POS"    "M351T644_POS"    "M131T40_POS"     "M235T360_POS"   </span>
+<span class="co">#&gt;  [773] "M329T458_POS"    "M319T367_POS"    "M293T512_POS"    "M147T56_POS"    </span>
+<span class="co">#&gt;  [777] "M287T476_POS"    "M213T259_POS"    "M317T357_POS"    "M274T333_POS"   </span>
+<span class="co">#&gt;  [781] "M105T436_POS"    "M313T432_POS"    "M198T59_POS"     "M297T553_POS"   </span>
+<span class="co">#&gt;  [785] "M134T833_POS"    "M164T623_POS"    "M214T424_POS"    "M348T705_POS"   </span>
+<span class="co">#&gt;  [789] "M314T331_POS"    "M226T536_POS"    "M273T829_2_POS"  "M291T922_POS"   </span>
+<span class="co">#&gt;  [793] "M126T826_POS"    "M137T517_POS"    "M303T610_2_POS"  "M262T419_POS"   </span>
+<span class="co">#&gt;  [797] "M338T645_POS"    "M216T848_POS"    "M269T32_POS"     "M315T313_POS"   </span>
+<span class="co">#&gt;  [801] "M212T35_POS"     "M305T34_1_POS"   "M154T245_POS"    "M166T67_POS"    </span>
+<span class="co">#&gt;  [805] "M246T93_POS"     "M192T327_POS"    "M261T474_POS"    "M280T590_POS"   </span>
+<span class="co">#&gt;  [809] "M147T899_POS"    "M291T333_POS"    "M173T881_POS"    "M325T433_POS"   </span>
+<span class="co">#&gt;  [813] "M197T933_POS"    "M342T33_POS"     "M95T918_POS"     "M149T694_POS"   </span>
+<span class="co">#&gt;  [817] "M126T528_POS"    "M196T179_POS"    "M133T1007_POS"   "M250T357_POS"   </span>
+<span class="co">#&gt;  [821] "M168T88_POS"     "M229T360_1_POS"  "M221T281_POS"    "M245T436_POS"   </span>
+<span class="co">#&gt;  [825] "M325T440_1_POS"  "M301T544_POS"    "M302T568_POS"    "M167T270_POS"   </span>
+<span class="co">#&gt;  [829] "M315T417_POS"    "M214T333_POS"    "M229T854_POS"    "M170T299_POS"   </span>
+<span class="co">#&gt;  [833] "M280T388_POS"    "M275T824_POS"    "M305T667_POS"    "M185T961_POS"   </span>
+<span class="co">#&gt;  [837] "M213T289_POS"    "M155T925_POS"    "M346T430_POS"    "M291T577_1_POS" </span>
+<span class="co">#&gt;  [841] "M299T568_POS"    "M349T566_POS"    "M245T418_POS"    "M197T227_POS"   </span>
+<span class="co">#&gt;  [845] "M178T306_POS"    "M182T176_POS"    "M184T304_POS"    "M165T467_POS"   </span>
+<span class="co">#&gt;  [849] "M133T291_POS"    "M231T388_POS"    "M288T596_2_POS"  "M229T33_2_POS"  </span>
+<span class="co">#&gt;  [853] "M333T507_POS"    "M103T534_POS"    "M214T404_POS"    "M164T256_POS"   </span>
+<span class="co">#&gt;  [857] "M200T842_POS"    "M150T480_POS"    "M122T430_POS"    "M296T856_POS"   </span>
+<span class="co">#&gt;  [861] "M233T71_POS"     "M124T31_2_POS"   "M72T34_POS"      "M284T193_POS"   </span>
+<span class="co">#&gt;  [865] "M132T165_POS"    "M178T426_POS"    "M254T219_POS"    "M210T203_POS"   </span>
+<span class="co">#&gt;  [869] "M174T881_POS"    "M157T833_1_POS"  "M284T601_POS"    "M333T526_POS"   </span>
+<span class="co">#&gt;  [873] "M109T927_POS"    "M287T333_POS"    "M176T32_POS"     "M323T318_POS"   </span>
+<span class="co">#&gt;  [877] "M357T473_POS"    "M123T664_POS"    "M247T31_POS"     "M263T59_2_POS"  </span>
+<span class="co">#&gt;  [881] "M301T257_POS"    "M237T389_POS"    "M263T644_POS"    "M307T40_POS"    </span>
+<span class="co">#&gt;  [885] "M361T643_POS"    "M147T52_POS"     "M235T92_POS"     "M260T354_POS"   </span>
+<span class="co">#&gt;  [889] "M263T604_3_POS"  "M257T45_POS"     "M208T409_POS"    "M211T430_POS"   </span>
+<span class="co">#&gt;  [893] "M230T520_POS"    "M97T33_4_POS"    "M145T934_POS"    "M277T543_POS"   </span>
+<span class="co">#&gt;  [897] "M241T187_POS"    "M285T667_POS"    "M210T234_POS"    "M251T383_POS"   </span>
+<span class="co">#&gt;  [901] "M199T825_POS"    "M285T415_POS"    "M181T204_POS"    "M195T1035_POS"  </span>
+<span class="co">#&gt;  [905] "M276T393_POS"    "M237T444_POS"    "M241T486_POS"    "M337T455_POS"   </span>
+<span class="co">#&gt;  [909] "M197T375_POS"    "M355T31_POS"     "M281T440_POS"    "M301T408_POS"   </span>
+<span class="co">#&gt;  [913] "M229T56_POS"     "M299T814_POS"    "M224T553_POS"    "M236T837_POS"   </span>
+<span class="co">#&gt;  [917] "M325T386_POS"    "M158T205_POS"    "M358T462_POS"    "M96T51_POS"     </span>
+<span class="co">#&gt;  [921] "M362T827_POS"    "M340T277_POS"    "M333T563_POS"    "M265T440_POS"   </span>
+<span class="co">#&gt;  [925] "M207T636_POS"    "M229T46_POS"     "M256T531_POS"    "M293T530_POS"   </span>
+<span class="co">#&gt;  [929] "M164T210_POS"    "M279T993_POS"    "M319T442_POS"    "M328T373_POS"   </span>
+<span class="co">#&gt;  [933] "M221T314_POS"    "M325T361_POS"    "M235T298_POS"    "M303T524_POS"   </span>
+<span class="co">#&gt;  [937] "M301T823_POS"    "M262T567_POS"    "M175T537_POS"    "M319T196_POS"   </span>
+<span class="co">#&gt;  [941] "M256T440_1_POS"  "M301T291_POS"    "M355T396_POS"    "M270T549_POS"   </span>
+<span class="co">#&gt;  [945] "M305T473_POS"    "M165T991_POS"    "M181T395_POS"    "M272T239_POS"   </span>
+<span class="co">#&gt;  [949] "M346T511_POS"    "M234T232_POS"    "M156T69_POS"     "M234T924_POS"   </span>
+<span class="co">#&gt;  [953] "M143T830_POS"    "M218T358_POS"    "M206T953_POS"    "M345T240_POS"   </span>
+<span class="co">#&gt;  [957] "M156T939_POS"    "M159T829_POS"    "M216T1023_POS"   "M91T153_POS"    </span>
+<span class="co">#&gt;  [961] "M268T609_1_POS"  "M354T566_POS"    "M263T519_POS"    "M359T268_2_POS" </span>
+<span class="co">#&gt;  [965] "M359T539_POS"    "M161T1012_POS"   "M163T507_POS"    "M282T645_3_POS" </span>
+<span class="co">#&gt;  [969] "M326T519_POS"    "M193T899_POS"    "M305T831_POS"    "M251T509_POS"   </span>
+<span class="co">#&gt;  [973] "M214T512_POS"    "M280T192_2_POS"  "M105T971_POS"    "M206T185_POS"   </span>
+<span class="co">#&gt;  [977] "M337T451_POS"    "M315T112_POS"    "M162T520_POS"    "M99T35_POS"     </span>
+<span class="co">#&gt;  [981] "M291T331_POS"    "M281T618_2_POS"  "M301T34_1_POS"   "M191T830_POS"   </span>
+<span class="co">#&gt;  [985] "M197T379_POS"    "M100T892_POS"    "M237T127_POS"    "M331T519_POS"   </span>
+<span class="co">#&gt;  [989] "M314T183_POS"    "M253T830_2_POS"  "M159T907_POS"    "M331T576_POS"   </span>
+<span class="co">#&gt;  [993] "M358T622_POS"    "M172T916_POS"    "M278T542_POS"    "M361T681_POS"   </span>
+<span class="co">#&gt;  [997] "M343T707_2_POS"  "M236T543_POS"    "M232T937_POS"    "M301T277_POS"   </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; [1] "Blank_3" "Blank_4" "QC_1"    "QC_2"    "PS4P1"   "PS4P2"   "PS4P3"  </span>
+<span class="co">#&gt; [8] "PS4P4"</span></code></pre></div>
 <p>This means that <code>object</code> has 1000 variables and 8 samples.</p>
 <p>You can also get the sample ids and variables.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -300,11 +568,33 @@
 <span class="co">#&gt; <span style="color: #00BB00;">subset ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
 <span class="co">#&gt; 1 massdataset             [ 2021-12-24 16:59:18</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">###log</span>
+<span class="va">object2</span> <span class="op">=</span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">object</span> <span class="op">+</span> <span class="fl">1</span>, <span class="fl">10</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">object</span><span class="op">[</span><span class="fl">1</span>,,drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">)</span>
+<span class="co">#&gt; Blank_3 Blank_4    QC_1    QC_2   PS4P1   PS4P2   PS4P3   PS4P4 </span>
+<span class="co">#&gt;      NA      NA 1857925 1037764 1494436 3496912 1959179 1005419</span>
+<span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">object2</span><span class="op">[</span><span class="fl">1</span>,,drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">)</span>
+<span class="co">#&gt;  Blank_3  Blank_4     QC_1     QC_2    PS4P1    PS4P2    PS4P3    PS4P4 </span>
+<span class="co">#&gt;       NA       NA 6.269028 6.016099 6.174478 6.543685 6.292074 6.002347</span>
+
+<span class="co">###scale</span>
+<span class="va">object2</span> <span class="op">=</span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale</a></span><span class="op">(</span><span class="va">object</span>, center <span class="op">=</span> <span class="cn">TRUE</span>, scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">object</span><span class="op">[</span><span class="fl">1</span>,,drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">)</span>
+<span class="co">#&gt; Blank_3 Blank_4    QC_1    QC_2   PS4P1   PS4P2   PS4P3   PS4P4 </span>
+<span class="co">#&gt;      NA      NA 1857925 1037764 1494436 3496912 1959179 1005419</span>
+<span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">object2</span><span class="op">[</span><span class="fl">1</span>,,drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">)</span>
+<span class="co">#&gt;     Blank_3     Blank_4        QC_1        QC_2       PS4P1       PS4P2 </span>
+<span class="co">#&gt;          NA          NA  0.05372526 -0.83970979 -0.34223794  1.83914160 </span>
+<span class="co">#&gt;       PS4P3       PS4P4 </span>
+<span class="co">#&gt;  0.16402547 -0.87494460</span></code></pre></div>
 <div class="section level1">
 <h1 id="session-information">
 <strong>Session information</strong><a class="anchor" aria-label="anchor" href="#session-information"></a>
 </h1>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; R version 4.1.0 (2021-05-18)</span>
 <span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>

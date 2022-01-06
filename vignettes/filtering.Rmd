@@ -27,8 +27,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-
-# **Filtering samples**
+# **Data preparation**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
@@ -52,8 +51,9 @@ object =
 object
 ```
 
+# **Filtering samples**
 
-## **filter_samples() function**
+## **filter_samples()**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 ###only remain the samples with NA number < 4 in all variables

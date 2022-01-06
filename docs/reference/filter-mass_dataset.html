@@ -64,10 +64,21 @@
       <a href="../articles/summary_info.html">Summary information</a>
     </li>
     <li>
+      <a href="../articles/add_information.html">Add new information to mass_dataset</a>
+    </li>
+    <li>
       <a href="../articles/filtering.html">Filtering samples/variables</a>
     </li>
     <li>
       <a href="../articles/accessor.html">Accessor</a>
+    </li>
+    <li class="divider">
+    <li class="dropdown-header">Merge mass_dataset</li>
+    <li>
+      <a href="../articles/cbind_rbind_mass_dataset.html">rbind or cbind mass_dataset</a>
+    </li>
+    <li>
+      <a href="../articles/merge_two_mass_dataset.html">Merge two mass_dataset</a>
     </li>
     <li class="divider">
     <li class="dropdown-header">Others</li>
@@ -208,10 +219,10 @@ object is returned instead.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-06 00:58:03</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">filter_samples ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package    Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_samples() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_samples() 2022-01-06 00:58:03</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">filter_samples</span><span class="op">(</span><span class="va">object</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.4</span></span>
@@ -244,10 +255,10 @@ object is returned instead.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-06 00:58:03</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">filter_samples ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package    Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_samples() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_samples() 2022-01-06 00:58:03</span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Attaching packages</span> ─────────────────────────────────────── tidyverse 1.3.1 ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2</span> 3.3.5     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr  </span> 0.3.4</span>
@@ -283,7 +294,7 @@ object is returned instead.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-06 00:58:04</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">####Filter variables which have more than 50% MVs in all samples.</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
@@ -313,10 +324,10 @@ object is returned instead.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-06 00:58:04</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">filter_variables ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package      Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2022-01-06 00:58:04</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">####Filter variables which have more than 50% MVs in only QC samples.</span></span>
 <span class="r-in"><span class="fu">filter_variables</span><span class="op">(</span></span>
@@ -341,10 +352,10 @@ object is returned instead.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-06 00:58:04</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">filter_variables ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package      Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2022-01-06 00:58:04</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">####Filter variables which have more than 50% MVs in QC or subject samples.</span></span>
 <span class="r-in"><span class="va">idx1</span> <span class="op">=</span></span>
@@ -388,10 +399,10 @@ object is returned instead.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-06 00:58:04</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">subset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset             [ 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset             [ 2022-01-06 00:58:04</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">####filter variables with RSD (in QC samples) &lt; 30</span></span>
 <span class="r-in"><span class="va">object3</span> <span class="op">=</span></span>
@@ -421,10 +432,10 @@ object is returned instead.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-06 00:58:04</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">filter_variables ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package      Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2022-01-05 21:21:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2022-01-06 00:58:04</span>
 </code></pre></div>
     </div>
   </div>

@@ -10,7 +10,13 @@
     <loc>https://tidymass.github.io/massdataset/articles/accessor.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/articles/add_information.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/articles/base_function.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/articles/cbind_rbind_mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/articles/contact_us.html</loc>
@@ -35,6 +41,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/articles/massdataset_install.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/articles/merge_two_mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/articles/mutate_ms2.html</loc>

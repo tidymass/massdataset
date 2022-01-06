@@ -27,7 +27,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 `mass_dataset` object support many R base functions.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
@@ -56,6 +55,7 @@ For example, you can get the information of your object.
 dim(object)
 nrow(object)
 ncol(object)
+dimnames(object)
 ```
 
 This means that `object` has 1000 variables and 8 samples.
@@ -89,6 +89,21 @@ object[,c("Blank_3", "Blank_4")]
 
 ```
 
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+###log
+object2 = 
+  log(object + 1, 10)
+unlist(object[1,,drop = TRUE])
+unlist(object2[1,,drop = TRUE])
+
+###scale
+object2 = 
+  scale(object, center = TRUE, scale = TRUE)
+unlist(object[1,,drop = TRUE])
+unlist(object2[1,,drop = TRUE])
+
+```
 
 # **Session information**
 

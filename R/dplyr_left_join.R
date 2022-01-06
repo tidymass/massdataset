@@ -13,18 +13,18 @@ left_join.mass_dataset <-
       stop("activate you object using activate_mass_dataset first.\n")
     }
     
-    x =
+    new_x =
       slot(object = x, name = x@activated)
     
-    x =
-      left_join(x,
+    new_x =
+      left_join(new_x,
                 y,
                 by = by,
                 copy = copy,
                 suffix = suffix,
                 ...)
     
-    slot(object = x, name = x@activated) = x
+    slot(object = x, name = x@activated) = new_x
     return(x)
   }
 

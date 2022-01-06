@@ -95,10 +95,22 @@
       <a href="../articles/summary_info.html">Summary information</a>
     </li>
     <li>
+      <a href="../articles/add_information.html">Add new information to mass_dataset</a>
+    </li>
+    <li>
       <a href="../articles/filtering.html">Filtering samples/variables</a>
     </li>
     <li>
       <a href="../articles/accessor.html">Accessor</a>
+    </li>
+    <li class="divider">
+    </li>
+<li class="dropdown-header">Merge mass_dataset</li>
+    <li>
+      <a href="../articles/cbind_rbind_mass_dataset.html">rbind or cbind mass_dataset</a>
+    </li>
+    <li>
+      <a href="../articles/merge_two_mass_dataset.html">Merge two mass_dataset</a>
     </li>
     <li class="divider">
     </li>
@@ -171,7 +183,7 @@
       <h1 data-toc-skip>Filtering samples/variables</h1>
                         <h4 data-toc-skip class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-01-05</h4>
+            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-01-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/filtering.Rmd" class="external-link"><code>vignettes/filtering.Rmd</code></a></small>
       <div class="hidden name"><code>filtering.Rmd</code></div>
@@ -181,8 +193,8 @@
     
     
 <div class="section level1">
-<h1 id="filtering-samples">
-<strong>Filtering samples</strong><a class="anchor" aria-label="anchor" href="#filtering-samples"></a>
+<h1 id="data-preparation">
+<strong>Data preparation</strong><a class="anchor" aria-label="anchor" href="#data-preparation"></a>
 </h1>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
@@ -218,9 +230,14 @@
 <span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span></code></pre></div>
+</div>
+<div class="section level1">
+<h1 id="filtering-samples">
+<strong>Filtering samples</strong><a class="anchor" aria-label="anchor" href="#filtering-samples"></a>
+</h1>
 <div class="section level2">
-<h2 id="filter_samples-function">
-<strong>filter_samples() function</strong><a class="anchor" aria-label="anchor" href="#filter_samples-function"></a>
+<h2 id="filter_samples">
+<strong>filter_samples()</strong><a class="anchor" aria-label="anchor" href="#filter_samples"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">###only remain the samples with NA number &lt; 4 in all variables</span>
@@ -243,7 +260,7 @@
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span>
 <span class="co">#&gt; <span style="color: #00BB00;">filter_samples ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package    Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset filter_samples() 2021-12-24 16:59:42</span>
+<span class="co">#&gt; 1 massdataset filter_samples() 2022-01-06 00:43:17</span>
 
 <span class="co">###give the index</span>
 <span class="fu"><a href="../reference/filter-mass_dataset.html">filter_samples</a></span><span class="op">(</span><span class="va">object</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
@@ -277,7 +294,7 @@
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span>
 <span class="co">#&gt; <span style="color: #00BB00;">filter ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset      filter() 2021-12-24 16:59:42</span></code></pre></div>
+<span class="co">#&gt; 1 massdataset      filter() 2022-01-06 00:43:17</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="dplyrselect-function">
@@ -340,7 +357,7 @@ prune <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span>
 <span class="co">#&gt; <span style="color: #00BB00;">filter_variables ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package      Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset filter_variables() 2021-12-24 16:59:42</span></code></pre></div>
+<span class="co">#&gt; 1 massdataset filter_variables() 2022-01-06 00:43:17</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="dplyrfilter-function-1">
@@ -367,7 +384,7 @@ prune <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span>
 <span class="co">#&gt; <span style="color: #00BB00;">filter ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset      filter() 2021-12-24 16:59:42</span>
+<span class="co">#&gt; 1 massdataset      filter() 2022-01-06 00:43:17</span>
 
 <span class="co">####Filter variables which mz &gt; 500 and rt &gt; 100</span>
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
@@ -389,7 +406,7 @@ prune <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:42</span>
 <span class="co">#&gt; <span style="color: #00BB00;">filter ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset      filter() 2021-12-24 16:59:42</span></code></pre></div>
+<span class="co">#&gt; 1 massdataset      filter() 2022-01-06 00:43:17</span></code></pre></div>
 </div>
 </div>
 <div class="section level1">
