@@ -1,5 +1,5 @@
 ---
-title: "Mutate MS2 into mass_dataset"
+title: "Add MS2 spectra data into mass_dataset class object"
 author:
 - name: Xiaotao Shen (https://www.shenxt.info/)
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 
 # **Data preparation**
 
-## **MS1 data**
+## mass_data class object
 
 We need to create a `mass_data` class object first, [see this document](https://tidymass.github.io/massdataset/articles/data_import_and_export.html). And here we use the data from this step as examples.
 
@@ -40,7 +40,7 @@ load("feature_table/object_pos")
 load("feature_table/object_neg")
 ```
 
-## **MS2 data**
+## MS2 data
 
 The MS2 raw data should be converted to mgf format data. Please [refer this document](https://tidymass.github.io/metid/articles/database_construction.html).
 
@@ -50,34 +50,34 @@ Here we use the demo data for `tidymass`, please download it and put it in the `
 
 Then uncompress it.
 
-# **Mutate MS2 to `mass_dataset` class object**
+# **Add MS2 to `mass_dataset` class object**
 
 Positive mode.
 
 ```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-object_pos2 = 
-mutate_ms2(
-  object = object_pos,
-  column = "rp",
-  polarity = "positive",
-  ms1.ms2.match.mz.tol = 10, 
-  ms1.ms2.match.rt.tol = 15, 
-  path = "feature_table/MS2_data/POS/"
-)
+object_pos2 =
+  mutate_ms2(
+    object = object_pos,
+    column = "rp",
+    polarity = "positive",
+    ms1.ms2.match.mz.tol = 10,
+    ms1.ms2.match.rt.tol = 15,
+    path = "feature_table/MS2_data/POS/"
+  )
 ```
 
 Negative mode.
 
 ```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-object_neg2 = 
-mutate_ms2(
-  object = object_neg,
-  column = "rp",
-  polarity = "negative",
-  ms1.ms2.match.mz.tol = 10, 
-  ms1.ms2.match.rt.tol = 15, 
-  path = "feature_table/MS2_data/NEG/"
-)
+object_neg2 =
+  mutate_ms2(
+    object = object_neg,
+    column = "rp",
+    polarity = "negative",
+    ms1.ms2.match.mz.tol = 10,
+    ms1.ms2.match.rt.tol = 15,
+    path = "feature_table/MS2_data/NEG/"
+  )
 ```
 
 # **Session information**

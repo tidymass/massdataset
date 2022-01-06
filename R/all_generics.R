@@ -40,3 +40,9 @@ setGeneric(
     standardGeneric(f = "variable_info_note")
 )
 
+setGeneric(
+  name = "annotation_table",
+  def = function(object, ...)
+    standardGeneric(f = "annotation_table")
+)
+

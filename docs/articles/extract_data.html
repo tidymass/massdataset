@@ -74,7 +74,7 @@
       <a href="../articles/data_import_and_export.html">Data import and export</a>
     </li>
     <li>
-      <a href="../articles/mutate_ms2.html">Add MS2 into mass_dataset</a>
+      <a href="../articles/mutate_ms2.html">Add MS2 spectra data into mass_dataset class object</a>
     </li>
     <li class="divider">
     </li>
@@ -86,7 +86,7 @@
       <a href="../articles/process_info.html">Processing information</a>
     </li>
     <li>
-      <a href="../articles/html_process_info.html">Output htmp process_info</a>
+      <a href="../articles/html_process_info.html">Output html processing information</a>
     </li>
     <li class="divider">
     </li>
@@ -171,7 +171,7 @@
       <h1 data-toc-skip>Extract data from mass_dataset</h1>
                         <h4 data-toc-skip class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-01-03</h4>
+            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-01-05</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/extract_data.Rmd" class="external-link"><code>vignettes/extract_data.Rmd</code></a></small>
       <div class="hidden name"><code>extract_data.Rmd</code></div>
@@ -181,10 +181,10 @@
     
     
 <div class="section level1">
-<h1 id="use-function">
-<strong>Use function</strong><a class="anchor" aria-label="anchor" href="#use-function"></a>
+<h1 id="use-extract_xxx-functions">
+<strong>Use <code>extract_xxx</code> functions</strong><a class="anchor" aria-label="anchor" href="#use-extract_xxx-functions"></a>
 </h1>
-<p>hello</p>
+<p>We first created a <code>mass_dataset</code> class object.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
@@ -219,8 +219,10 @@
 <span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-24 16:59:36</span></code></pre></div>
+<p>In <code>massdataset</code> package, there are a series of functions named as <code>extract_xxx()</code>, users can use them to extract data from <code>mass_dataset</code> calss object.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
+<code class="sourceCode R"><span class="co">##sample_info</span>
+<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
 <span class="co">#&gt;   sample_id injection.order   class   group</span>
 <span class="co">#&gt; 1   Blank_3               1   Blank   Blank</span>
 <span class="co">#&gt; 2   Blank_4               2   Blank   Blank</span>
@@ -230,6 +232,7 @@
 <span class="co">#&gt; 6     PS4P2               6 Subject Subject</span>
 <span class="co">#&gt; 7     PS4P3               7 Subject Subject</span>
 <span class="co">#&gt; 8     PS4P4               8 Subject Subject</span>
+<span class="co">##variable_info</span>
 <span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt;     variable_id        mz        rt</span>
 <span class="co">#&gt; 1 M136T55_2_POS 136.06140  54.97902</span>
@@ -238,6 +241,7 @@
 <span class="co">#&gt; 4  M183T224_POS 183.06209 224.32777</span>
 <span class="co">#&gt; 5   M349T47_POS 349.01584  47.00262</span>
 <span class="co">#&gt; 6  M182T828_POS 181.99775 828.35712</span>
+<span class="co">##expression_data</span>
 <span class="fu"><a href="../reference/extract-mass_dataset.html">extract_expression_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt;               Blank_3 Blank_4      QC_1      QC_2     PS4P1     PS4P2   PS4P3</span>
 <span class="co">#&gt; M136T55_2_POS      NA      NA 1857924.8 1037763.8 1494436.1 3496912.1 1959179</span>
@@ -253,21 +257,38 @@
 <span class="co">#&gt; M183T224_POS         NA</span>
 <span class="co">#&gt; M349T47_POS   6441449.0</span>
 <span class="co">#&gt; M182T828_POS  4433034.2</span>
+<span class="co">##sample_info_note</span>
 <span class="fu"><a href="../reference/extract-mass_dataset.html">extract_sample_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> 
 <span class="co">#&gt;              name         meaning</span>
 <span class="co">#&gt; 1       sample_id       sample_id</span>
 <span class="co">#&gt; 2 injection.order injection.order</span>
 <span class="co">#&gt; 3           class           class</span>
 <span class="co">#&gt; 4           group           group</span>
+<span class="co">##variable_info_note</span>
 <span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> 
 <span class="co">#&gt;          name     meaning</span>
 <span class="co">#&gt; 1 variable_id variable_id</span>
 <span class="co">#&gt; 2          mz          mz</span>
-<span class="co">#&gt; 3          rt          rt</span></code></pre></div>
+<span class="co">#&gt; 3          rt          rt</span>
+<span class="co">##ms2_data</span>
+<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_ms2_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
+<span class="co">#&gt; list()</span>
+<span class="co">##process_info</span>
+<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_annotation_table</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
+<span class="co">#&gt; data frame with 0 columns and 0 rows</span>
+<span class="co">##process_info</span>
+<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_process_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
+<span class="co">#&gt; $Creation</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">pacakge_name: massdataset</span> </span>
+<span class="co">#&gt; <span style="color: #00BB00;">function_name: create_mass_dataset()</span> </span>
+<span class="co">#&gt; <span style="color: #00BB00;">time: 2021-12-24 16:59:36</span> </span>
+<span class="co">#&gt; <span style="color: #00BB00;">parameters:</span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; no : no</span></span></code></pre></div>
 </div>
 <div class="section level1">
 <h1 id="use-slot">
-<strong>Use slot</strong><a class="anchor" aria-label="anchor" href="#use-slot"></a>
+<strong>Use slot()</strong><a class="anchor" aria-label="anchor" href="#use-slot"></a>
 </h1>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span>
@@ -313,12 +334,25 @@
 <span class="co">#&gt;          name     meaning</span>
 <span class="co">#&gt; 1 variable_id variable_id</span>
 <span class="co">#&gt; 2          mz          mz</span>
-<span class="co">#&gt; 3          rt          rt</span></code></pre></div>
+<span class="co">#&gt; 3          rt          rt</span>
+<span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"ms2_data"</span><span class="op">)</span> 
+<span class="co">#&gt; list()</span>
+<span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"process_info"</span><span class="op">)</span> 
+<span class="co">#&gt; $Creation</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">pacakge_name: massdataset</span> </span>
+<span class="co">#&gt; <span style="color: #00BB00;">function_name: create_mass_dataset()</span> </span>
+<span class="co">#&gt; <span style="color: #00BB00;">time: 2021-12-24 16:59:36</span> </span>
+<span class="co">#&gt; <span style="color: #00BB00;">parameters:</span></span>
+<span class="co"><span style="color: #00BB00;">#&gt; no : no</span></span>
+<span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"annotation_table"</span><span class="op">)</span> 
+<span class="co">#&gt; data frame with 0 columns and 0 rows</span></code></pre></div>
 </div>
 <div class="section level1">
 <h1 id="use">
 <strong>Use <code>@</code></strong><a class="anchor" aria-label="anchor" href="#use"></a>
 </h1>
+<p><code>mass_data</code> class is a S4 object. So we can also use <code>@</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object</span><span class="op">@</span><span class="va">expression_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt;               Blank_3 Blank_4      QC_1      QC_2     PS4P1     PS4P2   PS4P3</span>
@@ -371,7 +405,11 @@
 <span class="co">#&gt; <span style="color: #00BB00;">function_name: create_mass_dataset()</span> </span>
 <span class="co">#&gt; <span style="color: #00BB00;">time: 2021-12-24 16:59:36</span> </span>
 <span class="co">#&gt; <span style="color: #00BB00;">parameters:</span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; no : no</span></span></code></pre></div>
+<span class="co"><span style="color: #00BB00;">#&gt; no : no</span></span>
+<span class="va">object</span><span class="op">@</span><span class="va">ms2_data</span>
+<span class="co">#&gt; list()</span>
+<span class="va">object</span><span class="op">@</span><span class="va">annotation_table</span>
+<span class="co">#&gt; data frame with 0 columns and 0 rows</span></code></pre></div>
 </div>
 <div class="section level1">
 <h1 id="session-information">

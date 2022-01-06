@@ -27,8 +27,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-# **Use function**
-hello
+# **Use `extract_xxx` functions**
+
+We first created a `mass_dataset` class object.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
@@ -52,16 +53,28 @@ object =
 object
 ```
 
+In `massdataset` package, there are a series of functions named as `extract_xxx()`, users can use them to extract data from `mass_dataset` calss object.
+
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+##sample_info
 extract_sample_info(object)
+##variable_info
 extract_variable_info(object) %>% head()
+##expression_data
 extract_expression_data(object) %>% head()
+##sample_info_note
 extract_sample_info_note(object) 
+##variable_info_note
 extract_variable_info_note(object) 
+##ms2_data
+extract_ms2_data(object)
+##process_info
+extract_annotation_table(object)
+##process_info
+extract_process_info(object)
 ```
 
-
-# **Use slot**
+# **Use slot()**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 slot(object = object, name = "sample_info")
@@ -69,9 +82,14 @@ slot(object = object, name = "variable_info") %>% head()
 slot(object = object, name = "expression_data") %>% head()
 slot(object = object, name = "sample_info_note") 
 slot(object = object, name = "variable_info_note") 
+slot(object = object, name = "ms2_data") 
+slot(object = object, name = "process_info") 
+slot(object = object, name = "annotation_table") 
 ```
 
 # **Use `@`**
+
+`mass_data` class is a S4 object. So we can also use `@`.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 object@expression_data %>% head()
@@ -80,6 +98,8 @@ object@variable_info %>% head()
 object@sample_info_note
 object@variable_info_note
 object@process_info
+object@ms2_data
+object@annotation_table
 ```
 
 

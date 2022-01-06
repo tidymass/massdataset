@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mutate MS2 into mass_dataset • massdataset</title>
+<title>Add MS2 spectra data into mass_dataset class object • massdataset</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -19,7 +19,7 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><!-- docsearch --><script src="../docsearch.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.3/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous">
 <link href="../docsearch.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script><meta property="og:title" content="Mutate MS2 into mass_dataset">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script><meta property="og:title" content="Add MS2 spectra data into mass_dataset class object">
 <meta property="og:description" content="massdataset">
 <meta property="og:image" content="https://tidymass.github.io/massdataset/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -74,7 +74,7 @@
       <a href="../articles/data_import_and_export.html">Data import and export</a>
     </li>
     <li>
-      <a href="../articles/mutate_ms2.html">Add MS2 into mass_dataset</a>
+      <a href="../articles/mutate_ms2.html">Add MS2 spectra data into mass_dataset class object</a>
     </li>
     <li class="divider">
     </li>
@@ -86,7 +86,7 @@
       <a href="../articles/process_info.html">Processing information</a>
     </li>
     <li>
-      <a href="../articles/html_process_info.html">Output htmp process_info</a>
+      <a href="../articles/html_process_info.html">Output html processing information</a>
     </li>
     <li class="divider">
     </li>
@@ -168,10 +168,10 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Mutate MS2 into mass_dataset</h1>
+      <h1 data-toc-skip>Add MS2 spectra data into mass_dataset class object</h1>
                         <h4 data-toc-skip class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-01-03</h4>
+            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-01-05</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/mutate_ms2.Rmd" class="external-link"><code>vignettes/mutate_ms2.Rmd</code></a></small>
       <div class="hidden name"><code>mutate_ms2.Rmd</code></div>
@@ -186,8 +186,7 @@
 <strong>Data preparation</strong><a class="anchor" aria-label="anchor" href="#data-preparation"></a>
 </h1>
 <div class="section level2">
-<h2 id="ms1-data">
-<strong>MS1 data</strong><a class="anchor" aria-label="anchor" href="#ms1-data"></a>
+<h2 id="mass_data-class-object">mass_data class object<a class="anchor" aria-label="anchor" href="#mass_data-class-object"></a>
 </h2>
 <p>We need to create a <code>mass_data</code> class object first, <a href="https://tidymass.github.io/massdataset/articles/data_import_and_export.html">see this document</a>. And here we use the data from this step as examples.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -195,8 +194,7 @@
 <span class="fu"><a href="https://rdrr.io/r/base/load.html" class="external-link">load</a></span><span class="op">(</span><span class="st">"feature_table/object_neg"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="ms2-data">
-<strong>MS2 data</strong><a class="anchor" aria-label="anchor" href="#ms2-data"></a>
+<h2 id="ms2-data">MS2 data<a class="anchor" aria-label="anchor" href="#ms2-data"></a>
 </h2>
 <p>The MS2 raw data should be converted to mgf format data. Please <a href="https://tidymass.github.io/metid/articles/database_construction.html" class="external-link">refer this document</a>.</p>
 <p>Here we use the demo data for <code>tidymass</code>, please download it and put it in the <code>feature_table</code> folder.</p>
@@ -205,31 +203,31 @@
 </div>
 </div>
 <div class="section level1">
-<h1 id="mutate-ms2-to-mass_dataset-class-object">
-<strong>Mutate MS2 to <code>mass_dataset</code> class object</strong><a class="anchor" aria-label="anchor" href="#mutate-ms2-to-mass_dataset-class-object"></a>
+<h1 id="add-ms2-to-mass_dataset-class-object">
+<strong>Add MS2 to <code>mass_dataset</code> class object</strong><a class="anchor" aria-label="anchor" href="#add-ms2-to-mass_dataset-class-object"></a>
 </h1>
 <p>Positive mode.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">object_pos2</span> <span class="op">=</span> 
-<span class="fu"><a href="../reference/mutate_ms2.html">mutate_ms2</a></span><span class="op">(</span>
-  object <span class="op">=</span> <span class="va">object_pos</span>,
-  column <span class="op">=</span> <span class="st">"rp"</span>,
-  polarity <span class="op">=</span> <span class="st">"positive"</span>,
-  ms1.ms2.match.mz.tol <span class="op">=</span> <span class="fl">10</span>, 
-  ms1.ms2.match.rt.tol <span class="op">=</span> <span class="fl">15</span>, 
-  path <span class="op">=</span> <span class="st">"feature_table/MS2_data/POS/"</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">object_pos2</span> <span class="op">=</span>
+  <span class="fu"><a href="../reference/mutate_ms2.html">mutate_ms2</a></span><span class="op">(</span>
+    object <span class="op">=</span> <span class="va">object_pos</span>,
+    column <span class="op">=</span> <span class="st">"rp"</span>,
+    polarity <span class="op">=</span> <span class="st">"positive"</span>,
+    ms1.ms2.match.mz.tol <span class="op">=</span> <span class="fl">10</span>,
+    ms1.ms2.match.rt.tol <span class="op">=</span> <span class="fl">15</span>,
+    path <span class="op">=</span> <span class="st">"feature_table/MS2_data/POS/"</span>
+  <span class="op">)</span></code></pre></div>
 <p>Negative mode.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">object_neg2</span> <span class="op">=</span> 
-<span class="fu"><a href="../reference/mutate_ms2.html">mutate_ms2</a></span><span class="op">(</span>
-  object <span class="op">=</span> <span class="va">object_neg</span>,
-  column <span class="op">=</span> <span class="st">"rp"</span>,
-  polarity <span class="op">=</span> <span class="st">"negative"</span>,
-  ms1.ms2.match.mz.tol <span class="op">=</span> <span class="fl">10</span>, 
-  ms1.ms2.match.rt.tol <span class="op">=</span> <span class="fl">15</span>, 
-  path <span class="op">=</span> <span class="st">"feature_table/MS2_data/NEG/"</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">object_neg2</span> <span class="op">=</span>
+  <span class="fu"><a href="../reference/mutate_ms2.html">mutate_ms2</a></span><span class="op">(</span>
+    object <span class="op">=</span> <span class="va">object_neg</span>,
+    column <span class="op">=</span> <span class="st">"rp"</span>,
+    polarity <span class="op">=</span> <span class="st">"negative"</span>,
+    ms1.ms2.match.mz.tol <span class="op">=</span> <span class="fl">10</span>,
+    ms1.ms2.match.rt.tol <span class="op">=</span> <span class="fl">15</span>,
+    path <span class="op">=</span> <span class="st">"feature_table/MS2_data/NEG/"</span>
+  <span class="op">)</span></code></pre></div>
 </div>
 <div class="section level1">
 <h1 id="session-information">

@@ -356,6 +356,20 @@ setMethod(
 )
 
 
+##annotation_table
+#' @method annotation_table mass_dataset
+#' @docType methods
+#' @rdname extract-mass_dataset
+#' @param object (required) mass_dataset class object
+#' @return A data.frame (annotation_table)
+setMethod(
+  f = "annotation_table",
+  signature = "mass_dataset",
+  definition = function(object)
+    object@annotation_table
+)
+
+
 ####replacement method for sample_info
 
 "sample_info<-" <- function(object, value) {
@@ -515,5 +529,20 @@ setReplaceMethod(f = "ms2_data", "mass_dataset", function(object, value) {
 
 setReplaceMethod("process_info", "mass_dataset", function(object, value) {
   object@process_info <- value
+  return(object)
+})
+
+
+
+
+
+
+####replacement method for annotation_table
+"annotation_table<-" <- function(object, value) {
+  object
+}
+
+setReplaceMethod("annotation_table", "mass_dataset", function(object, value) {
+  object@annotation_table <- value
   return(object)
 })

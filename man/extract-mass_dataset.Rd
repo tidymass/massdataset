@@ -17,6 +17,7 @@
 \alias{ms2_data,mass_dataset-method}
 \alias{sample_info_note,mass_dataset-method}
 \alias{variable_info_note,mass_dataset-method}
+\alias{annotation_table,mass_dataset-method}
 \title{Extract expression_data from mass_dataset}
 \usage{
 extract_expression_data(object)
@@ -48,6 +49,8 @@ extract_ms2_data(object)
 \S4method{sample_info_note}{mass_dataset}(object)
 
 \S4method{variable_info_note}{mass_dataset}(object)
+
+\S4method{annotation_table}{mass_dataset}(object)
 }
 \arguments{
 \item{object}{(required) mass_dataset class object}
@@ -82,6 +85,8 @@ A ms2_data class object.
 A data.frame (sample_info_note)
 
 A data.frame (variable_info_note)
+
+A data.frame (annotation_table)
 }
 \description{
 Extract expression_data from mass_dataset

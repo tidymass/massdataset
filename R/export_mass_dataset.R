@@ -13,7 +13,7 @@
 export_mass_dataset =
   function(object,
            file_type = c("csv", "xlsx"),
-           ms2_file_type = c("csv", "xlsx"),
+           ms2_file_type = c("msp", "mgf"),
            path = "."
            ) {
     check_object_class(object = object, class = "mass_dataset")

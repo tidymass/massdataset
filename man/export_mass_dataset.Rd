@@ -8,7 +8,7 @@
 export_mass_dataset(
   object,
   file_type = c("csv", "xlsx"),
-  ms2_file_type = c("csv", "xlsx"),
+  ms2_file_type = c("msp", "mgf"),
   path = "."
 )
 }

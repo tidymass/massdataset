@@ -94,7 +94,7 @@ navbar:
       - text: "mass_dataset-class object"
       - text: "Data import and export"
         href: articles/data_import_and_export.html
-      - text: "Add MS2 into mass_dataset"
+      - text: "Add MS2 spectra data into mass_dataset class object"
         href: articles/mutate_ms2.html
       - text: --------
       - text: "Information from mass_dataset"
@@ -102,7 +102,7 @@ navbar:
         href: articles/extract_data.html
       - text: "Processing information"
         href: articles/process_info.html
-      - text: "Output htmp process_info"
+      - text: "Output html processing information"
         href: articles/html_process_info.html
       - text: --------
       - text: "Processing of mass_dataset"
