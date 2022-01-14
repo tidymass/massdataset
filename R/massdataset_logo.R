@@ -21,7 +21,7 @@
 #' @importFrom readr write_csv read_csv
 #' @importFrom methods slot slot<-
 #' @import ggplot2
-#' @importFrom methods .hasSlot new
+#' @importFrom methods .hasSlot new is
 #' @importFrom stats p.adjust rgamma sd median
 #' @importFrom utils data str head tail
 #' @importFrom magrittr %>%
@@ -34,9 +34,9 @@
 #' massdataset_logo()
 
 massdataset_logo <- function(){
-  cat(crayon::green("Thank you for using massdataset!\n"))
-  cat(crayon::green("Version", massdataset_version, "(", update_date, ')\n'))
-  cat(crayon::green("More information: search 'tidymass massdataset'.\n"))
+  message(crayon::green("Thank you for using massdataset!\n"))
+  message(crayon::green("Version", massdataset_version, "(", update_date, ')\n'))
+  message(crayon::green("More information: search 'tidymass massdataset'.\n"))
   cat(crayon::green(
     c("                          _____        _                 _   ", 
       "                         |  __ \\      | |               | |  ", 

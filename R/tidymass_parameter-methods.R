@@ -26,15 +26,15 @@ translate_tidymass_parameter =
     check_object_class(object = object, class = "tidymass_parameter")
     
     if(length(object@parameter) == 0){
-      parameter = "no:no"  
+      parameter <- "no:no"  
     }else{
-      parameter = purrr::map2(names(object@parameter),
+      parameter <- purrr::map2(names(object@parameter),
                               object@parameter, function(name, value) {
                                 if (length(value) > 100000) {
-                                  value = head(value, 100000)
-                                  value = paste(c(value, "..."), collapse = ',')
+                                  value <- head(value, 100000)
+                                  value <- paste(c(value, "..."), collapse = ',')
                                 } else{
-                                  value = paste(value, collapse = ',')
+                                  value <- paste(value, collapse = ',')
                                 }
                                 paste(name, value, sep = ":")
                               }) %>% unlist() 

@@ -28,7 +28,7 @@ check_mass_dataset =
            variable_info_note) {
     if (missing(expression_data) |
         missing(sample_info) | missing(variable_info)) {
-      check_result = "error: expression_data, 
+      check_result = "error: expression_data,
       sample_info and variable_info should be provided."
       return(check_result)
     }
@@ -212,7 +212,8 @@ check_object_class =
              "ms2_data"
            )) {
     class = match.arg(class)
-    if (class(object)[1] != class) {
+    # if (class(object)[1] != class) {
+    if (!is(object, class2 = class)) {
       stop("Only support ", class)
     }
   }

@@ -140,16 +140,16 @@ mutate_ms2 =
       )
     
     if (is.null(match.result)){
-      cat(crayon::red("No variable are matched with MS2 spectra.\n")) 
+      message(crayon::red("No variable are matched with MS2 spectra.\n")) 
       return(object)
     }
     
     if (nrow(match.result) == 0){
-      cat(crayon::red("No variable are matched with MS2 spectra.\n")) 
+      message(crayon::red("No variable are matched with MS2 spectra.\n")) 
       return(object)
     }
     
-    cat(crayon::green(
+    message(crayon::green(
       length(unique(match.result[, 1])),
       "out of",
       nrow(variable_info),
@@ -157,7 +157,7 @@ mutate_ms2 =
     ))
      
     ###if one peak matches multiple peaks, select the more reliable MS2 spectrum
-    cat(crayon::green("Selecting the most intense MS2 spectrum for each peak..."))
+    message(crayon::green("Selecting the most intense MS2 spectrum for each peak..."))
     temp.idx <- unique(match.result[, 1])
     
     match.result <- 

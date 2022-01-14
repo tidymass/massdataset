@@ -73,7 +73,8 @@ report_parameters =
     ###get parameters
     parameters =
       lapply(object@process_info, function(x) {
-        if (class(x)[1] == "tidymass_parameter") {
+        # if (class(x)[1] == "tidymass_parameter") {
+          if (is(x, class2 = "tidymass_parameter")) {
           translate_tidymass_parameter(object = x)
         } else{
           lapply(x, function(y) {
@@ -108,6 +109,6 @@ report_parameters =
     file.copy(from = file.path(output_path, "parameter_report.html"), 
               to = file.path(path, "parameter_report.html"), overwrite = TRUE)
     unlink(file.path(output_path), recursive = TRUE, force = TRUE)
-    cat(crayon::yellow("Done.\n"))
+    message(crayon::yellow("Done.\n"))
     options(warn = 0)
   }

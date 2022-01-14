@@ -58,11 +58,11 @@ filter_samples =
     
     check_object_class(object = object, class = "mass_dataset")
     
-    sample_id = get_sample_id(object)
+    sample_id <- get_sample_id(object)
     if (any(apply_to == "all")) {
-      apply_to = sample_id
+      apply_to <- sample_id
     } else{
-      apply_to = sample_id[sample_id %in% apply_to]
+      apply_to <- sample_id[sample_id %in% apply_to]
     }
     
     if (length(apply_to) == 0) {
@@ -78,9 +78,9 @@ filter_samples =
       expression_data %>%
       apply(2, flist)
     
-    result[!names(result) %in% apply_to] = TRUE
+    result[!names(result) %in% apply_to] <- TRUE
     
-    process_info = object@process_info
+    process_info <- object@process_info
     
     parameter <- new(
       Class = "tidymass_parameter",
@@ -104,8 +104,8 @@ filter_samples =
     
     if (prune) {
       idx = which(result)
-      object@expression_data = object@expression_data[, idx, drop = FALSE]
-      object@sample_info = object@sample_info[idx, , drop = FALSE]
+      object@expression_data <- object@expression_data[, idx, drop = FALSE]
+      object@sample_info <- object@sample_info[idx, , drop = FALSE]
       return(object)
     } else{
       return(result)

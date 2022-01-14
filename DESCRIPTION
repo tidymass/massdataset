@@ -13,12 +13,12 @@ Description: massdata provide a uniform and stanford data structure of mass spec
     support this class.
 URL: https://github.com/tidymass/massdataset
 BugReports: https://github.com/tidymass/massdataset/issues
-Depends: R (>= 4.1)
+Depends: R (>= 4.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 VignetteBuilder: knitr
 Imports: 
     dplyr,

@@ -17,10 +17,11 @@ export_mass_dataset =
            path = "."
            ) {
     check_object_class(object = object, class = "mass_dataset")
-    file_type = match.arg(file_type)
-    ms2_file_type = match.arg(ms2_file_type)
+    file_type <- match.arg(file_type)
+    ms2_file_type <- match.arg(ms2_file_type)
     dir.create(path, showWarnings = FALSE)
-    if (class(object)[1] != "mass_dataset") {
+    # if (class(object)[1] != "mass_dataset") {
+      if (!is(object, class2 = "mass_dataset")) {
       stop("Only support mass_dataset class object.\n")
     }
     
@@ -98,7 +99,8 @@ export_ms2_data =
     check_object_class(object = object, class = "ms2_data")
     file_type = match.arg(file_type)
     dir.create(path, showWarnings = FALSE)
-    if (class(object)[1] != "mass_dataset") {
+    # if (class(object)[1] != "mass_dataset") {
+      if (!is(object, class2 = "mass_dataset")) {
       stop("Only support mass_dataset class object.\n")
     }
     
@@ -107,13 +109,13 @@ export_ms2_data =
       return(NULL)
     }
     
-    cat(crayon::yellow("Write MS2 data...\n"))
+    message(crayon::yellow("Write MS2 data...\n"))
     
     purrr::walk2(
       .x = names(object@ms2_data),
       .y = object@ms2_data,
       .f = function(temp_name, temp_data) {
-        cat(crayon::yellow(temp_name, "\n"))
+        message(crayon::yellow(temp_name, "\n"))
         file_name =
           paste("ms2_data_",
                 match(temp_name, names(object@ms2_data)),
@@ -133,5 +135,5 @@ export_ms2_data =
         
       }
     )
-    cat(crayon::green("Done.\n"))
+    message(crayon::green("Done.\n"))
   }
