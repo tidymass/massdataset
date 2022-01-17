@@ -73,7 +73,7 @@ Download this data and uncompress it. And then set the path where you put the fo
 
 Then prepare data.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
 library(tidyverse)
 peak_table_pos = readr::read_csv("feature_table/Peak_table_pos.csv")
 peak_table_neg = readr::read_csv("feature_table/Peak_table_neg.csv")
@@ -84,7 +84,7 @@ sample_info_neg = readr::read_csv("feature_table/sample_info_neg.csv")
 
 Variable information and expression data are in the peak table. Let's separate them.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
 expression_data_pos = 
   peak_table_pos %>% 
   dplyr::select(-c(variable_id:rt)) %>% 
@@ -116,7 +116,7 @@ colnames(expression_data_neg) == sample_info_neg$sample_id
 The orders of `sample_id` in `sample_info` and column names of `expression_data` are different.
 
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
 expression_data_pos = 
   expression_data_pos[,sample_info_pos$sample_id]
 
@@ -132,7 +132,7 @@ colnames(expression_data_neg) == sample_info_neg$sample_id
 
 Then we can create `mass_data` class object using `create_mass_dataset()` function.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
 library(massdataset)
 
 object_pos =
@@ -147,7 +147,7 @@ object_pos
 
 Then negative mode.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
 object_neg =
   create_mass_dataset(
     expression_data = expression_data_neg,
@@ -160,7 +160,7 @@ object_neg
 
 Then save them for next analysis.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
 save(object_pos, file = "feature_table/object_pos")
 save(object_neg, file = "feature_table/object_neg")
 ```
@@ -168,7 +168,7 @@ save(object_neg, file = "feature_table/object_neg")
 
 # **Export `mass_dataset` class object to csv for xlsx**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
 export_mass_dataset(object = object_pos,
                     file_type = "xlsx",
                     path = "demo_data_pos")
@@ -180,6 +180,6 @@ Then all the data will be in the `demo_data_pos` folder.
 
 # **Session information**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
 sessionInfo()
 ```

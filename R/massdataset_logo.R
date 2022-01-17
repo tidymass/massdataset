@@ -7,7 +7,7 @@
 #' @importFrom ComplexHeatmap Heatmap columnAnnotation anno_barplot
 #' @importFrom grid gpar
 #' @importFrom ggplotify as.ggplot
-#' @importFrom dplyr filter mutate select everything
+#' @importFrom dplyr filter mutate select everything left_join
 #' @importFrom plyr dlply .
 #' @importFrom rstudioapi isAvailable hasFun getThemeInfo
 #' @importFrom utils packageDescription write.csv

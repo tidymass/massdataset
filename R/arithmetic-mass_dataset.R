@@ -155,7 +155,8 @@ scale.mass_dataset =
 #' @return mass_dataset object
 
 setMethod(f = "+",
-          signature(e1 = "mass_dataset", e2 = "numeric"), function (e1, e2) {
+          signature(e1 = "mass_dataset", e2 = "numeric"), 
+          function (e1, e2) {
             e1@expression_data = e1@expression_data + e2
             
             process_info = e1@process_info

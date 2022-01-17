@@ -74,9 +74,11 @@ export_mass_dataset =
       }
       
       ###ms2_data
-      export_ms2_data(object = object,
-                      file_type = ms2_file_type,
-                      path = path)
+      if(is(object@ms2_data, class2 = "ms2_data")){
+        export_ms2_data(object = object@ms2_data,
+                        file_type = ms2_file_type,
+                        path = path)  
+      }
     }
   }
 

@@ -1,5 +1,4 @@
 #' @method left_join mass_dataset
-#' @docType methods
 #' @importFrom dplyr left_join
 #' @export
 left_join.mass_dataset <-
@@ -8,9 +7,14 @@ left_join.mass_dataset <-
            by = NULL,
            copy = FALSE,
            suffix = c(".x", ".y"),
-           ...) {
+           ...,
+           keep = FALSE) {
     if (length(x@activated) == 0) {
       stop("activate you object using activate_mass_dataset first.\n")
+    }
+    
+    if (!is(x, class2 = "mass_dataset")) {
+      stop("x must be mass_dataset class.\n")
     }
     
     new_x =
