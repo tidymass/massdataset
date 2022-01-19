@@ -26,7 +26,7 @@
 #' @importFrom utils data str head tail
 #' @importFrom magrittr %>%
 #' @importFrom ggsci pal_lancet 
-#' @importFrom tinytools read_mgf
+#' @importFrom masstools read_mgf read_mzxml
 #' @importFrom rlang warn quo_is_null abort seq2
 #' @export
 #' @return logo

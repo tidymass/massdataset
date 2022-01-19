@@ -1,0 +1,512 @@
+}
+}) %>%
+dplyr::bind_rows()
+save(parameters, file = file.path(output_path, "parameters.rda"))
+rmarkdown::draft(
+file = output_path,
+template = "tidymass_parameters",
+package = "massdataset",
+create_dir = TRUE,
+edit = FALSE
+)
+###path
+if (length(grep("Parameter_report", dir(path))) > 0) {
+output_path = file.path(path, paste('Parameter_report', length(grep(
+"Parameter_report", dir(path)
+)) + 1, sep = "_"))
+} else{
+output_path = file.path(path, "Parameter_report")
+}
+rmarkdown::draft(
+file = output_path,
+template = "tidymass_parameters",
+package = "massdataset",
+create_dir = TRUE,
+edit = FALSE
+)
+###get parameters
+parameters =
+lapply(object@process_info, function(x) {
+if (class(x)[1] == "tidymass_parameter") {
+translate_tidymass_parameters(object = x)
+} else{
+lapply(x, function(y) {
+translate_tidymass_parameters(object = y)
+}) %>%
+dplyr::bind_rows()
+}
+}) %>%
+dplyr::bind_rows()
+save(parameters, file = file.path(output_path, "parameters.rda"))
+rmarkdown::render(
+file.path(output_path, "tidymass_parameters.template.Rmd"),
+rmarkdown::html_document()
+)
+output_path
+rmarkdown::render(
+file.path(output_path, "tidymass_parameters.template.Rmd"),
+rmarkdown::html_document()
+)
+rmarkdown::render(
+file.path(output_path, "tidymass_parameters.template.Rmd"),
+rmarkdown::html_document()
+)
+file.rename(
+from = file.path(output_path, "tidymass_parameters.template.html"),
+to = file.path(output_path, "massqc_report.html")
+)
+file = dir(output_path)
+remove_file = grep("png|Rmd|parameters|rda", file, value = TRUE)
+unlink(
+x = file.path(output_path, remove_file),
+recursive = TRUE,
+force = TRUE
+)
+dir.create(path, showWarnings = FALSE)
+###path
+if (length(grep("Parameter_report", dir(path))) > 0) {
+output_path = file.path(path, paste('Parameter_report', length(grep(
+"Parameter_report", dir(path)
+)) + 1, sep = "_"))
+} else{
+output_path = file.path(path, "Parameter_report")
+}
+rmarkdown::draft(
+file = output_path,
+template = "tidymass_parameters",
+package = "massdataset",
+create_dir = TRUE,
+edit = FALSE
+)
+###get parameters
+parameters =
+lapply(object@process_info, function(x) {
+if (class(x)[1] == "tidymass_parameter") {
+translate_tidymass_parameters(object = x)
+} else{
+lapply(x, function(y) {
+translate_tidymass_parameters(object = y)
+}) %>%
+dplyr::bind_rows()
+}
+}) %>%
+dplyr::bind_rows()
+save(parameters, file = file.path(output_path, "parameters.rda"))
+rmarkdown::render(
+file.path(output_path, "tidymass_parameters.template.Rmd"),
+rmarkdown::html_document()
+)
+rmarkdown::render(
+file.path(output_path, "tidymass_parameters.template.Rmd"),
+rmarkdown::html_document()
+)
+file.rename(
+from = file.path(output_path, "tidymass_parameters.template.html"),
+to = file.path(output_path, "parameter_report.html")
+)
+file = dir(output_path)
+remove_file = grep("png|Rmd|parameters|rda", file, value = TRUE)
+unlink(
+x = file.path(output_path, remove_file),
+recursive = TRUE,
+force = TRUE
+)
+file.copy(from = file.path(output_path, "parameter_report.html"),
+to = file.path(path, "parameter_report.html"), overwrite = TRUE)
+unlink(file.path(output_path), recursive = TRUE, force = TRUE)
+crayon::yellow("Done.\n")
+cat(crayon::yellow("Done.\n"))
+setwd("..")
+devtools::document()
+devtools::build()
+devtools::check()
+devtools::install_github("tidymass/massdataset")
+setwd("vignettes/")
+library(massdataset)
+data("expression_data")
+data("sample_info")
+data("variable_info")
+object =
+create_mass_dataset(
+expression_data = expression_data,
+sample_info = sample_info,
+variable_info = variable_info
+)
+object
+library(tidyverse)
+object =
+object %>%
+activate_mass_dataset(what = "expression_data") %>%
+filter(!is.na(QC_1))
+object =
+object %>%
+activate_mass_dataset(what = "expression_data") %>%
+filter(!is.na(QC_2))
+report_parameters(object = object, path = "demo_data")
+report_parameters(object = object, path = "demo_data")
+getwd()
+path = "demo_data"
+dir.create(path, showWarnings = FALSE)
+###path
+if (length(grep("Parameter_report", dir(path))) > 0) {
+output_path = file.path(path, paste('Parameter_report', length(grep(
+"Parameter_report", dir(path)
+)) + 1, sep = "_"))
+} else{
+output_path = file.path(path, "Parameter_report")
+}
+rmarkdown::draft(
+file = output_path,
+template = "tidymass_parameters",
+package = "massdataset",
+create_dir = TRUE,
+edit = FALSE
+)
+###get parameters
+parameters =
+lapply(object@process_info, function(x) {
+if (class(x)[1] == "tidymass_parameter") {
+translate_tidymass_parameters(object = x)
+} else{
+lapply(x, function(y) {
+translate_tidymass_parameters(object = y)
+}) %>%
+dplyr::bind_rows()
+}
+}) %>%
+dplyr::bind_rows()
+save(parameters, file = file.path(output_path, "parameters.rda"))
+rmarkdown::render(
+file.path(output_path, "tidymass_parameters.template.Rmd"),
+rmarkdown::html_document()
+)
+file.rename(
+from = file.path(output_path, "tidymass_parameters.template.html"),
+to = file.path(output_path, "parameter_report.html")
+)
+file = dir(output_path)
+remove_file = grep("png|Rmd|parameters|rda", file, value = TRUE)
+unlink(
+x = file.path(output_path, remove_file),
+recursive = TRUE,
+force = TRUE
+)
+file.copy(from = file.path(output_path, "parameter_report.html"),
+to = file.path(path, "parameter_report.html"), overwrite = TRUE)
+unlink(file.path(output_path), recursive = TRUE, force = TRUE)
+cat(crayon::yellow("Done.\n"))
+remove_file
+dir.create(path, showWarnings = FALSE)
+###path
+if (length(grep("Parameter_report", dir(path))) > 0) {
+output_path = file.path(path, paste('Parameter_report', length(grep(
+"Parameter_report", dir(path)
+)) + 1, sep = "_"))
+} else{
+output_path = file.path(path, "Parameter_report")
+}
+rmarkdown::draft(
+file = output_path,
+template = "tidymass_parameters",
+package = "massdataset",
+create_dir = TRUE,
+edit = FALSE
+)
+###get parameters
+parameters =
+lapply(object@process_info, function(x) {
+if (class(x)[1] == "tidymass_parameter") {
+translate_tidymass_parameters(object = x)
+} else{
+lapply(x, function(y) {
+translate_tidymass_parameters(object = y)
+}) %>%
+dplyr::bind_rows()
+}
+}) %>%
+dplyr::bind_rows()
+save(parameters, file = file.path(output_path, "parameters.rda"))
+rmarkdown::render(
+file.path(output_path, "tidymass_parameters.template.Rmd"),
+rmarkdown::html_document()
+)
+file.rename(
+from = file.path(output_path, "tidymass_parameters.template.html"),
+to = file.path(output_path, "parameter_report.html")
+)
+file = dir(output_path)
+remove_file = grep("png|Rmd|parameters|rda", file, value = TRUE)
+unlink(
+x = file.path(output_path, remove_file),
+recursive = TRUE,
+force = TRUE
+)
+file.copy(from = file.path(output_path, "parameter_report.html"),
+to = file.path(path, "parameter_report.html"), overwrite = TRUE)
+unlink(file.path(output_path), recursive = TRUE, force = TRUE)
+cat(crayon::yellow("Done.\n"))
+source("~/tidymass/massdataset/R/report_parameters.R")
+report_parameters(object = object,
+path = "demo_data")
+massdataset::report_parameters
+getwd()
+setwd("..")
+devtools::document()
+devtools::build()
+devtools::check()
+devtools::install_github("tidymass/massdataset")
+library(massdataset)
+rm(list=ls())
+report_parameters
+getwd()
+setwd("vignettes/")
+library(massdataset)
+data("expression_data")
+data("sample_info")
+data("variable_info")
+object =
+create_mass_dataset(
+expression_data = expression_data,
+sample_info = sample_info,
+variable_info = variable_info
+)
+object
+library(tidyverse)
+object =
+object %>%
+activate_mass_dataset(what = "expression_data") %>%
+filter(!is.na(QC_1))
+object =
+object %>%
+activate_mass_dataset(what = "expression_data") %>%
+filter(!is.na(QC_2))
+report_parameters(object = object,
+path = "demo_data")
+object =
+object %>%
+activate_mass_dataset(what = "expression_data") %>%
+select(-Blank_2)
+object =
+object %>%
+activate_mass_dataset(what = "expression_data") %>%
+select(-Blank_1)
+colnames(object)
+object =
+object %>%
+activate_mass_dataset(what = "expression_data") %>%
+select(-Blank_3)
+colnames(object)
+object =
+object %>%
+mutate_mean_intensity()
+object =
+object %>%
+mutate_median_intensity() %>%
+mutate_rsd()
+object
+report_parameters(object = object,
+path = "demo_data")
+source("~/tidymass/massdataset/R/tidymass_parameter-methods.R")
+source("~/tidymass/massdataset/R/report_parameters.R")
+getwd()
+?report_parameters
+data("expression_data")
+data("sample_info")
+data("variable_info")
+object =
+create_mass_dataset(
+expression_data = expression_data,
+sample_info = sample_info,
+variable_info = variable_info
+)
+object
+library(tidyverse)
+object =
+object %>%
+activate_mass_dataset(what = "expression_data") %>%
+filter(!is.na(QC_1))
+object =
+object %>%
+activate_mass_dataset(what = "expression_data") %>%
+filter(!is.na(QC_2))
+report_parameters(object = object, path = "demo_data")
+source("~/tidymass/massdataset/R/report_parameters.R")
+report_parameters(object = object, path = "demo_data")
+object =
+object %>%
+mutate_mean_intensity()
+object =
+object %>%
+mutate_median_intensity() %>%
+mutate_rsd()
+report_parameters(object = object, path = "demo_data")
+getwd()
+setwd("..")
+devtools::document()
+devtools::build()
+devtools::check()
+pkgdown::build_site()
+pkgdown::build_site()
+pkgdown::build_site()
+pkgdown::build_site()
+pkgdown::build_home()
+sxtTools::openwd()
+pkgdown::build_home()
+pkgdown::build_site()
+pkgdown::build_home()
+check_object_class(1, "mass_dataset")
+?massdataset_logo
+source("~/tidymass/massdataset/R/update_mass_dataset.R")
+getwd()
+devtools::document()
+devtools::build()
+devtools::check()
+devtools::document()
+devtools::build()
+devtools::check()
+pkgdown::build_site()
+?sample_info
+?filter
+?log
+devtools::document()
+devtools::build()
+devtools::check()
+pkgdown::build_site()
+?dim
+?nrow
+library(massdataset)
+?nrow
+?nrow
+intensity_plot(object)
+intensity_plot(object, variable_index = 1)
+library(ComplexHeatmap)
+?Heatmap
+getwd()
+devtools::document()
+devtools::build_site()
+devtools::build()
+devtools::check()
+devtools::document()
+devtools::build()
+devtools::check()
+devtools::document()
+devtools::build()
+devtools::check()
+devtools::document()
+getwd()
+devtools::document()
+getwd()
+devtools::document()
+devtools::document()
+devtools::document()
+source("~/tidymass/massdataset/R/tinytools_mz_rt_match.R")
+devtools::document()
+devtools::build()
+devtools::check()
+source("~/tidymass/massdataset/R/mass_dataset-methods.R")
+source("~/tidymass/massdataset/R/mass_dataset-methods.R")
+devtools::document()
+source("~/tidymass/massdataset/R/mass_dataset-methods.R")
+getwd()
+devtools::document()
+devtools::document()
+devtools::build()
+devtools::check()
+devtools::document()
+devtools::document()
+rm(list=ls())
+devtools::document()
+devtools::document()
+devtools::document()
+source("~/tidymass/massdataset/R/subsetting-mass_dataset.R")
+source("~/tidymass/massdataset/R/processing-mass_dataset.R")
+getwd()
+devtools::document()
+rm(list = ls())
+devtools::document()
+devtools::build()
+devtools::check()
+devtools::document()
+devtools::build()
+devtools::check()
+pkgdown::build_site()
+pkgdown::build_home()
+pkgdown::build_home()
+pkgdown::build_home()
+pkgdown::build_home()
+pkgdown::build_home()
+library(massdataset)
+?massdataset::report_parameters()
+library(massdataset)
+data("expression_data")
+data("sample_info")
+data("variable_info")
+object =
+create_mass_dataset(
+expression_data = expression_data,
+sample_info = sample_info,
+variable_info = variable_info
+)
+library(tidyverse)
+library(tidyverse)
+object =
+object %>%
+activate_mass_dataset(what = "expression_data") %>%
+filter(!is.na(QC_1))
+object =
+object %>%
+activate_mass_dataset(what = "expression_data") %>%
+filter(!is.na(QC_2))
+object =
+object %>%
+mutate_mean_intensity()
+object =
+object %>%
+mutate_median_intensity() %>%
+mutate_rsd()
+object@process_info
+getwd()
+pkgdown::build_article(name ="html_process_info.Rmd")
+pkgdown::build_article(name ="vignettes/html_process_info.Rmd")
+pkgdown::build_article()
+getwd()
+pkgdown::build_article(name = "vignettes/")
+pkgdown::build_site()
+pkgdown::build_home()
+pkgdown::build_home()
+object$Blank_4
+object[,"Blank_3"]
+object$Blank_3
+object[,"Blank_3", drop = TRUE]
+head(object[,"Blank_3", drop = TRUE])
+object["M136T55_2_POS",]
+object["M136T55_2_POS",,drop = TRUE]
+unlist(object["M136T55_2_POS",,drop = TRUE] )
+object["M136T55_2_POS","Blank_3"]
+object["M136T55_2_POS","Blank_3",drop = TRUE]
+head(object$Blank_3)
+head(object$Blank_3, 20)
+library(massdataset)
+library(tidyverse)
+data("expression_data")
+data("sample_info")
+data("sample_info_note")
+data("variable_info")
+data("variable_info_note")
+object =
+create_mass_dataset(
+expression_data = expression_data,
+sample_info = sample_info,
+variable_info = variable_info,
+sample_info_note = sample_info_note,
+variable_info_note = variable_info_note
+)
+object
+pkgdown::build_site()
+getwd()
+devtools::document()
+devtools::build()
+devtools::check()
+devtools::document()
+devtools::build()
+devtools::check()

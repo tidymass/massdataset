@@ -45,8 +45,8 @@ below to see their documentation.
 
   \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
 
-  \item{tidyr}{\code{\link[tidyr]{drop_na}}, \code{\link[tidyr]{drop_na}}}
+  \item{masstools}{\code{\link[masstools]{mz_rt_match}}}
 
-  \item{tinytools}{\code{\link[tinytools]{mz_rt_match}}}
+  \item{tidyr}{\code{\link[tidyr]{drop_na}}, \code{\link[tidyr]{drop_na}}}
 }}
 

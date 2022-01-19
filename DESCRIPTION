@@ -38,7 +38,7 @@ Imports:
     rlang,
     plyr,
     leaflet,
-    tinytools,
+    masstools,
     ComplexHeatmap,
     grid,
     ggplotify,
@@ -58,6 +58,6 @@ Suggests:
     testthat (>= 3.0.0)
 Note:
 Remotes: 
-    tidymass/tinytools
+    tidymass/masstools
 biocViews: Metabolomics, MassSpectrometry
 Config/testthat/edition: 3

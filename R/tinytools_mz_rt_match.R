@@ -8,7 +8,7 @@
 #' @param rt.error.type RT match tolerance. abs (absolute) or relative.
 #' @export
 #' @rdname mass_dataset-class
-#' @importFrom tinytools mz_rt_match
+#' @importFrom masstools mz_rt_match
 #' @return A merged mass_dataset object
 
 mz_rt_match.mass_dataset =
@@ -37,6 +37,6 @@ mz_rt_match.mass_dataset =
       dplyr::select(variable_id1, variable_id2, dplyr::everything())
   }
 
-#' @importFrom tinytools mz_rt_match
+#' @importFrom masstools mz_rt_match
 #' @export
-tinytools::mz_rt_match
+masstools::mz_rt_match

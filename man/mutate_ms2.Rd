@@ -55,7 +55,7 @@ file.copy(file.path(system.file("ms2_data", package = "massdataset"), "QC_MS2_NC
 object =
   mutate_ms2(object = object, column = "rp", polarity = "positive")
 
-object@ms2_data 
+object@ms2_data
 }
 }
 \author{

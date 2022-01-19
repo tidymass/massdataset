@@ -135,7 +135,8 @@ object2 =
   object %>% 
   activate_mass_dataset(what = "variable_info") %>% 
   mutate(variable_id2 = variable_id)
-extract_variable_info(object2)
+extract_variable_info(object2) %>% 
+  head()
 
 ###add new samples in expression_data
 object2 = 
