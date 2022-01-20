@@ -82,8 +82,8 @@ mutate_ms2 =
         if (temp_ms2_type == "mzML" | temp_ms2_type == "mzxml") {
           masstools::read_mzxml(file = temp_ms2_data)
         }
-        ##mfg
-        if (temp_ms2_type == "mfg") {
+        ##mgf
+        if (temp_ms2_type == "mgf") {
           masstools::read_mgf(file = temp_ms2_data)
         }
       })
