@@ -8,7 +8,7 @@
 activate_mass_dataset(
   .data,
   what = c("sample_info", "variable_info", "expression_data", "sample_info_note",
-    "variable_info_note")
+    "variable_info_note", "annotation_table")
 )
 }
 \arguments{
@@ -16,7 +16,7 @@ activate_mass_dataset(
 
 \item{what}{(required) What should get be activated?
 Possible values are \code{sample_info},
-\code{expression_data}, \code{variable_info}, \code{sample_info_note} or
+\code{expression_data}, \code{variable_info}, \code{sample_info_note} \code{annotation_table},or
 \code{variable_info_note}.}
 }
 \value{

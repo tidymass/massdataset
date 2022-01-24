@@ -18,11 +18,23 @@ filter.mass_dataset <- function(.data, ..., .preserve = FALSE) {
   
   slot(object = .data, name = .data@activated) = x
   
+  if (.data@activated == "annotation_table") {
+    if(nrow(.data@annotation_table) > 0){
+      .data@variable_info = .data@variable_info %>% 
+        dplyr::filter(variable_id %in% .data@annotation_table$variable_id)
+      .data@expression_data = .data@expression_data[x$variable_id, ,drop = FALSE]
+    }
+  }  
+  
   if (.data@activated == "sample_info") {
     .data@expression_data = .data@expression_data[, x$sample_id,drop = FALSE]
   }
   
   if (.data@activated == "variable_info") {
+    if(nrow(.data@annotation_table) > 0){
+      .data@annotation_table = .data@annotation_table %>% 
+        dplyr::filter(variable_id %in% .data@variable_info$variable_id)   
+    }
     .data@expression_data = .data@expression_data[x$variable_id, ,drop = FALSE]
   }
   
