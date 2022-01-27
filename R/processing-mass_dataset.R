@@ -35,6 +35,9 @@ cbind.mass_dataset = function(..., deparse.level = 1) {
   variable_info_note_x = x@variable_info_note
   variable_info_note_y = y@variable_info_note
   
+  annotation_table_x = x@annotation_table
+  annotation_table_y = y@annotation_table
+  
   colnames(expression_data_y) =
     purrr::map(colnames(expression_data_y), function(x) {
       if (any(x == colnames(expression_data_x))) {
@@ -84,16 +87,40 @@ cbind.mass_dataset = function(..., deparse.level = 1) {
     variable_info_note = variable_info_note_x
   }
   
+  ####annotation_table
+  if(nrow(annotation_table_x) == 0 & nrow(annotation_table_y) == 0){
+    annotation_table <-
+      annotation_table_x
+  }
+  
+  if(nrow(annotation_table_x) != 0 & nrow(annotation_table_y) == 0){
+    annotation_table <-
+      annotation_table_x
+  }
+  
+  if(nrow(annotation_table_x) == 0 & nrow(annotation_table_y) != 0){
+    annotation_table <-
+      annotation_table_y
+  }
+  
+  if(nrow(annotation_table_x) != 0 & nrow(annotation_table_y) != 0){
+    annotation_table <-
+      rbind(annotation_table_x,
+            annotation_table_y) %>% 
+      dplyr::distinct(.keep_all = TRUE)
+  }
+  
   object <- new(
     Class = "mass_dataset",
     expression_data = expression_data,
-    ms2_data = data.frame(),
+    ms2_data = c(x@annotation_table, y@annotation_table),
     sample_info = sample_info,
     variable_info = variable_info,
     sample_info_note = sample_info_note,
     variable_info_note = variable_info_note,
     process_info = c(x@process_info, y@process_info),
-    version = massdataset_version
+    version = massdataset_version,
+    annotation_table = annotation_table
   )
   
   return(object)
@@ -133,6 +160,9 @@ rbind.mass_dataset = function(..., deparse.level = 1) {
   
   variable_info_note_x = x@variable_info_note
   variable_info_note_y = y@variable_info_note
+  
+  annotation_table_x = x@annotation_table
+  annotation_table_y = y@annotation_table
   
   rownames(expression_data_y) =
     purrr::map(rownames(expression_data_y), function(x) {
@@ -194,17 +224,46 @@ rbind.mass_dataset = function(..., deparse.level = 1) {
           variable_info_note_y) %>%
     dplyr::distinct(name, .keep_all = TRUE)
   
+  ####annotation_table
+  if (nrow(annotation_table_x) == 0 & nrow(annotation_table_y) == 0) {
+    annotation_table =
+      annotation_table_x
+  }
+  
+  if (nrow(annotation_table_x) == 0 & nrow(annotation_table_y) != 0) {
+    annotation_table =
+      annotation_table_y
+  }
+  
+  if (nrow(annotation_table_x) != 0 & nrow(annotation_table_y) == 0) {
+    annotation_table =
+      annotation_table_x
+  }
+  
+  if (nrow(annotation_table_x) != 0 & nrow(annotation_table_y) != 0) {
+    annotation_table =
+      rbind(annotation_table_x,
+            annotation_table_y) %>% 
+      dplyr::distinct(.keep_all = TRUE)
+  }
+
+  variable_info_note =
+    rbind(variable_info_note_x,
+          variable_info_note_y) %>%
+    dplyr::distinct(name, .keep_all = TRUE)
+  
   
   object <- new(
     Class = "mass_dataset",
     expression_data = expression_data,
-    ms2_data = data.frame(),
+    ms2_data = c(x@ms2_data, y@ms2_data),
     sample_info = sample_info,
     variable_info = variable_info,
     sample_info_note = sample_info_note,
     variable_info_note = variable_info_note,
     process_info = c(x@process_info, y@process_info),
-    version = massdataset_version
+    version = massdataset_version,
+    annotation_table = annotation_table
   )
   
   return(object)

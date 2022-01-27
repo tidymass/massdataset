@@ -227,7 +227,7 @@ merge_mass_dataset <-
     object <- new(
       Class = "mass_dataset",
       expression_data = expression_data,
-      ms2_data = data.frame(),
+      ms2_data = c(x@ms2_data, x@ms2_data),
       sample_info = sample_info,
       variable_info = variable_info,
       sample_info_note = sample_info_note,
@@ -237,7 +237,7 @@ merge_mass_dataset <-
       annotation_table = annotation_table
     )
     
-    ###add paramters
+    ###add parameters
     ####add parameters
     process_info <- object@process_info
     

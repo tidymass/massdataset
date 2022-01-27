@@ -4,7 +4,7 @@
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param .data (required) A mass_dataset class object
-#' @param what (required) What should get be activated? 
+#' @param what (required) What should get be activated?
 #' Possible values are `sample_info`,
 #' `expression_data`, `variable_info`, `sample_info_note` `annotation_table`,or
 #' `variable_info_note`.
@@ -38,7 +38,8 @@ activate_mass_dataset <-
              "annotation_table"
            )) {
     check_object_class(object = .data, class = "mass_dataset")
-    what = match.arg(what)
-    .data@activated = what
+    what <- match.arg(what)
+    slot(object = .data, name = "activated") <- what
+    # .data@activated = what
     return(.data)
   }
