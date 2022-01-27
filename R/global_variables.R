@@ -12,5 +12,7 @@ globalVariables(names = c(
   "variable_id1",
   "variable_id2",
   "ms2_files_id",
-  "ms2_spectrum_id"
+  "ms2_spectrum_id",
+  "time",
+  "x"
 ))

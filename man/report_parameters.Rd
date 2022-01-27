@@ -8,7 +8,7 @@
 report_parameters(object, path = ".")
 }
 \arguments{
-\item{object}{(required) tidymass_parameters class object.}
+\item{object}{(required) mass_dataset class object.}
 
 \item{path}{working directory}
 }
@@ -49,7 +49,7 @@ object \%>\%
 
 object =
   object \%>\%
-  mutate_median_intensity() \%>\% 
+  mutate_median_intensity() \%>\%
   mutate_rsd()
 
 report_parameters(object = object, path = "demo_data")
