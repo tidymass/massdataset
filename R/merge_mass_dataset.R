@@ -66,24 +66,24 @@
 #'
 #' extract_expression_data(z3)
 
-merge_mass_dataset =
+merge_mass_dataset <-
   function(x,
            y,
            sample_direction = c("left", "right", "full", "inner"),
            variable_direction = c("left", "right", "full", "inner"),
            sample_by = c("sample_id"),
            variable_by = c("variable_id", "mz", "rt")) {
-    sample_direction = match.arg(sample_direction)
-    variable_direction = match.arg(variable_direction)
+    sample_direction <- match.arg(sample_direction)
+    variable_direction <- match.arg(variable_direction)
     
     #####sample merge
-    sample_info_x = x@sample_info
-    sample_info_y = y@sample_info
+    sample_info_x <- x@sample_info
+    sample_info_y <- y@sample_info
     
-    sample_info_note_x = x@sample_info_note
-    sample_info_note_y = y@sample_info_note
+    sample_info_note_x <- x@sample_info_note
+    sample_info_note_y <- y@sample_info_note
     
-    colnames(sample_info_y) =
+    colnames(sample_info_y) <-
       colnames(sample_info_y) %>%
       lapply(function(x) {
         if (x %in% colnames(sample_info_y)) {
@@ -95,47 +95,47 @@ merge_mass_dataset =
       }) %>%
       unlist()
     
-    sample_info_note_y$name = colnames(sample_info_y)
+    sample_info_note_y$name <- colnames(sample_info_y)
     
     ####left join
     if (sample_direction == "left") {
-      sample_info =
+      sample_info <-
         sample_info_x %>%
         dplyr::left_join(sample_info_y, by = sample_by)
     }
     
     if (sample_direction == "right") {
-      sample_info =
+      sample_info <-
         sample_info_x %>%
         dplyr::right_join(sample_info_y, by = sample_by)
     }
     
     if (sample_direction == "full") {
-      sample_info =
+      sample_info <-
         sample_info_x %>%
         dplyr::full_join(sample_info_y, by = sample_by)
     }
     
     if (sample_direction == "inner") {
-      sample_info =
+      sample_info <-
         sample_info_x %>%
         dplyr::inner_join(sample_info_y, by = sample_by)
     }
     
-    sample_info_note =
+    sample_info_note <-
       rbind(sample_info_note_x,
             sample_info_note_y) %>%
       dplyr::distinct(name, .keep_all = TRUE)
     
     
     #####variable merge
-    variable_info_x = x@variable_info
-    variable_info_y = y@variable_info
+    variable_info_x <- x@variable_info
+    variable_info_y <- y@variable_info
     
-    variable_info_note_x = x@variable_info_note
-    variable_info_note_y = y@variable_info_note
+    variable_info_note_x <- x@variable_info_note
+    variable_info_note_y <- y@variable_info_note
     
-    colnames(variable_info_y) =
+    colnames(variable_info_y) <-
       colnames(variable_info_y) %>%
       lapply(function(x) {
         if (x %in% colnames(variable_info_y)) {
@@ -147,44 +147,44 @@ merge_mass_dataset =
       }) %>%
       unlist()
     
-    variable_info_note_y$name = colnames(variable_info_y)
+    variable_info_note_y$name <- colnames(variable_info_y)
     
     ####left join
     if (variable_direction == "left") {
-      variable_info =
+      variable_info <-
         variable_info_x %>%
         dplyr::left_join(variable_info_y,
                          by = variable_by)
     }
     
     if (variable_direction == "right") {
-      variable_info =
+      variable_info <-
         variable_info_x %>%
         dplyr::right_join(variable_info_y, by = variable_by)
     }
     
     if (variable_direction == "full") {
-      variable_info =
+      variable_info <-
         variable_info_x %>%
         dplyr::full_join(variable_info_y, by = variable_by)
     }
     
     if (variable_direction == "inner") {
-      variable_info =
+      variable_info <-
         variable_info_x %>%
         dplyr::inner_join(variable_info_y, by = variable_by)
     }
     
-    variable_info_note =
+    variable_info_note <-
       rbind(variable_info_note_x,
             variable_info_note_y) %>%
       dplyr::distinct(name, .keep_all = TRUE)
     
     ####expression_data
-    expression_data_x = x@expression_data
-    expression_data_y = y@expression_data
+    expression_data_x <- x@expression_data
+    expression_data_y <- y@expression_data
     
-    expression_data =
+    expression_data <-
       expression_data_x %>%
       tibble::rownames_to_column(var = "variable_id") %>%
       dplyr::full_join(
@@ -197,8 +197,32 @@ merge_mass_dataset =
       ) %>%
       tibble::column_to_rownames(var = "variable_id")
     
-    expression_data =
+    expression_data <-
       expression_data[variable_info$variable_id, sample_info$sample_id]
+    
+    
+    ####annotation_table
+    annotation_table_x <- x@annotation_table
+    annotation_table_y <- y@annotation_table
+    
+    if(nrow(annotation_table_x) == 0 & nrow(annotation_table_y) == 0){
+      annotation_table <- annotation_table_x
+    }
+    
+    if(nrow(annotation_table_x) != 0 & nrow(annotation_table_y) == 0){
+      annotation_table <- annotation_table_x
+    }
+    
+    if(nrow(annotation_table_x) == 0 & nrow(annotation_table_y) != 0){
+      annotation_table <- annotation_table_y
+    }
+    
+    if(nrow(annotation_table_x) != 0 & nrow(annotation_table_y) != 0){
+      annotation_table <- 
+        rbind(annotation_table_x,
+              annotation_table_y) %>% 
+        dplyr::filter(variable_info$variable_id)
+    }
     
     object <- new(
       Class = "mass_dataset",
@@ -209,12 +233,13 @@ merge_mass_dataset =
       sample_info_note = sample_info_note,
       variable_info_note = variable_info_note,
       process_info = c(x@process_info, y@process_info),
-      version = massdataset_version
+      version = massdataset_version, 
+      annotation_table = annotation_table
     )
     
     ###add paramters
     ####add parameters
-    process_info = object@process_info
+    process_info <- object@process_info
     
     parameter <- new(
       Class = "tidymass_parameter",
@@ -230,12 +255,13 @@ merge_mass_dataset =
     )
     
     if (all(names(process_info) != "merge_mass_dataset")) {
-      process_info$merge_mass_dataset = parameter
+      process_info$merge_mass_dataset <- parameter
     } else{
-      process_info$merge_mass_dataset = c(process_info$merge_mass_dataset, parameter)
+      process_info$merge_mass_dataset <- 
+        c(process_info$merge_mass_dataset, parameter)
     }
     
-    object@process_info = process_info
+    object@process_info <- process_info
     
     return(object)
   }
