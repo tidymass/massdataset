@@ -24,7 +24,7 @@ filter.mass_dataset <- function(.data, ..., .preserve = FALSE) {
       .data@variable_info <- .data@variable_info %>% 
         filter(variable_id %in% annotation_table$variable_id)
       .data@expression_data <- 
-        .data@expression_data[x$variable_id, ,drop = FALSE]
+        .data@expression_data[.data@variable_info$variable_id, ,drop = FALSE]
     }
   }  
   
