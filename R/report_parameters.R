@@ -149,7 +149,7 @@ parse_tidymass_parameter <-
     
     if (is.null(names(object@parameter))) {
       names(object@parameter) = paste("parameter",
-                                      seq_along(x@parameter),
+                                      seq_along(object@parameter),
                                       sep = "_")
     }
     

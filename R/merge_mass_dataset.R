@@ -221,7 +221,8 @@ merge_mass_dataset <-
       annotation_table <- 
         rbind(annotation_table_x,
               annotation_table_y) %>% 
-        dplyr::filter(variable_id %in% variable_info$variable_id)
+        dplyr::filter(variable_id %in% variable_info$variable_id) %>% 
+        dplyr::distinct(.keep_all = TRUE)
     }
     
     object <- new(
