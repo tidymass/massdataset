@@ -168,7 +168,7 @@ parse_tidymass_parameter <-
                                   }
                                   paste(name, value, sep = ":")
                                 }) %>% unlist(),
-        time <- object@time
+        time = object@time
       )
     
     return(result)
