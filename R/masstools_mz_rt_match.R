@@ -1,4 +1,4 @@
-setGeneric("mz_rt_match", function(data1, data2, ...) standardGeneric("mz_rt_match"))
+setGeneric("mz_rt_match")
 
 #' @title mz_rt_match
 #' @method mz_rt_match mass_dataset
