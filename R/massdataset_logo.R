@@ -25,7 +25,7 @@
 #' @importFrom stats p.adjust rgamma sd median
 #' @importFrom utils data str head tail
 #' @importFrom magrittr %>%
-#' @importFrom ggsci pal_lancet 
+#' @importFrom ggsci pal_lancet
 #' @importFrom masstools read_mgf read_mzxml
 #' @importFrom rlang warn quo_is_null abort seq2
 #' @export
@@ -33,18 +33,19 @@
 #' @examples
 #' massdataset_logo()
 
-massdataset_logo <- function(){
+massdataset_logo <- function() {
   message(crayon::green("Thank you for using massdataset!\n"))
   message(crayon::green("Version", massdataset_version, "(", update_date, ')\n'))
   message(crayon::green("More information: search 'tidymass massdataset'.\n"))
   cat(crayon::green(
-    c("                          _____        _                 _   ", 
-      "                         |  __ \\      | |               | |  ", 
-      "  _ __ ___   __ _ ___ ___| |  | | __ _| |_ __ _ ___  ___| |_ ", 
-      " | '_ ` _ \\ / _` / __/ __| |  | |/ _` | __/ _` / __|/ _ \\ __|", 
-      " | | | | | | (_| \\__ \\__ \\ |__| | (_| | || (_| \\__ \\  __/ |_ ", 
-      " |_| |_| |_|\\__,_|___/___/_____/ \\__,_|\\__\\__,_|___/\\___|\\__|", 
-      "                                                             ", 
+    c(
+      "                          _____        _                 _   ",
+      "                         |  __ \\      | |               | |  ",
+      "  _ __ ___   __ _ ___ ___| |  | | __ _| |_ __ _ ___  ___| |_ ",
+      " | '_ ` _ \\ / _` / __/ __| |  | |/ _` | __/ _` / __|/ _ \\ __|",
+      " | | | | | | (_| \\__ \\__ \\ |__| | (_| | || (_| \\__ \\  __/ |_ ",
+      " |_| |_| |_|\\__,_|___/___/_____/ \\__,_|\\__\\__,_|___/\\___|\\__|",
+      "                                                             ",
       "                                                             "
     )
     
@@ -52,7 +53,7 @@ massdataset_logo <- function(){
 }
 
 massdataset_version = "0.99.6"
-update_date = "2021-12-15"
+update_date = as.character(Sys.time())
 
 #' @title get_massdataset_version
 #' @description Get massdataset package version
@@ -67,20 +68,19 @@ get_massdataset_version = function() {
   return(massdataset_version)
 }
 
-
 # library(cowsay)
 # # https://onlineasciitools.com/convert-text-to-ascii-art
 # # writeLines(capture.output(say("Hello"), type = "message"), con = "ascii_art.txt")
 # art <- readLines("logo.txt")
 # dput(art)
 # massdataset_logo <-
-#   c("                          _____        _                 _   ", 
-#     "                         |  __ \\      | |               | |  ", 
-#     "  _ __ ___   __ _ ___ ___| |  | | __ _| |_ __ _ ___  ___| |_ ", 
-#     " | '_ ` _ \\ / _` / __/ __| |  | |/ _` | __/ _` / __|/ _ \\ __|", 
-#     " | | | | | | (_| \\__ \\__ \\ |__| | (_| | || (_| \\__ \\  __/ |_ ", 
-#     " |_| |_| |_|\\__,_|___/___/_____/ \\__,_|\\__\\__,_|___/\\___|\\__|", 
-#     "                                                             ", 
+#   c("                          _____        _                 _   ",
+#     "                         |  __ \\      | |               | |  ",
+#     "  _ __ ___   __ _ ___ ___| |  | | __ _| |_ __ _ ___  ___| |_ ",
+#     " | '_ ` _ \\ / _` / __/ __| |  | |/ _` | __/ _` / __|/ _ \\ __|",
+#     " | | | | | | (_| \\__ \\__ \\ |__| | (_| | || (_| \\__ \\  __/ |_ ",
+#     " |_| |_| |_|\\__,_|___/___/_____/ \\__,_|\\__\\__,_|___/\\___|\\__|",
+#     "                                                             ",
 #     "                                                             "
 #   )
 # cat(massdataset_logo, sep = "\n")
