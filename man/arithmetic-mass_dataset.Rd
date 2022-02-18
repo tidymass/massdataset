@@ -9,10 +9,10 @@
 \alias{-,mass_dataset,numeric-method}
 \alias{*,mass_dataset,numeric-method}
 \alias{/,mass_dataset,numeric-method}
-\alias{colSums.mass_dataset}
-\alias{rowSums.mass_dataset}
-\alias{colMeans.mass_dataset}
-\alias{rowMeans.mass_dataset}
+\alias{colSums,mass_dataset-method}
+\alias{rowSums,mass_dataset-method}
+\alias{colMeans,mass_dataset-method}
+\alias{rowMeans,mass_dataset-method}
 \title{log}
 \usage{
 \method{log}{mass_dataset}(x, base = exp(1))
@@ -31,13 +31,13 @@
 
 \S4method{/}{mass_dataset,numeric}(e1, e2)
 
-\method{colSums}{mass_dataset}(x, na.rm = FALSE, dims = 1)
+\S4method{colSums}{mass_dataset}(x, na.rm = FALSE, dims = 1)
 
-\method{rowSums}{mass_dataset}(x, na.rm = FALSE, dims = 1)
+\S4method{rowSums}{mass_dataset}(x, na.rm = FALSE, dims = 1)
 
-\method{colMeans}{mass_dataset}(x, na.rm = FALSE, dims = 1)
+\S4method{colMeans}{mass_dataset}(x, na.rm = FALSE, dims = 1)
 
-\method{rowMeans}{mass_dataset}(x, na.rm = FALSE, dims = 1)
+\S4method{rowMeans}{mass_dataset}(x, na.rm = FALSE, dims = 1)
 }
 \arguments{
 \item{x}{x}
@@ -73,7 +73,7 @@ mass_dataset object
 
 mass_dataset object
 
-vector object
+result
 
 vector object
 
@@ -82,35 +82,58 @@ vector object
 vector object
 }
 \description{
-log
+#' @title colSums
+#' @method colSums mass_dataset
+#' @param x x
+#' @param na.rm na.rm
+#' @param dims dims
+#' @export
+#' @rdname arithmetic-mass_dataset
+#' @return vector object
 
-abs
+#' @title rowSums
+#' @method rowSums mass_dataset
+#' @param x x
+#' @param na.rm na.rm
+#' @param dims dims
+#' @export
+#' @rdname arithmetic-mass_dataset
+#' @return vector object
 
-sqrt
+#' @title colMeans
+#' @method colMeans mass_dataset
+#' @param x x
+#' @param na.rm na.rm
+#' @param dims dims
+#' @export
+#' @rdname arithmetic-mass_dataset
+#' @return vector object
 
-scale
-
-\itemize{
-\item 
+#' @title rowMeans
+#' @method rowMeans mass_dataset
+#' @param x x
+#' @param na.rm na.rm
+#' @param dims dims
+#' @export
+#' @rdname arithmetic-mass_dataset
+#' @return vector object
+}
+\details{
+colSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
+colSums(x@expression_data, na.rm = na.rm, dims = dims)
 }
 
-\itemize{
-\item 
+rowSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
+rowSums(x@expression_data, na.rm = na.rm, dims = dims)
 }
 
-\itemize{
-\item 
+colMeans.mass_dataset = function(x, na.rm = FALSE, dims = 1){
+colMeans(x@expression_data, na.rm = na.rm, dims = dims)
 }
 
-/
-
-colSums
-
-rowSums
-
-colMeans
-
-rowMeans
+rowMeans.mass_dataset = function(x, na.rm = FALSE, dims = 1){
+rowMeans(x@expression_data, na.rm = na.rm, dims = dims)
+}
 }
 \author{
 Xiaotao Shen
