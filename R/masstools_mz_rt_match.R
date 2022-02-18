@@ -1,5 +1,3 @@
-setGeneric("mz_rt_match")
-
 #' @title mz_rt_match
 #' @method mz_rt_match mass_dataset
 #' @param data1 A mass_dataset object.
