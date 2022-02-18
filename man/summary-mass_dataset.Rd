@@ -12,7 +12,7 @@
 \alias{ncol.mass_dataset}
 \alias{colnames.mass_dataset}
 \alias{rownames.mass_dataset}
-\alias{apply.mass_dataset}
+\alias{apply,mass_dataset-method}
 \alias{intersect.mass_dataset}
 \alias{summary.mass_dataset}
 \alias{length.mass_dataset}
@@ -44,7 +44,7 @@ get_mv_number(
 
 \method{rownames}{mass_dataset}(x)
 
-\method{apply}{mass_dataset}(X, MARGIN, FUN, ..., simplify = TRUE)
+\S4method{apply}{mass_dataset}(X, MARGIN, FUN, ..., simplify = TRUE)
 
 \method{intersect}{mass_dataset}(x, y)
 
@@ -119,6 +119,24 @@ Sample IDs
 Variable IDs
 
 Get missing value number/percentage in expression data.
+
+###old version
+#' @title apply
+#' @method apply mass_dataset
+#' @param X X
+#' @param MARGIN MARGIN
+#' @param FUN FUN
+#' @param ... ...
+#' @param simplify simplify
+#' @export
+#' @rdname summary-mass_dataset
+#' @return result
+}
+\details{
+apply.mass_dataset =
+function(X, MARGIN, FUN, ..., simplify = TRUE){
+apply(as.matrix(X@expression_data), MARGIN, FUN, ..., simplify = simplify)
+}
 }
 \examples{
 data("expression_data")

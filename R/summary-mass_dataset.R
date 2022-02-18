@@ -242,6 +242,22 @@ rownames.mass_dataset =
     rownames(x@expression_data)
   }
 
+#' ###old version
+#' #' @title apply
+#' #' @method apply mass_dataset
+#' #' @param X X
+#' #' @param MARGIN MARGIN
+#' #' @param FUN FUN
+#' #' @param ... ...
+#' #' @param simplify simplify
+#' #' @export
+#' #' @rdname summary-mass_dataset
+#' #' @return result
+#' 
+#' apply.mass_dataset = 
+#'   function(X, MARGIN, FUN, ..., simplify = TRUE){
+#'     apply(as.matrix(X@expression_data), MARGIN, FUN, ..., simplify = simplify)
+#'   }
 
 #' @title apply
 #' @method apply mass_dataset
@@ -254,14 +270,12 @@ rownames.mass_dataset =
 #' @rdname summary-mass_dataset
 #' @return result
 
-apply.mass_dataset = 
-  function(X, MARGIN, FUN, ..., simplify = TRUE){
-    apply(as.matrix(X@expression_data), MARGIN, FUN, ..., simplify = simplify)
-  }
-
-
-
-
+setMethod(f = "apply",
+          signature(X = "mass_dataset"),
+          function (X, MARGIN, FUN, ..., simplify = TRUE) {
+            apply(as.matrix(X@expression_data), 
+                  MARGIN, FUN, ..., simplify = simplify)
+          })
 
 
 #' @title intersect

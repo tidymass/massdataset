@@ -55,10 +55,17 @@ For example, you can get the information of your object.
 dim(object)
 nrow(object)
 ncol(object)
+```
+
+```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 dimnames(object)
 ```
 
 This means that `object` has 1000 variables and 8 samples.
+
+```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+apply(object, 2, mean)
+```
 
 You can also get the sample ids and variables.
 
