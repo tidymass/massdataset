@@ -126,6 +126,8 @@ navbar:
         href: articles/tidyverse_verse.html
       - text: "R base functions for mass_dataset"
         href: articles/base_function.html
+      - text: "Develop functions based on mass_dataset"
+        href: articles/based_on_mass_dataset.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/JasperShen1990

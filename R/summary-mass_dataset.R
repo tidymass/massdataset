@@ -225,7 +225,7 @@ ncol.mass_dataset <- function(x) {
 #' @return message
 
 colnames.mass_dataset =
-  function(x){
+  function(x) {
     colnames(x@expression_data)
   }
 
@@ -253,8 +253,8 @@ rownames.mass_dataset =
 #' #' @export
 #' #' @rdname summary-mass_dataset
 #' #' @return result
-#' 
-#' apply.mass_dataset = 
+#'
+#' apply.mass_dataset =
 #'   function(X, MARGIN, FUN, ..., simplify = TRUE){
 #'     apply(as.matrix(X@expression_data), MARGIN, FUN, ..., simplify = simplify)
 #'   }
@@ -273,9 +273,24 @@ rownames.mass_dataset =
 setMethod(f = "apply",
           signature(X = "mass_dataset"),
           function (X, MARGIN, FUN, ..., simplify = TRUE) {
-            apply(as.matrix(X@expression_data), 
+            apply(as.matrix(X@expression_data),
                   MARGIN, FUN, ..., simplify = simplify)
           })
+
+
+#' #' @title intersect
+#' #' @method intersect mass_dataset
+#' #' @param x x
+#' #' @param y y
+#' #' @export
+#' #' @rdname summary-mass_dataset
+#' #' @return result
+#'
+#' intersect.mass_dataset = function(x, y){
+#'   intersect(x@sample_info$sample_id,
+#'             y@sample_info$sample_id)
+#' }
+
 
 
 #' @title intersect
@@ -284,12 +299,15 @@ setMethod(f = "apply",
 #' @param y y
 #' @export
 #' @rdname summary-mass_dataset
-#' @return mass_dataset object
+#' @return result
 
-intersect.mass_dataset = function(x, y){
-  intersect(x@sample_info$sample_id,
-            y@sample_info$sample_id)
-}
+setMethod(f = "intersect",
+          signature(x = "mass_dataset",
+                    y = "mass_dataset"),
+          function (x, y) {
+            intersect(x@sample_info$sample_id,
+                      y@sample_info$sample_id)
+          })
 
 
 #' @title summary
@@ -309,7 +327,7 @@ summary.mass_dataset <- function(object, ...) {
 #' @rdname summary-mass_dataset
 #' @return vector object
 
-length.mass_dataset = function(x){
+length.mass_dataset = function(x) {
   length(x@expression_data)
 }
 
@@ -321,11 +339,9 @@ length.mass_dataset = function(x){
 #' @rdname summary-mass_dataset
 #' @return vector object
 
-names.mass_dataset = function(x){
+names.mass_dataset = function(x) {
   names(x@expression_data)
 }
-
-
 
 #' @title dimnames
 #' @method dimnames mass_dataset
@@ -334,10 +350,6 @@ names.mass_dataset = function(x){
 #' @rdname summary-mass_dataset
 #' @return vector object
 
-dimnames.mass_dataset = function(x){
+dimnames.mass_dataset = function(x) {
   dimnames(x@expression_data)
 }
-
-
-
-

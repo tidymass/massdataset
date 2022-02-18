@@ -15,7 +15,7 @@
 \alias{colnames.mass_dataset}
 \alias{rownames.mass_dataset}
 \alias{apply,mass_dataset-method}
-\alias{intersect.mass_dataset}
+\alias{intersect,mass_dataset,mass_dataset-method}
 \alias{summary.mass_dataset}
 \alias{length.mass_dataset}
 \alias{names.mass_dataset}
@@ -56,7 +56,7 @@ get_mv_number(
 
 \S4method{apply}{mass_dataset}(X, MARGIN, FUN, ..., simplify = TRUE)
 
-\method{intersect}{mass_dataset}(x, y)
+\S4method{intersect}{mass_dataset,mass_dataset}(x, y)
 
 \method{summary}{mass_dataset}(object, ...)
 
@@ -123,7 +123,7 @@ message
 
 result
 
-mass_dataset object
+result
 
 vector object
 
@@ -153,11 +153,24 @@ Get missing value number/percentage in expression data.
 #' @export
 #' @rdname summary-mass_dataset
 #' @return result
+
+#' @title intersect
+#' @method intersect mass_dataset
+#' @param x x
+#' @param y y
+#' @export
+#' @rdname summary-mass_dataset
+#' @return result
 }
 \details{
 apply.mass_dataset =
 function(X, MARGIN, FUN, ..., simplify = TRUE){
 apply(as.matrix(X@expression_data), MARGIN, FUN, ..., simplify = simplify)
+}
+
+intersect.mass_dataset = function(x, y){
+intersect(x@sample_info$sample_id,
+y@sample_info$sample_id)
 }
 }
 \examples{
