@@ -1,10 +1,11 @@
 pandoc: 2.14.0.3
-pkgdown: 2.0.1
+pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   accessor: accessor.html
   add_information: add_information.html
   base_function: base_function.html
+  based_on_mass_dataset: based_on_mass_dataset.html
   cbind_rbind_mass_dataset: cbind_rbind_mass_dataset.html
   contact_us: contact_us.html
   data_import_and_export: data_import_and_export.html
@@ -17,7 +18,7 @@ articles:
   process_info: process_info.html
   summary_info: summary_info.html
   tidyverse_verse: tidyverse_verse.html
-last_built: 2022-01-17T03:58Z
+last_built: 2022-02-18T20:10Z
 urls:
   reference: https://tidymass.github.io/massdataset/reference
   article: https://tidymass.github.io/massdataset/articles

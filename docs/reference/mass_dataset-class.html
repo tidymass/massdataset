@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.1</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.7</span>
       </span>
     </div>
 
@@ -88,6 +88,9 @@
     <li>
       <a href="../articles/base_function.html">R base functions for mass_dataset</a>
     </li>
+    <li>
+      <a href="../articles/based_on_mass_dataset.html">Develop functions based on mass_dataset</a>
+    </li>
   </ul></li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -137,7 +140,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>An S4 class that stores the MS dataset</h1>
-    <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/mass_dataset_class.R" class="external-link"><code>R/mass_dataset_class.R</code></a>, <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/tinytools_mz_rt_match.R" class="external-link"><code>R/tinytools_mz_rt_match.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/mass_dataset_class.R" class="external-link"><code>R/mass_dataset_class.R</code></a></small>
     <div class="hidden name"><code>mass_dataset-class.Rd</code></div>
     </div>
 
@@ -145,34 +148,7 @@
     <p>An S4 class that stores the MS dataset</p>
     </div>
 
-    <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for mass_dataset</span>
-<span class="fu"><a href="https://rdrr.io/pkg/tinytools/man/mz_rt_match.html" class="external-link">mz_rt_match</a></span><span class="op">(</span>
-  <span class="va">data1</span>,
-  <span class="va">data2</span>,
-  mz.tol <span class="op">=</span> <span class="fl">10</span>,
-  rt.tol <span class="op">=</span> <span class="fl">30</span>,
-  rt.error.type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"abs"</span>, <span class="st">"relative"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
-    </div>
 
-    <div id="arguments">
-    <h2>Arguments</h2>
-    <dl><dt>data1</dt>
-<dd><p>A mass_dataset object.</p></dd>
-<dt>data2</dt>
-<dd><p>A mass_dataset object.</p></dd>
-<dt>mz.tol</dt>
-<dd><p>mz tolerance. default is 10 ppm.</p></dd>
-<dt>rt.tol</dt>
-<dd><p>rt tolerance. default is 30 seconds.</p></dd>
-<dt>rt.error.type</dt>
-<dd><p>RT match tolerance. abs (absolute) or relative.</p></dd>
-</dl></div>
-    <div id="value">
-    <h2>Value</h2>
-    <p>A merged mass_dataset object</p>
-    </div>
     <div id="slots">
     <h2>Slots</h2>
     

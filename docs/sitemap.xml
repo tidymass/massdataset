@@ -16,6 +16,9 @@
     <loc>https://tidymass.github.io/massdataset/articles/base_function.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/articles/based_on_mass_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/articles/cbind_rbind_mass_dataset.html</loc>
   </url>
   <url>
@@ -230,6 +233,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/nrow.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/parse_tidymass_parameter.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/processing-mass_dataset.html</loc>

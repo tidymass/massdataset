@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.1</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.7</span>
       </span>
     </div>
 
@@ -87,6 +87,9 @@
     </li>
     <li>
       <a href="../articles/base_function.html">R base functions for mass_dataset</a>
+    </li>
+    <li>
+      <a href="../articles/based_on_mass_dataset.html">Develop functions based on mass_dataset</a>
     </li>
   </ul></li>
 <li class="dropdown">
@@ -179,7 +182,7 @@
 <span class="r-in"></span>
 <span class="r-in"><span class="va">object</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 0.99.1 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 0.99.7 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
@@ -191,7 +194,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-16 19:58:34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-02-18 12:10:42</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">####only remain QC samples</span></span>
 <span class="r-in"><span class="va">sample_info</span> <span class="op">=</span> <span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span>
@@ -204,7 +207,7 @@
 <span class="r-in"><span class="va">object</span> <span class="op">=</span> <span class="fu">update_mass_dataset</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">object</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 0.99.1 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 0.99.7 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 2 x 4 data.frame]</span>
@@ -216,10 +219,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-16 19:58:34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-02-18 12:10:42</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">update_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset update_mass_dataset() 2022-01-16 19:58:34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset update_mass_dataset() 2022-02-18 12:10:42</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">####only remain feature with mz &lt; 300</span></span>
 <span class="r-in"><span class="va">variable_info</span> <span class="op">=</span> <span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span>
@@ -232,7 +235,7 @@
 <span class="r-in"><span class="va">object</span> <span class="op">=</span> <span class="fu">update_mass_dataset</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">object</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 0.99.1 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 0.99.7 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 740 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 2 x 4 data.frame]</span>
@@ -244,11 +247,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-01-16 19:58:34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-02-18 12:10:42</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">update_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset update_mass_dataset() 2022-01-16 19:58:34</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset update_mass_dataset() 2022-01-16 19:58:34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset update_mass_dataset() 2022-02-18 12:10:42</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset update_mass_dataset() 2022-02-18 12:10:42</span>
 </code></pre></div>
     </div>
   </div>
