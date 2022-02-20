@@ -18,17 +18,17 @@
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#'
+#' 
 #' object =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#'
+#' 
 #' x = object[1:3, 5:7]
 #' y = object[2:4, 6:8]
-#'
+#' 
 #' ####full merge for samples and variables
 #' z1 =
 #' merge_mass_dataset(
@@ -37,7 +37,7 @@
 #'   sample_direction = "full",
 #'   variable_direction = "full"
 #' )
-#'
+#' 
 #' ####inner merge for samples and full merge for variables
 #' z2 =
 #'   merge_mass_dataset(
@@ -46,16 +46,16 @@
 #'     sample_direction = "inner",
 #'     variable_direction = "full"
 #'   )
-#'
+#' 
 #' extract_expression_data(x)
 #' extract_expression_data(y)
 #' extract_expression_data(z1)
 #' extract_expression_data(z2)
-#'
+#' 
 #' ######combine pos and neg
 #' x = object[1:3, 5:7]
 #' y = object[4:6, 6:8]
-#'
+#' 
 #' z3 =
 #'   merge_mass_dataset(
 #'     x = x,
@@ -63,7 +63,7 @@
 #'     sample_direction = "full",
 #'     variable_direction = "full"
 #'   )
-#'
+#' 
 #' extract_expression_data(z3)
 
 merge_mass_dataset <-

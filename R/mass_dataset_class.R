@@ -3,16 +3,16 @@
 #' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param expression_data MS1 peak table name. 
+#' @param expression_data MS1 peak table name.
 #' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
 #' @param sample_info Sample information name.
 #' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
-#' @param variable_info MS1 peak table name. 
+#' @param variable_info MS1 peak table name.
 #' Columns are samples and rows are variables.
 #' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
 #' @param sample_info_note Sample information name.
 #' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
-#' @param variable_info_note Sample information name. 
+#' @param variable_info_note Sample information name.
 #' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
 #' @return A mass_dataset-class object.
 #' @export
@@ -117,5 +117,6 @@ setClass(
     process_info = "list",
     version = "character",
     activated = "character"
-  )
+  ),
+  validity = check_mass_dataset_class
 )
