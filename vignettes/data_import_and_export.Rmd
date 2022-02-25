@@ -201,6 +201,30 @@ object =
 object
 ```
 
+
+# **MS-DIAL feature table to `mass_dataset` class**
+
+We can also directory convert feature table from [MS-DIAL](http://prime.psc.riken.jp/compms/msdial/main.html) to `mass_dataset` class.
+
+An example feature table from MS-DIAL.
+
+```{r,eval=TRUE, echo=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+data("msdial_table")
+library(kableExtra)
+library(magrittr)
+kbl(msdial_table) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                fixed_thead = TRUE) %>% 
+  scroll_box(width = "100%", height = "600px")
+```
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
+data("msdial_table")
+object =
+   convert_msdial2mass_dataset(x = msdial_table)
+object
+```
+
 # **Session information**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
