@@ -17,5 +17,10 @@ globalVariables(names = c(
   "x",
   "row ID",
   "row retention time",
-  ""
+  "Injection order",
+  "Batch ID",
+  "Class",
+  "Alignment ID",
+  "Average Mz",
+  "Average Rt(min)"
 ))

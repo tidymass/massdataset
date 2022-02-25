@@ -20,6 +20,7 @@ Convert mzmine feature table to mass_dataset class.
 }
 \examples{
 data("mzmine_table")
+head(mzmine_table[,1:3])
 object =
   convet_mzmine2mass_dataset(x = mzmine_table)
 object
