@@ -196,8 +196,10 @@ kbl(mzmine_table) %>%
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
 data("mzmine_table")
+object =
+   convet_mzmine2mass_dataset(x = mzmine_table)
+object
 ```
-
 
 # **Session information**
 

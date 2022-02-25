@@ -85,6 +85,9 @@
     <loc>https://tidymass.github.io/massdataset/reference/check_mass_dataset.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/reference/check_mass_dataset_class.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/reference/check_object_class.html</loc>
   </url>
   <url>
@@ -92,6 +95,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/colnames.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/convet_mzmine2mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/create_mass_dataset.html</loc>
@@ -227,6 +233,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/mutate_variable_na_number.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/mzmine_table.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/ncol.html</loc>
