@@ -32,7 +32,7 @@
 #'   )
 #' object
 
-create_mass_dataset =
+create_mass_dataset <-
   function(expression_data,
            sample_info,
            variable_info,

@@ -46,3 +46,14 @@
 #' @docType data
 
 "variable_info"
+
+
+#' mzmine feature table
+#' 
+#' mzmine_table
+#' An example feature table from mzMine.
+#' 
+#' @format A data frame.
+#' @docType data
+
+"mzmine_table"

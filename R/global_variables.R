@@ -14,5 +14,8 @@ globalVariables(names = c(
   "ms2_files_id",
   "ms2_spectrum_id",
   "time",
-  "x"
+  "x",
+  "row ID",
+  "row retention time",
+  ""
 ))

@@ -22,7 +22,7 @@
 #' @importFrom methods slot slot<-
 #' @import ggplot2
 #' @importFrom methods .hasSlot new is
-#' @importFrom stats p.adjust rgamma sd median
+#' @importFrom stats p.adjust rgamma sd median time
 #' @importFrom utils data str head tail
 #' @importFrom magrittr %>%
 #' @importFrom ggsci pal_lancet
@@ -52,7 +52,7 @@ massdataset_logo <- function() {
   ), sep = "\n")
 }
 
-massdataset_version = "0.99.8"
+massdataset_version = "0.99.9"
 update_date = as.character(Sys.time())
 
 #' @title get_massdataset_version
