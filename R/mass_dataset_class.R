@@ -52,13 +52,19 @@ create_mass_dataset <-
     }
     
     if (missing(sample_info_note)) {
-      sample_info_note = data.frame(name = colnames(sample_info),
-                                    meaning = colnames(sample_info))
+      sample_info_note <-
+        data.frame(
+          name = colnames(sample_info),
+          meaning = colnames(sample_info),
+          check.names = FALSE
+        )
     }
     
     if (missing(variable_info_note)) {
-      variable_info_note = data.frame(name = colnames(variable_info),
-                                      meaning = colnames(variable_info))
+      variable_info_note <-
+        data.frame(name = colnames(variable_info),
+                   meaning = colnames(variable_info),
+                   check.names = FALSE)
     }
     
     process_info = list()

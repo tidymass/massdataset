@@ -62,3 +62,19 @@ style_grey <- function(level, ...) {
   crayon::style(paste0(...),
                 crayon::make_style(grDevices::grey(level), grey = TRUE))
 }
+
+
+check_column_name <-
+  function(df, column.name) {
+    if(column.name %in% colnames(df)){
+      old_index <- 
+      grep(column.name, colnames(df), value = TRUE) %>% 
+        stringr::str_extract("\\.[0-9]{1,2}") %>% 
+        stringr::str_replace("\\.", "")
+      old_index[is.na(old_index)] <- 0
+      new_index <- max(as.numeric(old_index)) + 1
+      paste(column.name, new_index, sep = ".")
+    }else{
+      column.name
+    }
+  }

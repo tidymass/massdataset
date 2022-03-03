@@ -196,14 +196,18 @@ show_sample_missing_values =
     
     if (desc) {
       temp_data =
-        data.frame(sample_info, na = na) %>%
+        data.frame(sample_info, 
+                   na = na,
+                   check.names = FALSE) %>%
         dplyr::arrange(desc(get(order_by))) %>%
         dplyr::mutate(sample_id = factor(sample_id,
                                          levels = sample_id))
       
     } else{
       temp_data =
-        data.frame(sample_info, na = na) %>%
+        data.frame(sample_info, 
+                   na = na,
+                   check.names = FALSE) %>%
         dplyr::arrange(get(order_by)) %>%
         dplyr::mutate(sample_id = factor(sample_id,
                                          levels = sample_id))
@@ -335,14 +339,18 @@ show_variable_missing_values =
     
     if (desc) {
       temp_data =
-        data.frame(variable_info, na = na) %>%
+        data.frame(variable_info, 
+                   na = na,
+                   check.names = FALSE) %>%
         dplyr::arrange(desc(get(order_by))) %>%
         dplyr::mutate(variable_id = factor(variable_id,
                                            levels = variable_id))
       
     } else{
       temp_data =
-        data.frame(variable_info, na = na) %>%
+        data.frame(variable_info, 
+                   na = na,
+                   check.names = FALSE) %>%
         dplyr::arrange(get(order_by)) %>%
         dplyr::mutate(variable_id = factor(variable_id,
                                            levels = variable_id))

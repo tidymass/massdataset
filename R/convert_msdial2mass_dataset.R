@@ -4,7 +4,6 @@
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param x Feature table from MS-DIAL.
-#' @param rt_unit RT unit (minute or second) in feature table.
 #' @return A mass_dataset-class object.
 #' @importFrom magrittr %>%
 #' @importFrom dplyr filter rename
@@ -102,13 +101,17 @@ convert_msdial2mass_dataset <-
         variable_info$rt * 60
 
     
-    sample_info_note = data.frame(name = colnames(sample_info),
-                                  meaning = colnames(sample_info))
+      sample_info_note <-
+        data.frame(name = colnames(sample_info),
+                   meaning = colnames(sample_info),
+                   check.names = FALSE)
     
-    
-    
-    variable_info_note = data.frame(name = colnames(variable_info),
-                                    meaning = colnames(variable_info))
+      variable_info_note <-
+        data.frame(
+          name = colnames(variable_info),
+          meaning = colnames(variable_info),
+          check.names = FALSE
+        )
     
     check_result <-
       check_mass_dataset(

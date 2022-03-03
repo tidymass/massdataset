@@ -57,9 +57,11 @@ intensity_plot = function(object,
   
   int <-
     as.numeric(object@expression_data[variable_id,])
-    
-  temp_data = 
-    data.frame(object@sample_info, int)
+  
+  temp_data <- 
+    data.frame(object@sample_info, 
+               int,
+               check.names = FALSE)
   
   if (missing(color_by)) {
     color_by = "no"

@@ -40,7 +40,8 @@ mutate.mass_dataset <- function(.data, ...) {
       new_sample_info_note =
         data.frame(
           name = setdiff(colnames(temp_slot), .data@sample_info_note$name),
-          meaning = setdiff(colnames(temp_slot), .data@sample_info_note$name)
+          meaning = setdiff(colnames(temp_slot), .data@sample_info_note$name),
+          check.names = FALSE
         )
       .data@sample_info_note =
         rbind(.data@sample_info_note,
@@ -54,7 +55,8 @@ mutate.mass_dataset <- function(.data, ...) {
       new_variable_info_note =
         data.frame(
           name = setdiff(colnames(temp_slot), .data@variable_info_note$name),
-          meaning = setdiff(colnames(temp_slot), .data@variable_info_note$name)
+          meaning = setdiff(colnames(temp_slot), .data@variable_info_note$name),
+          check.names = FALSE
         )
       .data@variable_info_note =
         rbind(.data@variable_info_note,
@@ -102,7 +104,9 @@ mutate.mass_dataset <- function(.data, ...) {
       }) %>%
       unlist()
     sample_name =
-      data.frame(new_sample_name, old_sample_name)
+      data.frame(new_sample_name, 
+                 old_sample_name,
+                 check.names = FALSE)
     sample_name = sample_name[sample_name$old_sample_name %in% colnames(temp_slot), , drop = FALSE]
     sample_name =
       sample_name %>%

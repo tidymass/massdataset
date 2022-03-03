@@ -72,16 +72,26 @@ mutate_rsd =
         sd(x, na.rm = TRUE) * 100/mean(x, na.rm = TRUE)
       })
     
-    object@variable_info =
-      data.frame(object@variable_info, rsd = rsd)
     
+    new_column_name <- 
+      check_column_name(object@variable_info , 
+                        column.name = "rsd")
+    
+    object@variable_info =
+      cbind(object@variable_info,
+            rsd = rsd) %>%
+      as.data.frame()
+    
+    colnames(object@variable_info)[ncol(object@variable_info)] <-
+      new_column_name
     
     ####variable_info_note
     new_variable_info_note = 
       data.frame(name = setdiff(colnames(object@variable_info), 
                                 object@variable_info_note$name),
                  meaning = setdiff(colnames(object@variable_info), 
-                                   object@variable_info_note$name))
+                                   object@variable_info_note$name),
+                 check.names = FALSE)
     object@variable_info_note = 
       rbind(object@variable_info_note,
             new_variable_info_note)

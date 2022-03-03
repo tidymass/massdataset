@@ -106,7 +106,8 @@ mutate_ms2 =
                     "mz" = info[1],
                     "rt" = info[2],
                     "file" = temp_ms2_data_name,
-                    stringsAsFactors = FALSE
+                    stringsAsFactors = FALSE,
+                    check.names = FALSE
                   )
                 rownames(info) <- NULL
                 x$info <- info
@@ -186,7 +187,7 @@ mutate_ms2 =
           return(c(idx, idx2[which.max(unlist(lapply(temp.ms2.info, function(y) {
             y <- y[order(y[, 2], decreasing = TRUE), , drop = FALSE]
             if (nrow(y) > 5)
-              y <- y[seq_len(5), ]
+              y <- y[seq_len(5),]
             sum(y[, 2])
           })))]))
         }
@@ -196,10 +197,14 @@ mutate_ms2 =
       as.data.frame()
     
     colnames(match.result) <- c("Index1", "Index2")
-    match.result <- data.frame(match.result,
-                               variable_info$variable_id[match.result$Index1],
-                               ms1.info$name[match.result$Index2],
-                               stringsAsFactors = FALSE)
+    match.result <-
+      data.frame(
+        match.result,
+        variable_info$variable_id[match.result$Index1],
+        ms1.info$name[match.result$Index2],
+        stringsAsFactors = FALSE,
+        check.names = FALSE
+      )
     
     colnames(match.result) <-
       c("Index1.ms1.data",

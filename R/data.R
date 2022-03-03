@@ -57,3 +57,14 @@
 #' @docType data
 
 "mzmine_table"
+
+
+#' msdial_table feature table
+#' 
+#' msdial_table
+#' An example feature table from mzMine.
+#' 
+#' @format A data frame.
+#' @docType data
+
+"msdial_table"

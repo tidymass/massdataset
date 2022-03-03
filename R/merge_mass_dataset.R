@@ -1,14 +1,14 @@
 #' @title merge_mass_dataset
-#' @description Merge two mass_dataset objects. More information can be found 
+#' @description Merge two mass_dataset objects. More information can be found
 #' here \url{https://tidymass.github.io/massdataset/articles/process_info.html}
 #' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param x (required) A mass_dataset class object.
 #' @param y (required) A mass_dataset class object.
-#' @param sample_direction How to merge samples, should be 
+#' @param sample_direction How to merge samples, should be
 #' left, right, inner or full. See ?left_join
-#' @param variable_direction How to merge variables, 
+#' @param variable_direction How to merge variables,
 #' should be left, right, inner or full.
 #' @param sample_by merge samples by what columns from sample_info.
 #' @param variable_by merge variables by what columns from variable_info
@@ -18,17 +18,17 @@
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' 
+#'
 #' object =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#' 
+#'
 #' x = object[1:3, 5:7]
 #' y = object[2:4, 6:8]
-#' 
+#'
 #' ####full merge for samples and variables
 #' z1 =
 #' merge_mass_dataset(
@@ -37,7 +37,7 @@
 #'   sample_direction = "full",
 #'   variable_direction = "full"
 #' )
-#' 
+#'
 #' ####inner merge for samples and full merge for variables
 #' z2 =
 #'   merge_mass_dataset(
@@ -46,16 +46,16 @@
 #'     sample_direction = "inner",
 #'     variable_direction = "full"
 #'   )
-#' 
+#'
 #' extract_expression_data(x)
 #' extract_expression_data(y)
 #' extract_expression_data(z1)
 #' extract_expression_data(z2)
-#' 
+#'
 #' ######combine pos and neg
 #' x = object[1:3, 5:7]
 #' y = object[4:6, 6:8]
-#' 
+#'
 #' z3 =
 #'   merge_mass_dataset(
 #'     x = x,
@@ -63,7 +63,7 @@
 #'     sample_direction = "full",
 #'     variable_direction = "full"
 #'   )
-#' 
+#'
 #' extract_expression_data(z3)
 
 merge_mass_dataset <-
@@ -83,12 +83,17 @@ merge_mass_dataset <-
     sample_info_note_x <- x@sample_info_note
     sample_info_note_y <- y@sample_info_note
     
+    merger_number <-
+      length(x@process_info$merge_mass_dataset) +
+      length(y@process_info$merge_mass_dataset) +
+      2
+    
     colnames(sample_info_y) <-
       colnames(sample_info_y) %>%
       lapply(function(x) {
-        if (x %in% colnames(sample_info_y)) {
+        if (x %in% colnames(sample_info_x)) {
           if (!x %in% sample_by) {
-            x = paste(x, 2, sep = "_")
+            x = paste(x, merger_number, sep = "_")
           }
         }
         x
@@ -101,32 +106,35 @@ merge_mass_dataset <-
     if (sample_direction == "left") {
       sample_info <-
         sample_info_x %>%
-        dplyr::left_join(sample_info_y, by = sample_by)
+        dplyr::left_join(sample_info_y,
+                         by = sample_by)
     }
     
     if (sample_direction == "right") {
       sample_info <-
         sample_info_x %>%
-        dplyr::right_join(sample_info_y, by = sample_by)
+        dplyr::right_join(sample_info_y,
+                          by = sample_by)
     }
     
     if (sample_direction == "full") {
       sample_info <-
         sample_info_x %>%
-        dplyr::full_join(sample_info_y, by = sample_by)
+        dplyr::full_join(sample_info_y,
+                         by = sample_by)
     }
     
     if (sample_direction == "inner") {
       sample_info <-
         sample_info_x %>%
-        dplyr::inner_join(sample_info_y, by = sample_by)
+        dplyr::inner_join(sample_info_y,
+                          by = sample_by)
     }
     
     sample_info_note <-
       rbind(sample_info_note_x,
             sample_info_note_y) %>%
       dplyr::distinct(name, .keep_all = TRUE)
-    
     
     #####variable merge
     variable_info_x <- x@variable_info
@@ -138,9 +146,9 @@ merge_mass_dataset <-
     colnames(variable_info_y) <-
       colnames(variable_info_y) %>%
       lapply(function(x) {
-        if (x %in% colnames(variable_info_y)) {
+        if (x %in% colnames(variable_info_x)) {
           if (!x %in% variable_by) {
-            x = paste(x, 2, sep = "_")
+            x = paste(x, merger_number, sep = "_")
           }
         }
         x
@@ -160,19 +168,22 @@ merge_mass_dataset <-
     if (variable_direction == "right") {
       variable_info <-
         variable_info_x %>%
-        dplyr::right_join(variable_info_y, by = variable_by)
+        dplyr::right_join(variable_info_y,
+                          by = variable_by)
     }
     
     if (variable_direction == "full") {
       variable_info <-
         variable_info_x %>%
-        dplyr::full_join(variable_info_y, by = variable_by)
+        dplyr::full_join(variable_info_y,
+                         by = variable_by)
     }
     
     if (variable_direction == "inner") {
       variable_info <-
         variable_info_x %>%
-        dplyr::inner_join(variable_info_y, by = variable_by)
+        dplyr::inner_join(variable_info_y,
+                          by = variable_by)
     }
     
     variable_info_note <-
@@ -205,23 +216,27 @@ merge_mass_dataset <-
     annotation_table_x <- x@annotation_table
     annotation_table_y <- y@annotation_table
     
-    if(nrow(annotation_table_x) == 0 & nrow(annotation_table_y) == 0){
+    if (nrow(annotation_table_x) == 0 &
+        nrow(annotation_table_y) == 0) {
       annotation_table <- annotation_table_x
     }
     
-    if(nrow(annotation_table_x) != 0 & nrow(annotation_table_y) == 0){
+    if (nrow(annotation_table_x) != 0 &
+        nrow(annotation_table_y) == 0) {
       annotation_table <- annotation_table_x
     }
     
-    if(nrow(annotation_table_x) == 0 & nrow(annotation_table_y) != 0){
+    if (nrow(annotation_table_x) == 0 &
+        nrow(annotation_table_y) != 0) {
       annotation_table <- annotation_table_y
     }
     
-    if(nrow(annotation_table_x) != 0 & nrow(annotation_table_y) != 0){
-      annotation_table <- 
+    if (nrow(annotation_table_x) != 0 &
+        nrow(annotation_table_y) != 0) {
+      annotation_table <-
         rbind(annotation_table_x,
-              annotation_table_y) %>% 
-        dplyr::filter(variable_id %in% variable_info$variable_id) %>% 
+              annotation_table_y) %>%
+        dplyr::filter(variable_id %in% variable_info$variable_id) %>%
         dplyr::distinct(.keep_all = TRUE)
     }
     
@@ -234,7 +249,7 @@ merge_mass_dataset <-
       sample_info_note = sample_info_note,
       variable_info_note = variable_info_note,
       process_info = c(x@process_info, y@process_info),
-      version = massdataset_version, 
+      version = massdataset_version,
       annotation_table = annotation_table
     )
     
@@ -258,7 +273,7 @@ merge_mass_dataset <-
     if (all(names(process_info) != "merge_mass_dataset")) {
       process_info$merge_mass_dataset <- parameter
     } else{
-      process_info$merge_mass_dataset <- 
+      process_info$merge_mass_dataset <-
         c(process_info$merge_mass_dataset, parameter)
     }
     

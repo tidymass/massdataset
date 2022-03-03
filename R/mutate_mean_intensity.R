@@ -104,15 +104,26 @@ mutate_mean_intensity =
         mean(x, na.rm = na.rm)
       })
     
+    
+    new_column_name <- 
+      check_column_name(object@variable_info , 
+                        column.name = "mean_intensity")
+    
     object@variable_info =
-      data.frame(object@variable_info, mean_intensity = mean_intensity)
+      cbind(object@variable_info,
+            mean_intensity = mean_intensity) %>%
+      as.data.frame()
+    
+    colnames(object@variable_info)[ncol(object@variable_info)] <-
+      new_column_name
     
     ####variable_info_note
-    new_variable_info_note = 
+    new_variable_info_note <- 
       data.frame(name = setdiff(colnames(object@variable_info), 
                                 object@variable_info_note$name),
                  meaning = setdiff(colnames(object@variable_info), 
-                                   object@variable_info_note$name))
+                                   object@variable_info_note$name),
+                 check.names = FALSE)
     object@variable_info_note = 
       rbind(object@variable_info_note,
             new_variable_info_note)

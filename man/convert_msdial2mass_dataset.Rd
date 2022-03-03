@@ -9,8 +9,6 @@ convert_msdial2mass_dataset(x)
 }
 \arguments{
 \item{x}{Feature table from MS-DIAL.}
-
-\item{rt_unit}{RT unit (minute or second) in feature table.}
 }
 \value{
 A mass_dataset-class object.

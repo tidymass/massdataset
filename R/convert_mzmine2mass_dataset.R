@@ -41,16 +41,25 @@ convet_mzmine2mass_dataset <-
     }
     
     sample_info <-
-      data.frame(sample_id = colnames(expression_data),
-                 class = "no")
+      data.frame(
+        sample_id = colnames(expression_data),
+        class = "no",
+        check.names = FALSE
+      )
     
-    sample_info_note = data.frame(name = colnames(sample_info),
-                                  meaning = colnames(sample_info))
+    sample_info_note <-
+      data.frame(
+        name = colnames(sample_info),
+        meaning = colnames(sample_info),
+        check.names = FALSE
+      )
     
-    
-    
-    variable_info_note = data.frame(name = colnames(variable_info),
-                                    meaning = colnames(variable_info))
+    variable_info_note <-
+      data.frame(
+        name = colnames(variable_info),
+        meaning = colnames(variable_info),
+        check.names = FALSE
+      )
     
     rownames(expression_data) <- variable_info$variable_id
     

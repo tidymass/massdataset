@@ -77,17 +77,29 @@ mutate_sample_na_number =
         sum(is.na(x))
       })
     
+    
+    new_column_name <- 
+      check_column_name(object@sample_info , 
+                        column.name = "na_number")
+    
     object@sample_info =
-      data.frame(object@sample_info, na_number = na_number)
+      cbind(object@sample_info,
+            na_number = na_number) %>%
+      as.data.frame()
+    
+    colnames(object@sample_info)[ncol(object@sample_info)] <-
+      new_column_name
+    
     rownames(object@sample_info) = NULL
     
     
     ####variable_info_note
-    new_sample_info_note = 
+    new_sample_info_note <-
       data.frame(name = setdiff(colnames(object@sample_info), 
                                 object@sample_info_note$name),
                  meaning = setdiff(colnames(object@sample_info), 
-                                   object@sample_info_note$name))
+                                   object@sample_info_note$name),
+                 check.names = FALSE)
     object@sample_info_note = 
       rbind(object@sample_info_note,
             new_sample_info_note)
@@ -199,8 +211,19 @@ mutate_sample_na_freq =
         sum(is.na(x))/length(according_to_variables)
       })
     
+    
+    new_column_name <- 
+      check_column_name(object@sample_info , 
+                        column.name = "na_freq")
+    
     object@sample_info =
-      data.frame(object@sample_info, na_freq = na_freq)
+      cbind(object@sample_info,
+            na_freq = na_freq) %>%
+      as.data.frame()
+    
+    colnames(object@sample_info)[ncol(object@sample_info)] <-
+      new_column_name
+    
     rownames(object@sample_info) = NULL
     process_info = object@process_info
     
