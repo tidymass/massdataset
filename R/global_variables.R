@@ -23,5 +23,6 @@ globalVariables(names = c(
   "Alignment ID",
   "Average Mz",
   "Average Rt(min)",
-  "1"
+  "1",
+  "value"
 ))
