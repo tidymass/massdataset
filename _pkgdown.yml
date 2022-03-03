@@ -126,6 +126,8 @@ navbar:
         href: articles/tidyverse_verse.html
       - text: "R base functions for mass_dataset"
         href: articles/base_function.html
+      - text: "mass_dataset and ggplot2"
+        href: articles/ggplot_mass_dataset.html
       - text: "Develop functions based on mass_dataset"
         href: articles/based_on_mass_dataset.html
     twitter:

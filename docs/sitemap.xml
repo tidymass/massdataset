@@ -37,6 +37,9 @@
     <loc>https://tidymass.github.io/massdataset/articles/filtering.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/articles/ggplot_mass_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/articles/html_process_info.html</loc>
   </url>
   <url>
@@ -181,6 +184,9 @@
     <loc>https://tidymass.github.io/massdataset/reference/get_variable_number.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/reference/graphics-mass_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/reference/index.html</loc>
   </url>
   <url>
@@ -212,6 +218,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/ms2_data.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/msdial_table.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/mutate_mean_intensity.html</loc>
