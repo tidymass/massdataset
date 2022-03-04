@@ -42,7 +42,7 @@
 #' object = update_mass_dataset(object = object)
 #' object
 
-update_mass_dataset =
+update_mass_dataset <-
   function(object) {
     
     check_object_class(object = object, class = "mass_dataset")

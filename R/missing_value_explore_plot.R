@@ -83,6 +83,14 @@ show_missing_values =
       variable_na = variable_na * 100 / ncol(expression_data)
     }
     
+    if(all(sample_na == 0) & all(variable_na == 0)){
+      plot <- 
+        ggplot() +
+        theme_bw() +
+        ggtitle(label = "No missing values")
+      return(plot)
+    }
+    
     expression_data[!is.na(expression_data)] = "2"
     expression_data[is.na(expression_data)] = "1"
     colors = structure(c("1", "2"), names = c("1", "2"))
