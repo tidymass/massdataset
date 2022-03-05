@@ -58,6 +58,9 @@
     <loc>https://tidymass.github.io/massdataset/articles/process_info.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/articles/split_mass_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/articles/summary_info.html</loc>
   </url>
   <url>
@@ -83,6 +86,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/calculate_rsd.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/check_column_name.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/check_mass_dataset.html</loc>
@@ -290,6 +296,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/show_variable_missing_values.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/split_mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/subsetting-mass_dataset.html</loc>

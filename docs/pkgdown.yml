@@ -17,9 +17,10 @@ articles:
   merge_two_mass_dataset: merge_two_mass_dataset.html
   mutate_ms2: mutate_ms2.html
   process_info: process_info.html
+  split_mass_dataset: split_mass_dataset.html
   summary_info: summary_info.html
   tidyverse_verse: tidyverse_verse.html
-last_built: 2022-03-03T18:38Z
+last_built: 2022-03-05T22:40Z
 urls:
   reference: https://tidymass.github.io/massdataset/reference
   article: https://tidymass.github.io/massdataset/articles
