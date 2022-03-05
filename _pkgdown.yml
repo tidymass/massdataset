@@ -115,11 +115,13 @@ navbar:
       - text: "Accessor"
         href: articles/accessor.html
       - text: --------
-      - text: "Merge mass_dataset"
+      - text: "Merge and split mass_dataset"
       - text: "rbind or cbind mass_dataset"
         href: articles/cbind_rbind_mass_dataset.html
       - text: "Merge two mass_dataset"
         href: articles/merge_two_mass_dataset.html
+      - text: "Split mass_dataset"
+        href: articles/split_mass_dataset.html
       - text: --------
       - text: "Others"
       - text: "Process mass_dataset using tidyverse functions"

@@ -69,3 +69,48 @@ write_ms2_data =
     )
     sink()
   }
+
+
+
+
+
+
+
+
+#' @method filter ms2_data
+#' @docType methods
+#' @importFrom rlang quos !!!
+#' @importFrom dplyr filter
+#' @export
+filter.ms2_data <- function(.data, ..., .preserve = FALSE) {
+  dots <- rlang::quos(...)
+  
+ temp_data <- 
+   data.frame(variable_id = .data@variable_id,
+              ms2_spectrum_id = .data@ms2_spectrum_id,
+              ms2_mz = .data@ms2_mz,
+              ms2_rt = .data@ms2_rt,
+              ms2_file = .data@ms2_file)
+  
+ temp_data <-
+    filter(temp_data, !!!dots, .preserve = .preserve)
+  
+  .data@variable_id <- temp_data$variable_id
+  .data@ms2_spectrum_id <- temp_data$ms2_spectrum_id
+  .data@ms2_mz <- temp_data$ms2_mz
+  .data@ms2_rt <- temp_data$ms2_rt
+  .data@ms2_file <- temp_data$ms2_file
+  
+  remain_idx <- 
+    which(names(.data@ms2_spectra) %in% temp_data$ms2_spectrum_id)
+  
+  .data@ms2_spectra <- 
+    .data@ms2_spectra[remain_idx]
+
+  return(.data)
+}
+
+#' @importFrom dplyr filter
+#' @export
+dplyr::filter
+

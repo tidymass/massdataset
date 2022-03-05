@@ -44,7 +44,6 @@
 
 update_mass_dataset <-
   function(object) {
-    
     check_object_class(object = object, class = "mass_dataset")
     
     sample_info = object@sample_info
@@ -64,10 +63,10 @@ update_mass_dataset <-
       expression_data[intersect_variable_id, intersect_sample_id]
     
     sample_info =
-      sample_info[match(intersect_sample_id, sample_info$sample_id),]
+      sample_info[match(intersect_sample_id, sample_info$sample_id), ]
     
     variable_info =
-      variable_info[match(intersect_variable_id, variable_info$variable_id),]
+      variable_info[match(intersect_variable_id, variable_info$variable_id), ]
     
     object@sample_info = sample_info
     object@variable_info = variable_info
@@ -94,3 +93,5 @@ update_mass_dataset <-
     
     return(object)
   }
+
+
