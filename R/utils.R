@@ -64,6 +64,24 @@ style_grey <- function(level, ...) {
 }
 
 
+
+#' @title check_column_name
+#' @description check_column_name
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@outlook.com}
+#' @param df A data frame.
+#' @param column.name new column name
+#' @return A column name
+#' @export
+#' @examples
+#' df <- 
+#'   data.frame(x = 1:2, y = 2:3, y.1 = 3:4)
+#' df
+#' 
+#' check_column_name(df = df, column.name = "y")
+#' check_column_name(df = df, column.name = "y.1")
+
+
 check_column_name <-
   function(df, column.name) {
     if(column.name %in% colnames(df)){
