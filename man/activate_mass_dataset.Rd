@@ -7,8 +7,7 @@
 \usage{
 activate_mass_dataset(
   .data,
-  what = c("sample_info", "variable_info", "expression_data", "sample_info_note",
-    "variable_info_note", "annotation_table")
+  what = c("sample_info", "variable_info", "expression_data", "annotation_table")
 )
 }
 \arguments{
@@ -16,8 +15,7 @@ activate_mass_dataset(
 
 \item{what}{(required) What should get be activated?
 Possible values are \code{sample_info},
-\code{expression_data}, \code{variable_info}, \code{sample_info_note} \code{annotation_table},or
-\code{variable_info_note}.}
+\code{expression_data}, \code{variable_info}, or \code{annotation_table}}
 }
 \value{
 A mass_dataset class object

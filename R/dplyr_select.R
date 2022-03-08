@@ -11,26 +11,29 @@ select.mass_dataset <-
       stop("activate you object using activate_mass_dataset first.\n")
     }
     
-    x =
+    x <-
       slot(object = .data, name = .data@activated)
     
-    x =
+    x <-
       select(x, !!!dots)
     
-    slot(object = .data, name = .data@activated) = x
+    slot(object = .data, name = .data@activated) <- x
     
     if (.data@activated == "expression_data") {
-      .data@sample_info = .data@sample_info[match(colnames(x), .data@sample_info$sample_id),]
+      .data@sample_info <-
+        .data@sample_info[match(colnames(x), .data@sample_info$sample_id),]
     }
     
     if (.data@activated == "sample_info") {
-      .data@sample_info_note = .data@sample_info_note %>%
+      .data@sample_info_note <- .data@sample_info_note %>%
         dplyr::filter(name %in% colnames(x))
+      .data <- update_sample_info(.data)
     }
     
-    if (.data@activated == "variale_info") {
-      .data@variale_info_note = .data@variale_info_note %>% 
+    if (.data@activated == "variable_info") {
+      .data@variable_info_note <- .data@variable_info_note %>% 
         dplyr::filter(name %in% colnames(x))
+      .data <- update_variable_info(.data)
     }
     
     return(.data)

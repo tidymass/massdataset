@@ -20,7 +20,7 @@
 #'     variable_info = variable_info,
 #'   )
 
-check_mass_dataset =
+check_mass_dataset <-
   function(expression_data,
            sample_info,
            variable_info,
@@ -76,10 +76,10 @@ check_mass_dataset =
         return(check_result)
       }
       
-      if (any(is.na(sample_info$class))) {
-        check_result = "error: class should not have NA."
-        return(check_result)
-      }
+      # if (any(is.na(sample_info$class))) {
+      #   check_result = "error: class should not have NA."
+      #   return(check_result)
+      # }
       
       # if (all(sample_info$class != "Subject")) {
       #   check_result = "error: class should have at least one Subject sample."

@@ -8,13 +8,13 @@ arrange.mass_dataset <-
   dots <- rlang::quos(...)
   
   if (length(.data@activated) == 0) {
-    stop("activate you object using activate_mass_dataset first.\n")
+    stop("activate you object using activate_mass_dataset() first.\n")
   }
   
-  x =
+  x <-
     slot(object = .data, name = .data@activated)
   
-  x =
+  x <-
     arrange(x, !!!dots)
   
   slot(object = .data, name = .data@activated) = x
@@ -25,6 +25,12 @@ arrange.mass_dataset <-
   
   if(.data@activated == "variable_info"){
     .data@expression_data = .data@expression_data[x$variable_id,]  
+  }
+  
+  if(.data@activated == "expression_data") {
+    .data@variable_info <-
+      .data@variable_info[match(rownames(.data@expression_data),
+                                .data@variable_info$variable_id),]
   }
   
   return(.data)

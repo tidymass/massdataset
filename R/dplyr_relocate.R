@@ -15,7 +15,7 @@ relocate.mass_dataset <-
       stop("activate you object using activate_mass_dataset first.\n")
     }
     
-    x =
+    x <-
       slot(object = .data, name = .data@activated)
     
     to_move <- tidyselect::eval_select(expr(c(...)), x)

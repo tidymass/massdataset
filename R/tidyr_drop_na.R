@@ -10,15 +10,15 @@ drop_na.mass_dataset <-
       stop("activate your object using activate_mass_dataset first.\n")
     }
     
-    x =
+    x <-
       slot(object = data, name = data@activated)
     
-    x =
+    x <-
       drop_na(x, !!!dots)
     
     slot(object = data, name = data@activated) = x
     
-    data = update_mass_dataset(data)
+    data <- update_mass_dataset(data)
     
     return(data)
   }

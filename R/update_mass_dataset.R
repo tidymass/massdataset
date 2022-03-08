@@ -63,10 +63,10 @@ update_mass_dataset <-
       expression_data[intersect_variable_id, intersect_sample_id]
     
     sample_info =
-      sample_info[match(intersect_sample_id, sample_info$sample_id), ]
+      sample_info[match(intersect_sample_id, sample_info$sample_id),]
     
     variable_info =
-      variable_info[match(intersect_variable_id, variable_info$variable_id), ]
+      variable_info[match(intersect_variable_id, variable_info$variable_id),]
     
     object@sample_info = sample_info
     object@variable_info = variable_info
@@ -95,3 +95,91 @@ update_mass_dataset <-
   }
 
 
+#' @title update_variable_info
+#' @description update_variable_info
+#' @docType methods
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@outlook.com}
+#' @param object (required) mass_dataset class object.
+#' @return A mass_dataset class object.
+#' @export
+#' @examples
+
+update_variable_info <-
+  function(object) {
+    number1 <- ncol(object@variable_info)
+    number2 <- nrow(object@variable_info_note)
+    
+    if (number1 > number2) {
+      diff_name <-
+        setdiff(colnames(object@variable_info),
+                object@variable_info_note$name)
+      new_variable_info_note <-
+        data.frame(name = diff_name,
+                   meaning = diff_name)
+      variable_info_note <-
+        rbind(object@variable_info_note,
+              new_variable_info_note)
+      object@variable_info_note <- variable_info_note
+      object@variable_info <- 
+        object@variable_info[, object@variable_info_note$name] 
+      return(object)
+    }
+    
+    if (number1 == number2) {
+      if (all(sort(colnames(object@variable_info)) == 
+              sort(object@variable_info_note$name))) {
+        object@variable_info <- 
+          object@variable_info[, object@variable_info_note$name] 
+        return(object)
+      }else{
+        object@variable_info_note$name <- colnames(object@variable_info)
+        return(object)
+      }
+    }
+  }
+
+
+#' @title update_sample_info
+#' @description update_sample_info
+#' @docType methods
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@outlook.com}
+#' @param object (required) mass_dataset class object.
+#' @return A mass_dataset class object.
+#' @export
+#' @examples
+
+update_sample_info <-
+  function(object) {
+    number1 <- ncol(object@sample_info)
+    number2 <- nrow(object@sample_info_note)
+    
+    if (number1 > number2) {
+      diff_name <-
+        setdiff(colnames(object@sample_info),
+                object@sample_info_note$name)
+      new_sample_info_note <-
+        data.frame(name = diff_name,
+                   meaning = diff_name)
+      sample_info_note <-
+        rbind(object@sample_info_note,
+              new_sample_info_note)
+      object@sample_info_note <- sample_info_note
+      object@sample_info <- 
+        object@sample_info[, object@sample_info_note$name] 
+      return(object)
+    }
+    
+    if (number1 == number2) {
+      if (all(sort(colnames(object@sample_info)) == 
+              sort(object@sample_info_note$name))) {
+        object@sample_info <- 
+          object@sample_info[, object@sample_info_note$name] 
+        return(object)
+      }else{
+        object@sample_info_note$name <- colnames(object@sample_info)
+        return(object)
+      }
+    }
+  }

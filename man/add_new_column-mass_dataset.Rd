@@ -211,13 +211,14 @@ object
 object2 =
   mutate_sample_na_number(object = object)
 
-head(extract_sample_info(object))
-head(extract_sample_info(object2))
+colnames(extract_sample_info(object))
+colnames(extract_sample_info(object2))
+object2@sample_info_note
 
 ##calculate NA number according to only variables with mz > 100
-variable_id = 
-object2 \%>\% 
-  activate_mass_dataset(what = "variable_info") \%>\% 
+variable_id =
+object2 \%>\%
+  activate_mass_dataset(what = "variable_info") \%>\%
   filter(mz > 100) \%>\%
   pull(variable_id)
 
@@ -279,18 +280,20 @@ object
 object2 =
   mutate_variable_na_number(object = object)
 
-head(extract_variable_info(object))
-head(extract_variable_info(object2))
+colnames(extract_variable_info(object))
+colnames(extract_variable_info(object2))
+object2@variable_info_note
 
 ##calculate NA number according to only QC samples
-object3 =
+object3 <-
   mutate_variable_na_number(object = object2,
                 according_to_samples =
               get_sample_id(object)[extract_sample_info(object)$class == "QC"])
 
 object3
 
-head(extract_variable_info(object3))
+colnames(extract_variable_info(object3))
+object3@variable_info_note
 data("expression_data")
 data("sample_info")
 data("variable_info")

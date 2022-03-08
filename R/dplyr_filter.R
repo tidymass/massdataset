@@ -30,7 +30,7 @@ filter.mass_dataset <- function(.data, ..., .preserve = FALSE) {
   
   if (.data@activated == "sample_info") {
     .data@expression_data <- 
-      .data@expression_data[, x$sample_id,drop = FALSE]
+      .data@expression_data[, x$sample_id, drop = FALSE]
   }
   
   if (.data@activated == "variable_info") {

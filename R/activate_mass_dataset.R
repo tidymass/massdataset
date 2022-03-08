@@ -6,8 +6,7 @@
 #' @param .data (required) A mass_dataset class object
 #' @param what (required) What should get be activated?
 #' Possible values are `sample_info`,
-#' `expression_data`, `variable_info`, `sample_info_note` `annotation_table`,or
-#' `variable_info_note`.
+#' `expression_data`, `variable_info`, or `annotation_table`
 #' @return A mass_dataset class object
 #' @export
 #' @examples
@@ -33,8 +32,6 @@ activate_mass_dataset <-
              "sample_info",
              "variable_info",
              "expression_data",
-             "sample_info_note",
-             "variable_info_note",
              "annotation_table"
            )) {
     check_object_class(object = .data, class = "mass_dataset")

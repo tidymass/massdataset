@@ -103,18 +103,24 @@ slice_head.mass_dataset <-
     slot(object = .data, name = .data@activated) = x
     
     if (.data@activated == "sample_info") {
-      .data@expression_data = .data@expression_data[, x$sample_id, drop = FALSE]
+      .data@expression_data <-
+        .data@expression_data[, x$sample_id, drop = FALSE]
     }
     
     if (.data@activated == "variable_info") {
-      .data@expression_data = .data@expression_data[x$variable_id, , drop = FALSE]
+      .data@expression_data <-
+        .data@expression_data[x$variable_id, , drop = FALSE]
     }
     
     if (.data@activated == "expression_data") {
-      .data@variable_info = .data@variable_info[match(rownames(x), .data@variable_info$variable_id), , drop = FALSE]
+      .data@variable_info <-
+        .data@variable_info[match(rownames(x),
+                                  .data@variable_info$variable_id),
+                            , drop = FALSE]
     }
     
-    process_info = .data@process_info
+    process_info <-
+      .data@process_info
     
     parameter <- new(
       Class = "tidymass_parameter",
@@ -126,12 +132,12 @@ slice_head.mass_dataset <-
     )
     
     if (all(names(process_info) != "slice_head")) {
-      process_info$slice_head = parameter
+      process_info$slice_head <- parameter
     } else{
-      process_info$slice_head = c(process_info$slice_head, parameter)
+      process_info$slice_head <- c(process_info$slice_head, parameter)
     }
     
-    .data@process_info = process_info
+    .data@process_info <- process_info
     
     return(.data)
   }
@@ -349,7 +355,6 @@ slice_min.mass_dataset <-
            n,
            prop,
            with_ties = TRUE) {
-    
     order_by <- enquo(order_by)
     
     if (length(.data@activated) == 0) {
@@ -366,7 +371,7 @@ slice_min.mass_dataset <-
       prop = "missing"
       x =
         slice_min(x,
-                  order_by = !! order_by,
+                  order_by = !!order_by,
                   n = 1,
                   with_ties = with_ties)
     }
@@ -375,7 +380,7 @@ slice_min.mass_dataset <-
       prop = "missing"
       x =
         slice_min(x,
-                  order_by = !! order_by,
+                  order_by = !!order_by,
                   n = n,
                   with_ties = with_ties)
     }
@@ -383,10 +388,12 @@ slice_min.mass_dataset <-
     if (missing(n) & !missing(prop)) {
       n = "missing"
       x =
-        slice_min(x,
-                  order_by = !! order_by,
-                  prop = prop,
-                  with_ties = with_ties)
+        slice_min(
+          x,
+          order_by = !!order_by,
+          prop = prop,
+          with_ties = with_ties
+        )
     }
     
     slot(object = .data, name = .data@activated) = x
@@ -454,61 +461,65 @@ slice_max.mass_dataset <-
            n,
            prop,
            with_ties = TRUE) {
-    
     order_by <- enquo(order_by)
     
     if (length(.data@activated) == 0) {
       stop("activate you object using activate_mass_dataset first.\n")
     }
     
-    x =
+    x <-
       slot(object = .data, name = .data@activated)
     
     # x = slice(x, idx(dplyr::n()))
     
     if (missing(n) & missing(prop)) {
-      n = "missing"
-      prop = "missing"
-      x =
+      n <- "missing"
+      prop <- "missing"
+      x <-
         slice_max(x,
-                  order_by = !! order_by,
+                  order_by = !!order_by,
                   n = 1,
                   with_ties = with_ties)
     }
     
     if (!missing(n)) {
-      prop = "missing"
-      x =
+      prop <- "missing"
+      x <-
         slice_max(x,
-                  order_by = !! order_by,
+                  order_by = !!order_by,
                   n = n,
                   with_ties = with_ties)
     }
     
     if (missing(n) & !missing(prop)) {
-      n = "missing"
-      x =
-        slice_max(x,
-                  order_by = !! order_by,
-                  prop = prop,
-                  with_ties = with_ties)
+      n <- "missing"
+      x <-
+        slice_max(
+          x,
+          order_by = !!order_by,
+          prop = prop,
+          with_ties = with_ties
+        )
     }
     
-    slot(object = .data, name = .data@activated) = x
+    slot(object = .data, name = .data@activated) <- x
     
     if (.data@activated == "sample_info") {
-      .data@expression_data = .data@expression_data[, x$sample_id, drop = FALSE]
+      .data@expression_data <-
+        .data@expression_data[, x$sample_id, drop = FALSE]
     }
     
     if (.data@activated == "variable_info") {
-      .data@expression_data = .data@expression_data[x$variable_id, , drop = FALSE]
+      .data@expression_data <-
+        .data@expression_data[x$variable_id, , drop = FALSE]
     }
     
     if (.data@activated == "expression_data") {
-      .data@variable_info = .data@variable_info[match(rownames(x), .data@variable_info$variable_id), , drop = FALSE]
+      .data@variable_info <-
+        .data@variable_info[match(rownames(x), .data@variable_info$variable_id), , drop = FALSE]
     }
     
-    process_info = .data@process_info
+    process_info <- .data@process_info
     
     parameter <- new(
       Class = "tidymass_parameter",
@@ -524,12 +535,12 @@ slice_max.mass_dataset <-
     )
     
     if (all(names(process_info) != "slice_max")) {
-      process_info$slice_max = parameter
+      process_info$slice_max <- parameter
     } else{
-      process_info$slice_max = c(process_info$slice_max, parameter)
+      process_info$slice_max <- c(process_info$slice_max, parameter)
     }
     
-    .data@process_info = process_info
+    .data@process_info <- process_info
     
     return(.data)
   }

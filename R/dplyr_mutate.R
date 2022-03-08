@@ -65,9 +65,9 @@ mutate.mass_dataset <- function(.data, ...) {
     }
   }
   
-  process_info = .data@process_info
+  process_info <- .data@process_info
   
-  internal_parameter =
+  internal_parameter <-
     purrr::map2(names(dots), dots, function(x, y) {
       y = rlang::expr_label(y)
       y = stringr::str_replace_all(y, "\\`", "") %>%
@@ -89,26 +89,27 @@ mutate.mass_dataset <- function(.data, ...) {
     process_info$mutate = c(process_info$mutate, parameter)
   }
   
-  .data@process_info = process_info
+  .data@process_info <- process_info
   
   ###if the new samples are from the exist samples
   if (.data@activated == "expression_data") {
-    new_sample_name =
+    new_sample_name <-
       lapply(parameter@parameter, function(x) {
         stringr::str_split(x, pattern = "\\=")[[1]][1]
       }) %>%
       unlist()
-    old_sample_name =
+    old_sample_name <-
       lapply(parameter@parameter, function(x) {
         stringr::str_split(x, pattern = "\\=")[[1]][2]
       }) %>%
       unlist()
-    sample_name =
+    sample_name <-
       data.frame(new_sample_name, 
                  old_sample_name,
                  check.names = FALSE)
-    sample_name = sample_name[sample_name$old_sample_name %in% colnames(temp_slot), , drop = FALSE]
-    sample_name =
+    sample_name <- 
+      sample_name[sample_name$old_sample_name %in% colnames(temp_slot), , drop = FALSE]
+    sample_name <-
       sample_name %>%
       dplyr::filter(new_sample_name != old_sample_name)
     if (nrow(sample_name) > 0) {

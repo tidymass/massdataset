@@ -17,10 +17,10 @@ left_join.mass_dataset <-
       stop("x must be mass_dataset class.\n")
     }
     
-    new_x =
+    new_x <-
       slot(object = x, name = x@activated)
     
-    new_x =
+    new_x <-
       left_join(new_x,
                 y,
                 by = by,
@@ -28,7 +28,9 @@ left_join.mass_dataset <-
                 suffix = suffix,
                 ...)
     
-    slot(object = x, name = x@activated) = new_x
+    slot(object = x, name = x@activated) <- new_x
+    x <- update_sample_info(x)
+    x <- update_variable_info(x)
     return(x)
   }
 
