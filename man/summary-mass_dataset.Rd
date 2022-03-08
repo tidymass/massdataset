@@ -20,6 +20,7 @@
 \alias{length.mass_dataset}
 \alias{names.mass_dataset}
 \alias{dimnames.mass_dataset}
+\alias{is.na.mass_dataset}
 \title{mz_rt_match}
 \usage{
 \S4method{mz_rt_match}{mass_dataset,mass_dataset}(
@@ -65,6 +66,8 @@ get_mv_number(
 \method{names}{mass_dataset}(x)
 
 \method{dimnames}{mass_dataset}(x)
+
+\method{is.na}{mass_dataset}(x)
 }
 \arguments{
 \item{data1}{A mass_dataset object.}
@@ -130,6 +133,8 @@ vector object
 vector object
 
 vector object
+
+message
 }
 \description{
 Number of samples

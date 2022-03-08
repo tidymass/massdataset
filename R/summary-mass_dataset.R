@@ -353,3 +353,16 @@ names.mass_dataset = function(x) {
 dimnames.mass_dataset = function(x) {
   dimnames(x@expression_data)
 }
+
+
+
+
+#' @title is.na
+#' @method is.na mass_dataset
+#' @param x x
+#' @export
+#' @rdname summary-mass_dataset
+#' @return message
+is.na.mass_dataset <- function(x) {
+  is.na(x@expression_data)
+}
