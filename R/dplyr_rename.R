@@ -10,16 +10,26 @@ rename.mass_dataset <- function(.data, ...) {
     stop("activate you object using activate_mass_dataset first.\n")
   }
   
-  x =
+  x <-
     slot(object = .data, name = .data@activated)
   
-  x =
+  x <-
     rename(x, !!!dots)
   
   slot(object = .data, name = .data@activated) = x
   
   if (.data@activated == "expression_data") {
     .data@sample_info$sample_id = colnames(x)
+  }
+  
+  if (.data@activated == "sample_info") {
+    .data@sample_info_note$name <- 
+      colnames(.data@sample_info)
+  }
+  
+  if (.data@activated == "variable_info") {
+    .data@variable_info$name <- 
+      colnames(.data@variable_info)
   }
   
   return(.data)
