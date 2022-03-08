@@ -29,7 +29,7 @@ rename.mass_dataset <-
     }
     
     if (.data@activated == "variable_info") {
-      .data@variable_info_note$name$name <-
+      .data@variable_info_note$name <-
         colnames(.data@variable_info)
     }
     
