@@ -34,7 +34,7 @@ object <-
 test_that(desc = "select",
           code = {
             ###expression_data
-            object1 <- 
+            object1 <-
               activate_mass_dataset(object, what = "expression_data")
             object1 <-
               select(.data = object1, -sample2)
@@ -49,7 +49,7 @@ test_that(desc = "select",
             testthat::expect_equal(object = result1, "all good.")
             
             ###sample_info
-            object2 <- 
+            object2 <-
               activate_mass_dataset(object, what = "sample_info")
             object2 <-
               select(.data = object2, -group)
@@ -63,8 +63,21 @@ test_that(desc = "select",
               )
             testthat::expect_equal(object = result2, "all good.")
             
+            ###sample_info2
+            object2 <-
+              activate_mass_dataset(object, what = "sample_info")
+            object2 <-
+              select(.data = object2, -c(group, injection.order, class))
+            testthat::expect_equal(ncol(object2@sample_info), 1)
+            
+            ###sample_info3
+            object3 <-
+              activate_mass_dataset(object, what = "sample_info")
+            testthat::expect_error(object3 <-
+                                     select(.data = object3, -sample_id))
+            
             ###variable_info
-            object3 <- 
+            object3 <-
               activate_mass_dataset(object, what = "variable_info")
             object3 <-
               select(.data = object3, -rt)
@@ -77,4 +90,10 @@ test_that(desc = "select",
                 variable_info_note = object3@variable_info_note
               )
             testthat::expect_equal(object = result3, "all good.")
+            
+            ###variable_info2
+            object3 <-
+              activate_mass_dataset(object, what = "variable_info")
+            testthat::expect_error(object3 <-
+                                     select(.data = object3, -variable_id))
           })

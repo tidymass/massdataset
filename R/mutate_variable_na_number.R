@@ -70,7 +70,7 @@ mutate_variable_na_number <-
       as.data.frame()
     
     na_number <-
-      expression_data[, according_to_samples] %>%
+      expression_data[, according_to_samples, drop = FALSE] %>%
       apply(1, function(x) {
         sum(is.na(x))
       })
@@ -189,7 +189,7 @@ mutate_variable_na_freq <-
       as.data.frame()
     
     na_freq <-
-      expression_data[, according_to_samples] %>%
+      expression_data[, according_to_samples, drop = FALSE] %>%
       apply(1, function(x) {
         sum(is.na(x)) / length(according_to_samples)
       })
@@ -218,7 +218,8 @@ mutate_variable_na_freq <-
     # object@variable_info_note <-
     #   rbind(object@variable_info_note,
     #         new_variable_info_note)
-    # object@variable_info <- object@variable_info[, object@variable_info_note$name]
+    # object@variable_info <- 
+    # object@variable_info[, object@variable_info_note$name, drop = FALSE]
     #
     object <-
       update_variable_info(object = object)

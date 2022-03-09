@@ -31,7 +31,8 @@ mutate.mass_dataset <- function(.data, ...) {
       .data@sample_info =
         rbind(.data@sample_info,
               new_sample_info)
-      .data@expression_data = .data@expression_data[, .data@sample_info$sample_id]
+      .data@expression_data <- 
+        .data@expression_data[, .data@sample_info$sample_id, drop = FALSE]
     }
   }
   
@@ -43,10 +44,11 @@ mutate.mass_dataset <- function(.data, ...) {
           meaning = setdiff(colnames(temp_slot), .data@sample_info_note$name),
           check.names = FALSE
         )
-      .data@sample_info_note =
+      .data@sample_info_note <-
         rbind(.data@sample_info_note,
               new_sample_info_note)
-      .data@sample_info = .data@sample_info[, .data@sample_info_note$name]
+      .data@sample_info <-
+        .data@sample_info[, .data@sample_info_note$name, drop = FALSE]
     }
   }
   
@@ -61,7 +63,8 @@ mutate.mass_dataset <- function(.data, ...) {
       .data@variable_info_note =
         rbind(.data@variable_info_note,
               new_variable_info_note)
-      .data@variable_info = .data@variable_info[, .data@variable_info_note$name]
+      .data@variable_info <- 
+        .data@variable_info[, .data@variable_info_note$name, drop = FALSE]
     }
   }
   

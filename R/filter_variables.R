@@ -138,7 +138,7 @@ filter_variables =
       as.data.frame()
     
     result =
-      expression_data[,according_to_samples] %>%
+      expression_data[,according_to_samples, drop = FALSE] %>%
       apply(1, flist)
     
     result[!names(result) %in% apply_to] = TRUE

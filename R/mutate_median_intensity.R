@@ -71,7 +71,7 @@ mutate_median_intensity <-
       as.data.frame()
     
     median_intensity <-
-      expression_data[, according_to_samples] %>%
+      expression_data[, according_to_samples, drop = FALSE] %>%
       apply(1, function(x) {
         median(x, na.rm = na.rm)
       })
@@ -105,7 +105,7 @@ mutate_median_intensity <-
       rbind(object@variable_info_note,
             new_variable_info_note)
     object@variable_info <-
-      object@variable_info[, object@variable_info_note$name]
+      object@variable_info[, object@variable_info_note$name, drop = FALSE]
     
     process_info <- object@process_info
     

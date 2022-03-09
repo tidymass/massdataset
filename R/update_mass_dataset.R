@@ -122,7 +122,7 @@ update_variable_info <-
               new_variable_info_note)
       object@variable_info_note <- variable_info_note
       object@variable_info <- 
-        object@variable_info[, object@variable_info_note$name] 
+        object@variable_info[, object@variable_info_note$name, drop = FALSE] 
       return(object)
     }
     
@@ -130,7 +130,7 @@ update_variable_info <-
       if (all(sort(colnames(object@variable_info)) == 
               sort(object@variable_info_note$name))) {
         object@variable_info <- 
-          object@variable_info[, object@variable_info_note$name] 
+          object@variable_info[, object@variable_info_note$name, drop = FALSE] 
         return(object)
       }else{
         object@variable_info_note$name <- colnames(object@variable_info)
@@ -167,7 +167,7 @@ update_sample_info <-
               new_sample_info_note)
       object@sample_info_note <- sample_info_note
       object@sample_info <- 
-        object@sample_info[, object@sample_info_note$name] 
+        object@sample_info[, object@sample_info_note$name, drop = FALSE] 
       return(object)
     }
     
@@ -175,7 +175,7 @@ update_sample_info <-
       if (all(sort(colnames(object@sample_info)) == 
               sort(object@sample_info_note$name))) {
         object@sample_info <- 
-          object@sample_info[, object@sample_info_note$name] 
+          object@sample_info[, object@sample_info_note$name, drop = FALSE] 
         return(object)
       }else{
         object@sample_info_note$name <- colnames(object@sample_info)

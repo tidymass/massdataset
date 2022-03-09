@@ -57,8 +57,8 @@ cbind.mass_dataset = function(..., deparse.level = 1) {
     dplyr::full_join(sample_info_y,
                      by = intersect(colnames(sample_info_x), colnames(sample_info_y)))
   
-  expression_data =
-    expression_data[, sample_info$sample_id]
+  expression_data <-
+    expression_data[, sample_info$sample_id, drop = FALSE]
   
   #####sample_info_note
   if (nrow(sample_info_note_x) != 0 |
@@ -204,8 +204,8 @@ rbind.mass_dataset = function(..., deparse.level = 1) {
     cbind(sample_info_x,
           sample_info_y)
   
-  expression_data =
-    expression_data[, sample_info$sample_id]
+  expression_data <-
+    expression_data[, sample_info$sample_id, drop = FALSE]
   
   #####sample_info_note
   sample_info_note =

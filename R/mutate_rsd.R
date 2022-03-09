@@ -67,7 +67,7 @@ mutate_rsd <-
       as.data.frame()
     
     rsd <-
-      expression_data[,according_to_samples] %>%
+      expression_data[,according_to_samples, drop = FALSE] %>%
       apply(1, function(x){
         sd(x, na.rm = TRUE) * 100/mean(x, na.rm = TRUE)
       })
@@ -96,7 +96,7 @@ mutate_rsd <-
       rbind(object@variable_info_note,
             new_variable_info_note)
     object@variable_info <- 
-      object@variable_info[, object@variable_info_note$name] 
+      object@variable_info[, object@variable_info_note$name, drop = FALSE] 
     
     process_info <- object@process_info
     

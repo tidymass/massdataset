@@ -1,3 +1,5 @@
+library(massdataset)
+
 expression_data <-
   as.data.frame(matrix(1:20, nrow = 5, ncol = 4))
 
@@ -40,10 +42,11 @@ object <-
 test_that(desc = "left_join",
           code = {
             ###sample_info
-            object2 <- 
+            object2 <-
               activate_mass_dataset(object, what = "sample_info")
             object2 <-
-              left_join(x = object2, y = new_sample_info, by = "sample_id")
+              left_join(x = object2,
+                        y = new_sample_info, by = "sample_id")
             result2 <-
               check_mass_dataset(
                 expression_data = object2@expression_data,
@@ -54,8 +57,19 @@ test_that(desc = "left_join",
               )
             testthat::expect_equal(object = result2, "all good.")
             
+            ###sample_info2
+            object2 <-
+              activate_mass_dataset(object, what = "sample_info")
+            testthat::expect_error(object2 <-
+                                     left_join(
+                                       x = object2,
+                                       y = cbind(new_sample_info,
+                                                 injection.order = 1:4),
+                                       by = "injection.order"
+                                     ))
+            
             ###variable_info
-            object3 <- 
+            object3 <-
               activate_mass_dataset(object, what = "variable_info")
             object3 <-
               left_join(x = object3, y = new_variable_info, by = "variable_id")
@@ -68,4 +82,15 @@ test_that(desc = "left_join",
                 variable_info_note = object3@variable_info_note
               )
             testthat::expect_equal(object = result3, "all good.")
+            
+            ###variable_info2
+            object2 <-
+              activate_mass_dataset(object, what = "variable_info")
+            testthat::expect_error(object2 <-
+                                     left_join(
+                                       x = object2,
+                                       y = cbind(new_variable_info,
+                                                 mz = 1:6),
+                                       by = "mz"
+                                     ))
           })

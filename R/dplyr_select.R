@@ -25,12 +25,20 @@ select.mass_dataset <-
     }
     
     if (.data@activated == "sample_info") {
+      ##we can not remove sample_id
+      if(!"sample_id" %in% colnames(x)){
+        stop("You can't remove sample_id.\n")
+      }
       .data@sample_info_note <- .data@sample_info_note %>%
         dplyr::filter(name %in% colnames(x))
       .data <- update_sample_info(.data)
     }
     
     if (.data@activated == "variable_info") {
+      ##we can not remove variable_id
+      if(!"variable_id" %in% colnames(x)){
+        stop("You can't remove variable_id\n")
+      }
       .data@variable_info_note <- .data@variable_info_note %>% 
         dplyr::filter(name %in% colnames(x))
       .data <- update_variable_info(.data)

@@ -104,7 +104,8 @@ mutate_sample_na_number <-
     # object@sample_info_note <-
     #   rbind(object@sample_info_note,
     #         new_sample_info_note)
-    # object@sample_info <- object@sample_info[, object@sample_info_note$name]
+    # object@sample_info <- 
+    # object@sample_info[, object@sample_info_note$name, drop = FALSE]
     
     process_info <- object@process_info
     
