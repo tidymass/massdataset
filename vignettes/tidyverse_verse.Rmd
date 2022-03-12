@@ -53,6 +53,31 @@ object =
   )
 ```
 
+# **glimpse() function**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object %>% 
+  activate_mass_dataset(what = "sample_info") %>% 
+  glimpse()
+```
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object %>% 
+  activate_mass_dataset(what = "expression_data") %>% 
+  glimpse()
+```
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object %>% 
+  activate_mass_dataset(what = "variable_info") %>% 
+  glimpse()
+```
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object %>% 
+  activate_mass_dataset(what = "annotation_table") %>% 
+  glimpse()
+```
+
 # **filter() function**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
@@ -147,6 +172,16 @@ object2 =
 head(extract_expression_data(object2[,1:5]))
 ```
 
+
+# **add_column() function**
+
+We can also use the `add_column()` from `tibble` package to add new column.
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+object %>%
+  activate_mass_dataset(what = "expression_data") %>% 
+  add_column.mass_dataset(x = NA)
+```
 
 
 # **left_join() function**
@@ -263,10 +298,18 @@ object2 =
 object %>% 
   activate_mass_dataset(what = "expression_data") %>% 
   drop_na(QC_2)
-object$QC_2
-object2$QC_2
+object$QC_2 %>% head()
+object2$QC_2 %>% head()
 ```
 
+# **pivot_longer() function**
+
+`pivot_longer()` from `tidyr` package.
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+pivot_longer(object) %>% 
+  head()
+```
 
 # **Session information**
 
