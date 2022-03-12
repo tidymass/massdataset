@@ -52,7 +52,7 @@ massdataset_logo <- function() {
   ), sep = "\n")
 }
 
-massdataset_version = "0.99.22"
+massdataset_version = "0.99.23"
 update_date = as.character(Sys.time())
 
 #' @title get_massdataset_version

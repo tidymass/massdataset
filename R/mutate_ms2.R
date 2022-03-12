@@ -36,7 +36,7 @@
 #' object@ms2_data
 #' }
 
-mutate_ms2 =
+mutate_ms2 <-
   function(object,
            column = c("rp", "hilic"),
            polarity = c("positive", "negative"),
@@ -187,7 +187,7 @@ mutate_ms2 =
           return(c(idx, idx2[which.max(unlist(lapply(temp.ms2.info, function(y) {
             y <- y[order(y[, 2], decreasing = TRUE), , drop = FALSE]
             if (nrow(y) > 5)
-              y <- y[seq_len(5),]
+              y <- y[seq_len(5), ]
             sum(y[, 2])
           })))]))
         }
