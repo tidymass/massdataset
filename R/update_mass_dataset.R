@@ -103,7 +103,6 @@ update_mass_dataset <-
 #' @param object (required) mass_dataset class object.
 #' @return A mass_dataset class object.
 #' @export
-#' @examples
 
 update_variable_info <-
   function(object) {
@@ -148,7 +147,6 @@ update_variable_info <-
 #' @param object (required) mass_dataset class object.
 #' @return A mass_dataset class object.
 #' @export
-#' @examples
 
 update_sample_info <-
   function(object) {

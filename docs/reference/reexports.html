@@ -3,15 +3,19 @@
 below to see their documentation.
 
   dplyr
-arrange, arrange, case_when, count, count, count, desc, desc, desc, filter, filter, filter, group_by, group_by, left_join, mutate, mutate, mutate_all, mutate_at, n, n, n, pull, relocate, relocate, rename, rename, select, select, slice, slice, slice_head, slice_max, slice_min, slice_sample, slice_tail, summarise, summarize, summarize, transmute
+arrange, arrange, case_when, count, count, count, desc, desc, desc, filter, filter, filter, glimpse, group_by, group_by, left_join, mutate, mutate, mutate_all, mutate_at, n, n, n, pull, relocate, relocate, rename, rename, select, select, slice, slice, slice_head, slice_max, slice_min, slice_sample, slice_tail, summarise, summarize, summarize, transmute
 
 
   magrittr
 %&amp;gt;%
 
 
+  tibble
+add_column
+
+
   tidyr
-drop_na, drop_na
+drop_na, drop_na, fill, pivot_longer
 
 
 "><meta property="og:image" content="https://tidymass.github.io/massdataset/logo.png"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -38,7 +42,7 @@ drop_na, drop_na
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.14</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.21</span>
       </span>
     </div>
 
@@ -161,7 +165,7 @@ drop_na, drop_na
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Objects exported from other packages</h1>
-    <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/dplyr_arrange.R" class="external-link"><code>R/dplyr_arrange.R</code></a>, <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/dplyr_count.R" class="external-link"><code>R/dplyr_count.R</code></a>, <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/dplyr_filter.R" class="external-link"><code>R/dplyr_filter.R</code></a>, and 12 more</small>
+    <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/dplyr_arrange.R" class="external-link"><code>R/dplyr_arrange.R</code></a>, <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/dplyr_count.R" class="external-link"><code>R/dplyr_count.R</code></a>, <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/dplyr_filter.R" class="external-link"><code>R/dplyr_filter.R</code></a>, and 16 more</small>
     <div class="hidden name"><code>reexports.Rd</code></div>
     </div>
 
@@ -169,15 +173,19 @@ drop_na, drop_na
     <p>These objects are imported from other packages. Follow the links
 below to see their documentation.</p>
 <dl><dt>dplyr</dt>
-<dd><p><code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate_all.html" class="external-link">mutate_all</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate_all.html" class="external-link">mutate_at</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">relocate</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">relocate</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_sample</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_tail</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">transmute</a></code></p></dd>
+<dd><p><code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate_all.html" class="external-link">mutate_all</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate_all.html" class="external-link">mutate_at</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">relocate</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">relocate</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_sample</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_tail</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">transmute</a></code></p></dd>
 
 
   <dt>magrittr</dt>
 <dd><p><code>%&gt;%</code></p></dd>
 
 
+  <dt>tibble</dt>
+<dd><p><code><a href="https://tibble.tidyverse.org/reference/add_column.html" class="external-link">add_column</a></code></p></dd>
+
+
   <dt>tidyr</dt>
-<dd><p><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></code>, <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></code></p></dd>
+<dd><p><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></code>, <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></code>, <code><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">fill</a></code>, <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></code></p></dd>
 
 
 </dl></div>
@@ -196,7 +204,7 @@ below to see their documentation.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p><b>Contact Us:</b> <br><i class="fa fa-envelope"></i> <a href="mailto:shenxt1990@outlook.com" class="email">shenxt1990@outlook.com</a> <br><i class="fa fa-weixin"></i> <a href="https://www.shenxt.info/files/wechat_QR.jpg" class="external-link">shenxt1990</a> <br><i class="fa fa-network-wired"></i> <a href="https://tidymass.github.io/tidymass/" class="external-link">A part of tidymass</a></p>
+  <p></p><p><b>Contact Us:</b> <br><i class="fa fa-envelope"></i> <a href="mailto:shenxt1990@outlook.com" class="email">shenxt1990@outlook.com</a> <br><i class="fa fa-weixin"></i> <a href="https://www.shenxt.info/files/wechat_QR.jpg" class="external-link">shenxt1990</a> <br><i class="fa fa-network-wired"></i> <a href="https://www.tidymass.org/" class="external-link">A part of tidymass</a></p>
 </div>
 
       </footer></div>

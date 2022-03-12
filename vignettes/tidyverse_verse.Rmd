@@ -178,9 +178,9 @@ head(extract_expression_data(object2[,1:5]))
 We can also use the `add_column()` from `tibble` package to add new column.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-object %>%
-  activate_mass_dataset(what = "expression_data") %>% 
-  add_column.mass_dataset(x = NA)
+# object %>%
+#   activate_mass_dataset(what = "expression_data") %>% 
+#   add_column(x = NA)
 ```
 
 
