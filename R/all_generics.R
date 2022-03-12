@@ -1,7 +1,7 @@
 setGeneric(
   name = "sample_info",
   def = function(object, ...)
-    standardGeneric(f = "sample_info")
+    standardGeneric("sample_info")
 )
 
 setGeneric(

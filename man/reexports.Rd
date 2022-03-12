@@ -3,8 +3,8 @@
 %   R/dplyr_filter.R, R/dplyr_glimpse.R, R/dplyr_group_by.R,
 %   R/dplyr_left_join.R, R/dplyr_mutate.R, R/dplyr_pull.R, R/dplyr_relocate.R,
 %   R/dplyr_rename.R, R/dplyr_select.R, R/dplyr_slice.R, R/dplyr_summarize.R,
-%   R/ms2_data-methods.R, R/reexports.R, R/tidyr_drop_na.R, R/tidyr_fill.R,
-%   R/tidyr_pivot_longer.R
+%   R/masstools_mz_rt_match.R, R/ms2_data-methods.R, R/reexports.R,
+%   R/tidyr_drop_na.R, R/tidyr_fill.R, R/tidyr_pivot_longer.R
 \docType{import}
 \name{reexports}
 \alias{reexports}
@@ -31,6 +31,7 @@
 \alias{slice_min}
 \alias{slice_max}
 \alias{summarize}
+\alias{mz_rt_match}
 \alias{\%>\%}
 \alias{case_when}
 \alias{summarise}
@@ -47,6 +48,8 @@ below to see their documentation.
   \item{dplyr}{\code{\link[dplyr]{arrange}}, \code{\link[dplyr]{arrange}}, \code{\link[dplyr]{case_when}}, \code{\link[dplyr]{count}}, \code{\link[dplyr]{count}}, \code{\link[dplyr]{count}}, \code{\link[dplyr]{desc}}, \code{\link[dplyr]{desc}}, \code{\link[dplyr]{desc}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr]{glimpse}}, \code{\link[dplyr]{group_by}}, \code{\link[dplyr]{group_by}}, \code{\link[dplyr:mutate-joins]{left_join}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{mutate_all}}, \code{\link[dplyr:mutate_all]{mutate_at}}, \code{\link[dplyr:context]{n}}, \code{\link[dplyr:context]{n}}, \code{\link[dplyr:context]{n}}, \code{\link[dplyr]{pull}}, \code{\link[dplyr]{relocate}}, \code{\link[dplyr]{relocate}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr:slice]{slice_head}}, \code{\link[dplyr:slice]{slice_max}}, \code{\link[dplyr:slice]{slice_min}}, \code{\link[dplyr:slice]{slice_sample}}, \code{\link[dplyr:slice]{slice_tail}}, \code{\link[dplyr]{summarise}}, \code{\link[dplyr:summarise]{summarize}}, \code{\link[dplyr:summarise]{summarize}}, \code{\link[dplyr:mutate]{transmute}}}
 
   \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
+
+  \item{masstools}{\code{\link[masstools]{mz_rt_match}}}
 
   \item{tidyr}{\code{\link[tidyr]{drop_na}}, \code{\link[tidyr]{drop_na}}, \code{\link[tidyr]{fill}}, \code{\link[tidyr]{pivot_longer}}}
 }}

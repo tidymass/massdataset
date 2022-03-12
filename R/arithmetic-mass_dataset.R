@@ -307,8 +307,6 @@ setMethod(f = "colSums",
             colSums(x@expression_data, na.rm = na.rm, dims = dims)
           })
 
-
-
 #' #' @title rowSums
 #' #' @method rowSums mass_dataset
 #' #' @param x x
