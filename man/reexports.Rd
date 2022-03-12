@@ -3,7 +3,7 @@
 %   R/dplyr_filter.R, R/dplyr_group_by.R, R/dplyr_left_join.R, R/dplyr_mutate.R,
 %   R/dplyr_pull.R, R/dplyr_relocate.R, R/dplyr_rename.R, R/dplyr_select.R,
 %   R/dplyr_slice.R, R/dplyr_summarize.R, R/ms2_data-methods.R, R/reexports.R,
-%   R/tidyr_drop_na.R
+%   R/tidyr_drop_na.R, R/tidyr_pivot_longer.R
 \docType{import}
 \name{reexports}
 \alias{reexports}
@@ -33,6 +33,7 @@
 \alias{case_when}
 \alias{summarise}
 \alias{drop_na}
+\alias{pivot_longer}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -44,6 +45,6 @@ below to see their documentation.
 
   \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
 
-  \item{tidyr}{\code{\link[tidyr]{drop_na}}, \code{\link[tidyr]{drop_na}}}
+  \item{tidyr}{\code{\link[tidyr]{drop_na}}, \code{\link[tidyr]{drop_na}}, \code{\link[tidyr]{pivot_longer}}}
 }}
 
