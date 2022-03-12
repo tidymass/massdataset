@@ -20,7 +20,7 @@ articles:
   split_mass_dataset: split_mass_dataset.html
   summary_info: summary_info.html
   tidyverse_verse: tidyverse_verse.html
-last_built: 2022-03-12T03:11Z
+last_built: 2022-03-12T04:20Z
 urls:
   reference: https://tidymass.github.io/massdataset/reference
   article: https://tidymass.github.io/massdataset/articles

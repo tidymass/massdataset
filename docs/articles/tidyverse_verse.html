@@ -48,7 +48,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.14</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.22</span>
       </span>
     </div>
 
@@ -192,7 +192,7 @@
       <h1 data-toc-skip>Process mass_dataset using tidyverse functions</h1>
                         <h4 data-toc-skip class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-03-05</h4>
+            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2022-03-11</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/tidyverse_verse.Rmd" class="external-link"><code>vignettes/tidyverse_verse.Rmd</code></a></small>
       <div class="hidden name"><code>tidyverse_verse.Rmd</code></div>
@@ -231,22 +231,66 @@
   <span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="glimpse-function">
+<strong>glimpse() function</strong><a class="anchor" aria-label="anchor" href="#glimpse-function"></a>
+</h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 8</span>
+<span class="co">#&gt; Columns: 4</span>
+<span class="co">#&gt; $ sample_id       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Blank_3", "Blank_4", "QC_1", "QC_2", "PS4P1", "PS4P2"…</span>
+<span class="co">#&gt; $ injection.order <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8</span>
+<span class="co">#&gt; $ class           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Blank", "Blank", "QC", "QC", "Subject", "Subject", "S…</span>
+<span class="co">#&gt; $ group           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Blank", "Blank", "QC", "QC", "Subject", "Subject", "S…</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 1,000</span>
+<span class="co">#&gt; Columns: 8</span>
+<span class="co">#&gt; $ Blank_3 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, 3761892.6, NA, NA, NA, 249352.6, NA, NA, N…</span>
+<span class="co">#&gt; $ Blank_4 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, 2572593.4, NA, NA, NA, 131374.5, NA, NA, N…</span>
+<span class="co">#&gt; $ QC_1    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1857924.8, 2821550.2, 410387.6, NA, 8730104.8, NA, 3688690.6, …</span>
+<span class="co">#&gt; $ QC_2    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1037763.8, 1304875.3, 273687.8, NA, 4105598.5, 3662819.1, 2892…</span>
+<span class="co">#&gt; $ PS4P1   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1494436.1, 2471336.1, 288590.2, NA, 5141073.2, 5700534.8, 1401…</span>
+<span class="co">#&gt; $ PS4P2   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 3496912.1, 3333582.7, 137297.5, 5059068.1, 8424315.6, 4600172.…</span>
+<span class="co">#&gt; $ PS4P3   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1959178.81, 2734243.82, NA, 5147421.59, 7896633.30, 5557014.59…</span>
+<span class="co">#&gt; $ PS4P4   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1005418.77, 3361452.28, 271318.30, NA, 6441448.99, 4433034.18,…</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 1,000</span>
+<span class="co">#&gt; Columns: 3</span>
+<span class="co">#&gt; $ variable_id <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "M136T55_2_POS", "M79T35_POS", "M307T548_POS", "M183T224_P…</span>
+<span class="co">#&gt; $ mz          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 136.06140, 79.05394, 307.14035, 183.06209, 349.01584, 181.…</span>
+<span class="co">#&gt; $ rt          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 54.97902, 35.36550, 547.56641, 224.32777, 47.00262, 828.35…</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"annotation_table"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 0</span>
+<span class="co">#&gt; Columns: 0</span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="filter-function">
 <strong>filter() function</strong><a class="anchor" aria-label="anchor" href="#filter-function"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object</span> <span class="op">=</span> 
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span>
 <span class="va">object</span><span class="op">@</span><span class="va">activated</span>
 <span class="co">#&gt; [1] "sample_info"</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object</span> <span class="op">=</span> 
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span>
 <span class="va">object</span><span class="op">@</span><span class="va">activated</span>
 <span class="co">#&gt; [1] "variable_info"</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object</span> <span class="op">=</span> 
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span>
@@ -256,7 +300,7 @@
 <h3 id="filter-samples">Filter samples<a class="anchor" aria-label="anchor" href="#filter-samples"></a>
 </h3>
 <p>Only remain QC samples.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object2</span> <span class="op">=</span> 
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
@@ -278,13 +322,13 @@
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-03-05 14:43:25</span>
 <span class="co">#&gt; <span style="color: #00BB00;">filter ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset      filter() 2022-03-05 14:43:26</span></code></pre></div>
+<span class="co">#&gt; 1 massdataset      filter() 2022-03-11 19:08:37</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="filter-variables">Filter variables<a class="anchor" aria-label="anchor" href="#filter-variables"></a>
 </h3>
 <p>Only remain variables which are not NA in QC_1.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object2</span> <span class="op">=</span> 
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
@@ -306,9 +350,9 @@
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-03-05 14:43:25</span>
 <span class="co">#&gt; <span style="color: #00BB00;">filter ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset      filter() 2022-03-05 14:43:26</span></code></pre></div>
+<span class="co">#&gt; 1 massdataset      filter() 2022-03-11 19:08:37</span></code></pre></div>
 <p>Only remain variables with RSD &gt; 30 in subject samples</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">subject_id</span> <span class="op">=</span> 
   <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
@@ -337,10 +381,10 @@
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-03-05 14:43:25</span>
 <span class="co">#&gt; <span style="color: #00BB00;">mutate_rsd ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset  mutate_rsd() 2022-03-05 14:43:26</span>
+<span class="co">#&gt; 1 massdataset  mutate_rsd() 2022-03-11 19:08:37</span>
 <span class="co">#&gt; <span style="color: #00BB00;">filter ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset      filter() 2022-03-05 14:43:26</span>
+<span class="co">#&gt; 1 massdataset      filter() 2022-03-11 19:08:37</span>
 
 <span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
@@ -357,7 +401,7 @@
 <h2 id="mutate-function">
 <strong>mutate() function</strong><a class="anchor" aria-label="anchor" href="#mutate-function"></a>
 </h2>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">###add new column in sample_info</span>
 <span class="va">object2</span> <span class="op">=</span> 
   <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
@@ -405,10 +449,20 @@
 <span class="co">#&gt; M182T828_POS  3761893 2572593        NA 3662819.1 5700534.8</span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="add_column-function">
+<strong>add_column() function</strong><a class="anchor" aria-label="anchor" href="#add_column-function"></a>
+</h2>
+<p>We can also use the <code><a href="https://tibble.tidyverse.org/reference/add_column.html" class="external-link">add_column()</a></code> from <code>tibble</code> package to add new column.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># object %&gt;%</span>
+<span class="co">#   activate_mass_dataset(what = "expression_data") %&gt;% </span>
+<span class="co">#   add_column(x = NA)</span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="left_join-function">
 <strong>left_join() function</strong><a class="anchor" aria-label="anchor" href="#left_join-function"></a>
 </h2>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">new_sample_info</span> <span class="op">=</span> 
   <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>sample_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"PS4P1"</span>, <span class="st">"PS4P2"</span><span class="op">)</span>, 
              BMI <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">22</span><span class="op">)</span><span class="op">)</span>
@@ -431,7 +485,7 @@
 <h2 id="pull-function">
 <strong>pull() function</strong><a class="anchor" aria-label="anchor" href="#pull-function"></a>
 </h2>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span>
@@ -442,7 +496,7 @@
 <h2 id="rename-function">
 <strong>rename() function</strong><a class="anchor" aria-label="anchor" href="#rename-function"></a>
 </h2>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object2</span> <span class="op">=</span> 
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
@@ -465,7 +519,7 @@
 <h2 id="arrange-function">
 <strong>arrange() function</strong><a class="anchor" aria-label="anchor" href="#arrange-function"></a>
 </h2>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object2</span> <span class="op">=</span> 
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
@@ -495,7 +549,7 @@
 <h2 id="relocate-function">
 <strong>relocate() function</strong><a class="anchor" aria-label="anchor" href="#relocate-function"></a>
 </h2>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object2</span> <span class="op">=</span> 
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
@@ -511,7 +565,7 @@
 <h2 id="slice-function">
 <strong>slice() function</strong><a class="anchor" aria-label="anchor" href="#slice-function"></a>
 </h2>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>
@@ -531,7 +585,7 @@
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-03-05 14:43:25</span>
 <span class="co">#&gt; <span style="color: #00BB00;">slice ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset       slice() 2022-03-05 14:43:27</span>
+<span class="co">#&gt; 1 massdataset       slice() 2022-03-11 20:23:24</span>
 
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
@@ -553,13 +607,13 @@
 <span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-03-05 14:43:25</span>
 <span class="co">#&gt; <span style="color: #00BB00;">slice_head ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset  slice_head() 2022-03-05 14:43:27</span></code></pre></div>
+<span class="co">#&gt; 1 massdataset  slice_head() 2022-03-11 20:23:24</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="select-function">
 <strong>select() function</strong><a class="anchor" aria-label="anchor" href="#select-function"></a>
 </h2>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object2</span> <span class="op">=</span>
   <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
@@ -579,7 +633,7 @@
 <h2 id="group_by-and-summarize-function">
 <strong>group_by() and summarize() function</strong><a class="anchor" aria-label="anchor" href="#group_by-and-summarize-function"></a>
 </h2>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
@@ -595,7 +649,7 @@
 <h2 id="count-function">
 <strong>count() function</strong><a class="anchor" aria-label="anchor" href="#count-function"></a>
 </h2>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span>
@@ -609,343 +663,37 @@
 <strong>drop_na() function</strong><a class="anchor" aria-label="anchor" href="#drop_na-function"></a>
 </h2>
 <p><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code> from <code>tidyr</code> package.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object2</span> <span class="op">=</span> 
 <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">QC_2</span><span class="op">)</span>
-<span class="va">object</span><span class="op">$</span><span class="va">QC_2</span>
-<span class="co">#&gt;    [1] 1.037764e+06 1.304875e+06 2.736878e+05           NA 4.105599e+06</span>
-<span class="co">#&gt;    [6] 3.662819e+06 2.892720e+06 3.131158e+06 4.086108e+05 2.087894e+05</span>
-<span class="co">#&gt;   [11] 5.776921e+06 2.377763e+05 1.102801e+07 1.044288e+06           NA</span>
-<span class="co">#&gt;   [16]           NA 4.426960e+06 2.220541e+07           NA           NA</span>
-<span class="co">#&gt;   [21] 3.757432e+06 2.167836e+05 1.672944e+06           NA 9.769309e+05</span>
-<span class="co">#&gt;   [26]           NA 7.915680e+05 1.360355e+07           NA 3.807501e+07</span>
-<span class="co">#&gt;   [31] 2.712388e+06 2.489872e+06 9.438403e+05 2.391391e+06 4.720179e+06</span>
-<span class="co">#&gt;   [36] 4.758857e+05 1.605520e+08           NA 7.932532e+07           NA</span>
-<span class="co">#&gt;   [41]           NA 3.183514e+06 5.558113e+04 1.763882e+05 5.127475e+05</span>
-<span class="co">#&gt;   [46] 6.099399e+05 2.569211e+07 3.727122e+07 4.602091e+06           NA</span>
-<span class="co">#&gt;   [51] 2.918899e+06           NA           NA           NA 3.827162e+06</span>
-<span class="co">#&gt;   [56] 1.373822e+05           NA           NA 1.699759e+07 4.769549e+07</span>
-<span class="co">#&gt;   [61] 8.697647e+04           NA           NA 5.231079e+06           NA</span>
-<span class="co">#&gt;   [66] 1.603543e+07 7.771211e+08           NA 8.275115e+06 4.527680e+05</span>
-<span class="co">#&gt;   [71]           NA 5.216194e+06 1.502067e+05 4.579891e+04           NA</span>
-<span class="co">#&gt;   [76] 1.653328e+07 8.186584e+06           NA           NA           NA</span>
-<span class="co">#&gt;   [81]           NA 7.241208e+04 1.612686e+06 1.867191e+07           NA</span>
-<span class="co">#&gt;   [86] 2.456934e+05 5.793051e+05 2.275570e+06           NA 6.042763e+04</span>
-<span class="co">#&gt;   [91] 1.036476e+08 8.397567e+06 4.788199e+06           NA 4.283912e+05</span>
-<span class="co">#&gt;   [96]           NA           NA           NA           NA 8.795983e+06</span>
-<span class="co">#&gt;  [101]           NA 3.458464e+05 2.606235e+06 5.214711e+05           NA</span>
-<span class="co">#&gt;  [106]           NA           NA 9.060273e+05           NA 6.493562e+05</span>
-<span class="co">#&gt;  [111]           NA 4.284954e+05 7.334397e+05 7.730372e+05 1.316922e+07</span>
-<span class="co">#&gt;  [116] 3.327546e+05 1.878804e+07           NA 2.739537e+06 6.574504e+06</span>
-<span class="co">#&gt;  [121] 6.874698e+05 8.885455e+05           NA 6.729379e+04           NA</span>
-<span class="co">#&gt;  [126] 4.048225e+05 1.454126e+07 1.012346e+06 4.230569e+04           NA</span>
-<span class="co">#&gt;  [131] 1.827939e+06           NA 1.314245e+06 2.481954e+07 1.904116e+05</span>
-<span class="co">#&gt;  [136] 1.726867e+06           NA           NA 2.876355e+06           NA</span>
-<span class="co">#&gt;  [141]           NA 5.895080e+06           NA 2.543444e+06 2.884887e+05</span>
-<span class="co">#&gt;  [146] 1.602975e+06 7.451096e+05           NA           NA 1.272795e+07</span>
-<span class="co">#&gt;  [151] 3.649370e+05 4.131239e+06 1.312705e+05 2.316183e+06 2.283769e+04</span>
-<span class="co">#&gt;  [156]           NA 1.865060e+05           NA 1.182510e+08 2.781743e+05</span>
-<span class="co">#&gt;  [161]           NA 3.672164e+07           NA 4.524208e+05 1.998058e+07</span>
-<span class="co">#&gt;  [166] 2.709608e+06 2.111853e+05           NA 7.341681e+05 9.415811e+06</span>
-<span class="co">#&gt;  [171] 7.299611e+06 5.426862e+05           NA           NA           NA</span>
-<span class="co">#&gt;  [176] 8.396666e+06 4.357923e+06 5.318237e+04           NA 9.810989e+05</span>
-<span class="co">#&gt;  [181] 1.138944e+07 3.746206e+06           NA 1.008279e+06 5.554323e+05</span>
-<span class="co">#&gt;  [186] 7.356123e+05 5.624754e+05 1.554347e+07 1.249736e+06           NA</span>
-<span class="co">#&gt;  [191]           NA           NA           NA           NA           NA</span>
-<span class="co">#&gt;  [196] 1.975742e+05           NA 5.653490e+04           NA           NA</span>
-<span class="co">#&gt;  [201] 5.797287e+06           NA 9.806718e+06 1.157682e+07 1.054872e+07</span>
-<span class="co">#&gt;  [206]           NA 3.426741e+06 9.716446e+04 8.560318e+05           NA</span>
-<span class="co">#&gt;  [211] 9.265365e+04 2.190453e+07           NA 2.570408e+05 6.636558e+06</span>
-<span class="co">#&gt;  [216] 1.217196e+06 6.745667e+06 9.889190e+06 4.979616e+07 1.146859e+05</span>
-<span class="co">#&gt;  [221]           NA 1.308276e+07           NA 2.035731e+06 7.952599e+05</span>
-<span class="co">#&gt;  [226]           NA           NA           NA 2.372400e+05 4.179204e+05</span>
-<span class="co">#&gt;  [231] 1.423169e+06 9.724021e+04 6.931661e+05 1.014949e+05 4.508210e+04</span>
-<span class="co">#&gt;  [236] 3.212216e+06 2.142300e+06 3.059715e+05 6.339690e+05 6.669550e+06</span>
-<span class="co">#&gt;  [241] 2.311279e+06           NA 1.137691e+05 2.871787e+05 6.523450e+05</span>
-<span class="co">#&gt;  [246]           NA           NA           NA           NA           NA</span>
-<span class="co">#&gt;  [251] 6.130051e+05           NA           NA 1.754709e+06 8.421327e+05</span>
-<span class="co">#&gt;  [256]           NA           NA           NA 8.477328e+05 1.461435e+06</span>
-<span class="co">#&gt;  [261] 4.517443e+04 6.166599e+06 5.365667e+05 2.377810e+05 7.507280e+05</span>
-<span class="co">#&gt;  [266] 2.770249e+07 1.896771e+06 1.202136e+08           NA 1.972545e+05</span>
-<span class="co">#&gt;  [271] 1.650259e+06           NA 8.371615e+05           NA           NA</span>
-<span class="co">#&gt;  [276] 5.161699e+05 1.071415e+06 5.930196e+05           NA 2.966675e+05</span>
-<span class="co">#&gt;  [281] 2.989095e+05 8.158843e+05           NA 5.618029e+05 1.295527e+05</span>
-<span class="co">#&gt;  [286]           NA 7.808143e+05 2.986531e+05 7.464958e+05 1.369174e+06</span>
-<span class="co">#&gt;  [291]           NA 4.652645e+06           NA 2.546751e+07           NA</span>
-<span class="co">#&gt;  [296] 1.571797e+06           NA 5.546218e+04 1.284908e+08 2.447396e+07</span>
-<span class="co">#&gt;  [301] 7.829706e+07 2.754121e+05 3.904467e+05           NA 4.333417e+05</span>
-<span class="co">#&gt;  [306] 2.611362e+06           NA           NA 2.462402e+05 3.500080e+06</span>
-<span class="co">#&gt;  [311] 5.469118e+05 1.274228e+07           NA 3.491209e+06 9.081897e+05</span>
-<span class="co">#&gt;  [316] 1.131488e+06 3.426293e+08 2.001420e+07           NA 2.529402e+05</span>
-<span class="co">#&gt;  [321] 2.468526e+05 6.641616e+04           NA 6.396488e+05           NA</span>
-<span class="co">#&gt;  [326] 1.511755e+06 2.207544e+07 5.536616e+06           NA           NA</span>
-<span class="co">#&gt;  [331] 1.590430e+06 6.232925e+05           NA 7.852510e+05           NA</span>
-<span class="co">#&gt;  [336]           NA           NA           NA 2.966030e+07 7.653009e+05</span>
-<span class="co">#&gt;  [341]           NA           NA 2.115888e+05 7.015973e+06 2.008465e+05</span>
-<span class="co">#&gt;  [346] 6.723383e+06 6.489598e+06           NA 1.549774e+05 2.086256e+05</span>
-<span class="co">#&gt;  [351]           NA 1.274776e+07 5.791569e+07 6.099043e+05 2.257092e+07</span>
-<span class="co">#&gt;  [356] 1.710866e+07           NA 4.056562e+05 6.265108e+06 3.756983e+06</span>
-<span class="co">#&gt;  [361] 3.216205e+06 1.464151e+05 6.044838e+06           NA           NA</span>
-<span class="co">#&gt;  [366]           NA 3.115092e+05           NA 1.281860e+06 4.685491e+05</span>
-<span class="co">#&gt;  [371]           NA 8.567930e+05 1.919146e+06 2.595111e+07           NA</span>
-<span class="co">#&gt;  [376] 2.339197e+07           NA 1.838882e+05           NA 1.383718e+05</span>
-<span class="co">#&gt;  [381] 9.247750e+07 6.594425e+06           NA 1.573490e+06 1.099019e+05</span>
-<span class="co">#&gt;  [386]           NA 2.972730e+05           NA 8.836172e+06           NA</span>
-<span class="co">#&gt;  [391] 2.706598e+07 1.061748e+06           NA 2.216560e+08 9.913869e+05</span>
-<span class="co">#&gt;  [396] 5.556153e+06 5.617696e+06           NA 1.551579e+08           NA</span>
-<span class="co">#&gt;  [401]           NA           NA 1.798939e+06 2.077289e+07           NA</span>
-<span class="co">#&gt;  [406] 6.106642e+06           NA           NA           NA 8.177394e+05</span>
-<span class="co">#&gt;  [411]           NA 7.631037e+07 2.728018e+06           NA           NA</span>
-<span class="co">#&gt;  [416]           NA 2.163128e+06 7.061812e+05           NA           NA</span>
-<span class="co">#&gt;  [421]           NA           NA           NA           NA 1.557276e+07</span>
-<span class="co">#&gt;  [426] 9.698332e+06           NA 1.372819e+06 2.356281e+05 1.744007e+06</span>
-<span class="co">#&gt;  [431] 2.021684e+07 3.222988e+07           NA 4.243708e+06           NA</span>
-<span class="co">#&gt;  [436]           NA 1.903216e+06 3.737825e+06           NA 2.169193e+06</span>
-<span class="co">#&gt;  [441]           NA 4.698609e+04 1.480422e+07 8.505387e+05 1.379730e+07</span>
-<span class="co">#&gt;  [446]           NA 4.678687e+08           NA 7.117494e+04 1.721246e+07</span>
-<span class="co">#&gt;  [451] 1.293520e+06 3.744342e+05           NA 2.530532e+07           NA</span>
-<span class="co">#&gt;  [456] 1.405093e+07 1.703083e+06           NA 2.063923e+07           NA</span>
-<span class="co">#&gt;  [461]           NA 1.067942e+07 5.510117e+06 1.219795e+06 2.003909e+06</span>
-<span class="co">#&gt;  [466]           NA           NA 3.816932e+05           NA 1.149788e+06</span>
-<span class="co">#&gt;  [471] 2.901773e+06 4.448170e+05           NA 9.827682e+05 2.901429e+06</span>
-<span class="co">#&gt;  [476] 1.274752e+07 1.596458e+07 3.731091e+07 1.331478e+07 2.998190e+05</span>
-<span class="co">#&gt;  [481]           NA 9.750106e+05           NA           NA 1.431099e+06</span>
-<span class="co">#&gt;  [486]           NA           NA           NA 4.752885e+06           NA</span>
-<span class="co">#&gt;  [491]           NA 8.060102e+05 4.168342e+05 5.319664e+06 4.889539e+05</span>
-<span class="co">#&gt;  [496] 2.172024e+06           NA 6.629469e+06 6.654885e+07 4.317902e+06</span>
-<span class="co">#&gt;  [501]           NA 2.064019e+06 9.961188e+05 3.177911e+06           NA</span>
-<span class="co">#&gt;  [506] 2.061543e+05           NA 1.008637e+06 3.250882e+06 2.120035e+06</span>
-<span class="co">#&gt;  [511] 1.326994e+06 4.401012e+07 3.638426e+06 3.228619e+06 1.297738e+05</span>
-<span class="co">#&gt;  [516] 4.065737e+07 3.254161e+05 1.429714e+06 3.250306e+06           NA</span>
-<span class="co">#&gt;  [521] 2.584710e+06           NA           NA           NA           NA</span>
-<span class="co">#&gt;  [526] 1.901052e+06 2.160427e+05 3.644659e+04           NA           NA</span>
-<span class="co">#&gt;  [531] 1.673922e+06           NA 3.842054e+06 1.048847e+05 1.843638e+06</span>
-<span class="co">#&gt;  [536] 9.489002e+04 6.567203e+04 5.717824e+06           NA 1.368548e+07</span>
-<span class="co">#&gt;  [541] 5.793701e+05 4.967431e+05           NA 1.282593e+06           NA</span>
-<span class="co">#&gt;  [546]           NA           NA 2.071138e+06 1.455530e+05           NA</span>
-<span class="co">#&gt;  [551] 1.303090e+06           NA           NA 2.313364e+06           NA</span>
-<span class="co">#&gt;  [556]           NA           NA           NA           NA           NA</span>
-<span class="co">#&gt;  [561] 4.726670e+05 1.210086e+05           NA 4.921203e+05 6.829158e+04</span>
-<span class="co">#&gt;  [566] 1.356372e+05           NA           NA 4.195937e+05 5.202329e+04</span>
-<span class="co">#&gt;  [571]           NA           NA           NA           NA           NA</span>
-<span class="co">#&gt;  [576]           NA           NA           NA 2.865766e+06 1.911541e+05</span>
-<span class="co">#&gt;  [581] 1.656602e+05 3.300953e+07 1.320825e+05 3.473981e+06 5.077394e+06</span>
-<span class="co">#&gt;  [586]           NA           NA           NA           NA           NA</span>
-<span class="co">#&gt;  [591] 1.578979e+06 1.930529e+06           NA 1.620024e+06           NA</span>
-<span class="co">#&gt;  [596]           NA 2.847775e+05 7.240329e+05 2.790066e+06           NA</span>
-<span class="co">#&gt;  [601]           NA 2.341050e+05 3.561518e+06           NA 6.292857e+06</span>
-<span class="co">#&gt;  [606]           NA 1.152463e+07 1.545626e+05           NA           NA</span>
-<span class="co">#&gt;  [611] 1.574844e+06           NA           NA           NA           NA</span>
-<span class="co">#&gt;  [616] 1.197377e+05           NA 1.410378e+05           NA 2.501649e+05</span>
-<span class="co">#&gt;  [621]           NA           NA 1.450034e+06           NA 2.364404e+07</span>
-<span class="co">#&gt;  [626]           NA           NA 9.197658e+05           NA           NA</span>
-<span class="co">#&gt;  [631] 5.144409e+05 5.937056e+06 1.323648e+06 4.655546e+06 5.834835e+07</span>
-<span class="co">#&gt;  [636]           NA 2.388565e+05           NA           NA 1.249845e+07</span>
-<span class="co">#&gt;  [641]           NA           NA           NA           NA 5.352167e+07</span>
-<span class="co">#&gt;  [646] 4.251382e+06 1.447868e+06 1.079931e+07           NA 1.524491e+07</span>
-<span class="co">#&gt;  [651] 2.769736e+05 2.070901e+05           NA 2.010633e+05 4.202078e+05</span>
-<span class="co">#&gt;  [656]           NA           NA 4.220989e+05           NA           NA</span>
-<span class="co">#&gt;  [661]           NA           NA 2.453367e+06           NA 3.839025e+05</span>
-<span class="co">#&gt;  [666]           NA 3.752806e+06 2.215245e+05 1.850542e+06           NA</span>
-<span class="co">#&gt;  [671]           NA 4.632609e+05 5.312258e+07           NA           NA</span>
-<span class="co">#&gt;  [676] 1.036068e+07 1.073580e+06 6.964332e+05           NA 7.954605e+05</span>
-<span class="co">#&gt;  [681] 1.454255e+06 9.659394e+04 4.263435e+05 3.143038e+06           NA</span>
-<span class="co">#&gt;  [686]           NA 1.177201e+06           NA 1.925470e+09           NA</span>
-<span class="co">#&gt;  [691] 1.145179e+05           NA 5.674137e+06 4.029146e+04 1.463025e+05</span>
-<span class="co">#&gt;  [696]           NA           NA           NA 8.623435e+06 1.515462e+06</span>
-<span class="co">#&gt;  [701]           NA 2.628648e+05           NA 6.881475e+05 1.443775e+08</span>
-<span class="co">#&gt;  [706]           NA 2.376328e+05 2.542640e+06 6.898705e+05 1.312493e+06</span>
-<span class="co">#&gt;  [711]           NA           NA 3.348782e+06 4.818425e+05           NA</span>
-<span class="co">#&gt;  [716] 1.030651e+07 6.183069e+04 3.779045e+06 4.634613e+07 4.029224e+06</span>
-<span class="co">#&gt;  [721]           NA 9.900557e+06           NA 1.208085e+07 1.236123e+08</span>
-<span class="co">#&gt;  [726] 3.107359e+07 1.175755e+05 4.960772e+05 4.359978e+05 1.517335e+06</span>
-<span class="co">#&gt;  [731]           NA 1.911512e+05 6.275853e+07 3.986883e+05 5.741195e+05</span>
-<span class="co">#&gt;  [736] 6.433093e+06 3.098945e+06 8.777872e+05           NA 2.084175e+07</span>
-<span class="co">#&gt;  [741] 8.605433e+04           NA 2.947452e+05           NA           NA</span>
-<span class="co">#&gt;  [746] 7.580656e+07 7.780095e+04           NA 7.973574e+05 2.569879e+05</span>
-<span class="co">#&gt;  [751] 2.173172e+07 2.997202e+05           NA 8.471157e+04 5.831803e+06</span>
-<span class="co">#&gt;  [756] 7.954589e+05 1.244852e+06 1.015116e+06 4.479624e+05 1.715567e+05</span>
-<span class="co">#&gt;  [761]           NA           NA 1.339008e+07 1.330506e+05 2.402553e+06</span>
-<span class="co">#&gt;  [766] 2.121104e+06           NA           NA 8.118910e+05 7.050138e+06</span>
-<span class="co">#&gt;  [771] 1.233350e+07           NA 1.951967e+05 1.817117e+06 8.736275e+04</span>
-<span class="co">#&gt;  [776] 1.243415e+06 2.017622e+06           NA 8.998691e+04           NA</span>
-<span class="co">#&gt;  [781]           NA           NA           NA           NA 2.070444e+06</span>
-<span class="co">#&gt;  [786] 2.955799e+07           NA           NA           NA           NA</span>
-<span class="co">#&gt;  [791]           NA 6.384454e+05           NA 1.307972e+06           NA</span>
-<span class="co">#&gt;  [796] 3.174748e+06 6.814623e+05 5.646931e+07           NA 3.084251e+05</span>
-<span class="co">#&gt;  [801] 1.081257e+06 1.186314e+05 4.499654e+04 2.958688e+06 8.095139e+06</span>
-<span class="co">#&gt;  [806]           NA 8.064040e+06           NA 6.166384e+07           NA</span>
-<span class="co">#&gt;  [811]           NA           NA 5.934375e+06 1.492862e+05           NA</span>
-<span class="co">#&gt;  [816]           NA 1.602345e+05           NA 2.451349e+07           NA</span>
-<span class="co">#&gt;  [821]           NA           NA 1.724421e+05           NA 2.458989e+05</span>
-<span class="co">#&gt;  [826]           NA 2.640200e+06           NA 2.491401e+06 2.683702e+05</span>
-<span class="co">#&gt;  [831]           NA 4.370977e+05 1.435877e+05 2.864472e+06 1.891915e+06</span>
-<span class="co">#&gt;  [836]           NA 6.612017e+06 4.261224e+06 6.693968e+04 3.536441e+06</span>
-<span class="co">#&gt;  [841] 5.931091e+06           NA           NA           NA           NA</span>
-<span class="co">#&gt;  [846] 4.500315e+06           NA           NA 8.329506e+05 1.954002e+06</span>
-<span class="co">#&gt;  [851] 1.534899e+05           NA 8.309084e+04 1.092609e+07 2.548997e+06</span>
-<span class="co">#&gt;  [856] 4.880788e+07           NA 1.749986e+05 2.368795e+07 1.725118e+06</span>
-<span class="co">#&gt;  [861]           NA 5.117628e+04           NA 8.910822e+05           NA</span>
-<span class="co">#&gt;  [866]           NA           NA           NA 4.405349e+07 2.874470e+06</span>
-<span class="co">#&gt;  [871]           NA           NA 6.911812e+06 1.187873e+06 4.748716e+06</span>
-<span class="co">#&gt;  [876] 3.569265e+07 4.596595e+05 5.085530e+06 6.923882e+04           NA</span>
-<span class="co">#&gt;  [881] 2.101942e+06 3.086834e+06 3.486558e+06 9.810313e+06           NA</span>
-<span class="co">#&gt;  [886] 9.742566e+06           NA           NA           NA 5.081914e+07</span>
-<span class="co">#&gt;  [891] 5.481747e+05           NA           NA 2.145526e+06           NA</span>
-<span class="co">#&gt;  [896] 1.030604e+06           NA 6.176873e+05 8.127685e+04 1.037178e+07</span>
-<span class="co">#&gt;  [901] 2.002216e+06           NA 6.776728e+05           NA 6.987024e+05</span>
-<span class="co">#&gt;  [906] 1.351928e+05 1.218558e+05 4.726486e+05           NA           NA</span>
-<span class="co">#&gt;  [911] 1.383828e+05 2.411875e+06 2.326933e+05 5.594717e+06           NA</span>
-<span class="co">#&gt;  [916]           NA           NA           NA 1.287972e+06 1.227704e+06</span>
-<span class="co">#&gt;  [921] 1.142105e+05 2.764580e+06           NA 1.994809e+06           NA</span>
-<span class="co">#&gt;  [926] 2.247733e+05 1.319092e+05           NA 1.241198e+07 1.508279e+06</span>
-<span class="co">#&gt;  [931] 1.375891e+06 7.856842e+06           NA 9.706251e+04 1.260004e+05</span>
-<span class="co">#&gt;  [936] 3.123766e+06           NA 1.001268e+05           NA 1.471554e+05</span>
-<span class="co">#&gt;  [941] 4.493541e+06 1.245632e+05           NA 4.181357e+05 7.276389e+05</span>
-<span class="co">#&gt;  [946] 2.206758e+07 6.895441e+07           NA           NA           NA</span>
-<span class="co">#&gt;  [951] 2.376662e+05 2.837364e+08 9.582679e+05 1.237148e+05 9.969438e+07</span>
-<span class="co">#&gt;  [956]           NA 1.378258e+08 1.386395e+07 1.730915e+06           NA</span>
-<span class="co">#&gt;  [961] 1.152497e+08 1.243140e+05 1.577543e+06           NA           NA</span>
-<span class="co">#&gt;  [966]           NA 1.514553e+06 3.580984e+07           NA 1.508502e+06</span>
-<span class="co">#&gt;  [971] 1.961970e+07           NA           NA           NA 1.047704e+07</span>
-<span class="co">#&gt;  [976] 1.214727e+08 1.221098e+06           NA 6.850464e+05 2.028220e+06</span>
-<span class="co">#&gt;  [981]           NA 9.617581e+06           NA 8.013409e+05 2.464358e+06</span>
-<span class="co">#&gt;  [986] 1.628927e+06 3.894932e+06           NA 3.239502e+05 1.608718e+06</span>
-<span class="co">#&gt;  [991]           NA 3.026419e+07 6.685502e+05           NA 7.644036e+05</span>
-<span class="co">#&gt;  [996] 8.316281e+05           NA 6.399804e+06 5.257758e+06           NA</span>
-<span class="va">object2</span><span class="op">$</span><span class="va">QC_2</span>
-<span class="co">#&gt;   [1] 1.037764e+06 1.304875e+06 2.736878e+05 4.105599e+06 3.662819e+06</span>
-<span class="co">#&gt;   [6] 2.892720e+06 3.131158e+06 4.086108e+05 2.087894e+05 5.776921e+06</span>
-<span class="co">#&gt;  [11] 2.377763e+05 1.102801e+07 1.044288e+06 4.426960e+06 2.220541e+07</span>
-<span class="co">#&gt;  [16] 3.757432e+06 2.167836e+05 1.672944e+06 9.769309e+05 7.915680e+05</span>
-<span class="co">#&gt;  [21] 1.360355e+07 3.807501e+07 2.712388e+06 2.489872e+06 9.438403e+05</span>
-<span class="co">#&gt;  [26] 2.391391e+06 4.720179e+06 4.758857e+05 1.605520e+08 7.932532e+07</span>
-<span class="co">#&gt;  [31] 3.183514e+06 5.558113e+04 1.763882e+05 5.127475e+05 6.099399e+05</span>
-<span class="co">#&gt;  [36] 2.569211e+07 3.727122e+07 4.602091e+06 2.918899e+06 3.827162e+06</span>
-<span class="co">#&gt;  [41] 1.373822e+05 1.699759e+07 4.769549e+07 8.697647e+04 5.231079e+06</span>
-<span class="co">#&gt;  [46] 1.603543e+07 7.771211e+08 8.275115e+06 4.527680e+05 5.216194e+06</span>
-<span class="co">#&gt;  [51] 1.502067e+05 4.579891e+04 1.653328e+07 8.186584e+06 7.241208e+04</span>
-<span class="co">#&gt;  [56] 1.612686e+06 1.867191e+07 2.456934e+05 5.793051e+05 2.275570e+06</span>
-<span class="co">#&gt;  [61] 6.042763e+04 1.036476e+08 8.397567e+06 4.788199e+06 4.283912e+05</span>
-<span class="co">#&gt;  [66] 8.795983e+06 3.458464e+05 2.606235e+06 5.214711e+05 9.060273e+05</span>
-<span class="co">#&gt;  [71] 6.493562e+05 4.284954e+05 7.334397e+05 7.730372e+05 1.316922e+07</span>
-<span class="co">#&gt;  [76] 3.327546e+05 1.878804e+07 2.739537e+06 6.574504e+06 6.874698e+05</span>
-<span class="co">#&gt;  [81] 8.885455e+05 6.729379e+04 4.048225e+05 1.454126e+07 1.012346e+06</span>
-<span class="co">#&gt;  [86] 4.230569e+04 1.827939e+06 1.314245e+06 2.481954e+07 1.904116e+05</span>
-<span class="co">#&gt;  [91] 1.726867e+06 2.876355e+06 5.895080e+06 2.543444e+06 2.884887e+05</span>
-<span class="co">#&gt;  [96] 1.602975e+06 7.451096e+05 1.272795e+07 3.649370e+05 4.131239e+06</span>
-<span class="co">#&gt; [101] 1.312705e+05 2.316183e+06 2.283769e+04 1.865060e+05 1.182510e+08</span>
-<span class="co">#&gt; [106] 2.781743e+05 3.672164e+07 4.524208e+05 1.998058e+07 2.709608e+06</span>
-<span class="co">#&gt; [111] 2.111853e+05 7.341681e+05 9.415811e+06 7.299611e+06 5.426862e+05</span>
-<span class="co">#&gt; [116] 8.396666e+06 4.357923e+06 5.318237e+04 9.810989e+05 1.138944e+07</span>
-<span class="co">#&gt; [121] 3.746206e+06 1.008279e+06 5.554323e+05 7.356123e+05 5.624754e+05</span>
-<span class="co">#&gt; [126] 1.554347e+07 1.249736e+06 1.975742e+05 5.653490e+04 5.797287e+06</span>
-<span class="co">#&gt; [131] 9.806718e+06 1.157682e+07 1.054872e+07 3.426741e+06 9.716446e+04</span>
-<span class="co">#&gt; [136] 8.560318e+05 9.265365e+04 2.190453e+07 2.570408e+05 6.636558e+06</span>
-<span class="co">#&gt; [141] 1.217196e+06 6.745667e+06 9.889190e+06 4.979616e+07 1.146859e+05</span>
-<span class="co">#&gt; [146] 1.308276e+07 2.035731e+06 7.952599e+05 2.372400e+05 4.179204e+05</span>
-<span class="co">#&gt; [151] 1.423169e+06 9.724021e+04 6.931661e+05 1.014949e+05 4.508210e+04</span>
-<span class="co">#&gt; [156] 3.212216e+06 2.142300e+06 3.059715e+05 6.339690e+05 6.669550e+06</span>
-<span class="co">#&gt; [161] 2.311279e+06 1.137691e+05 2.871787e+05 6.523450e+05 6.130051e+05</span>
-<span class="co">#&gt; [166] 1.754709e+06 8.421327e+05 8.477328e+05 1.461435e+06 4.517443e+04</span>
-<span class="co">#&gt; [171] 6.166599e+06 5.365667e+05 2.377810e+05 7.507280e+05 2.770249e+07</span>
-<span class="co">#&gt; [176] 1.896771e+06 1.202136e+08 1.972545e+05 1.650259e+06 8.371615e+05</span>
-<span class="co">#&gt; [181] 5.161699e+05 1.071415e+06 5.930196e+05 2.966675e+05 2.989095e+05</span>
-<span class="co">#&gt; [186] 8.158843e+05 5.618029e+05 1.295527e+05 7.808143e+05 2.986531e+05</span>
-<span class="co">#&gt; [191] 7.464958e+05 1.369174e+06 4.652645e+06 2.546751e+07 1.571797e+06</span>
-<span class="co">#&gt; [196] 5.546218e+04 1.284908e+08 2.447396e+07 7.829706e+07 2.754121e+05</span>
-<span class="co">#&gt; [201] 3.904467e+05 4.333417e+05 2.611362e+06 2.462402e+05 3.500080e+06</span>
-<span class="co">#&gt; [206] 5.469118e+05 1.274228e+07 3.491209e+06 9.081897e+05 1.131488e+06</span>
-<span class="co">#&gt; [211] 3.426293e+08 2.001420e+07 2.529402e+05 2.468526e+05 6.641616e+04</span>
-<span class="co">#&gt; [216] 6.396488e+05 1.511755e+06 2.207544e+07 5.536616e+06 1.590430e+06</span>
-<span class="co">#&gt; [221] 6.232925e+05 7.852510e+05 2.966030e+07 7.653009e+05 2.115888e+05</span>
-<span class="co">#&gt; [226] 7.015973e+06 2.008465e+05 6.723383e+06 6.489598e+06 1.549774e+05</span>
-<span class="co">#&gt; [231] 2.086256e+05 1.274776e+07 5.791569e+07 6.099043e+05 2.257092e+07</span>
-<span class="co">#&gt; [236] 1.710866e+07 4.056562e+05 6.265108e+06 3.756983e+06 3.216205e+06</span>
-<span class="co">#&gt; [241] 1.464151e+05 6.044838e+06 3.115092e+05 1.281860e+06 4.685491e+05</span>
-<span class="co">#&gt; [246] 8.567930e+05 1.919146e+06 2.595111e+07 2.339197e+07 1.838882e+05</span>
-<span class="co">#&gt; [251] 1.383718e+05 9.247750e+07 6.594425e+06 1.573490e+06 1.099019e+05</span>
-<span class="co">#&gt; [256] 2.972730e+05 8.836172e+06 2.706598e+07 1.061748e+06 2.216560e+08</span>
-<span class="co">#&gt; [261] 9.913869e+05 5.556153e+06 5.617696e+06 1.551579e+08 1.798939e+06</span>
-<span class="co">#&gt; [266] 2.077289e+07 6.106642e+06 8.177394e+05 7.631037e+07 2.728018e+06</span>
-<span class="co">#&gt; [271] 2.163128e+06 7.061812e+05 1.557276e+07 9.698332e+06 1.372819e+06</span>
-<span class="co">#&gt; [276] 2.356281e+05 1.744007e+06 2.021684e+07 3.222988e+07 4.243708e+06</span>
-<span class="co">#&gt; [281] 1.903216e+06 3.737825e+06 2.169193e+06 4.698609e+04 1.480422e+07</span>
-<span class="co">#&gt; [286] 8.505387e+05 1.379730e+07 4.678687e+08 7.117494e+04 1.721246e+07</span>
-<span class="co">#&gt; [291] 1.293520e+06 3.744342e+05 2.530532e+07 1.405093e+07 1.703083e+06</span>
-<span class="co">#&gt; [296] 2.063923e+07 1.067942e+07 5.510117e+06 1.219795e+06 2.003909e+06</span>
-<span class="co">#&gt; [301] 3.816932e+05 1.149788e+06 2.901773e+06 4.448170e+05 9.827682e+05</span>
-<span class="co">#&gt; [306] 2.901429e+06 1.274752e+07 1.596458e+07 3.731091e+07 1.331478e+07</span>
-<span class="co">#&gt; [311] 2.998190e+05 9.750106e+05 1.431099e+06 4.752885e+06 8.060102e+05</span>
-<span class="co">#&gt; [316] 4.168342e+05 5.319664e+06 4.889539e+05 2.172024e+06 6.629469e+06</span>
-<span class="co">#&gt; [321] 6.654885e+07 4.317902e+06 2.064019e+06 9.961188e+05 3.177911e+06</span>
-<span class="co">#&gt; [326] 2.061543e+05 1.008637e+06 3.250882e+06 2.120035e+06 1.326994e+06</span>
-<span class="co">#&gt; [331] 4.401012e+07 3.638426e+06 3.228619e+06 1.297738e+05 4.065737e+07</span>
-<span class="co">#&gt; [336] 3.254161e+05 1.429714e+06 3.250306e+06 2.584710e+06 1.901052e+06</span>
-<span class="co">#&gt; [341] 2.160427e+05 3.644659e+04 1.673922e+06 3.842054e+06 1.048847e+05</span>
-<span class="co">#&gt; [346] 1.843638e+06 9.489002e+04 6.567203e+04 5.717824e+06 1.368548e+07</span>
-<span class="co">#&gt; [351] 5.793701e+05 4.967431e+05 1.282593e+06 2.071138e+06 1.455530e+05</span>
-<span class="co">#&gt; [356] 1.303090e+06 2.313364e+06 4.726670e+05 1.210086e+05 4.921203e+05</span>
-<span class="co">#&gt; [361] 6.829158e+04 1.356372e+05 4.195937e+05 5.202329e+04 2.865766e+06</span>
-<span class="co">#&gt; [366] 1.911541e+05 1.656602e+05 3.300953e+07 1.320825e+05 3.473981e+06</span>
-<span class="co">#&gt; [371] 5.077394e+06 1.578979e+06 1.930529e+06 1.620024e+06 2.847775e+05</span>
-<span class="co">#&gt; [376] 7.240329e+05 2.790066e+06 2.341050e+05 3.561518e+06 6.292857e+06</span>
-<span class="co">#&gt; [381] 1.152463e+07 1.545626e+05 1.574844e+06 1.197377e+05 1.410378e+05</span>
-<span class="co">#&gt; [386] 2.501649e+05 1.450034e+06 2.364404e+07 9.197658e+05 5.144409e+05</span>
-<span class="co">#&gt; [391] 5.937056e+06 1.323648e+06 4.655546e+06 5.834835e+07 2.388565e+05</span>
-<span class="co">#&gt; [396] 1.249845e+07 5.352167e+07 4.251382e+06 1.447868e+06 1.079931e+07</span>
-<span class="co">#&gt; [401] 1.524491e+07 2.769736e+05 2.070901e+05 2.010633e+05 4.202078e+05</span>
-<span class="co">#&gt; [406] 4.220989e+05 2.453367e+06 3.839025e+05 3.752806e+06 2.215245e+05</span>
-<span class="co">#&gt; [411] 1.850542e+06 4.632609e+05 5.312258e+07 1.036068e+07 1.073580e+06</span>
-<span class="co">#&gt; [416] 6.964332e+05 7.954605e+05 1.454255e+06 9.659394e+04 4.263435e+05</span>
-<span class="co">#&gt; [421] 3.143038e+06 1.177201e+06 1.925470e+09 1.145179e+05 5.674137e+06</span>
-<span class="co">#&gt; [426] 4.029146e+04 1.463025e+05 8.623435e+06 1.515462e+06 2.628648e+05</span>
-<span class="co">#&gt; [431] 6.881475e+05 1.443775e+08 2.376328e+05 2.542640e+06 6.898705e+05</span>
-<span class="co">#&gt; [436] 1.312493e+06 3.348782e+06 4.818425e+05 1.030651e+07 6.183069e+04</span>
-<span class="co">#&gt; [441] 3.779045e+06 4.634613e+07 4.029224e+06 9.900557e+06 1.208085e+07</span>
-<span class="co">#&gt; [446] 1.236123e+08 3.107359e+07 1.175755e+05 4.960772e+05 4.359978e+05</span>
-<span class="co">#&gt; [451] 1.517335e+06 1.911512e+05 6.275853e+07 3.986883e+05 5.741195e+05</span>
-<span class="co">#&gt; [456] 6.433093e+06 3.098945e+06 8.777872e+05 2.084175e+07 8.605433e+04</span>
-<span class="co">#&gt; [461] 2.947452e+05 7.580656e+07 7.780095e+04 7.973574e+05 2.569879e+05</span>
-<span class="co">#&gt; [466] 2.173172e+07 2.997202e+05 8.471157e+04 5.831803e+06 7.954589e+05</span>
-<span class="co">#&gt; [471] 1.244852e+06 1.015116e+06 4.479624e+05 1.715567e+05 1.339008e+07</span>
-<span class="co">#&gt; [476] 1.330506e+05 2.402553e+06 2.121104e+06 8.118910e+05 7.050138e+06</span>
-<span class="co">#&gt; [481] 1.233350e+07 1.951967e+05 1.817117e+06 8.736275e+04 1.243415e+06</span>
-<span class="co">#&gt; [486] 2.017622e+06 8.998691e+04 2.070444e+06 2.955799e+07 6.384454e+05</span>
-<span class="co">#&gt; [491] 1.307972e+06 3.174748e+06 6.814623e+05 5.646931e+07 3.084251e+05</span>
-<span class="co">#&gt; [496] 1.081257e+06 1.186314e+05 4.499654e+04 2.958688e+06 8.095139e+06</span>
-<span class="co">#&gt; [501] 8.064040e+06 6.166384e+07 5.934375e+06 1.492862e+05 1.602345e+05</span>
-<span class="co">#&gt; [506] 2.451349e+07 1.724421e+05 2.458989e+05 2.640200e+06 2.491401e+06</span>
-<span class="co">#&gt; [511] 2.683702e+05 4.370977e+05 1.435877e+05 2.864472e+06 1.891915e+06</span>
-<span class="co">#&gt; [516] 6.612017e+06 4.261224e+06 6.693968e+04 3.536441e+06 5.931091e+06</span>
-<span class="co">#&gt; [521] 4.500315e+06 8.329506e+05 1.954002e+06 1.534899e+05 8.309084e+04</span>
-<span class="co">#&gt; [526] 1.092609e+07 2.548997e+06 4.880788e+07 1.749986e+05 2.368795e+07</span>
-<span class="co">#&gt; [531] 1.725118e+06 5.117628e+04 8.910822e+05 4.405349e+07 2.874470e+06</span>
-<span class="co">#&gt; [536] 6.911812e+06 1.187873e+06 4.748716e+06 3.569265e+07 4.596595e+05</span>
-<span class="co">#&gt; [541] 5.085530e+06 6.923882e+04 2.101942e+06 3.086834e+06 3.486558e+06</span>
-<span class="co">#&gt; [546] 9.810313e+06 9.742566e+06 5.081914e+07 5.481747e+05 2.145526e+06</span>
-<span class="co">#&gt; [551] 1.030604e+06 6.176873e+05 8.127685e+04 1.037178e+07 2.002216e+06</span>
-<span class="co">#&gt; [556] 6.776728e+05 6.987024e+05 1.351928e+05 1.218558e+05 4.726486e+05</span>
-<span class="co">#&gt; [561] 1.383828e+05 2.411875e+06 2.326933e+05 5.594717e+06 1.287972e+06</span>
-<span class="co">#&gt; [566] 1.227704e+06 1.142105e+05 2.764580e+06 1.994809e+06 2.247733e+05</span>
-<span class="co">#&gt; [571] 1.319092e+05 1.241198e+07 1.508279e+06 1.375891e+06 7.856842e+06</span>
-<span class="co">#&gt; [576] 9.706251e+04 1.260004e+05 3.123766e+06 1.001268e+05 1.471554e+05</span>
-<span class="co">#&gt; [581] 4.493541e+06 1.245632e+05 4.181357e+05 7.276389e+05 2.206758e+07</span>
-<span class="co">#&gt; [586] 6.895441e+07 2.376662e+05 2.837364e+08 9.582679e+05 1.237148e+05</span>
-<span class="co">#&gt; [591] 9.969438e+07 1.378258e+08 1.386395e+07 1.730915e+06 1.152497e+08</span>
-<span class="co">#&gt; [596] 1.243140e+05 1.577543e+06 1.514553e+06 3.580984e+07 1.508502e+06</span>
-<span class="co">#&gt; [601] 1.961970e+07 1.047704e+07 1.214727e+08 1.221098e+06 6.850464e+05</span>
-<span class="co">#&gt; [606] 2.028220e+06 9.617581e+06 8.013409e+05 2.464358e+06 1.628927e+06</span>
-<span class="co">#&gt; [611] 3.894932e+06 3.239502e+05 1.608718e+06 3.026419e+07 6.685502e+05</span>
-<span class="co">#&gt; [616] 7.644036e+05 8.316281e+05 6.399804e+06 5.257758e+06</span></code></pre></div>
+<span class="va">object</span><span class="op">$</span><span class="va">QC_2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] 1037763.8 1304875.3  273687.8        NA 4105598.5 3662819.1</span>
+<span class="va">object2</span><span class="op">$</span><span class="va">QC_2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] 1037763.8 1304875.3  273687.8 4105598.5 3662819.1 2892719.6</span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="pivot_longer-function">
+<strong>pivot_longer() function</strong><a class="anchor" aria-label="anchor" href="#pivot_longer-function"></a>
+</h2>
+<p><code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer()</a></code> from <code>tidyr</code> package.</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;     variable_id sample_id   value</span>
+<span class="co">#&gt; 1 M136T55_2_POS   Blank_3      NA</span>
+<span class="co">#&gt; 2 M136T55_2_POS   Blank_4      NA</span>
+<span class="co">#&gt; 3 M136T55_2_POS      QC_1 1857925</span>
+<span class="co">#&gt; 4 M136T55_2_POS      QC_2 1037764</span>
+<span class="co">#&gt; 5 M136T55_2_POS     PS4P1 1494436</span>
+<span class="co">#&gt; 6 M136T55_2_POS     PS4P2 3496912</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="session-information">
 <strong>Session information</strong><a class="anchor" aria-label="anchor" href="#session-information"></a>
 </h2>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; R version 4.1.2 (2021-11-01)</span>
 <span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>
@@ -965,8 +713,8 @@
 <span class="co">#&gt;  [1] forcats_0.5.1.9000  stringr_1.4.0       dplyr_1.0.8        </span>
 <span class="co">#&gt;  [4] purrr_0.3.4         readr_2.1.2         tidyr_1.2.0        </span>
 <span class="co">#&gt;  [7] tibble_3.1.6        tidyverse_1.3.1     tinytools_0.9.1    </span>
-<span class="co">#&gt; [10] ggplot2_3.3.5       magrittr_2.0.2      masstools_0.99.3   </span>
-<span class="co">#&gt; [13] massdataset_0.99.14</span>
+<span class="co">#&gt; [10] ggplot2_3.3.5       magrittr_2.0.2      masstools_0.99.5   </span>
+<span class="co">#&gt; [13] massdataset_0.99.22</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
 <span class="co">#&gt;   [1] colorspace_2.0-2      rjson_0.2.21          ellipsis_0.3.2       </span>
@@ -1029,7 +777,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p><b>Contact Us:</b> <br><i class="fa fa-envelope"></i> <a href="mailto:shenxt1990@outlook.com" class="email">shenxt1990@outlook.com</a> <br><i class="fa fa-weixin"></i> <a href="https://www.shenxt.info/files/wechat_QR.jpg" class="external-link">shenxt1990</a> <br><i class="fa fa-network-wired"></i> <a href="https://tidymass.github.io/tidymass/" class="external-link">A part of tidymass</a></p>
+<p><b>Contact Us:</b> <br><i class="fa fa-envelope"></i> <a href="mailto:shenxt1990@outlook.com" class="email">shenxt1990@outlook.com</a> <br><i class="fa fa-weixin"></i> <a href="https://www.shenxt.info/files/wechat_QR.jpg" class="external-link">shenxt1990</a> <br><i class="fa fa-network-wired"></i> <a href="https://www.tidymass.org/" class="external-link">A part of tidymass</a></p>
 </div>
 
       </footer>

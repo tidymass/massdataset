@@ -322,7 +322,13 @@
     <loc>https://tidymass.github.io/massdataset/reference/update_mass_dataset.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/reference/update_sample_info.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/reference/update_tidymass_class.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/update_variable_info.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/variable_info.html</loc>
