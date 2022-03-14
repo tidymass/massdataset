@@ -99,7 +99,7 @@ convet_mzmine2mass_dataset <-
       sample_info_note = sample_info_note,
       variable_info_note = variable_info_note,
       process_info = process_info,
-      version = massdataset_version
+      version = as.character(utils::packageVersion(pkg = "massdataset"))
     )
     invisible(object)
   }

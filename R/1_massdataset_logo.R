@@ -23,11 +23,12 @@
 #' @import ggplot2
 #' @importFrom methods .hasSlot new is
 #' @importFrom stats p.adjust rgamma sd median time
-#' @importFrom utils data str head tail
+#' @importFrom utils data str head tail packageVersion
 #' @importFrom magrittr %>%
 #' @importFrom ggsci pal_lancet
-#' @importFrom masstools read_mgf read_mzxml
+#' @importFrom masstools read_mgf read_mzxml ms2_plot
 #' @importFrom rlang warn quo_is_null abort seq2
+#' @importFrom tibble add_column
 #' @export
 #' @return logo
 #' @examples
@@ -35,7 +36,13 @@
 
 massdataset_logo <- function() {
   message(crayon::green("Thank you for using massdataset!\n"))
-  message(crayon::green("Version", massdataset_version, "(", update_date, ')\n'))
+  message(crayon::green(
+    "Version",
+    as.character(utils::packageVersion(pkg = "massdataset")),
+    "(",
+    update_date,
+    ')\n'
+  ))
   message(crayon::green("More information: search 'tidymass massdataset'.\n"))
   cat(crayon::green(
     c(
@@ -52,7 +59,7 @@ massdataset_logo <- function() {
   ), sep = "\n")
 }
 
-massdataset_version = "0.99.23"
+# massdataset_version = "0.99.23"
 update_date = as.character(Sys.time())
 
 #' @title get_massdataset_version
@@ -65,7 +72,7 @@ update_date = as.character(Sys.time())
 #' @examples
 #' get_massdataset_version()
 get_massdataset_version = function() {
-  return(massdataset_version)
+  return(as.character(utils::packageVersion(pkg = "massdataset")))
 }
 
 # library(cowsay)

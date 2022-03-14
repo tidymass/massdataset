@@ -6,12 +6,10 @@
   crayon::num_colors(TRUE)
   massdataset_attach()
 
-  if (!"package:conflicted" %in% search()) {
-    x <- massdataset_conflicts()
-    msg(massdataset_conflict_message(x), startup = TRUE)
-  }
-  
-  
+  # if (!"package:conflicted" %in% search()) {
+  #   x <- massdataset_conflicts()
+  #   msg(massdataset_conflict_message(x), startup = TRUE)
+  # }
 }
 
 is_attached <- function(x) {

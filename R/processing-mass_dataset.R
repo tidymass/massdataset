@@ -119,7 +119,7 @@ cbind.mass_dataset = function(..., deparse.level = 1) {
     sample_info_note = sample_info_note,
     variable_info_note = variable_info_note,
     process_info = c(x@process_info, y@process_info),
-    version = massdataset_version,
+    version = as.character(utils::packageVersion(pkg = "massdataset")),
     annotation_table = annotation_table
   )
   
@@ -262,7 +262,7 @@ rbind.mass_dataset = function(..., deparse.level = 1) {
     sample_info_note = sample_info_note,
     variable_info_note = variable_info_note,
     process_info = c(x@process_info, y@process_info),
-    version = massdataset_version,
+    version = as.character(utils::packageVersion(pkg = "massdataset")),
     annotation_table = annotation_table
   )
   
