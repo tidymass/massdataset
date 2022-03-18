@@ -1,6 +1,6 @@
 Package: massdataset
 Title: massdataset
-Version: 0.99.24
+Version: 0.99.25
 Date: 2021-11-24
 Authors@R: 
     person(given = "Xiaotao",
@@ -89,6 +89,7 @@ Collate:
     'export_mass_dataset.R'
     'filter_samples.R'
     'filter_variables.R'
+    'ggplot2_ggplot.R'
     'ggplot_mass_dataset.R'
     'global_variables.R'
     'intensity_plot.R'
