@@ -56,12 +56,12 @@ Palo Alto, CA
 
 # Citation
 
-If you use massdataset in you publication, please cite this publication:
+If you use `masscleaner` in you publication, please cite this publication:
 
-X. Shen, R. Wang, X. Xiong, Y. Yin, Y. Cai, Z. Ma, N. Liu, and Z.-J.
-Zhu\* (Corresponding Author), Metabolic Reaction Network-based Recursive
-Metabolite Annotation for Untargeted Metabolomics, Nature
-Communications, 2019, 10: 1516.  
-[Web Link](https://www.nature.com/articles/s41467-019-09550-x).
+TidyMass: An Object-oriented Reproducible Analysis Framework for LC-MS Data.
+
+Xiaotao Shen, Hong Yan, Chuchu Wang, Peng Gao, Caroline H. Johnson, Michael P. Snyder.
+
+[Web Link](https://www.biorxiv.org/content/10.1101/2022.03.15.484499v1).
 
 Thanks very much!

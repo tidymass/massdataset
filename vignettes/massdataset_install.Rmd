@@ -47,20 +47,22 @@ remove.packages(pkgs = "tinyTools")
 
 > If there are errors, ignore them.
 
-# **Install massdataset from github**
+# **Install massdataset from GitLab**
 
-You can just use the `devtools` or `remotes` to install `massdataset`. 
-
-Please update `devtools` first and then restart your r session.
+You can just use the `remotes` to install `massdataset`. 
 
 ```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-install.packages("devtools")
+remotes::install_gitlab("jaspershen/massdataset", dependencies = TRUE)
 ```
 
-Then install `massdataset`:
+In the installation, it will ask if you want to update some packages for few times, just press `enter` key to skip it.
+
+# **Install massdataset from GitHub**
+
+You can just use the `remotes` to install `massdataset`. 
 
 ```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-devtools::install_github("tidymass/massdataset", dependencies = TRUE)
+remotes::install_github("tidymass/massdataset", dependencies = TRUE)
 ```
 
 In the installation, it will ask if you want to update some packages for few times, just press `enter` key to skip it.

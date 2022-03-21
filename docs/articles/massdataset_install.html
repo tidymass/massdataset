@@ -48,7 +48,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.22</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.25</span>
       </span>
     </div>
 
@@ -192,7 +192,7 @@
       <h1 data-toc-skip>Install massdataset</h1>
                         <h4 data-toc-skip class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 data-toc-skip class="date">Created on 2021-12-26 and updated on 2022-03-11</h4>
+            <h4 data-toc-skip class="date">Created on 2021-12-26 and updated on 2022-03-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/massdataset_install.Rmd" class="external-link"><code>vignettes/massdataset_install.Rmd</code></a></small>
       <div class="hidden name"><code>massdataset_install.Rmd</code></div>
@@ -224,16 +224,21 @@
 </blockquote>
 </div>
 <div class="section level2">
-<h2 id="install-massdataset-from-github">
-<strong>Install massdataset from github</strong><a class="anchor" aria-label="anchor" href="#install-massdataset-from-github"></a>
+<h2 id="install-massdataset-from-gitlab">
+<strong>Install massdataset from GitLab</strong><a class="anchor" aria-label="anchor" href="#install-massdataset-from-gitlab"></a>
 </h2>
-<p>You can just use the <code>devtools</code> or <code>remotes</code> to install <code>massdataset</code>.</p>
-<p>Please update <code>devtools</code> first and then restart your r session.</p>
+<p>You can just use the <code>remotes</code> to install <code>massdataset</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></code></pre></div>
-<p>Then install <code>massdataset</code>:</p>
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_gitlab.html" class="external-link">install_gitlab</a></span><span class="op">(</span><span class="st">"jaspershen/massdataset"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p>In the installation, it will ask if you want to update some packages for few times, just press <code>enter</code> key to skip it.</p>
+</div>
+<div class="section level2">
+<h2 id="install-massdataset-from-github">
+<strong>Install massdataset from GitHub</strong><a class="anchor" aria-label="anchor" href="#install-massdataset-from-github"></a>
+</h2>
+<p>You can just use the <code>remotes</code> to install <code>massdataset</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"tidymass/massdataset"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"tidymass/massdataset"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>In the installation, it will ask if you want to update some packages for few times, just press <code>enter</code> key to skip it.</p>
 <p>If there is a error like below:</p>
 <pre><code>Error: Failed to install 'massdataset' from GitHub: HTTP error 403. API rate limit exceeded for 171.66.10.237. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)</code></pre>

@@ -79,6 +79,9 @@
     <loc>https://tidymass.github.io/massdataset/reference/activate_mass_dataset.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/reference/add_column.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/reference/add_new_column-mass_dataset.html</loc>
   </url>
   <url>
@@ -218,6 +221,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/merge_mass_dataset.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/methods-ms2_data.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/ms2_data-class.html</loc>
