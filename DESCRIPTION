@@ -37,7 +37,6 @@ Imports:
     readr,
     rlang,
     plyr,
-    leaflet,
     masstools,
     ComplexHeatmap,
     grid,

@@ -12,7 +12,6 @@
 #' @importFrom rstudioapi isAvailable hasFun getThemeInfo
 #' @importFrom utils packageDescription write.csv
 #' @importFrom cli rule symbol
-#' @import leaflet
 #' @importFrom crayon green blue col_align red black white style make_style num_colors
 #' @importFrom plotly ggplotly
 #' @importFrom pbapply pblapply
