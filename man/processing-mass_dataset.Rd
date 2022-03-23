@@ -2,14 +2,20 @@
 % Please edit documentation in R/processing-mass_dataset.R
 \name{cbind.mass_dataset}
 \alias{cbind.mass_dataset}
+\alias{cbind_mass_dataset}
 \alias{rbind.mass_dataset}
+\alias{rbind_mass_dataset}
 \alias{head.mass_dataset}
 \alias{tail.mass_dataset}
 \title{cbind}
 \usage{
 \method{cbind}{mass_dataset}(..., deparse.level = 1)
 
+cbind_mass_dataset(x, y, deparse.level = 1)
+
 \method{rbind}{mass_dataset}(..., deparse.level = 1)
+
+rbind_mass_dataset(x, y, deparse.level = 1)
 
 \method{head}{mass_dataset}(x, ...)
 
@@ -21,8 +27,14 @@
 \item{deparse.level}{deparse.level}
 
 \item{x}{x}
+
+\item{y}{mass_dataset}
 }
 \value{
+mass_dataset
+
+mass_dataset
+
 mass_dataset
 
 mass_dataset
@@ -34,13 +46,20 @@ mass_dataset class object
 \description{
 cbind
 
+cbind mass_data class
+
 rbind
+
+rbind mass_dataset
 
 head
 
 tail
 }
 \author{
+Xiaotao Shen
+\email{shenxt1990@outlook.com}
+
 Xiaotao Shen
 \email{shenxt1990@outlook.com}
 }
