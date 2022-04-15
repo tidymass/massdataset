@@ -223,6 +223,12 @@ create_mass_dataset <-
     
     process_info$create_mass_dataset = parameter
     
+    expression_data <- as.data.frame(expression_data)
+    sample_info <- as.data.frame(sample_info)
+    variable_info <- as.data.frame(variable_info)
+    sample_info_note <- as.data.frame(sample_info_note)
+    variable_info_note <- as.data.frame(variable_info_note)
+    
     object <- new(
       Class = "mass_dataset",
       expression_data = expression_data,

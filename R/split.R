@@ -188,6 +188,7 @@ split_mass_dataset <-
               new_object@annotation_table %>%
               dplyr::filter(variable_id %in% new_object@variable_info$variable_id)
           }
+          
           return(new_object)
         })
     }
@@ -226,6 +227,11 @@ split_mass_dataset <-
         x@process_info <- process_info
         x
       })
+
+    if(is.character(split_column)){
+      names(return_object) <- 
+        unique(split_column)
+    }
     
     return(return_object)
   }

@@ -6,4 +6,8 @@
 
 * Now ggplot also support mass_dataset.
 
+# Version 0.99.27
+
+* Fix a small bug in create_mass_dataset.
+
 
