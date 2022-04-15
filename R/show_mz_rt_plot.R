@@ -24,23 +24,23 @@
 #' 
 #'   show_mz_rt_plot(object, hex = TRUE)
 
-show_mz_rt_plot =
+show_mz_rt_plot <-
   function(object,
            hex = FALSE) {
     check_object_class(object = object, class = "mass_dataset")
     
-    variable_info = object@variable_info
+    variable_info <- object@variable_info
     
-    mean_int =
+    mean_int <-
       object@expression_data %>%
       apply(1, function(x) {
         mean(x, na.rm = TRUE)
       })
     
-    variable_info$mean_into = mean_int
+    variable_info$mean_into <- mean_int
     
     if (hex) {
-      plot =
+      plot <-
         variable_info %>% 
         ggplot(aes(rt, mz)) +
         geom_hex() +
@@ -50,7 +50,7 @@ show_mz_rt_plot =
         labs(x = "Retention time (second)",
              y = "Mass to charge ratio (m/z)")
     } else{
-      plot =
+      plot <-
         variable_info %>% 
         ggplot(aes(rt, mz)) +
         geom_point(aes(color = mean_int, size = mean_int)) +
