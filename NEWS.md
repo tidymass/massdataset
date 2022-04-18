@@ -10,4 +10,8 @@
 
 * Fix a small bug in create_mass_dataset.
 
+# Version 0.99.28
+
+* Fix a small bug in dplyr::mutate.
+
 

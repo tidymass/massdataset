@@ -50,6 +50,13 @@ mutate.mass_dataset <- function(.data, ...) {
       .data@sample_info <-
         .data@sample_info[, .data@sample_info_note$name, drop = FALSE]
     }
+    
+    ###if changed the sample_id in sample_info
+    if(any(colnames(.data@expression_data) != .data@sample_info$sample_id)){
+      colnames(.data@expression_data) <- 
+        .data@sample_info$sample_id
+    }
+    
   }
   
   if (.data@activated == "variable_info") {
@@ -65,6 +72,12 @@ mutate.mass_dataset <- function(.data, ...) {
               new_variable_info_note)
       .data@variable_info <- 
         .data@variable_info[, .data@variable_info_note$name, drop = FALSE]
+    }
+    
+    ###if changed the variable_id in variable_info
+    if(any(rownames(.data@expression_data) != .data@variable_info$variable_id)){
+      rownames(.data@expression_data) <- 
+        .data@variable_info$variable_id
     }
   }
   
