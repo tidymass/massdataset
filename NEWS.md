@@ -14,4 +14,12 @@
 
 * Fix a small bug in dplyr::mutate.
 
+# Version 0.99.29
+
+* Fix a small bug in rbind.
+
+# Version 0.99.30
+
+* Fix a small bug in dplyr::mutate.
+
 

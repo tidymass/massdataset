@@ -5,15 +5,14 @@
 #' @export
 mutate.mass_dataset <- function(.data, ...) {
   dots <- rlang::quos(...)
-  
   if (length(.data@activated) == 0) {
     stop("activate you object using activate_mass_dataset first.\n")
   }
   
-  temp_slot =
+  temp_slot <-
     slot(object = .data, name = .data@activated)
   
-  temp_slot =
+  temp_slot <-
     mutate(temp_slot, !!!dots)
   
   slot(object = .data, name = .data@activated) = temp_slot
@@ -31,7 +30,7 @@ mutate.mass_dataset <- function(.data, ...) {
       .data@sample_info =
         rbind(.data@sample_info,
               new_sample_info)
-      .data@expression_data <- 
+      .data@expression_data <-
         .data@expression_data[, .data@sample_info$sample_id, drop = FALSE]
     }
   }
@@ -52,11 +51,10 @@ mutate.mass_dataset <- function(.data, ...) {
     }
     
     ###if changed the sample_id in sample_info
-    if(any(colnames(.data@expression_data) != .data@sample_info$sample_id)){
-      colnames(.data@expression_data) <- 
+    if (any(colnames(.data@expression_data) != .data@sample_info$sample_id)) {
+      colnames(.data@expression_data) <-
         .data@sample_info$sample_id
     }
-    
   }
   
   if (.data@activated == "variable_info") {
@@ -70,13 +68,21 @@ mutate.mass_dataset <- function(.data, ...) {
       .data@variable_info_note =
         rbind(.data@variable_info_note,
               new_variable_info_note)
-      .data@variable_info <- 
+      .data@variable_info <-
         .data@variable_info[, .data@variable_info_note$name, drop = FALSE]
     }
     
     ###if changed the variable_id in variable_info
-    if(any(rownames(.data@expression_data) != .data@variable_info$variable_id)){
-      rownames(.data@expression_data) <- 
+    if (any(rownames(.data@expression_data) != .data@variable_info$variable_id)) {
+      
+      ###if change the variable_id in variable_info
+      ##we need to change the same for annotation_table
+      if(nrow(.data@annotation_table) > 0){
+        .data@annotation_table <- 
+          mutate(.data@annotation_table, !!!dots)
+      }
+      
+      rownames(.data@expression_data) <-
         .data@variable_info$variable_id
     }
   }
@@ -120,10 +126,10 @@ mutate.mass_dataset <- function(.data, ...) {
       }) %>%
       unlist()
     sample_name <-
-      data.frame(new_sample_name, 
+      data.frame(new_sample_name,
                  old_sample_name,
                  check.names = FALSE)
-    sample_name <- 
+    sample_name <-
       sample_name[sample_name$old_sample_name %in% colnames(temp_slot), , drop = FALSE]
     sample_name <-
       sample_name %>%

@@ -189,12 +189,11 @@ rbind.mass_dataset <-
 
 rbind_mass_dataset <-
   function(x, y, deparse.level = 1) {
-    
-    if(is.null(x)){
+    if (is.null(x)) {
       return(y)
     }
     
-    if(is.null(y)){
+    if (is.null(y)) {
       return(x)
     }
     
@@ -251,6 +250,15 @@ rbind_mass_dataset <-
       purrr::map(function(x) {
         if (x %in% colnames(sample_info_x)) {
           x = paste(x, 2, sep = "_")
+          while (x %in% colnames(sample_info_x)) {
+            number <-
+              stringr::str_extract(x, "_[0-9]{1,3}$") %>%
+              stringr::str_replace("_", "") %>%
+              as.numeric() %>%
+              `+`(1)
+            x <- x %>%
+              stringr::str_replace("_[0-9]{1,3}$", paste0("_", number))
+          }
           x
         } else{
           x
