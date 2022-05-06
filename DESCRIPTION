@@ -1,6 +1,6 @@
 Package: massdataset
 Title: massdataset
-Version: 0.99.30
+Version: 1.00.01
 Date: 2021-11-24
 Authors@R: 
     person(given = "Xiaotao",
