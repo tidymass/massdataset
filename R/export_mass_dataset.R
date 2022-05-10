@@ -10,18 +10,17 @@
 #' @return csv or xlsx files.
 #' @export
 
-export_mass_dataset =
+export_mass_dataset <-
   function(object,
            file_type = c("csv", "xlsx"),
            ms2_file_type = c("msp", "mgf"),
-           path = "."
-           ) {
+           path = ".") {
     check_object_class(object = object, class = "mass_dataset")
     file_type <- match.arg(file_type)
     ms2_file_type <- match.arg(ms2_file_type)
     dir.create(path, showWarnings = FALSE)
     # if (class(object)[1] != "mass_dataset") {
-      if (!is(object, class2 = "mass_dataset")) {
+    if (!is(object, class2 = "mass_dataset")) {
       stop("Only support mass_dataset class object.\n")
     }
     
@@ -72,12 +71,15 @@ export_mass_dataset =
           overwrite = TRUE
         )
       }
-      
-      ###ms2_data
-      if(is(object@ms2_data, class2 = "ms2_data")){
-        export_ms2_data(object = object@ms2_data,
-                        file_type = ms2_file_type,
-                        path = path)  
+    }
+    ###ms2_data
+    if (length(object@ms2_data) > 0) {
+      if (is(object@ms2_data[[1]], class2 = "ms2_data")) {
+        export_ms2_data(
+          object = object,
+          file_type = ms2_file_type,
+          path = path
+        )
       }
     }
   }
@@ -94,15 +96,14 @@ export_mass_dataset =
 #' @return mgf, msp files
 #' @export
 
-export_ms2_data =
+export_ms2_data <-
   function(object,
            file_type = c("mgf", "msp"),
            path = ".") {
-    check_object_class(object = object, class = "ms2_data")
     file_type = match.arg(file_type)
     dir.create(path, showWarnings = FALSE)
     # if (class(object)[1] != "mass_dataset") {
-      if (!is(object, class2 = "mass_dataset")) {
+    if (!is(object, class2 = "mass_dataset")) {
       stop("Only support mass_dataset class object.\n")
     }
     

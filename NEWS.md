@@ -22,4 +22,8 @@
 
 * Fix a small bug in dplyr::mutate.
 
+# Version 1.00.02
+
+* Fix a small bug in export_mass_dataset.
+
 
