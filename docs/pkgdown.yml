@@ -20,7 +20,7 @@ articles:
   process_info: process_info.html
   split_mass_dataset: split_mass_dataset.html
   summary_info: summary_info.html
-last_built: 2022-05-16T20:55Z
+last_built: 2022-05-16T22:14Z
 urls:
   reference: https://tidymass.github.io/massdataset/reference
   article: https://tidymass.github.io/massdataset/articles
