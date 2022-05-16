@@ -26,6 +26,8 @@ An S4 class that stores the MS dataset
 
 \item{\code{process_info}}{process info}
 
+\item{\code{other_files}}{Other files}
+
 \item{\code{version}}{version}
 
 \item{\code{activated}}{activated}

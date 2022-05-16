@@ -1,6 +1,6 @@
 Package: massdataset
 Title: massdataset
-Version: 1.00.02
+Version: 1.0.3
 Date: 2021-11-24
 Authors@R: 
     person(given = "Xiaotao",
@@ -62,14 +62,19 @@ biocViews: Metabolomics, MassSpectrometry
 Config/testthat/edition: 3
 Collate: 
     '1_massdataset_logo.R'
+    '2_all_generics.R'
+    '3_attach.R'
+    '4_conflicts.R'
+    '5_data.R'
+    '6_utils.R'
+    '7_zzz.R'
+    '8_global_variables.R'
     'activate_mass_dataset.R'
-    'all_generics.R'
     'arithmetic-mass_dataset.R'
-    'attach.R'
-    'conflicts.R'
+    'convert_mass_dataset2mztab.R'
     'convert_msdial2mass_dataset.R'
     'convert_mzmine2mass_dataset.R'
-    'data.R'
+    'convert_mztab2mass_dataset.R'
     'data_checking.R'
     'data_extracting.R'
     'dplyr_arrange.R'
@@ -90,7 +95,6 @@ Collate:
     'filter_variables.R'
     'ggplot2_ggplot.R'
     'ggplot_mass_dataset.R'
-    'global_variables.R'
     'intensity_plot.R'
     'mass_dataset-methods.R'
     'mass_dataset_class.R'
@@ -121,5 +125,3 @@ Collate:
     'tidyr_fill.R'
     'tidyr_pivot_longer.R'
     'update_mass_dataset.R'
-    'utils.R'
-    'zzz.R'

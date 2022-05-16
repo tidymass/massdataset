@@ -24,5 +24,13 @@ globalVariables(names = c(
   "Average Mz",
   "Average Rt(min)",
   "1",
-  "value"
+  "value",
+  "study_variable",
+  "SMF_ID",
+  "SMH",
+  "SML_ID",
+  "assay",
+  "exp_mass_to_charge",
+  "retention_time_in_seconds",
+  "study_variable"
 ))

@@ -1,4 +1,5 @@
 
+
 #' @title check_mass_dataset_class
 #' @description Check mass_dataset class object.
 #' @docType methods
@@ -206,9 +207,11 @@ create_mass_dataset <-
     
     if (missing(variable_info_note)) {
       variable_info_note <-
-        data.frame(name = colnames(variable_info),
-                   meaning = colnames(variable_info),
-                   check.names = FALSE)
+        data.frame(
+          name = colnames(variable_info),
+          meaning = colnames(variable_info),
+          check.names = FALSE
+        )
     }
     
     process_info = list()
@@ -256,6 +259,7 @@ create_mass_dataset <-
 #' @slot sample_info_note sample info note
 #' @slot variable_info_note variable info note
 #' @slot process_info process info
+#' @slot other_files Other files
 #' @slot version version
 #' @slot activated activated
 #' @exportClass mass_dataset
@@ -271,6 +275,7 @@ setClass(
     sample_info_note = "data.frame",
     variable_info_note = "data.frame",
     process_info = "list",
+    other_files = "list",
     version = "character",
     activated = "character"
   ),

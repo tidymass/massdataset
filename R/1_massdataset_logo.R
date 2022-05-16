@@ -22,7 +22,7 @@
 #' @import ggplot2
 #' @importFrom methods .hasSlot new is
 #' @importFrom stats p.adjust rgamma sd median time
-#' @importFrom utils data str head tail packageVersion
+#' @importFrom utils data str head tail packageVersion write.table
 #' @importFrom magrittr %>%
 #' @importFrom ggsci pal_lancet
 #' @importFrom masstools read_mgf read_mzxml ms2_plot

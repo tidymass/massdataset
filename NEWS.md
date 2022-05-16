@@ -26,4 +26,8 @@
 
 * Fix a small bug in export_mass_dataset.
 
+# Version 1.0.3
+
+* Add several functions to convert other formats with mass_dataset.
+
 
