@@ -46,6 +46,9 @@
     <loc>https://tidymass.github.io/massdataset/articles/index.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/articles/interoperability_with_other_tools.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/articles/massdataset_install.html</loc>
   </url>
   <url>
@@ -109,7 +112,16 @@
     <loc>https://tidymass.github.io/massdataset/reference/colnames.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/reference/convert_mass_dataset2mztab.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/convert_mass_dataset2summarizedexperiment.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/reference/convert_msdial2mass_dataset.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/convert_mztab2mass_dataset.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/convet_mzmine2mass_dataset.html</loc>
@@ -125,6 +137,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/export_mass_dataset.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/export_mass_dataset4metdna.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/export_ms2_data.html</loc>
@@ -205,6 +220,12 @@
     <loc>https://tidymass.github.io/massdataset/reference/left_join-mass_dataset-data.frame-method.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/reference/left_join_mass_dataset.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/mSet-class.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/reference/mass_dataset-class.html</loc>
   </url>
   <url>
@@ -272,6 +293,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/processing-mass_dataset.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/read_mztab.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/reexports.html</loc>

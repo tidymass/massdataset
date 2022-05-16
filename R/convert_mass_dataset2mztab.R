@@ -13,7 +13,7 @@
 convert_mass_dataset2mztab <-
   function(object,
            path = ".") {
-    
+    dir.create(path, showWarnings = FALSE, recursive = TRUE)
     other_files <-
       tryCatch(
         slot(object = object, name = "other_files"),

@@ -48,14 +48,14 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.25</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Help documents
      
     <span class="caret"></span>
@@ -130,10 +130,13 @@
     <li>
       <a href="../articles/based_on_mass_dataset.html">Develop functions based on mass_dataset</a>
     </li>
+    <li>
+      <a href="../articles/interoperability_with_other_tools.html">Interoperation with other tools</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -190,9 +193,11 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Develop functions based on mass_dataset</h1>
-                        <h4 data-toc-skip class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
+                        <h4 data-toc-skip class="author">Xiaotao Shen
+(<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 data-toc-skip class="date">Created on 2022-02-18 and updated on 2022-03-22</h4>
+            <h4 data-toc-skip class="date">Created on 2022-02-18 and
+updated on 2022-05-16</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/based_on_mass_dataset.Rmd" class="external-link"><code>vignettes/based_on_mass_dataset.Rmd</code></a></small>
       <div class="hidden name"><code>based_on_mass_dataset.Rmd</code></div>
@@ -201,24 +206,30 @@
 
     
     
+<div class="section level1">
+<h1 id="develop-new-function-based-on-mass_dataset-class">
+<strong>Develop new function based on mass_dataset
+class</strong><a class="anchor" aria-label="anchor" href="#develop-new-function-based-on-mass_dataset-class"></a>
+</h1>
+<p>If you want to develop new functions based on “mass_dataset” class in
+your package. You need to make the <code>massdataset</code> package as
+your package dependency.</p>
 <div class="section level2">
-<h2 id="develop-new-function-based-on-mass_dataset-class">
-<strong>Develop new function based on mass_dataset class</strong><a class="anchor" aria-label="anchor" href="#develop-new-function-based-on-mass_dataset-class"></a>
+<h2 id="description">DESCRIPTION<a class="anchor" aria-label="anchor" href="#description"></a>
 </h2>
-<p>If you want to develop new functions based on “mass_dataset” class in your package. You need to make the <code>massdataset</code> package as your package dependency.</p>
-<div class="section level3">
-<h3 id="description">DESCRIPTION<a class="anchor" aria-label="anchor" href="#description"></a>
-</h3>
-<p>In <code>DESCRIPTION</code> file, set <code>massdataset</code> as your <code>Imports</code> and <code>Remotes</code></p>
+<p>In <code>DESCRIPTION</code> file, set <code>massdataset</code> as
+your <code>Imports</code> and <code>Remotes</code></p>
 <pre><code><span class="va">Imports</span><span class="op">:</span>
     <span class="va">massdataset</span></code></pre>
 <pre><code><span class="va">Remotes</span><span class="op">:</span> 
     <span class="va">tidymass</span><span class="op">/</span><span class="va">massdataset</span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="r-code">R code<a class="anchor" aria-label="anchor" href="#r-code"></a>
-</h3>
-<p>Please set “mass_dataset” class as your new function primary input data. If the function is directory to process one component of “mass_dataset”, just get the component and then process it.</p>
+<div class="section level2">
+<h2 id="r-code">R code<a class="anchor" aria-label="anchor" href="#r-code"></a>
+</h2>
+<p>Please set “mass_dataset” class as your new function primary input
+data. If the function is directory to process one component of
+“mass_dataset”, just get the component and then process it.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span>
@@ -236,7 +247,7 @@
   <span class="op">)</span>
 <span class="va">object</span>
 <span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.7 </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 1.0.5 </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
 <span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
@@ -248,8 +259,9 @@
 <span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-02-18 12:11:02</span></code></pre></div>
-<p>For example, we can create a function named <code>get_class_test()</code> to get “class” from “sample_info”.</p>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-05-16 13:56:22</span></code></pre></div>
+<p>For example, we can create a function named
+<code>get_class_test()</code> to get “class” from “sample_info”.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">get_class_test</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">{</span>
   <span class="va">object</span><span class="op">@</span><span class="va">sample_info</span><span class="op">$</span><span class="va">class</span>
@@ -258,8 +270,11 @@
 <code class="sourceCode R"><span class="fu">get_class_test</span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Blank"   "Blank"   "QC"      "QC"      "Subject" "Subject" "Subject"</span>
 <span class="co">#&gt; [8] "Subject"</span></code></pre></div>
-<p>If the function is general, you can use the <code><a href="../reference/activate_mass_dataset.html">activate_mass_dataset()</a></code> to tell you function which component you want to preocess.</p>
-<p>For example, we can create a function named <code>remove_blank()</code> from “sample_info” or “expression_data”.</p>
+<p>If the function is general, you can use the
+<code><a href="../reference/activate_mass_dataset.html">activate_mass_dataset()</a></code> to tell you function which
+component you want to preocess.</p>
+<p>For example, we can create a function named
+<code>remove_blank()</code> from “sample_info” or “expression_data”.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">remove_blank</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op">{</span>
   <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">object</span><span class="op">@</span><span class="va">activated</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
@@ -304,7 +319,7 @@
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu">remove_blank</span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.7 </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 1.0.5 </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
 <span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 6 data.frame]</span>
 <span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 6 x 4 data.frame]</span>
@@ -316,16 +331,16 @@
 <span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-02-18 12:11:02</span>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-05-16 13:56:22</span>
 <span class="co">#&gt; <span style="color: #00BB00;">update_mass_dataset ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset update_mass_dataset() 2022-02-18 12:11:03</span></code></pre></div>
+<span class="co">#&gt; 1 massdataset update_mass_dataset() 2022-05-16 13:56:22</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu">remove_blank</span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.7 </span></span>
+<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 1.0.5 </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
 <span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 6 data.frame]</span>
 <span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 6 x 4 data.frame]</span>
@@ -337,21 +352,23 @@
 <span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-02-18 12:11:02</span>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-05-16 13:56:22</span>
 <span class="co">#&gt; <span style="color: #00BB00;">update_mass_dataset ---------- </span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset update_mass_dataset() 2022-02-18 12:11:03</span></code></pre></div>
+<span class="co">#&gt; 1 massdataset update_mass_dataset() 2022-05-16 13:56:23</span></code></pre></div>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu">remove_blank</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
-<div class="section level2">
-<h2 id="make-functions-from-other-package-support-mass_dataset">
-<strong>Make functions from other package support mass_dataset</strong><a class="anchor" aria-label="anchor" href="#make-functions-from-other-package-support-mass_dataset"></a>
-</h2>
-<p>If you want to make other functions from other package support “mass_dataset”. We have two examples here:</p>
+<div class="section level1">
+<h1 id="make-functions-from-other-package-support-mass_dataset">
+<strong>Make functions from other package support
+mass_dataset</strong><a class="anchor" aria-label="anchor" href="#make-functions-from-other-package-support-mass_dataset"></a>
+</h1>
+<p>If you want to make other functions from other package support
+“mass_dataset”. We have two examples here:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @title head</span>
 <span class="co">#' @method head mass_dataset</span>
@@ -384,10 +401,10 @@
                   <span class="va">MARGIN</span>, <span class="va">FUN</span>, <span class="va">...</span>, simplify <span class="op">=</span> <span class="va">simplify</span><span class="op">)</span>
           <span class="op">}</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="session-information">
+<div class="section level1">
+<h1 id="session-information">
 <strong>Session information</strong><a class="anchor" aria-label="anchor" href="#session-information"></a>
-</h2>
+</h1>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; R version 4.1.2 (2021-11-01)</span>
@@ -405,48 +422,72 @@
 <span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt; [1] magrittr_2.0.2     masstools_0.99.3   massdataset_0.99.7</span>
+<span class="co">#&gt; [1] ggplot2_3.3.5     magrittr_2.0.1    masstools_0.99.13 massdataset_1.0.5</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;   [1] ProtGenerics_1.26.0   matrixStats_0.61.0    fs_1.5.2             </span>
-<span class="co">#&gt;   [4] httr_1.4.2            doParallel_1.0.16     RColorBrewer_1.1-2   </span>
-<span class="co">#&gt;   [7] rprojroot_2.0.2       ggsci_2.9             MSnbase_2.20.4       </span>
-<span class="co">#&gt;  [10] tools_4.1.2           bslib_0.3.1           affyio_1.64.0        </span>
-<span class="co">#&gt;  [13] utf8_1.2.2            R6_2.5.1              lazyeval_0.2.2       </span>
-<span class="co">#&gt;  [16] DBI_1.1.2             BiocGenerics_0.40.0   colorspace_2.0-2     </span>
-<span class="co">#&gt;  [19] GetoptLong_1.0.5      tidyselect_1.1.1      leaflet_2.0.4.1      </span>
-<span class="co">#&gt;  [22] preprocessCore_1.56.0 compiler_4.1.2        textshaping_0.3.6    </span>
-<span class="co">#&gt;  [25] cli_3.1.1             Biobase_2.54.0        plotly_4.10.0        </span>
-<span class="co">#&gt;  [28] desc_1.4.0            sass_0.4.0            scales_1.1.1         </span>
-<span class="co">#&gt;  [31] readr_2.1.1           affy_1.72.0           pbapply_1.5-0        </span>
-<span class="co">#&gt;  [34] pkgdown_2.0.2         systemfonts_1.0.3     stringr_1.4.0        </span>
-<span class="co">#&gt;  [37] digest_0.6.29         yulab.utils_0.0.4     rmarkdown_2.11       </span>
-<span class="co">#&gt;  [40] pkgconfig_2.0.3       htmltools_0.5.2       limma_3.50.0         </span>
-<span class="co">#&gt;  [43] fastmap_1.1.0         htmlwidgets_1.5.4     rlang_1.0.0          </span>
-<span class="co">#&gt;  [46] GlobalOptions_0.1.2   readxl_1.3.1          rstudioapi_0.13      </span>
-<span class="co">#&gt;  [49] impute_1.68.0         shape_1.4.6           gridGraphics_0.5-1   </span>
-<span class="co">#&gt;  [52] jquerylib_0.1.4       generics_0.1.1        jsonlite_1.7.3       </span>
-<span class="co">#&gt;  [55] mzID_1.32.0           crosstalk_1.2.0       BiocParallel_1.28.3  </span>
-<span class="co">#&gt;  [58] zip_2.2.0             dplyr_1.0.7           ggplotify_0.1.0      </span>
-<span class="co">#&gt;  [61] MALDIquant_1.21       Rcpp_1.0.8            munsell_0.5.0        </span>
-<span class="co">#&gt;  [64] S4Vectors_0.32.3      fansi_1.0.2           MsCoreUtils_1.6.0    </span>
-<span class="co">#&gt;  [67] vsn_3.62.0            lifecycle_1.0.1       stringi_1.7.6        </span>
-<span class="co">#&gt;  [70] yaml_2.2.2            zlibbioc_1.40.0       MASS_7.3-55          </span>
-<span class="co">#&gt;  [73] plyr_1.8.6            grid_4.1.2            parallel_4.1.2       </span>
-<span class="co">#&gt;  [76] crayon_1.4.2          lattice_0.20-45       hms_1.1.1            </span>
-<span class="co">#&gt;  [79] circlize_0.4.14       mzR_2.28.0            knitr_1.37           </span>
-<span class="co">#&gt;  [82] ComplexHeatmap_2.10.0 pillar_1.6.5          rjson_0.2.21         </span>
-<span class="co">#&gt;  [85] codetools_0.2-18      stats4_4.1.2          XML_3.99-0.8         </span>
-<span class="co">#&gt;  [88] glue_1.6.1            evaluate_0.14         data.table_1.14.2    </span>
-<span class="co">#&gt;  [91] BiocManager_1.30.16   pcaMethods_1.86.0     tzdb_0.2.0           </span>
-<span class="co">#&gt;  [94] png_0.1-7             vctrs_0.3.8           foreach_1.5.1        </span>
-<span class="co">#&gt;  [97] cellranger_1.1.0      gtable_0.3.0          purrr_0.3.4          </span>
-<span class="co">#&gt; [100] tidyr_1.1.4           clue_0.3-60           assertthat_0.2.1     </span>
-<span class="co">#&gt; [103] cachem_1.0.6          ggplot2_3.3.5         openxlsx_4.2.5       </span>
-<span class="co">#&gt; [106] xfun_0.29             viridisLite_0.4.0     ragg_1.2.1           </span>
-<span class="co">#&gt; [109] ncdf4_1.19            tibble_3.1.6          iterators_1.0.13     </span>
-<span class="co">#&gt; [112] memoise_2.0.1         IRanges_2.28.0        cluster_2.1.2        </span>
-<span class="co">#&gt; [115] ellipsis_0.3.2</span></code></pre></div>
+<span class="co">#&gt;   [1] colorspace_2.0-2            rjson_0.2.20               </span>
+<span class="co">#&gt;   [3] ellipsis_0.3.2              rprojroot_2.0.2            </span>
+<span class="co">#&gt;   [5] circlize_0.4.14             XVector_0.32.0             </span>
+<span class="co">#&gt;   [7] GenomicRanges_1.44.0        GlobalOptions_0.1.2        </span>
+<span class="co">#&gt;   [9] fs_1.5.0                    clue_0.3-59                </span>
+<span class="co">#&gt;  [11] rstudioapi_0.13             mzR_2.26.1                 </span>
+<span class="co">#&gt;  [13] affyio_1.62.0               fansi_0.5.0                </span>
+<span class="co">#&gt;  [15] codetools_0.2-18            ncdf4_1.17                 </span>
+<span class="co">#&gt;  [17] doParallel_1.0.16           cachem_1.0.5               </span>
+<span class="co">#&gt;  [19] impute_1.66.0               knitr_1.33                 </span>
+<span class="co">#&gt;  [21] jsonlite_1.7.2              Cairo_1.5-12.2             </span>
+<span class="co">#&gt;  [23] cluster_2.1.2               vsn_3.60.0                 </span>
+<span class="co">#&gt;  [25] png_0.1-7                   readr_2.0.0                </span>
+<span class="co">#&gt;  [27] httr_1.4.2                  BiocManager_1.30.16        </span>
+<span class="co">#&gt;  [29] compiler_4.1.2              rvcheck_0.1.8              </span>
+<span class="co">#&gt;  [31] lazyeval_0.2.2              assertthat_0.2.1           </span>
+<span class="co">#&gt;  [33] Matrix_1.3-4                fastmap_1.1.0              </span>
+<span class="co">#&gt;  [35] limma_3.48.1                cli_3.0.1                  </span>
+<span class="co">#&gt;  [37] htmltools_0.5.2             tools_4.1.2                </span>
+<span class="co">#&gt;  [39] gtable_0.3.0                glue_1.4.2                 </span>
+<span class="co">#&gt;  [41] GenomeInfoDbData_1.2.6      affy_1.70.0                </span>
+<span class="co">#&gt;  [43] dplyr_1.0.7                 Rcpp_1.0.7                 </span>
+<span class="co">#&gt;  [45] MALDIquant_1.20             Biobase_2.52.0             </span>
+<span class="co">#&gt;  [47] cellranger_1.1.0            jquerylib_0.1.4            </span>
+<span class="co">#&gt;  [49] pkgdown_2.0.1               vctrs_0.3.8                </span>
+<span class="co">#&gt;  [51] preprocessCore_1.54.0       iterators_1.0.13           </span>
+<span class="co">#&gt;  [53] xfun_0.31                   stringr_1.4.0              </span>
+<span class="co">#&gt;  [55] openxlsx_4.2.4              lifecycle_1.0.0            </span>
+<span class="co">#&gt;  [57] XML_3.99-0.6                zlibbioc_1.38.0            </span>
+<span class="co">#&gt;  [59] MASS_7.3-54                 scales_1.1.1               </span>
+<span class="co">#&gt;  [61] MSnbase_2.18.0              hms_1.1.0                  </span>
+<span class="co">#&gt;  [63] ragg_1.1.3                  pcaMethods_1.84.0          </span>
+<span class="co">#&gt;  [65] MatrixGenerics_1.4.2        ProtGenerics_1.24.0        </span>
+<span class="co">#&gt;  [67] parallel_4.1.2              SummarizedExperiment_1.22.0</span>
+<span class="co">#&gt;  [69] RColorBrewer_1.1-2          ComplexHeatmap_2.8.0       </span>
+<span class="co">#&gt;  [71] yaml_2.2.1                  memoise_2.0.0              </span>
+<span class="co">#&gt;  [73] pbapply_1.4-3               sass_0.4.0                 </span>
+<span class="co">#&gt;  [75] stringi_1.7.3               S4Vectors_0.30.0           </span>
+<span class="co">#&gt;  [77] desc_1.3.0                  foreach_1.5.1              </span>
+<span class="co">#&gt;  [79] BiocGenerics_0.38.0         zip_2.2.0                  </span>
+<span class="co">#&gt;  [81] BiocParallel_1.26.1         shape_1.4.6                </span>
+<span class="co">#&gt;  [83] GenomeInfoDb_1.28.1         rlang_0.4.11               </span>
+<span class="co">#&gt;  [85] pkgconfig_2.0.3             systemfonts_1.0.2          </span>
+<span class="co">#&gt;  [87] matrixStats_0.60.0          bitops_1.0-7               </span>
+<span class="co">#&gt;  [89] mzID_1.30.0                 evaluate_0.14              </span>
+<span class="co">#&gt;  [91] lattice_0.20-45             purrr_0.3.4                </span>
+<span class="co">#&gt;  [93] htmlwidgets_1.5.3           tidyselect_1.1.1           </span>
+<span class="co">#&gt;  [95] ggsci_2.9                   plyr_1.8.6                 </span>
+<span class="co">#&gt;  [97] R6_2.5.0                    IRanges_2.26.0             </span>
+<span class="co">#&gt;  [99] generics_0.1.0              DelayedArray_0.18.0        </span>
+<span class="co">#&gt; [101] DBI_1.1.1                   withr_2.4.2                </span>
+<span class="co">#&gt; [103] pillar_1.6.2                MsCoreUtils_1.4.0          </span>
+<span class="co">#&gt; [105] RCurl_1.98-1.3              tibble_3.1.3               </span>
+<span class="co">#&gt; [107] crayon_1.4.1                utf8_1.2.2                 </span>
+<span class="co">#&gt; [109] plotly_4.9.4.1              tzdb_0.1.2                 </span>
+<span class="co">#&gt; [111] rmarkdown_2.14              GetoptLong_1.0.5           </span>
+<span class="co">#&gt; [113] grid_4.1.2                  readxl_1.3.1               </span>
+<span class="co">#&gt; [115] data.table_1.14.0           digest_0.6.27              </span>
+<span class="co">#&gt; [117] tidyr_1.1.3                 gridGraphics_0.5-1         </span>
+<span class="co">#&gt; [119] textshaping_0.3.6           Rdisop_1.52.0              </span>
+<span class="co">#&gt; [121] stats4_4.1.2                munsell_0.5.0              </span>
+<span class="co">#&gt; [123] viridisLite_0.4.0           ggplotify_0.0.8            </span>
+<span class="co">#&gt; [125] bslib_0.3.1</span></code></pre></div>
 </div>
   </div>
 
@@ -462,7 +503,8 @@
 
       <footer><div class="copyright">
   <p></p>
-<p>massdataset Developed by Xiaotao Shen. <br> from <i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
+<p>massdataset Developed by Xiaotao Shen. <br> from
+<i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
 </div>
 
 <div class="pkgdown">

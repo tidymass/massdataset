@@ -1,5 +1,5 @@
-pandoc: 2.14.0.3
-pkgdown: 2.0.2
+pandoc: 2.17.1.1
+pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   accessor: accessor.html
@@ -13,14 +13,14 @@ articles:
   filtering: filtering.html
   ggplot_mass_dataset: ggplot_mass_dataset.html
   html_process_info: html_process_info.html
+  interoperability_with_other_tools: interoperability_with_other_tools.html
   massdataset_install: massdataset_install.html
   merge_two_mass_dataset: merge_two_mass_dataset.html
   mutate_ms2: mutate_ms2.html
   process_info: process_info.html
   split_mass_dataset: split_mass_dataset.html
   summary_info: summary_info.html
-  tidyverse_verse: tidyverse_verse.html
-last_built: 2022-03-22T17:50Z
+last_built: 2022-05-16T20:55Z
 urls:
   reference: https://tidymass.github.io/massdataset/reference
   article: https://tidymass.github.io/massdataset/articles
