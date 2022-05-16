@@ -30,4 +30,8 @@
 
 * Add several functions to convert other formats with mass_dataset.
 
+# Version 1.0.4
+
+* Add export_mass_dataset4metdna function.
+
 

@@ -1,6 +1,6 @@
 Package: massdataset
 Title: massdataset
-Version: 1.0.3
+Version: 1.0.4
 Date: 2021-11-24
 Authors@R: 
     person(given = "Xiaotao",
@@ -98,6 +98,7 @@ Collate:
     'intensity_plot.R'
     'mass_dataset-methods.R'
     'mass_dataset_class.R'
+    'mass_dataset_metdna.R'
     'mass_dataset_phyloseq.R'
     'masstools_mz_rt_match.R'
     'merge_mass_dataset.R'
