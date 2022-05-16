@@ -1,6 +1,6 @@
 Package: massdataset
 Title: massdataset
-Version: 1.0.4
+Version: 1.0.5
 Date: 2021-11-24
 Authors@R: 
     person(given = "Xiaotao",
@@ -130,4 +130,3 @@ Collate:
     'tidyr_fill.R'
     'tidyr_pivot_longer.R'
     'update_mass_dataset.R'
-    'xcmsSet-class.R'

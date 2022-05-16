@@ -12,6 +12,7 @@
 
 export_mass_dataset4metdna <-
   function(object, path = ".") {
+    dir.create(path, showWarnings = FALSE, recursive = TRUE)
     object <-
       object %>%
       activate_mass_dataset(what = "sample_info") %>%

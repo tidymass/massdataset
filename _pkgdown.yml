@@ -132,6 +132,8 @@ navbar:
         href: articles/ggplot_mass_dataset.html
       - text: "Develop functions based on mass_dataset"
         href: articles/based_on_mass_dataset.html
+      - text: "Interoperation with other tools"
+        href: articles/interoperability_with_other_tools.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/xiaotaoshen1990
