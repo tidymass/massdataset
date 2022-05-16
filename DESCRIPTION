@@ -46,7 +46,9 @@ Imports:
     utils,
     tidyselect,
     vctrs,
-    tidyr
+    tidyr,
+    SummarizedExperiment,
+    S4Vectors
 Suggests: 
     knitr,
     rmarkdown,
@@ -69,9 +71,11 @@ Collate:
     '6_utils.R'
     '7_zzz.R'
     '8_global_variables.R'
+    'SummarizedExperiment-class.R'
     'activate_mass_dataset.R'
     'arithmetic-mass_dataset.R'
     'convert_mass_dataset2mztab.R'
+    'convert_mass_dataset2summarizedexperiment.R'
     'convert_msdial2mass_dataset.R'
     'convert_mzmine2mass_dataset.R'
     'convert_mztab2mass_dataset.R'
@@ -96,10 +100,10 @@ Collate:
     'ggplot2_ggplot.R'
     'ggplot_mass_dataset.R'
     'intensity_plot.R'
+    'mSet-class.R'
     'mass_dataset-methods.R'
     'mass_dataset_class.R'
     'mass_dataset_metdna.R'
-    'mass_dataset_phyloseq.R'
     'masstools_mz_rt_match.R'
     'merge_mass_dataset.R'
     'missing_value_explore_plot.R'
@@ -126,3 +130,4 @@ Collate:
     'tidyr_fill.R'
     'tidyr_pivot_longer.R'
     'update_mass_dataset.R'
+    'xcmsSet-class.R'
