@@ -1,5 +1,5 @@
 #' @title check_mass_dataset
-#' @description Check data format fpr mass_dataset class object.
+#' @description Check data format for mass_dataset class object.
 #' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}

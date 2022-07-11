@@ -28,7 +28,7 @@ check_mass_dataset(
 Notice of data checking.
 }
 \description{
-Check data format fpr mass_dataset class object.
+Check data format for mass_dataset class object.
 }
 \examples{
 data("expression_data")

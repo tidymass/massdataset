@@ -327,22 +327,4 @@ head(extract_variable_info(object3))
 \author{
 Xiaotao Shen
 \email{shenxt1990@outlook.com}
-
-Xiaotao Shen
-\email{shenxt1990@outlook.com}
-
-Xiaotao Shen
-\email{shenxt1990@outlook.com}
-
-Xiaotao Shen
-\email{shenxt1990@outlook.com}
-
-Xiaotao Shen
-\email{shenxt1990@outlook.com}
-
-Xiaotao Shen
-\email{shenxt1990@outlook.com}
-
-Xiaotao Shen
-\email{shenxt1990@outlook.com}
 }

@@ -206,7 +206,7 @@ mutate_variable_na_freq <-
     colnames(object@variable_info)[ncol(object@variable_info)] <-
       new_column_name
     
-    rownames(object@variable_info) = NULL
+    rownames(object@variable_info) <- NULL
     
     ####variable_info_note
     # new_variable_info_note <-

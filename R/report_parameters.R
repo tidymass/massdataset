@@ -44,7 +44,7 @@
 #' report_parameters(object = object, path = "demo_data")
 #' }
 
-report_parameters =
+report_parameters <-
   function(object,
            path = ".") {
     check_object_class(object = object, class = "mass_dataset")

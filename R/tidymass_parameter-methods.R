@@ -1,4 +1,4 @@
-#' @title translate_tidymass_parameter 
+#' @title translate_tidymass_parameter
 #' @description translate tidymass_parameter to data.frame.
 #' @docType methods
 #' @author Xiaotao Shen
@@ -20,24 +20,25 @@
 #' object
 #' translate_tidymass_parameter(object@process_info[[1]])
 
-translate_tidymass_parameter =
+translate_tidymass_parameter <-
   function(object) {
-    
     check_object_class(object = object, class = "tidymass_parameter")
     
-    if(length(object@parameter) == 0){
-      parameter <- "no:no"  
-    }else{
-      parameter <- purrr::map2(names(object@parameter),
-                              object@parameter, function(name, value) {
-                                if (length(value) > 100000) {
-                                  value <- head(value, 100000)
-                                  value <- paste(c(value, "..."), collapse = ',')
-                                } else{
-                                  value <- paste(value, collapse = ',')
-                                }
-                                paste(name, value, sep = ":")
-                              }) %>% unlist() 
+    if (length(object@parameter) == 0) {
+      parameter <- "no:no"
+    } else{
+      parameter <-
+        purrr::map2(names(object@parameter),
+                    object@parameter, function(name, value) {
+                      if (length(value) > 100000) {
+                        value <- head(value, 100000)
+                        value <-
+                          paste(c(value, "..."), collapse = ',')
+                      } else{
+                        value <- paste(value, collapse = ',')
+                      }
+                      paste(name, value, sep = ":")
+                    }) %>% unlist()
     }
     
     data.frame(

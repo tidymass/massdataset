@@ -18,7 +18,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 VignetteBuilder: knitr
 Imports: 
     dplyr,
@@ -67,7 +67,7 @@ Collate:
     '2_all_generics.R'
     '3_attach.R'
     '4_conflicts.R'
-    '5_data.R'
+    '5_data_in_package.R'
     '6_utils.R'
     '7_zzz.R'
     '8_global_variables.R'
