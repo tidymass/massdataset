@@ -59,7 +59,6 @@ print.massdataset_conflicts <- function(x, ..., startup = FALSE) {
   cli::cat_line(massdataset_conflict_message(x))
 }
 
-#' @importFrom magrittr %>%
 confirm_conflict <- function(packages, name) {
   # Only look at functions
   objs <- packages %>%

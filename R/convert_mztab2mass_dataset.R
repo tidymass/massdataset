@@ -5,7 +5,6 @@
 #' @param file mzTab-m file
 #' @param path where is the mzTab-m file.
 #' @return A mass_dataset-class object.
-#' @importFrom magrittr %>%
 #' @importFrom dplyr filter rename
 #' @importFrom stats time
 #' @export
@@ -186,7 +185,6 @@ convert_mztab2mass_dataset <-
 #' @param file File name of the mzTab-M data.
 #' @param path Where is the file? Default is .
 #' @return A list.
-#' @importFrom magrittr %>%
 #' @importFrom dplyr filter rename
 #' @importFrom stats time
 #' @importFrom readr read_csv

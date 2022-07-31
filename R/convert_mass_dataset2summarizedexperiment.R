@@ -5,7 +5,6 @@
 #' \email{shenxt1990@@outlook.com}
 #' @param object mass_dataset class object.
 #' @return A SummarizedExperiment file.
-#' @importFrom magrittr %>%
 #' @importFrom dplyr filter rename
 #' @importFrom stats time
 #' @importFrom SummarizedExperiment SummarizedExperiment

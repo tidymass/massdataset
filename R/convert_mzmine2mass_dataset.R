@@ -6,7 +6,6 @@
 #' @param x Feature table from mzmine.
 #' @param rt_unit RT unit (minute or second) in feature table.
 #' @return A mass_dataset-class object.
-#' @importFrom magrittr %>%
 #' @importFrom dplyr filter rename
 #' @importFrom stats time
 #' @export

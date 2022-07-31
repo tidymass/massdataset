@@ -14,7 +14,6 @@
 #' @importFrom cli rule symbol
 #' @importFrom crayon green blue col_align red black white style make_style num_colors
 #' @importFrom plotly ggplotly
-#' @importFrom pbapply pblapply
 #' @importFrom openxlsx write.xlsx
 #' @importFrom purrr map map2
 #' @importFrom readr write_csv read_csv
@@ -23,7 +22,6 @@
 #' @importFrom methods .hasSlot new is
 #' @importFrom stats p.adjust rgamma sd median time
 #' @importFrom utils data str head tail packageVersion write.table
-#' @importFrom magrittr %>%
 #' @importFrom ggsci pal_lancet
 #' @importFrom masstools read_mgf read_mzxml ms2_plot
 #' @importFrom rlang warn quo_is_null abort seq2

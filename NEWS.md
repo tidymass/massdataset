@@ -35,3 +35,8 @@
 * Add export_mass_dataset4metdna function.
 
 
+# Version 1.0.6
+
+* Fix bugs.
+
+

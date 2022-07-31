@@ -5,7 +5,6 @@
 #' \email{shenxt1990@@outlook.com}
 #' @param x Feature table from MS-DIAL.
 #' @return A mass_dataset-class object.
-#' @importFrom magrittr %>%
 #' @importFrom dplyr filter rename
 #' @importFrom stats time
 #' @export

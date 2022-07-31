@@ -5,7 +5,6 @@
 #' @param object mass_dataset class object.
 #' @param path The path to save the mzTab-m file.
 #' @return csv files
-#' @importFrom magrittr %>%
 #' @importFrom dplyr filter rename
 #' @importFrom stats time
 #' @export

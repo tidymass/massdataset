@@ -77,7 +77,7 @@ object \%>\%
   dplyr::filter(mz < 100) \%>\%
   show_missing_values(cell_color = "white",
                       show_row_names = TRUE,
-                      row_names_side = "left", 
+                      row_names_side = "left",
                       percentage = TRUE)
 }
 \author{
