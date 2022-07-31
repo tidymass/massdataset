@@ -24,33 +24,33 @@
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' 
+#'
 #' object =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#' 
+#'
 #' object
-#' 
+#'
 #' ##show missing values plot
 #' show_missing_values(object)
-#' 
+#'
 #' show_missing_values(object[1:10,], cell_color = "white")
-#' 
+#'
 #' ###only show subject samples
 #' object %>%
 #'   activate_mass_dataset(what = "sample_info") %>%
 #'   filter(class == "Subject") %>%
 #'   show_missing_values()
-#' 
+#'
 #' ###only show QC samples
 #' object %>%
 #'   activate_mass_dataset(what = "expression_data") %>%
 #'   dplyr::select(contains("QC")) %>%
 #'   show_missing_values()
-#' 
+#'
 #' ###only show features with mz < 100
 #' object %>%
 #'   activate_mass_dataset(what = "variable_info") %>%
@@ -58,8 +58,8 @@
 #'   show_missing_values(cell_color = "white",
 #'                       show_row_names = TRUE,
 #'                       row_names_side = "left",
-#'                       percentage = TRUE, 
-#'                       sample_na_cutoff = 50, 
+#'                       percentage = TRUE,
+#'                       sample_na_cutoff = 50,
 #'                       variable_na_cutoff = 20)
 
 show_missing_values <-
@@ -325,17 +325,18 @@ show_sample_missing_values <-
     if (!show_x_ticks) {
       plot <-
         plot +
-        theme(axis.ticks.x = element_blank())
+        theme(axis.ticks.x = element_blank(),
+              panel.grid = element_blank())
     }
     
     if (color_by == "no") {
       plot <-
         plot +
-        ggplot2::geom_point(aes(size = na))
+        ggplot2::geom_point()
     } else{
       plot <-
         plot +
-        ggplot2::geom_point(aes(size = na, color = get(color_by)))
+        ggplot2::geom_point(aes(color = get(color_by)))
     }
     
     return(plot)
@@ -482,17 +483,18 @@ show_variable_missing_values <-
     if (!show_x_ticks) {
       plot <-
         plot +
-        theme(axis.ticks.x = element_blank())
+        theme(axis.ticks.x = element_blank(),
+              panel.grid = element_blank())
     }
     
     if (color_by == "no") {
       plot <-
         plot +
-        ggplot2::geom_point(aes(size = na))
+        ggplot2::geom_point()
     } else{
       plot <-
         plot +
-        ggplot2::geom_point(aes(size = na, color = get(color_by))) +
+        ggplot2::geom_point(aes(color = get(color_by))) +
         guides(color = guide_legend(title = color_by))
     }
     

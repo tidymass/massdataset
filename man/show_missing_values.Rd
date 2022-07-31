@@ -96,8 +96,8 @@ object \%>\%
   show_missing_values(cell_color = "white",
                       show_row_names = TRUE,
                       row_names_side = "left",
-                      percentage = TRUE, 
-                      sample_na_cutoff = 50, 
+                      percentage = TRUE,
+                      sample_na_cutoff = 50,
                       variable_na_cutoff = 20)
 }
 \author{

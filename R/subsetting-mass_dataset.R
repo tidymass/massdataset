@@ -113,8 +113,6 @@
   out
 }
 
-
-
 tick <- function(x) {
   ifelse(is.na(x), "NA", encodeString(x, quote = "`"))
 }
