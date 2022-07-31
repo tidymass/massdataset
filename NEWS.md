@@ -39,4 +39,8 @@
 
 * Fix bugs.
 
+# Version 1.0.7
+
+* More features for show_missing_values funciton.
+
 

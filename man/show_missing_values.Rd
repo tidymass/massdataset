@@ -9,10 +9,16 @@ show_missing_values(
   object,
   show_row_names = FALSE,
   show_column_names = TRUE,
+  row_names_gp = gpar(fontsize = 12),
+  column_names_gp = gpar(fontsize = 12),
   column_names_rot,
   cell_color = "transparent",
   row_names_side = "right",
   percentage = FALSE,
+  sample_na_cutoff = 50,
+  variable_na_cutoff = 50,
+  only_outlier_samples = FALSE,
+  only_outlier_variables = FALSE,
   ...
 )
 }
@@ -24,6 +30,10 @@ show_missing_values(
 \item{show_column_names}{show column names or not.
 see?ComplexHeatmap::Heatmap}
 
+\item{row_names_gp}{row names gp, see?ComplexHeatmap}
+
+\item{column_names_gp}{column names gp, see?ComplexHeatmap}
+
 \item{column_names_rot}{column names rot see?ComplexHeatmap::Heatmap}
 
 \item{cell_color}{Cell color.}
@@ -31,6 +41,14 @@ see?ComplexHeatmap::Heatmap}
 \item{row_names_side}{Row names side. left or right.}
 
 \item{percentage}{percentage or not.}
+
+\item{sample_na_cutoff}{Na cutoff for samples.}
+
+\item{variable_na_cutoff}{Na cutoff for variables}
+
+\item{only_outlier_samples}{Only show the outlier samples?}
+
+\item{only_outlier_variables}{Only show the outlier variables?}
 
 \item{...}{Other parameters for ComplexHeatmap::Heatmap}
 }
@@ -78,7 +96,9 @@ object \%>\%
   show_missing_values(cell_color = "white",
                       show_row_names = TRUE,
                       row_names_side = "left",
-                      percentage = TRUE)
+                      percentage = TRUE, 
+                      sample_na_cutoff = 50, 
+                      variable_na_cutoff = 20)
 }
 \author{
 Xiaotao Shen

@@ -111,7 +111,7 @@ convert_mass_dataset2mztab <-
       
       study_variable_info <-
         study_variable_info %>% 
-        dplyr::mutate(value = case_when(
+        dplyr::mutate(value = dplyr::case_when(
           class != "null" ~ class,
           TRUE ~ value
         )) %>% 

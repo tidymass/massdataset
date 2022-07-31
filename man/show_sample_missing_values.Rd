@@ -10,6 +10,8 @@ show_sample_missing_values(
   color_by,
   order_by,
   percentage = FALSE,
+  show_x_text = TRUE,
+  show_x_ticks = TRUE,
   desc = FALSE
 )
 }
@@ -21,6 +23,10 @@ show_sample_missing_values(
 \item{order_by}{which column (in sample_info) is used to order samples}
 
 \item{percentage}{show MV percentage? TRUE or FALSE.}
+
+\item{show_x_text}{show x axis text or not? TRUE or FALSE}
+
+\item{show_x_ticks}{show x ticks or not? TRUE or FALSE}
 
 \item{desc}{descend sample order or not. TRUE or FALSE.}
 }
