@@ -77,11 +77,11 @@ show_missing_values <-
            only_outlier_samples = FALSE,
            only_outlier_variables = FALSE,
            ...) {
-    check_object_class(object = object, class = "mass_dataset")
+    massdataset::check_object_class(object = object, class = "mass_dataset")
     if (missing(column_names_rot)) {
       column_names_rot <- 45
     }
-    
+    # browser()
     expression_data <-
       extract_expression_data(object)
     
