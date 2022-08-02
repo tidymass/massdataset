@@ -41,6 +41,10 @@
 
 # Version 1.0.7
 
-* More features for show_missing_values funciton.
+* More features for show_missing_values function.
+
+# Version 1.0.8
+
+* Fixed some bugs.
 
 

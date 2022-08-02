@@ -11,7 +11,7 @@
 #' @return msp or mgf
 #' @export
 
-write_ms2_data =
+write_ms2_data <-
   function(object,
            file_type = c("mgf", "msp"),
            file_name = "ms2_data",
@@ -110,6 +110,3 @@ filter.ms2_data <- function(.data, ..., .preserve = FALSE) {
 #' @importFrom dplyr filter
 #' @export
 dplyr::filter
-
-
-
