@@ -47,4 +47,8 @@
 
 * Fixed some bugs.
 
+# Version 1.0.9
+
+* New function summarise_samples.
+
 

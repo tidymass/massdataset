@@ -96,3 +96,20 @@ check_column_name <-
       column.name
     }
   }
+
+
+calculate <-
+  function(value,
+           what = c("mean_intensity",
+                    "median_intensity",
+                    "sum_intensity",
+                    "na_number",
+                    "na_freq"),
+           ...) {
+    switch(
+      EXPR = what,
+      mean_intensity = mean(value, ...),
+      median_intensity = median(value, ...),
+      sum_intensity = sum(value, ...)
+    )
+  }

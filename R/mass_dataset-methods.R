@@ -71,7 +71,11 @@ setMethod(
     if (.hasSlot(object = object, name = "process_info") &
         length(object@process_info) != 0) {
       process_info <- object@process_info
-      
+      cat(crayon::green(length(process_info), "processings in total\n"))
+      if(length(process_info) > 5){
+        cat(crayon::green("Latest 3 processings show\n"))
+        process_info <- tail(process_info, 3)
+      }
       for (idx in seq_along(process_info)) {
         cat(crayon::green(names(process_info)[idx], paste(rep("-", 10), collapse = ""), "\n"))
         if (length(process_info[[idx]]) == 1) {
