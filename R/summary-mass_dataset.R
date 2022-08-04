@@ -194,7 +194,17 @@ get_mv_number =
 #' @rdname summary-mass_dataset
 #' @return message
 dim.mass_dataset <- function(x) {
-  dim(x@expression_data)
+  # info <-
+  #   paste0(
+  #     paste(dim(x@expression_data)[2], "samples"),
+  #     " x ",
+  #     paste(dim(x@expression_data)[1], "variables")
+  #   )
+  # info
+  info <-
+    dim(extract_expression_data(x))
+  names(info) <- c("variables", "samples")
+  info
 }
 
 #' @title nrow
@@ -204,7 +214,10 @@ dim.mass_dataset <- function(x) {
 #' @rdname summary-mass_dataset
 #' @return message
 nrow.mass_dataset <- function(x) {
-  nrow(x@expression_data)
+  info <-
+    nrow(x@expression_data)
+  names(info) <- "variables"
+  info
 }
 
 #' @title ncol
@@ -214,7 +227,11 @@ nrow.mass_dataset <- function(x) {
 #' @rdname summary-mass_dataset
 #' @return message
 ncol.mass_dataset <- function(x) {
-  ncol(x@expression_data)
+  info <-
+    ncol(x@expression_data)
+  names(info) <- 
+    "samples"
+  info
 }
 
 #' @title colnames

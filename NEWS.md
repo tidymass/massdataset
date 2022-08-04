@@ -51,4 +51,8 @@
 
 * New function summarise_samples.
 
+# Version 1.0.10
+
+* for `[` subseting operator, now can remove some samples or variables.
+
 
