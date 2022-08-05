@@ -8,7 +8,7 @@
 #' @rdname arithmetic-mass_dataset
 #' @return mass_dataset object
 
-log.mass_dataset = function(x, base = exp(1)){
+log.mass_dataset = function(x, base = exp(1)) {
   expression_data = x@expression_data
   expression_data = log(expression_data, base = base)
   x@expression_data = expression_data
@@ -37,7 +37,7 @@ log.mass_dataset = function(x, base = exp(1)){
 #' @rdname arithmetic-mass_dataset
 #' @return mass_dataset object
 
-abs.mass_dataset = function(x){
+abs.mass_dataset = function(x) {
   expression_data = x@expression_data
   
   expression_data = abs(expression_data)
@@ -73,7 +73,7 @@ abs.mass_dataset = function(x){
 #' @rdname arithmetic-mass_dataset
 #' @return mass_dataset object
 
-sqrt.mass_dataset = function(x){
+sqrt.mass_dataset = function(x) {
   expression_data = x@expression_data
   
   expression_data = sqrt(expression_data)
@@ -111,7 +111,7 @@ sqrt.mass_dataset = function(x){
 #' @return mass_dataset object
 
 scale.mass_dataset =
-  function(x, center = TRUE, scale = TRUE){
+  function(x, center = TRUE, scale = TRUE) {
     expression_data = x@expression_data
     
     expression_data = scale(t(expression_data), center = center,
@@ -153,7 +153,7 @@ scale.mass_dataset =
 #' @return mass_dataset object
 
 setMethod(f = "+",
-          signature(e1 = "mass_dataset", e2 = "numeric"), 
+          signature(e1 = "mass_dataset", e2 = "numeric"),
           function (e1, e2) {
             e1@expression_data = e1@expression_data + e2
             
@@ -273,9 +273,75 @@ setMethod(f = "/",
             return(e1)
           })
 
+#' @title `>`
+#' @method > mass_dataset
+#' @param e1 a mass_dataset class object
+#' @param e2 numeric
+#' @export
+#' @rdname arithmetic-mass_dataset
+#' @return A logical data.frame
 
+setMethod(f = ">",
+          signature(e1 = "mass_dataset", e2 = "numeric"),
+          function (e1, e2) {
+            e1@expression_data > e2
+          })
 
+#' @title `>=`
+#' @method >= mass_dataset
+#' @param e1 a mass_dataset class object
+#' @param e2 numeric
+#' @export
+#' @rdname arithmetic-mass_dataset
+#' @return A logical data.frame
 
+setMethod(f = ">=",
+          signature(e1 = "mass_dataset", e2 = "numeric"),
+          function (e1, e2) {
+            e1@expression_data >= e2
+          })
+
+#' @title <
+#' @method < mass_dataset
+#' @param e1 a mass_dataset class object
+#' @param e2 numeric
+#' @export
+#' @rdname arithmetic-mass_dataset
+#' @return A logical data.frame
+
+setMethod(f = "<",
+          signature(e1 = "mass_dataset", e2 = "numeric"),
+          function (e1, e2) {
+            e1@expression_data < e2
+          })
+
+#' @title <=
+#' @method <= mass_dataset
+#' @param e1 a mass_dataset class object
+#' @param e2 numeric
+#' @export
+#' @rdname arithmetic-mass_dataset
+#' @return A logical data.frame
+
+setMethod(f = "<=",
+          signature(e1 = "mass_dataset", e2 = "numeric"),
+          function (e1, e2) {
+            e1@expression_data <= e2
+          })
+
+#' @title ==
+#' @method == mass_dataset
+#' @param e1 a mass_dataset class object
+#' @param e2 numeric
+#' @export
+#' @rdname arithmetic-mass_dataset
+#' @return A logical data.frame
+
+setMethod(f = "==",
+          signature(e1 = "mass_dataset", e2 = "numeric"),
+          function (e1, e2) {
+            e1@expression_data == e2
+          })
 
 #' #' @title colSums
 #' #' @method colSums mass_dataset
@@ -285,7 +351,7 @@ setMethod(f = "/",
 #' #' @export
 #' #' @rdname arithmetic-mass_dataset
 #' #' @return vector object
-#' 
+#'
 #' colSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
 #'   colSums(x@expression_data, na.rm = na.rm, dims = dims)
 #' }
@@ -315,7 +381,7 @@ setMethod(f = "colSums",
 #' #' @export
 #' #' @rdname arithmetic-mass_dataset
 #' #' @return vector object
-#' 
+#'
 #' rowSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
 #'   rowSums(x@expression_data, na.rm = na.rm, dims = dims)
 #' }
@@ -347,7 +413,7 @@ setMethod(f = "rowSums",
 #' #' @export
 #' #' @rdname arithmetic-mass_dataset
 #' #' @return vector object
-#' 
+#'
 #' colMeans.mass_dataset = function(x, na.rm = FALSE, dims = 1){
 #'   colMeans(x@expression_data, na.rm = na.rm, dims = dims)
 #' }
@@ -378,7 +444,7 @@ setMethod(f = "colMeans",
 #' #' @export
 #' #' @rdname arithmetic-mass_dataset
 #' #' @return vector object
-#' 
+#'
 #' rowMeans.mass_dataset = function(x, na.rm = FALSE, dims = 1){
 #'   rowMeans(x@expression_data, na.rm = na.rm, dims = dims)
 #' }

@@ -55,4 +55,8 @@
 
 * for `[` subseting operator, now can remove some samples or variables.
 
+# Version 1.0.11
+
+* New function, >, >=, <, <=, ==
+
 

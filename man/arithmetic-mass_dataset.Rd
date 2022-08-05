@@ -9,6 +9,11 @@
 \alias{-,mass_dataset,numeric-method}
 \alias{*,mass_dataset,numeric-method}
 \alias{/,mass_dataset,numeric-method}
+\alias{>,mass_dataset,numeric-method}
+\alias{>=,mass_dataset,numeric-method}
+\alias{<,mass_dataset,numeric-method}
+\alias{<=,mass_dataset,numeric-method}
+\alias{==,mass_dataset,numeric-method}
 \alias{colSums,mass_dataset-method}
 \alias{rowSums,mass_dataset-method}
 \alias{colMeans,mass_dataset-method}
@@ -30,6 +35,16 @@
 \S4method{*}{mass_dataset,numeric}(e1, e2)
 
 \S4method{/}{mass_dataset,numeric}(e1, e2)
+
+\S4method{>}{mass_dataset,numeric}(e1, e2)
+
+\S4method{>=}{mass_dataset,numeric}(e1, e2)
+
+\S4method{<}{mass_dataset,numeric}(e1, e2)
+
+\S4method{<=}{mass_dataset,numeric}(e1, e2)
+
+\S4method{==}{mass_dataset,numeric}(e1, e2)
 
 \S4method{colSums}{mass_dataset}(x, na.rm = FALSE, dims = 1)
 
@@ -72,6 +87,16 @@ mass_dataset object
 mass_dataset object
 
 mass_dataset object
+
+A logical data.frame
+
+A logical data.frame
+
+A logical data.frame
+
+A logical data.frame
+
+A logical data.frame
 
 result
 
