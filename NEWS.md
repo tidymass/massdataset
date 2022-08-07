@@ -59,4 +59,8 @@
 
 * New function, >, >=, <, <=, ==
 
+# Version 1.0.12
+
+* New function, >, >=, <, <=, ==
+
 

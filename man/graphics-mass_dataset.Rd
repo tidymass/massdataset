@@ -43,7 +43,7 @@ object =
     variable_info = variable_info,
     sample_info = sample_info
   )
-
+library(ggplot2)
 ggplot_mass_dataset(object, direction = "variable", 
                     variable_index = 1) +
   geom_boxplot(aes(x = class, color = class)) +

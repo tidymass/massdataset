@@ -32,15 +32,15 @@
 #' massdataset_logo()
 
 massdataset_logo <- function() {
-  message(crayon::green("Thank you for using massdataset!\n"))
+  message(crayon::green("Thank you for using massdataset!"))
   message(crayon::green(
     "Version",
     as.character(utils::packageVersion(pkg = "massdataset")),
     "(",
     update_date,
-    ')\n'
+    ')'
   ))
-  message(crayon::green("More information: search 'tidymass massdataset'.\n"))
+  message(crayon::green("More information: massdataset.tidymass.org"))
   cat(crayon::green(
     c(
       "                          _____        _                 _   ",

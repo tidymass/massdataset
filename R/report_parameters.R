@@ -114,7 +114,7 @@ report_parameters <-
     unlink(file.path(output_path),
            recursive = TRUE,
            force = TRUE)
-    message(crayon::yellow("Done.\n"))
+    message(crayon::yellow("Done."))
     options(warn = 0)
   }
 

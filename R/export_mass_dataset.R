@@ -112,13 +112,13 @@ export_ms2_data <-
       return(NULL)
     }
     
-    message(crayon::yellow("Write MS2 data...\n"))
+    message(crayon::yellow("Write MS2 data..."))
     
     purrr::walk2(
       .x = names(object@ms2_data),
       .y = object@ms2_data,
       .f = function(temp_name, temp_data) {
-        message(crayon::yellow(temp_name, "\n"))
+        message(crayon::yellow(temp_name))
         file_name =
           paste("ms2_data_",
                 match(temp_name, names(object@ms2_data)),
@@ -138,5 +138,5 @@ export_ms2_data <-
         
       }
     )
-    message(crayon::green("Done.\n"))
+    message(crayon::green("Done."))
   }

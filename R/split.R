@@ -136,7 +136,7 @@ split_mass_dataset <-
     }
     
     if (length(index) == 1) {
-      message("No split. Return the raw mass_dataset.\n")
+      message("No split. Return the raw mass_dataset.")
       return(list(object))
     }
     
