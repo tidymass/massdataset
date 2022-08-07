@@ -32,16 +32,14 @@
 #' massdataset_logo()
 
 massdataset_logo <- function() {
-  message(crayon::green("Thank you for using massdataset!"))
-  message(crayon::green(
-    "Version",
-    as.character(utils::packageVersion(pkg = "massdataset")),
-    "(",
-    update_date,
-    ')'
-  ))
-  message(crayon::green("More information: massdataset.tidymass.org"))
-  cat(crayon::green(
+  message("Thank you for using massdataset!")
+  message("Version ",
+          massdataset_version,
+          " (",
+          update_date,
+          ')')
+  message("More information: massdataset.tidymass.org")
+  cat(
     c(
       "                          _____        _                 _   ",
       "                         |  __ \\      | |               | |  ",
@@ -51,14 +49,15 @@ massdataset_logo <- function() {
       " |_| |_| |_|\\__,_|___/___/_____/ \\__,_|\\__\\__,_|___/\\___|\\__|",
       "                                                             ",
       "                                                             "
-    )
-    
-  ), sep = "\n")
+    ),
+    sep = "\n"
+  )
 }
 
 massdataset_version <-
   as.character(utils::packageVersion(pkg = "massdataset"))
-update_date = as.character(Sys.time())
+
+update_date <- as.character(Sys.time())
 
 #' @title get_massdataset_version
 #' @description Get massdataset package version
