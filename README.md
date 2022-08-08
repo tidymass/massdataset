@@ -62,10 +62,8 @@ Palo Alto, CA
 
 If you use `massdataset` in your publications, please cite this paper:
 
-TidyMass: An Object-oriented Reproducible Analysis Framework for LC-MS Data.
+Shen, X., Yan, H., Wang, C. et al. TidyMass an object-oriented reproducible analysis framework for LC–MS data. Nat Commun 13, 4365 (2022). 
 
-Xiaotao Shen, Hong Yan, Chuchu Wang, Peng Gao, Caroline H. Johnson, Michael P. Snyder.
-
-[Web Link](https://www.biorxiv.org/content/10.1101/2022.03.15.484499v1).
+[Weblink](https://www.nature.com/articles/s41467-022-32155-w)
 
 Thanks very much!
