@@ -1,3 +1,4 @@
+
 setGeneric(name = "ms2_plot")
 
 #' @title ms2_plot
@@ -48,5 +49,5 @@ setMethod(f = "ms2_plot",
               masstools::ms2_plot(spectrum1 = spectrum1@ms2_spectra[[1]],
                                   spectrum2 = spectrum2@ms2_spectra[[1]])
             }
-            
+
           })

@@ -48,7 +48,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
       </span>
     </div>
 
@@ -197,7 +197,7 @@
 (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
             <h4 data-toc-skip class="date">Created on 2021-12-04 and
-updated on 2022-05-16</h4>
+updated on 2022-08-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/extract_data.Rmd" class="external-link"><code>vignettes/extract_data.Rmd</code></a></small>
       <div class="hidden name"><code>extract_data.Rmd</code></div>
@@ -206,331 +206,332 @@ updated on 2022-05-16</h4>
 
     
     
-<div class="section level1">
-<h1 id="use-extract_xxx-functions">
+<div class="section level2">
+<h2 id="use-extract_xxx-functions">
 <strong>Use <code>extract_xxx</code> functions</strong><a class="anchor" aria-label="anchor" href="#use-extract_xxx-functions"></a>
-</h1>
+</h2>
 <p>We first created a <code>mass_dataset</code> class object.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span>
-
-<span class="va">object</span> <span class="op">=</span>
-  <span class="fu"><a href="../reference/create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span>
-    expression_data <span class="op">=</span> <span class="va">expression_data</span>,
-    sample_info <span class="op">=</span> <span class="va">sample_info</span>,
-    variable_info <span class="op">=</span> <span class="va">variable_info</span>,
-    sample_info_note <span class="op">=</span> <span class="va">sample_info_note</span>,
-    variable_info_note <span class="op">=</span> <span class="va">variable_info_note</span>
-  <span class="op">)</span>
-  
-<span class="va">object</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 1.0.5 </span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-05-16 13:58:56</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">object</span> <span class="op">=</span></span>
+<span>  <span class="fu"><a href="../reference/create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span></span>
+<span>    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span>
+<span>    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span>
+<span>    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span>
+<span>    sample_info_note <span class="op">=</span> <span class="va">sample_info_note</span>,</span>
+<span>    variable_info_note <span class="op">=</span> <span class="va">variable_info_note</span></span>
+<span>  <span class="op">)</span></span>
+<span>  </span>
+<span><span class="va">object</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 1.0.12 </span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; 1 processings in total</span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span></span>
+<span><span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-08-07 19:23:39</span></span></code></pre></div>
 <p>In <code>massdataset</code> package, there are a series of functions
 named as <code>extract_xxx()</code>, users can use them to extract data
 from <code>mass_dataset</code> calss object.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">##sample_info</span>
-<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
-<span class="co">#&gt;   sample_id injection.order   class   group</span>
-<span class="co">#&gt; 1   Blank_3               1   Blank   Blank</span>
-<span class="co">#&gt; 2   Blank_4               2   Blank   Blank</span>
-<span class="co">#&gt; 3      QC_1               3      QC      QC</span>
-<span class="co">#&gt; 4      QC_2               4      QC      QC</span>
-<span class="co">#&gt; 5     PS4P1               5 Subject Subject</span>
-<span class="co">#&gt; 6     PS4P2               6 Subject Subject</span>
-<span class="co">#&gt; 7     PS4P3               7 Subject Subject</span>
-<span class="co">#&gt; 8     PS4P4               8 Subject Subject</span>
-<span class="co">##variable_info</span>
-<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;     variable_id        mz        rt</span>
-<span class="co">#&gt; 1 M136T55_2_POS 136.06140  54.97902</span>
-<span class="co">#&gt; 2    M79T35_POS  79.05394  35.36550</span>
-<span class="co">#&gt; 3  M307T548_POS 307.14035 547.56641</span>
-<span class="co">#&gt; 4  M183T224_POS 183.06209 224.32777</span>
-<span class="co">#&gt; 5   M349T47_POS 349.01584  47.00262</span>
-<span class="co">#&gt; 6  M182T828_POS 181.99775 828.35712</span>
-<span class="co">##expression_data</span>
-<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_expression_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;               Blank_3 Blank_4      QC_1      QC_2     PS4P1     PS4P2   PS4P3</span>
-<span class="co">#&gt; M136T55_2_POS      NA      NA 1857924.8 1037763.8 1494436.1 3496912.1 1959179</span>
-<span class="co">#&gt; M79T35_POS         NA      NA 2821550.2 1304875.3 2471336.1 3333582.7 2734244</span>
-<span class="co">#&gt; M307T548_POS       NA      NA  410387.6  273687.8  288590.2  137297.5      NA</span>
-<span class="co">#&gt; M183T224_POS       NA      NA        NA        NA        NA 5059068.1 5147422</span>
-<span class="co">#&gt; M349T47_POS        NA      NA 8730104.8 4105598.5 5141073.2 8424315.6 7896633</span>
-<span class="co">#&gt; M182T828_POS  3761893 2572593        NA 3662819.1 5700534.8 4600172.4 5557015</span>
-<span class="co">#&gt;                   PS4P4</span>
-<span class="co">#&gt; M136T55_2_POS 1005418.8</span>
-<span class="co">#&gt; M79T35_POS    3361452.3</span>
-<span class="co">#&gt; M307T548_POS   271318.3</span>
-<span class="co">#&gt; M183T224_POS         NA</span>
-<span class="co">#&gt; M349T47_POS   6441449.0</span>
-<span class="co">#&gt; M182T828_POS  4433034.2</span>
-<span class="co">##sample_info_note</span>
-<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_sample_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> 
-<span class="co">#&gt;              name         meaning</span>
-<span class="co">#&gt; 1       sample_id       sample_id</span>
-<span class="co">#&gt; 2 injection.order injection.order</span>
-<span class="co">#&gt; 3           class           class</span>
-<span class="co">#&gt; 4           group           group</span>
-<span class="co">##variable_info_note</span>
-<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> 
-<span class="co">#&gt;          name     meaning</span>
-<span class="co">#&gt; 1 variable_id variable_id</span>
-<span class="co">#&gt; 2          mz          mz</span>
-<span class="co">#&gt; 3          rt          rt</span>
-<span class="co">##ms2_data</span>
-<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_ms2_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
-<span class="co">#&gt; list()</span>
-<span class="co">##process_info</span>
-<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_annotation_table</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
-<span class="co">#&gt; data frame with 0 columns and 0 rows</span>
-<span class="co">##process_info</span>
-<span class="fu"><a href="../reference/extract-mass_dataset.html">extract_process_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
-<span class="co">#&gt; $create_mass_dataset</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">pacakge_name: massdataset</span> </span>
-<span class="co">#&gt; <span style="color: #00BB00;">function_name: create_mass_dataset()</span> </span>
-<span class="co">#&gt; <span style="color: #00BB00;">time: 2022-05-16 13:58:56</span> </span>
-<span class="co">#&gt; <span style="color: #00BB00;">parameters:</span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; no : no</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">##sample_info</span></span>
+<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   sample_id injection.order   class   group</span></span>
+<span><span class="co">#&gt; 1   Blank_3               1   Blank   Blank</span></span>
+<span><span class="co">#&gt; 2   Blank_4               2   Blank   Blank</span></span>
+<span><span class="co">#&gt; 3      QC_1               3      QC      QC</span></span>
+<span><span class="co">#&gt; 4      QC_2               4      QC      QC</span></span>
+<span><span class="co">#&gt; 5     PS4P1               5 Subject Subject</span></span>
+<span><span class="co">#&gt; 6     PS4P2               6 Subject Subject</span></span>
+<span><span class="co">#&gt; 7     PS4P3               7 Subject Subject</span></span>
+<span><span class="co">#&gt; 8     PS4P4               8 Subject Subject</span></span>
+<span><span class="co">##variable_info</span></span>
+<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     variable_id        mz        rt</span></span>
+<span><span class="co">#&gt; 1 M136T55_2_POS 136.06140  54.97902</span></span>
+<span><span class="co">#&gt; 2    M79T35_POS  79.05394  35.36550</span></span>
+<span><span class="co">#&gt; 3  M307T548_POS 307.14035 547.56641</span></span>
+<span><span class="co">#&gt; 4  M183T224_POS 183.06209 224.32777</span></span>
+<span><span class="co">#&gt; 5   M349T47_POS 349.01584  47.00262</span></span>
+<span><span class="co">#&gt; 6  M182T828_POS 181.99775 828.35712</span></span>
+<span><span class="co">##expression_data</span></span>
+<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_expression_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;               Blank_3 Blank_4      QC_1      QC_2     PS4P1     PS4P2   PS4P3</span></span>
+<span><span class="co">#&gt; M136T55_2_POS      NA      NA 1857924.8 1037763.8 1494436.1 3496912.1 1959179</span></span>
+<span><span class="co">#&gt; M79T35_POS         NA      NA 2821550.2 1304875.3 2471336.1 3333582.7 2734244</span></span>
+<span><span class="co">#&gt; M307T548_POS       NA      NA  410387.6  273687.8  288590.2  137297.5      NA</span></span>
+<span><span class="co">#&gt; M183T224_POS       NA      NA        NA        NA        NA 5059068.1 5147422</span></span>
+<span><span class="co">#&gt; M349T47_POS        NA      NA 8730104.8 4105598.5 5141073.2 8424315.6 7896633</span></span>
+<span><span class="co">#&gt; M182T828_POS  3761893 2572593        NA 3662819.1 5700534.8 4600172.4 5557015</span></span>
+<span><span class="co">#&gt;                   PS4P4</span></span>
+<span><span class="co">#&gt; M136T55_2_POS 1005418.8</span></span>
+<span><span class="co">#&gt; M79T35_POS    3361452.3</span></span>
+<span><span class="co">#&gt; M307T548_POS   271318.3</span></span>
+<span><span class="co">#&gt; M183T224_POS         NA</span></span>
+<span><span class="co">#&gt; M349T47_POS   6441449.0</span></span>
+<span><span class="co">#&gt; M182T828_POS  4433034.2</span></span>
+<span><span class="co">##sample_info_note</span></span>
+<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_sample_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> </span>
+<span><span class="co">#&gt;              name         meaning</span></span>
+<span><span class="co">#&gt; 1       sample_id       sample_id</span></span>
+<span><span class="co">#&gt; 2 injection.order injection.order</span></span>
+<span><span class="co">#&gt; 3           class           class</span></span>
+<span><span class="co">#&gt; 4           group           group</span></span>
+<span><span class="co">##variable_info_note</span></span>
+<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> </span>
+<span><span class="co">#&gt;          name     meaning</span></span>
+<span><span class="co">#&gt; 1 variable_id variable_id</span></span>
+<span><span class="co">#&gt; 2          mz          mz</span></span>
+<span><span class="co">#&gt; 3          rt          rt</span></span>
+<span><span class="co">##ms2_data</span></span>
+<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_ms2_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="co">#&gt; list()</span></span>
+<span><span class="co">##process_info</span></span>
+<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_annotation_table</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span>
+<span><span class="co">##process_info</span></span>
+<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_process_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $create_mass_dataset</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">pacakge_name: massdataset</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">function_name: create_mass_dataset()</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">time: 2022-08-07 19:23:39</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">parameters:</span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; no : no</span></span></span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="use-slot">
+<div class="section level2">
+<h2 id="use-slot">
 <strong>Use slot()</strong><a class="anchor" aria-label="anchor" href="#use-slot"></a>
-</h1>
+</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span>
-<span class="co">#&gt;   sample_id injection.order   class   group</span>
-<span class="co">#&gt; 1   Blank_3               1   Blank   Blank</span>
-<span class="co">#&gt; 2   Blank_4               2   Blank   Blank</span>
-<span class="co">#&gt; 3      QC_1               3      QC      QC</span>
-<span class="co">#&gt; 4      QC_2               4      QC      QC</span>
-<span class="co">#&gt; 5     PS4P1               5 Subject Subject</span>
-<span class="co">#&gt; 6     PS4P2               6 Subject Subject</span>
-<span class="co">#&gt; 7     PS4P3               7 Subject Subject</span>
-<span class="co">#&gt; 8     PS4P4               8 Subject Subject</span>
-<span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;     variable_id        mz        rt</span>
-<span class="co">#&gt; 1 M136T55_2_POS 136.06140  54.97902</span>
-<span class="co">#&gt; 2    M79T35_POS  79.05394  35.36550</span>
-<span class="co">#&gt; 3  M307T548_POS 307.14035 547.56641</span>
-<span class="co">#&gt; 4  M183T224_POS 183.06209 224.32777</span>
-<span class="co">#&gt; 5   M349T47_POS 349.01584  47.00262</span>
-<span class="co">#&gt; 6  M182T828_POS 181.99775 828.35712</span>
-<span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;               Blank_3 Blank_4      QC_1      QC_2     PS4P1     PS4P2   PS4P3</span>
-<span class="co">#&gt; M136T55_2_POS      NA      NA 1857924.8 1037763.8 1494436.1 3496912.1 1959179</span>
-<span class="co">#&gt; M79T35_POS         NA      NA 2821550.2 1304875.3 2471336.1 3333582.7 2734244</span>
-<span class="co">#&gt; M307T548_POS       NA      NA  410387.6  273687.8  288590.2  137297.5      NA</span>
-<span class="co">#&gt; M183T224_POS       NA      NA        NA        NA        NA 5059068.1 5147422</span>
-<span class="co">#&gt; M349T47_POS        NA      NA 8730104.8 4105598.5 5141073.2 8424315.6 7896633</span>
-<span class="co">#&gt; M182T828_POS  3761893 2572593        NA 3662819.1 5700534.8 4600172.4 5557015</span>
-<span class="co">#&gt;                   PS4P4</span>
-<span class="co">#&gt; M136T55_2_POS 1005418.8</span>
-<span class="co">#&gt; M79T35_POS    3361452.3</span>
-<span class="co">#&gt; M307T548_POS   271318.3</span>
-<span class="co">#&gt; M183T224_POS         NA</span>
-<span class="co">#&gt; M349T47_POS   6441449.0</span>
-<span class="co">#&gt; M182T828_POS  4433034.2</span>
-<span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"sample_info_note"</span><span class="op">)</span> 
-<span class="co">#&gt;              name         meaning</span>
-<span class="co">#&gt; 1       sample_id       sample_id</span>
-<span class="co">#&gt; 2 injection.order injection.order</span>
-<span class="co">#&gt; 3           class           class</span>
-<span class="co">#&gt; 4           group           group</span>
-<span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"variable_info_note"</span><span class="op">)</span> 
-<span class="co">#&gt;          name     meaning</span>
-<span class="co">#&gt; 1 variable_id variable_id</span>
-<span class="co">#&gt; 2          mz          mz</span>
-<span class="co">#&gt; 3          rt          rt</span>
-<span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"ms2_data"</span><span class="op">)</span> 
-<span class="co">#&gt; list()</span>
-<span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"process_info"</span><span class="op">)</span> 
-<span class="co">#&gt; $create_mass_dataset</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">pacakge_name: massdataset</span> </span>
-<span class="co">#&gt; <span style="color: #00BB00;">function_name: create_mass_dataset()</span> </span>
-<span class="co">#&gt; <span style="color: #00BB00;">time: 2022-05-16 13:58:56</span> </span>
-<span class="co">#&gt; <span style="color: #00BB00;">parameters:</span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; no : no</span></span>
-<span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"annotation_table"</span><span class="op">)</span> 
-<span class="co">#&gt; data frame with 0 columns and 0 rows</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   sample_id injection.order   class   group</span></span>
+<span><span class="co">#&gt; 1   Blank_3               1   Blank   Blank</span></span>
+<span><span class="co">#&gt; 2   Blank_4               2   Blank   Blank</span></span>
+<span><span class="co">#&gt; 3      QC_1               3      QC      QC</span></span>
+<span><span class="co">#&gt; 4      QC_2               4      QC      QC</span></span>
+<span><span class="co">#&gt; 5     PS4P1               5 Subject Subject</span></span>
+<span><span class="co">#&gt; 6     PS4P2               6 Subject Subject</span></span>
+<span><span class="co">#&gt; 7     PS4P3               7 Subject Subject</span></span>
+<span><span class="co">#&gt; 8     PS4P4               8 Subject Subject</span></span>
+<span><span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     variable_id        mz        rt</span></span>
+<span><span class="co">#&gt; 1 M136T55_2_POS 136.06140  54.97902</span></span>
+<span><span class="co">#&gt; 2    M79T35_POS  79.05394  35.36550</span></span>
+<span><span class="co">#&gt; 3  M307T548_POS 307.14035 547.56641</span></span>
+<span><span class="co">#&gt; 4  M183T224_POS 183.06209 224.32777</span></span>
+<span><span class="co">#&gt; 5   M349T47_POS 349.01584  47.00262</span></span>
+<span><span class="co">#&gt; 6  M182T828_POS 181.99775 828.35712</span></span>
+<span><span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"expression_data"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;               Blank_3 Blank_4      QC_1      QC_2     PS4P1     PS4P2   PS4P3</span></span>
+<span><span class="co">#&gt; M136T55_2_POS      NA      NA 1857924.8 1037763.8 1494436.1 3496912.1 1959179</span></span>
+<span><span class="co">#&gt; M79T35_POS         NA      NA 2821550.2 1304875.3 2471336.1 3333582.7 2734244</span></span>
+<span><span class="co">#&gt; M307T548_POS       NA      NA  410387.6  273687.8  288590.2  137297.5      NA</span></span>
+<span><span class="co">#&gt; M183T224_POS       NA      NA        NA        NA        NA 5059068.1 5147422</span></span>
+<span><span class="co">#&gt; M349T47_POS        NA      NA 8730104.8 4105598.5 5141073.2 8424315.6 7896633</span></span>
+<span><span class="co">#&gt; M182T828_POS  3761893 2572593        NA 3662819.1 5700534.8 4600172.4 5557015</span></span>
+<span><span class="co">#&gt;                   PS4P4</span></span>
+<span><span class="co">#&gt; M136T55_2_POS 1005418.8</span></span>
+<span><span class="co">#&gt; M79T35_POS    3361452.3</span></span>
+<span><span class="co">#&gt; M307T548_POS   271318.3</span></span>
+<span><span class="co">#&gt; M183T224_POS         NA</span></span>
+<span><span class="co">#&gt; M349T47_POS   6441449.0</span></span>
+<span><span class="co">#&gt; M182T828_POS  4433034.2</span></span>
+<span><span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"sample_info_note"</span><span class="op">)</span> </span>
+<span><span class="co">#&gt;              name         meaning</span></span>
+<span><span class="co">#&gt; 1       sample_id       sample_id</span></span>
+<span><span class="co">#&gt; 2 injection.order injection.order</span></span>
+<span><span class="co">#&gt; 3           class           class</span></span>
+<span><span class="co">#&gt; 4           group           group</span></span>
+<span><span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"variable_info_note"</span><span class="op">)</span> </span>
+<span><span class="co">#&gt;          name     meaning</span></span>
+<span><span class="co">#&gt; 1 variable_id variable_id</span></span>
+<span><span class="co">#&gt; 2          mz          mz</span></span>
+<span><span class="co">#&gt; 3          rt          rt</span></span>
+<span><span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"ms2_data"</span><span class="op">)</span> </span>
+<span><span class="co">#&gt; list()</span></span>
+<span><span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"process_info"</span><span class="op">)</span> </span>
+<span><span class="co">#&gt; $create_mass_dataset</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">pacakge_name: massdataset</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">function_name: create_mass_dataset()</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">time: 2022-08-07 19:23:39</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">parameters:</span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; no : no</span></span></span>
+<span><span class="fu">slot</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, name <span class="op">=</span> <span class="st">"annotation_table"</span><span class="op">)</span> </span>
+<span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="use">
+<div class="section level2">
+<h2 id="use">
 <strong>Use <code>@</code></strong><a class="anchor" aria-label="anchor" href="#use"></a>
-</h1>
+</h2>
 <p><code>mass_data</code> class is a S4 object. So we can also use
 <code>@</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">object</span><span class="op">@</span><span class="va">expression_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;               Blank_3 Blank_4      QC_1      QC_2     PS4P1     PS4P2   PS4P3</span>
-<span class="co">#&gt; M136T55_2_POS      NA      NA 1857924.8 1037763.8 1494436.1 3496912.1 1959179</span>
-<span class="co">#&gt; M79T35_POS         NA      NA 2821550.2 1304875.3 2471336.1 3333582.7 2734244</span>
-<span class="co">#&gt; M307T548_POS       NA      NA  410387.6  273687.8  288590.2  137297.5      NA</span>
-<span class="co">#&gt; M183T224_POS       NA      NA        NA        NA        NA 5059068.1 5147422</span>
-<span class="co">#&gt; M349T47_POS        NA      NA 8730104.8 4105598.5 5141073.2 8424315.6 7896633</span>
-<span class="co">#&gt; M182T828_POS  3761893 2572593        NA 3662819.1 5700534.8 4600172.4 5557015</span>
-<span class="co">#&gt;                   PS4P4</span>
-<span class="co">#&gt; M136T55_2_POS 1005418.8</span>
-<span class="co">#&gt; M79T35_POS    3361452.3</span>
-<span class="co">#&gt; M307T548_POS   271318.3</span>
-<span class="co">#&gt; M183T224_POS         NA</span>
-<span class="co">#&gt; M349T47_POS   6441449.0</span>
-<span class="co">#&gt; M182T828_POS  4433034.2</span>
-<span class="va">object</span><span class="op">@</span><span class="va">sample_info</span>
-<span class="co">#&gt;   sample_id injection.order   class   group</span>
-<span class="co">#&gt; 1   Blank_3               1   Blank   Blank</span>
-<span class="co">#&gt; 2   Blank_4               2   Blank   Blank</span>
-<span class="co">#&gt; 3      QC_1               3      QC      QC</span>
-<span class="co">#&gt; 4      QC_2               4      QC      QC</span>
-<span class="co">#&gt; 5     PS4P1               5 Subject Subject</span>
-<span class="co">#&gt; 6     PS4P2               6 Subject Subject</span>
-<span class="co">#&gt; 7     PS4P3               7 Subject Subject</span>
-<span class="co">#&gt; 8     PS4P4               8 Subject Subject</span>
-<span class="va">object</span><span class="op">@</span><span class="va">variable_info</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;     variable_id        mz        rt</span>
-<span class="co">#&gt; 1 M136T55_2_POS 136.06140  54.97902</span>
-<span class="co">#&gt; 2    M79T35_POS  79.05394  35.36550</span>
-<span class="co">#&gt; 3  M307T548_POS 307.14035 547.56641</span>
-<span class="co">#&gt; 4  M183T224_POS 183.06209 224.32777</span>
-<span class="co">#&gt; 5   M349T47_POS 349.01584  47.00262</span>
-<span class="co">#&gt; 6  M182T828_POS 181.99775 828.35712</span>
-<span class="va">object</span><span class="op">@</span><span class="va">sample_info_note</span>
-<span class="co">#&gt;              name         meaning</span>
-<span class="co">#&gt; 1       sample_id       sample_id</span>
-<span class="co">#&gt; 2 injection.order injection.order</span>
-<span class="co">#&gt; 3           class           class</span>
-<span class="co">#&gt; 4           group           group</span>
-<span class="va">object</span><span class="op">@</span><span class="va">variable_info_note</span>
-<span class="co">#&gt;          name     meaning</span>
-<span class="co">#&gt; 1 variable_id variable_id</span>
-<span class="co">#&gt; 2          mz          mz</span>
-<span class="co">#&gt; 3          rt          rt</span>
-<span class="va">object</span><span class="op">@</span><span class="va">process_info</span>
-<span class="co">#&gt; $create_mass_dataset</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">pacakge_name: massdataset</span> </span>
-<span class="co">#&gt; <span style="color: #00BB00;">function_name: create_mass_dataset()</span> </span>
-<span class="co">#&gt; <span style="color: #00BB00;">time: 2022-05-16 13:58:56</span> </span>
-<span class="co">#&gt; <span style="color: #00BB00;">parameters:</span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; no : no</span></span>
-<span class="va">object</span><span class="op">@</span><span class="va">ms2_data</span>
-<span class="co">#&gt; list()</span>
-<span class="va">object</span><span class="op">@</span><span class="va">annotation_table</span>
-<span class="co">#&gt; data frame with 0 columns and 0 rows</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">object</span><span class="op">@</span><span class="va">expression_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;               Blank_3 Blank_4      QC_1      QC_2     PS4P1     PS4P2   PS4P3</span></span>
+<span><span class="co">#&gt; M136T55_2_POS      NA      NA 1857924.8 1037763.8 1494436.1 3496912.1 1959179</span></span>
+<span><span class="co">#&gt; M79T35_POS         NA      NA 2821550.2 1304875.3 2471336.1 3333582.7 2734244</span></span>
+<span><span class="co">#&gt; M307T548_POS       NA      NA  410387.6  273687.8  288590.2  137297.5      NA</span></span>
+<span><span class="co">#&gt; M183T224_POS       NA      NA        NA        NA        NA 5059068.1 5147422</span></span>
+<span><span class="co">#&gt; M349T47_POS        NA      NA 8730104.8 4105598.5 5141073.2 8424315.6 7896633</span></span>
+<span><span class="co">#&gt; M182T828_POS  3761893 2572593        NA 3662819.1 5700534.8 4600172.4 5557015</span></span>
+<span><span class="co">#&gt;                   PS4P4</span></span>
+<span><span class="co">#&gt; M136T55_2_POS 1005418.8</span></span>
+<span><span class="co">#&gt; M79T35_POS    3361452.3</span></span>
+<span><span class="co">#&gt; M307T548_POS   271318.3</span></span>
+<span><span class="co">#&gt; M183T224_POS         NA</span></span>
+<span><span class="co">#&gt; M349T47_POS   6441449.0</span></span>
+<span><span class="co">#&gt; M182T828_POS  4433034.2</span></span>
+<span><span class="va">object</span><span class="op">@</span><span class="va">sample_info</span></span>
+<span><span class="co">#&gt;   sample_id injection.order   class   group</span></span>
+<span><span class="co">#&gt; 1   Blank_3               1   Blank   Blank</span></span>
+<span><span class="co">#&gt; 2   Blank_4               2   Blank   Blank</span></span>
+<span><span class="co">#&gt; 3      QC_1               3      QC      QC</span></span>
+<span><span class="co">#&gt; 4      QC_2               4      QC      QC</span></span>
+<span><span class="co">#&gt; 5     PS4P1               5 Subject Subject</span></span>
+<span><span class="co">#&gt; 6     PS4P2               6 Subject Subject</span></span>
+<span><span class="co">#&gt; 7     PS4P3               7 Subject Subject</span></span>
+<span><span class="co">#&gt; 8     PS4P4               8 Subject Subject</span></span>
+<span><span class="va">object</span><span class="op">@</span><span class="va">variable_info</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     variable_id        mz        rt</span></span>
+<span><span class="co">#&gt; 1 M136T55_2_POS 136.06140  54.97902</span></span>
+<span><span class="co">#&gt; 2    M79T35_POS  79.05394  35.36550</span></span>
+<span><span class="co">#&gt; 3  M307T548_POS 307.14035 547.56641</span></span>
+<span><span class="co">#&gt; 4  M183T224_POS 183.06209 224.32777</span></span>
+<span><span class="co">#&gt; 5   M349T47_POS 349.01584  47.00262</span></span>
+<span><span class="co">#&gt; 6  M182T828_POS 181.99775 828.35712</span></span>
+<span><span class="va">object</span><span class="op">@</span><span class="va">sample_info_note</span></span>
+<span><span class="co">#&gt;              name         meaning</span></span>
+<span><span class="co">#&gt; 1       sample_id       sample_id</span></span>
+<span><span class="co">#&gt; 2 injection.order injection.order</span></span>
+<span><span class="co">#&gt; 3           class           class</span></span>
+<span><span class="co">#&gt; 4           group           group</span></span>
+<span><span class="va">object</span><span class="op">@</span><span class="va">variable_info_note</span></span>
+<span><span class="co">#&gt;          name     meaning</span></span>
+<span><span class="co">#&gt; 1 variable_id variable_id</span></span>
+<span><span class="co">#&gt; 2          mz          mz</span></span>
+<span><span class="co">#&gt; 3          rt          rt</span></span>
+<span><span class="va">object</span><span class="op">@</span><span class="va">process_info</span></span>
+<span><span class="co">#&gt; $create_mass_dataset</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">pacakge_name: massdataset</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">function_name: create_mass_dataset()</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">time: 2022-08-07 19:23:39</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">parameters:</span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; no : no</span></span></span>
+<span><span class="va">object</span><span class="op">@</span><span class="va">ms2_data</span></span>
+<span><span class="co">#&gt; list()</span></span>
+<span><span class="va">object</span><span class="op">@</span><span class="va">annotation_table</span></span>
+<span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="session-information">
+<div class="section level2">
+<h2 id="session-information">
 <strong>Session information</strong><a class="anchor" aria-label="anchor" href="#session-information"></a>
-</h1>
+</h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; R version 4.1.2 (2021-11-01)</span>
-<span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>
-<span class="co">#&gt; Running under: macOS Big Sur 10.16</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Matrix products: default</span>
-<span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib</span>
-<span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; locale:</span>
-<span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; attached base packages:</span>
-<span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt;  [1] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4      </span>
-<span class="co">#&gt;  [5] readr_2.0.0       tidyr_1.1.3       tibble_3.1.3      tidyverse_1.3.1  </span>
-<span class="co">#&gt;  [9] tinytools_0.9.1   ggplot2_3.3.5     magrittr_2.0.1    masstools_0.99.13</span>
-<span class="co">#&gt; [13] massdataset_1.0.5</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;   [1] readxl_1.3.1                backports_1.2.1            </span>
-<span class="co">#&gt;   [3] circlize_0.4.14             systemfonts_1.0.2          </span>
-<span class="co">#&gt;   [5] plyr_1.8.6                  lazyeval_0.2.2             </span>
-<span class="co">#&gt;   [7] BiocParallel_1.26.1         GenomeInfoDb_1.28.1        </span>
-<span class="co">#&gt;   [9] Rdisop_1.52.0               digest_0.6.27              </span>
-<span class="co">#&gt;  [11] foreach_1.5.1               htmltools_0.5.2            </span>
-<span class="co">#&gt;  [13] fansi_0.5.0                 memoise_2.0.0              </span>
-<span class="co">#&gt;  [15] cluster_2.1.2               doParallel_1.0.16          </span>
-<span class="co">#&gt;  [17] tzdb_0.1.2                  openxlsx_4.2.4             </span>
-<span class="co">#&gt;  [19] limma_3.48.1                ComplexHeatmap_2.8.0       </span>
-<span class="co">#&gt;  [21] modelr_0.1.8                matrixStats_0.60.0         </span>
-<span class="co">#&gt;  [23] pkgdown_2.0.1               colorspace_2.0-2           </span>
-<span class="co">#&gt;  [25] rvest_1.0.1                 textshaping_0.3.6          </span>
-<span class="co">#&gt;  [27] haven_2.4.1                 xfun_0.31                  </span>
-<span class="co">#&gt;  [29] crayon_1.4.1                RCurl_1.98-1.3             </span>
-<span class="co">#&gt;  [31] jsonlite_1.7.2              impute_1.66.0              </span>
-<span class="co">#&gt;  [33] iterators_1.0.13            glue_1.4.2                 </span>
-<span class="co">#&gt;  [35] gtable_0.3.0                zlibbioc_1.38.0            </span>
-<span class="co">#&gt;  [37] XVector_0.32.0              GetoptLong_1.0.5           </span>
-<span class="co">#&gt;  [39] DelayedArray_0.18.0         shape_1.4.6                </span>
-<span class="co">#&gt;  [41] BiocGenerics_0.38.0         scales_1.1.1               </span>
-<span class="co">#&gt;  [43] vsn_3.60.0                  DBI_1.1.1                  </span>
-<span class="co">#&gt;  [45] Rcpp_1.0.7                  mzR_2.26.1                 </span>
-<span class="co">#&gt;  [47] viridisLite_0.4.0           clue_0.3-59                </span>
-<span class="co">#&gt;  [49] gridGraphics_0.5-1          preprocessCore_1.54.0      </span>
-<span class="co">#&gt;  [51] stats4_4.1.2                MsCoreUtils_1.4.0          </span>
-<span class="co">#&gt;  [53] htmlwidgets_1.5.3           httr_1.4.2                 </span>
-<span class="co">#&gt;  [55] RColorBrewer_1.1-2          ellipsis_0.3.2             </span>
-<span class="co">#&gt;  [57] pkgconfig_2.0.3             XML_3.99-0.6               </span>
-<span class="co">#&gt;  [59] sass_0.4.0                  dbplyr_2.1.1               </span>
-<span class="co">#&gt;  [61] utf8_1.2.2                  ggplotify_0.0.8            </span>
-<span class="co">#&gt;  [63] tidyselect_1.1.1            rlang_0.4.11               </span>
-<span class="co">#&gt;  [65] munsell_0.5.0               cellranger_1.1.0           </span>
-<span class="co">#&gt;  [67] tools_4.1.2                 cachem_1.0.5               </span>
-<span class="co">#&gt;  [69] cli_3.0.1                   generics_0.1.0             </span>
-<span class="co">#&gt;  [71] broom_0.7.9                 evaluate_0.14              </span>
-<span class="co">#&gt;  [73] fastmap_1.1.0               mzID_1.30.0                </span>
-<span class="co">#&gt;  [75] yaml_2.2.1                  ragg_1.1.3                 </span>
-<span class="co">#&gt;  [77] knitr_1.33                  fs_1.5.0                   </span>
-<span class="co">#&gt;  [79] zip_2.2.0                   ncdf4_1.17                 </span>
-<span class="co">#&gt;  [81] pbapply_1.4-3               xml2_1.3.2                 </span>
-<span class="co">#&gt;  [83] compiler_4.1.2              rstudioapi_0.13            </span>
-<span class="co">#&gt;  [85] plotly_4.9.4.1              png_0.1-7                  </span>
-<span class="co">#&gt;  [87] affyio_1.62.0               reprex_2.0.0               </span>
-<span class="co">#&gt;  [89] bslib_0.3.1                 stringi_1.7.3              </span>
-<span class="co">#&gt;  [91] desc_1.3.0                  MSnbase_2.18.0             </span>
-<span class="co">#&gt;  [93] lattice_0.20-45             ProtGenerics_1.24.0        </span>
-<span class="co">#&gt;  [95] Matrix_1.3-4                ggsci_2.9                  </span>
-<span class="co">#&gt;  [97] vctrs_0.3.8                 pillar_1.6.2               </span>
-<span class="co">#&gt;  [99] lifecycle_1.0.0             BiocManager_1.30.16        </span>
-<span class="co">#&gt; [101] jquerylib_0.1.4             MALDIquant_1.20            </span>
-<span class="co">#&gt; [103] GlobalOptions_0.1.2         data.table_1.14.0          </span>
-<span class="co">#&gt; [105] bitops_1.0-7                GenomicRanges_1.44.0       </span>
-<span class="co">#&gt; [107] R6_2.5.0                    pcaMethods_1.84.0          </span>
-<span class="co">#&gt; [109] affy_1.70.0                 IRanges_2.26.0             </span>
-<span class="co">#&gt; [111] codetools_0.2-18            MASS_7.3-54                </span>
-<span class="co">#&gt; [113] assertthat_0.2.1            SummarizedExperiment_1.22.0</span>
-<span class="co">#&gt; [115] rprojroot_2.0.2             rjson_0.2.20               </span>
-<span class="co">#&gt; [117] withr_2.4.2                 S4Vectors_0.30.0           </span>
-<span class="co">#&gt; [119] GenomeInfoDbData_1.2.6      parallel_4.1.2             </span>
-<span class="co">#&gt; [121] hms_1.1.0                   grid_4.1.2                 </span>
-<span class="co">#&gt; [123] rmarkdown_2.14              rvcheck_0.1.8              </span>
-<span class="co">#&gt; [125] MatrixGenerics_1.4.2        Cairo_1.5-12.2             </span>
-<span class="co">#&gt; [127] Biobase_2.52.0              lubridate_1.7.10</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; R version 4.2.1 (2022-06-23)</span></span>
+<span><span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span></span>
+<span><span class="co">#&gt; Running under: macOS Big Sur ... 10.16</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Matrix products: default</span></span>
+<span><span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib</span></span>
+<span><span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; locale:</span></span>
+<span><span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; attached base packages:</span></span>
+<span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; other attached packages:</span></span>
+<span><span class="co">#&gt;  [1] masstools_1.0.2    forcats_0.5.1.9000 stringr_1.4.0      dplyr_1.0.9       </span></span>
+<span><span class="co">#&gt;  [5] purrr_0.3.4        readr_2.1.2        tidyr_1.2.0        tibble_3.1.7      </span></span>
+<span><span class="co">#&gt;  [9] ggplot2_3.3.6      tidyverse_1.3.1    magrittr_2.0.3     tinytools_0.9.1   </span></span>
+<span><span class="co">#&gt; [13] massdataset_1.0.12</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
+<span><span class="co">#&gt;   [1] readxl_1.4.0                backports_1.4.1            </span></span>
+<span><span class="co">#&gt;   [3] circlize_0.4.15             systemfonts_1.0.4          </span></span>
+<span><span class="co">#&gt;   [5] plyr_1.8.7                  lazyeval_0.2.2             </span></span>
+<span><span class="co">#&gt;   [7] BiocParallel_1.30.3         GenomeInfoDb_1.32.2        </span></span>
+<span><span class="co">#&gt;   [9] Rdisop_1.56.0               digest_0.6.29              </span></span>
+<span><span class="co">#&gt;  [11] foreach_1.5.2               yulab.utils_0.0.5          </span></span>
+<span><span class="co">#&gt;  [13] htmltools_0.5.2             fansi_1.0.3                </span></span>
+<span><span class="co">#&gt;  [15] memoise_2.0.1               cluster_2.1.3              </span></span>
+<span><span class="co">#&gt;  [17] doParallel_1.0.17           tzdb_0.3.0                 </span></span>
+<span><span class="co">#&gt;  [19] openxlsx_4.2.5              limma_3.52.2               </span></span>
+<span><span class="co">#&gt;  [21] ComplexHeatmap_2.12.0       modelr_0.1.8               </span></span>
+<span><span class="co">#&gt;  [23] matrixStats_0.62.0          pkgdown_2.0.5              </span></span>
+<span><span class="co">#&gt;  [25] colorspace_2.0-3            rvest_1.0.2                </span></span>
+<span><span class="co">#&gt;  [27] textshaping_0.3.6           haven_2.5.0                </span></span>
+<span><span class="co">#&gt;  [29] xfun_0.31                   crayon_1.5.1               </span></span>
+<span><span class="co">#&gt;  [31] RCurl_1.98-1.7              jsonlite_1.8.0             </span></span>
+<span><span class="co">#&gt;  [33] impute_1.70.0               iterators_1.0.14           </span></span>
+<span><span class="co">#&gt;  [35] glue_1.6.2                  gtable_0.3.0               </span></span>
+<span><span class="co">#&gt;  [37] zlibbioc_1.42.0             XVector_0.36.0             </span></span>
+<span><span class="co">#&gt;  [39] GetoptLong_1.0.5            DelayedArray_0.22.0        </span></span>
+<span><span class="co">#&gt;  [41] shape_1.4.6                 BiocGenerics_0.42.0        </span></span>
+<span><span class="co">#&gt;  [43] scales_1.2.0                vsn_3.64.0                 </span></span>
+<span><span class="co">#&gt;  [45] DBI_1.1.3                   Rcpp_1.0.8.3               </span></span>
+<span><span class="co">#&gt;  [47] mzR_2.30.0                  viridisLite_0.4.0          </span></span>
+<span><span class="co">#&gt;  [49] clue_0.3-61                 gridGraphics_0.5-1         </span></span>
+<span><span class="co">#&gt;  [51] preprocessCore_1.58.0       stats4_4.2.1               </span></span>
+<span><span class="co">#&gt;  [53] MsCoreUtils_1.8.0           htmlwidgets_1.5.4          </span></span>
+<span><span class="co">#&gt;  [55] httr_1.4.3                  RColorBrewer_1.1-3         </span></span>
+<span><span class="co">#&gt;  [57] ellipsis_0.3.2              pkgconfig_2.0.3            </span></span>
+<span><span class="co">#&gt;  [59] XML_3.99-0.10               sass_0.4.1                 </span></span>
+<span><span class="co">#&gt;  [61] dbplyr_2.2.1                utf8_1.2.2                 </span></span>
+<span><span class="co">#&gt;  [63] ggplotify_0.1.0             tidyselect_1.1.2           </span></span>
+<span><span class="co">#&gt;  [65] rlang_1.0.3                 munsell_0.5.0              </span></span>
+<span><span class="co">#&gt;  [67] cellranger_1.1.0            tools_4.2.1                </span></span>
+<span><span class="co">#&gt;  [69] cachem_1.0.6                cli_3.3.0                  </span></span>
+<span><span class="co">#&gt;  [71] generics_0.1.3              broom_1.0.0                </span></span>
+<span><span class="co">#&gt;  [73] evaluate_0.15               fastmap_1.1.0              </span></span>
+<span><span class="co">#&gt;  [75] mzID_1.34.0                 yaml_2.3.5                 </span></span>
+<span><span class="co">#&gt;  [77] ragg_1.2.2                  knitr_1.39                 </span></span>
+<span><span class="co">#&gt;  [79] fs_1.5.2                    zip_2.2.0                  </span></span>
+<span><span class="co">#&gt;  [81] ncdf4_1.19                  pbapply_1.5-0              </span></span>
+<span><span class="co">#&gt;  [83] xml2_1.3.3                  compiler_4.2.1             </span></span>
+<span><span class="co">#&gt;  [85] rstudioapi_0.13             plotly_4.10.0              </span></span>
+<span><span class="co">#&gt;  [87] png_0.1-7                   affyio_1.66.0              </span></span>
+<span><span class="co">#&gt;  [89] reprex_2.0.1                bslib_0.3.1                </span></span>
+<span><span class="co">#&gt;  [91] stringi_1.7.6               desc_1.4.1                 </span></span>
+<span><span class="co">#&gt;  [93] MSnbase_2.22.0              lattice_0.20-45            </span></span>
+<span><span class="co">#&gt;  [95] ProtGenerics_1.28.0         Matrix_1.4-1               </span></span>
+<span><span class="co">#&gt;  [97] ggsci_2.9                   vctrs_0.4.1                </span></span>
+<span><span class="co">#&gt;  [99] pillar_1.7.0                lifecycle_1.0.1            </span></span>
+<span><span class="co">#&gt; [101] BiocManager_1.30.18         jquerylib_0.1.4            </span></span>
+<span><span class="co">#&gt; [103] MALDIquant_1.21             GlobalOptions_0.1.2        </span></span>
+<span><span class="co">#&gt; [105] data.table_1.14.2           bitops_1.0-7               </span></span>
+<span><span class="co">#&gt; [107] GenomicRanges_1.48.0        R6_2.5.1                   </span></span>
+<span><span class="co">#&gt; [109] pcaMethods_1.88.0           affy_1.74.0                </span></span>
+<span><span class="co">#&gt; [111] IRanges_2.30.0              codetools_0.2-18           </span></span>
+<span><span class="co">#&gt; [113] MASS_7.3-57                 assertthat_0.2.1           </span></span>
+<span><span class="co">#&gt; [115] SummarizedExperiment_1.26.1 rprojroot_2.0.3            </span></span>
+<span><span class="co">#&gt; [117] rjson_0.2.21                withr_2.5.0                </span></span>
+<span><span class="co">#&gt; [119] S4Vectors_0.34.0            GenomeInfoDbData_1.2.8     </span></span>
+<span><span class="co">#&gt; [121] parallel_4.2.1              hms_1.1.1                  </span></span>
+<span><span class="co">#&gt; [123] grid_4.2.1                  rmarkdown_2.14             </span></span>
+<span><span class="co">#&gt; [125] MatrixGenerics_1.8.1        Biobase_2.56.0             </span></span>
+<span><span class="co">#&gt; [127] lubridate_1.8.0</span></span></code></pre></div>
 </div>
   </div>
 
@@ -546,8 +547,7 @@ from <code>mass_dataset</code> calss object.</p>
 
       <footer><div class="copyright">
   <p></p>
-<p>massdataset Developed by Xiaotao Shen. <br> from
-<i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
+<p>massdataset Developed by Xiaotao Shen. <br> from <i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
 </div>
 
 <div class="pkgdown">

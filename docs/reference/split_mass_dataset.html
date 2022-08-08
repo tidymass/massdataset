@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
       </span>
     </div>
 
@@ -158,22 +158,29 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">split_mass_dataset</span><span class="op">(</span><span class="va">object</span>, <span class="va">by</span>, <span class="va">fun</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">split_mass_dataset</span><span class="op">(</span><span class="va">object</span>, <span class="va">by</span>, <span class="va">fun</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>(required) A mass_dataset class object.</p></dd>
+
+
 <dt>by</dt>
 <dd><p>column name of sample_info or variable_info</p></dd>
+
+
 <dt>fun</dt>
 <dd><p>function used to split by. For example, mz,
 should set it as &gt; 100.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list of mass_dataset.</p>
+    
+
+<p>A list of mass_dataset.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -183,34 +190,37 @@ should set it as &gt; 100.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op">=</span></span>
-<span class="r-in">  <span class="fu"><a href="create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span></span>
-<span class="r-in">    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span>
-<span class="r-in">    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span>
-<span class="r-in">    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op">&lt;-</span></span>
-<span class="r-in"><span class="fu"><a href="activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span><span class="va">object</span>, what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">new_object</span> <span class="op">&lt;-</span></span>
-<span class="r-in">  <span class="fu">split_mass_dataset</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, by <span class="op">=</span> <span class="st">"group"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">new_object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">dim</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span></span>
+<span class="r-in"><span>    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span></span>
+<span class="r-in"><span>    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span><span class="va">object</span>, what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">new_object</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="fu">split_mass_dataset</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, by <span class="op">=</span> <span class="st">"group"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">new_object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">dim</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Blank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1000    2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> variables   samples </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1000         2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $QC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1000    2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> variables   samples </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1000         2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Subject</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1000    4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> variables   samples </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1000         4 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="va">new_object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">colnames</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">new_object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">colnames</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Blank</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Blank_3" "Blank_4"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -220,23 +230,25 @@ should set it as &gt; 100.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Subject</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "PS4P1" "PS4P2" "PS4P3" "PS4P4"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op">&lt;-</span></span>
-<span class="r-in">  <span class="fu"><a href="activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span><span class="va">object</span>, what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">new_object</span> <span class="op">&lt;-</span></span>
-<span class="r-in">  <span class="fu">split_mass_dataset</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, by <span class="op">=</span> <span class="st">"rt"</span>, fun <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">rt</span><span class="op">)</span> <span class="va">rt</span> <span class="op">&gt;</span> <span class="fl">600</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">new_object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">dim</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span><span class="va">object</span>, what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">new_object</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="fu">split_mass_dataset</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, by <span class="op">=</span> <span class="st">"rt"</span>, fun <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">rt</span><span class="op">)</span> <span class="va">rt</span> <span class="op">&gt;</span> <span class="fl">600</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">new_object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">dim</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 245   8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> variables   samples </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       245         8 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 755   8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> variables   samples </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       755         8 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">new_object</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">$</span><span class="va">rt</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">new_object</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">$</span><span class="va">rt</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="split_mass_dataset-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">new_object</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">$</span><span class="va">rt</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">new_object</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">$</span><span class="va">rt</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="split_mass_dataset-2.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
@@ -248,8 +260,7 @@ should set it as &gt; 100.</p></dd>
 
 
       <footer><div class="copyright">
-  <p></p><p>massdataset Developed by Xiaotao Shen. <br> from
-<i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
+  <p></p><p>massdataset Developed by Xiaotao Shen. <br> from <i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
 </div>
 
 <div class="pkgdown">

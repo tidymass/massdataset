@@ -48,7 +48,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
       </span>
     </div>
 
@@ -197,7 +197,7 @@
 (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
             <h4 data-toc-skip class="date">Created on 2022-05-16 and
-updated on 2022-05-16</h4>
+updated on 2022-08-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/interoperability_with_other_tools.Rmd" class="external-link"><code>vignettes/interoperability_with_other_tools.Rmd</code></a></small>
       <div class="hidden name"><code>interoperability_with_other_tools.Rmd</code></div>
@@ -206,10 +206,10 @@ updated on 2022-05-16</h4>
 
     
     
-<div class="section level1">
-<h1 id="introduction">
+<div class="section level2">
+<h2 id="introduction">
 <strong>Introduction</strong><a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h1>
+</h2>
 <p>To make <code>tidyMass</code> and <code>massdataset</code> is more
 interoperability with other toolts which have beed developed for omics
 data processing and analysis, we provide several functions that could
@@ -217,62 +217,63 @@ convert “mass_dataset” and data formats that required by other tools. In
 the meanwhile, functions that convert other data formats to
 <code>mass_dataset</code> are also provided.</p>
 </div>
-<div class="section level1">
-<h1 id="metdna">
+<div class="section level2">
+<h2 id="metdna">
 <strong>MetDNA</strong><a class="anchor" aria-label="anchor" href="#metdna"></a>
-</h1>
+</h2>
 <p><code>MetDNA</code> is a web-based tool for metabolite annotation
 using metabolic reaction network (<a href="http://metdna.zhulab.cn/" class="external-link uri">http://metdna.zhulab.cn/</a>). Users can eaisy convert
 <code>mass_dataset</code> to files that required for
 <code>MetDNA</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span>
-
-<span class="va">object</span> <span class="op">=</span>
-  <span class="fu"><a href="../reference/create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span>
-    expression_data <span class="op">=</span> <span class="va">expression_data</span>,
-    sample_info <span class="op">=</span> <span class="va">sample_info</span>,
-    variable_info <span class="op">=</span> <span class="va">variable_info</span>,
-    sample_info_note <span class="op">=</span> <span class="va">sample_info_note</span>,
-    variable_info_note <span class="op">=</span> <span class="va">variable_info_note</span>
-  <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">object</span> <span class="op">=</span></span>
+<span>  <span class="fu"><a href="../reference/create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span></span>
+<span>    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span>
+<span>    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span>
+<span>    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span>
+<span>    sample_info_note <span class="op">=</span> <span class="va">sample_info_note</span>,</span>
+<span>    variable_info_note <span class="op">=</span> <span class="va">variable_info_note</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">object</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 1.0.5 </span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-05-16 13:59:40</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">object</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 1.0.12 </span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; 1 processings in total</span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span></span>
+<span><span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-08-07 19:35:20</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/export_mass_dataset4metdna.html">export_mass_dataset4metdna</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, 
-                           path <span class="op">=</span> <span class="st">"convert/metdna"</span><span class="op">)</span>
-<span class="co">#&gt; NULL</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/export_mass_dataset4metdna.html">export_mass_dataset4metdna</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, </span>
+<span>                           path <span class="op">=</span> <span class="st">"convert/metdna"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; NULL</span></span></code></pre></div>
 <p>The files will be exported in the folder “convert/metdna”.</p>
 <p><img src="../reference/figures/Screen-Shot.png"></p>
 <p>Peak table.</p>
 <p><img src="../reference/figures/Screen-Shot%201.png"> sample_info.</p>
 <p><img src="../reference/figures/Screen-Shot%202.png"></p>
 </div>
-<div class="section level1">
-<h1 id="summarizedexperiment">
+<div class="section level2">
+<h2 id="summarizedexperiment">
 <strong>SummarizedExperiment</strong><a class="anchor" aria-label="anchor" href="#summarizedexperiment"></a>
-</h1>
+</h2>
 <p>The <code>SummarizedExperiment</code> class is used to store
 rectangular matrices of experimental results, which are commonly
 produced by sequencing and microarray experiments. This data structure
@@ -282,54 +283,54 @@ to convert <code>mass_dataset</code> to
 <code>SummarizedExperiment</code> class.</p>
 <p>Please install <code>SummarizedExperiment</code> first.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va">BiocManager</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">SummarizedExperiment</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"SummarizedExperiment"</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va">BiocManager</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">SummarizedExperiment</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"SummarizedExperiment"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">SummarizedExperiment</a></span><span class="op">)</span>
-<span class="va">se_object</span> <span class="op">&lt;-</span> 
-<span class="fu"><a href="../reference/convert_mass_dataset2summarizedexperiment.html">convert_mass_dataset2summarizedexperiment</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">SummarizedExperiment</a></span><span class="op">)</span></span>
+<span><span class="va">se_object</span> <span class="op">&lt;-</span> </span>
+<span><span class="fu"><a href="../reference/convert_mass_dataset2summarizedexperiment.html">convert_mass_dataset2summarizedexperiment</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">SummarizedExperiment</a></span><span class="op">)</span>
-<span class="va">se_object</span>
-<span class="co">#&gt; class: SummarizedExperiment </span>
-<span class="co">#&gt; dim: 1000 8 </span>
-<span class="co">#&gt; metadata(0):</span>
-<span class="co">#&gt; assays(1): counts</span>
-<span class="co">#&gt; rownames(1000): M136T55_2_POS M79T35_POS ... M232T937_POS M301T277_POS</span>
-<span class="co">#&gt; rowData names(3): variable_id mz rt</span>
-<span class="co">#&gt; colnames(8): Blank_3 Blank_4 ... PS4P3 PS4P4</span>
-<span class="co">#&gt; colData names(4): sample_id injection.order class group</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">SummarizedExperiment</a></span><span class="op">)</span></span>
+<span><span class="va">se_object</span></span>
+<span><span class="co">#&gt; class: SummarizedExperiment </span></span>
+<span><span class="co">#&gt; dim: 1000 8 </span></span>
+<span><span class="co">#&gt; metadata(0):</span></span>
+<span><span class="co">#&gt; assays(1): counts</span></span>
+<span><span class="co">#&gt; rownames(1000): M136T55_2_POS M79T35_POS ... M232T937_POS M301T277_POS</span></span>
+<span><span class="co">#&gt; rowData names(3): variable_id mz rt</span></span>
+<span><span class="co">#&gt; colnames(8): Blank_3 Blank_4 ... PS4P3 PS4P4</span></span>
+<span><span class="co">#&gt; colData names(4): sample_id injection.order class group</span></span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="mztab-m-format">
+<div class="section level2">
+<h2 id="mztab-m-format">
 <strong>mzTab-m format</strong><a class="anchor" aria-label="anchor" href="#mztab-m-format"></a>
-</h1>
+</h2>
 <p><code>mzTab-M</code> is a data standard for sharing quantitative
 results in mass spectrometry metabolomics, which is also supported by
 lots of tools in metabolomics/proteomics filed (<a href="https://pubs.acs.org/doi/10.1021/acs.analchem.8b04310" class="external-link uri">https://pubs.acs.org/doi/10.1021/acs.analchem.8b04310</a>).
 In <code>massdataset</code>, we also provide two function to convert
 <code>mass_data</code> class and <code>mzTab-m</code>.</p>
-<div class="section level2">
-<h2 id="convert-mass_dataset-to-mztab-m">Convert <code>mass_dataset</code> to <code>mzTab-M</code><a class="anchor" aria-label="anchor" href="#convert-mass_dataset-to-mztab-m"></a>
-</h2>
+<div class="section level3">
+<h3 id="convert-mass_dataset-to-mztab-m">Convert <code>mass_dataset</code> to <code>mzTab-M</code><a class="anchor" aria-label="anchor" href="#convert-mass_dataset-to-mztab-m"></a>
+</h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/convert_mass_dataset2mztab.html">convert_mass_dataset2mztab</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, 
-                           path <span class="op">=</span> <span class="st">"convert/mztab"</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/convert_mass_dataset2mztab.html">convert_mass_dataset2mztab</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, </span>
+<span>                           path <span class="op">=</span> <span class="st">"convert/mztab"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>The data is put in the folder “convert/mztab”. You can open it with
 Excel.</p>
 <p><img src="../reference/figures/Screen-Shot%203.png"></p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="rformassspectrometry">
+<div class="section level2">
+<h2 id="rformassspectrometry">
 <em>RforMassSpectrometry</em><a class="anchor" aria-label="anchor" href="#rformassspectrometry"></a>
-</h1>
+</h2>
 <p><a href="https://www.rformassspectrometry.org/" class="external-link">RforMassSpectrometry</a> is
 a project that contains several R software for the analysis and
 interpretation of high throughput mass spectrometry assays. We can
@@ -339,210 +340,212 @@ example how to use the <code>MetaboAnnotation</code> in
 RforMassSpectrometry for annotation.</p>
 <p>Please install <code>MetaboAnnotation</code> first.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va">BiocManager</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RforMassSpectrometry/MetaboAnnotation" class="external-link">MetaboAnnotation</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"MetaboAnnotation"</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va">BiocManager</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RforMassSpectrometry/MetaboAnnotation" class="external-link">MetaboAnnotation</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"MetaboAnnotation"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RforMassSpectrometry/MetaboAnnotation" class="external-link">MetaboAnnotation</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">SummarizedExperiment</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RforMassSpectrometry/MetaboAnnotation" class="external-link">MetaboAnnotation</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">SummarizedExperiment</a></span><span class="op">)</span></span></code></pre></div>
 <p>Convert <code>mass_dataset</code> class to
 <code>SummarizedExperiment</code> class object.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">se_object</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="../reference/convert_mass_dataset2summarizedexperiment.html">convert_mass_dataset2summarizedexperiment</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">se_object</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="../reference/convert_mass_dataset2summarizedexperiment.html">convert_mass_dataset2summarizedexperiment</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">se_object</span> 
-<span class="co">#&gt; class: SummarizedExperiment </span>
-<span class="co">#&gt; dim: 1000 8 </span>
-<span class="co">#&gt; metadata(0):</span>
-<span class="co">#&gt; assays(1): counts</span>
-<span class="co">#&gt; rownames(1000): M136T55_2_POS M79T35_POS ... M232T937_POS M301T277_POS</span>
-<span class="co">#&gt; rowData names(3): variable_id mz rt</span>
-<span class="co">#&gt; colnames(8): Blank_3 Blank_4 ... PS4P3 PS4P4</span>
-<span class="co">#&gt; colData names(4): sample_id injection.order class group</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">se_object</span> </span>
+<span><span class="co">#&gt; class: SummarizedExperiment </span></span>
+<span><span class="co">#&gt; dim: 1000 8 </span></span>
+<span><span class="co">#&gt; metadata(0):</span></span>
+<span><span class="co">#&gt; assays(1): counts</span></span>
+<span><span class="co">#&gt; rownames(1000): M136T55_2_POS M79T35_POS ... M232T937_POS M301T277_POS</span></span>
+<span><span class="co">#&gt; rowData names(3): variable_id mz rt</span></span>
+<span><span class="co">#&gt; colnames(8): Blank_3 Blank_4 ... PS4P3 PS4P4</span></span>
+<span><span class="co">#&gt; colData names(4): sample_id injection.order class group</span></span></code></pre></div>
 <p>Get the targeted table (database)</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">target_df</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.table</a></span><span class="op">(</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"LipidMaps_CompDB.txt"</span>,
-                package <span class="op">=</span> <span class="st">"MetaboAnnotation"</span><span class="op">)</span>,
-    header <span class="op">=</span> <span class="cn">TRUE</span>,
-    sep <span class="op">=</span> <span class="st">"\t"</span>
-  <span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">target_df</span><span class="op">)</span>
-<span class="co">#&gt;   headgroup        name exactmass    formula chain_type</span>
-<span class="co">#&gt; 1       NAE  NAE 20:4;O  363.2773  C22H37NO3       even</span>
-<span class="co">#&gt; 2       NAT  NAT 20:4;O  427.2392 C22H37NO5S       even</span>
-<span class="co">#&gt; 3       NAE NAE 20:3;O2  381.2879  C22H39NO4       even</span>
-<span class="co">#&gt; 4       NAE    NAE 20:4  347.2824  C22H37NO2       even</span>
-<span class="co">#&gt; 5       NAE    NAE 18:2  323.2824  C20H37NO2       even</span>
-<span class="co">#&gt; 6       NAE    NAE 18:3  321.2668  C20H35NO2       even</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">target_df</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.table</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"LipidMaps_CompDB.txt"</span>,</span>
+<span>                package <span class="op">=</span> <span class="st">"MetaboAnnotation"</span><span class="op">)</span>,</span>
+<span>    header <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    sep <span class="op">=</span> <span class="st">"\t"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">target_df</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   headgroup        name exactmass    formula chain_type</span></span>
+<span><span class="co">#&gt; 1       NAE  NAE 20:4;O  363.2773  C22H37NO3       even</span></span>
+<span><span class="co">#&gt; 2       NAT  NAT 20:4;O  427.2392 C22H37NO5S       even</span></span>
+<span><span class="co">#&gt; 3       NAE NAE 20:3;O2  381.2879  C22H39NO4       even</span></span>
+<span><span class="co">#&gt; 4       NAE    NAE 20:4  347.2824  C22H37NO2       even</span></span>
+<span><span class="co">#&gt; 5       NAE    NAE 18:2  323.2824  C20H37NO2       even</span></span>
+<span><span class="co">#&gt; 6       NAE    NAE 18:3  321.2668  C20H35NO2       even</span></span></code></pre></div>
 <p>We need to change the column names to make it fit to
 <code>MetaboAnnotation</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">rowData</a></span><span class="op">(</span><span class="va">se_object</span><span class="op">)</span> <span class="op">&lt;-</span> 
-  <span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>feature_id <span class="op">=</span> <span class="va">variable_id</span>,
-                rtime <span class="op">=</span> <span class="va">rt</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">rowData</a></span><span class="op">(</span><span class="va">se_object</span><span class="op">)</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>feature_id <span class="op">=</span> <span class="va">variable_id</span>,</span>
+<span>                rtime <span class="op">=</span> <span class="va">rt</span><span class="op">)</span></span></code></pre></div>
 <p>Metabolite annotation.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">parm</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/MetaboAnnotation/man/matchValues.html" class="external-link">Mass2MzParam</a></span><span class="op">(</span>
-    adducts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"[M+H]+"</span>, <span class="st">"[M+Na]+"</span><span class="op">)</span>,
-    tolerance <span class="op">=</span> <span class="fl">0.005</span>,
-    ppm <span class="op">=</span> <span class="fl">0</span>
-  <span class="op">)</span>
-<span class="va">matched_features</span> <span class="op">&lt;-</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/MetaboAnnotation/man/matchValues.html" class="external-link">matchValues</a></span><span class="op">(</span><span class="va">se_object</span>, <span class="va">target_df</span>, param <span class="op">=</span> <span class="va">parm</span><span class="op">)</span>
-<span class="va">matched_features</span>
-<span class="co">#&gt; Object of class Matched </span>
-<span class="co">#&gt; Total number of matches: 455 </span>
-<span class="co">#&gt; Number of query objects: 1000 (217 matched)</span>
-<span class="co">#&gt; Number of target objects: 57599 (375 matched)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">parm</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/MetaboAnnotation/man/matchValues.html" class="external-link">Mass2MzParam</a></span><span class="op">(</span></span>
+<span>    adducts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"[M+H]+"</span>, <span class="st">"[M+Na]+"</span><span class="op">)</span>,</span>
+<span>    tolerance <span class="op">=</span> <span class="fl">0.005</span>,</span>
+<span>    ppm <span class="op">=</span> <span class="fl">0</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="va">matched_features</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/MetaboAnnotation/man/matchValues.html" class="external-link">matchValues</a></span><span class="op">(</span><span class="va">se_object</span>, <span class="va">target_df</span>, param <span class="op">=</span> <span class="va">parm</span><span class="op">)</span></span>
+<span><span class="va">matched_features</span></span>
+<span><span class="co">#&gt; Object of class Matched </span></span>
+<span><span class="co">#&gt; Total number of matches: 455 </span></span>
+<span><span class="co">#&gt; Number of query objects: 1000 (217 matched)</span></span>
+<span><span class="co">#&gt; Number of target objects: 57599 (375 matched)</span></span></code></pre></div>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/MetaboAnnotation/man/Matched.html" class="external-link">matchedData</a></span><span class="op">(</span><span class="va">matched_features</span><span class="op">)</span>
-<span class="co">#&gt; DataFrame with 1238 rows and 11 columns</span>
-<span class="co">#&gt;                   feature_id        mz     rtime target_headgroup target_name</span>
-<span class="co">#&gt;                  &lt;character&gt; &lt;numeric&gt; &lt;numeric&gt;      &lt;character&gt; &lt;character&gt;</span>
-<span class="co">#&gt; M136T55_2_POS  M136T55_2_...  136.0614   54.9790               NA          NA</span>
-<span class="co">#&gt; M79T35_POS        M79T35_POS   79.0539   35.3655               NA          NA</span>
-<span class="co">#&gt; M307T548_POS   M307T548_P...  307.1403  547.5664               NA          NA</span>
-<span class="co">#&gt; M183T224_POS   M183T224_P...  183.0621  224.3278               NA          NA</span>
-<span class="co">#&gt; M349T47_POS    M349T47_PO...  349.0158   47.0026               NA          NA</span>
-<span class="co">#&gt; ...                      ...       ...       ...              ...         ...</span>
-<span class="co">#&gt; M343T707_2_POS M343T707_2...   343.339   707.297               NA          NA</span>
-<span class="co">#&gt; M236T543_POS   M236T543_P...   236.172   542.567               NA          NA</span>
-<span class="co">#&gt; M232T937_POS   M232T937_P...   231.986   936.608               NA          NA</span>
-<span class="co">#&gt; M301T277_POS   M301T277_P...   301.200   277.116               FA  FA 16:2;O3</span>
-<span class="co">#&gt; M301T277_POS   M301T277_P...   301.200   277.116               MG   MG 13:2;O</span>
-<span class="co">#&gt;                target_exactmass target_formula target_chain_type      adduct</span>
-<span class="co">#&gt;                       &lt;numeric&gt;    &lt;character&gt;       &lt;character&gt; &lt;character&gt;</span>
-<span class="co">#&gt; M136T55_2_POS                NA             NA                NA          NA</span>
-<span class="co">#&gt; M79T35_POS                   NA             NA                NA          NA</span>
-<span class="co">#&gt; M307T548_POS                 NA             NA                NA          NA</span>
-<span class="co">#&gt; M183T224_POS                 NA             NA                NA          NA</span>
-<span class="co">#&gt; M349T47_POS                  NA             NA                NA          NA</span>
-<span class="co">#&gt; ...                         ...            ...               ...         ...</span>
-<span class="co">#&gt; M343T707_2_POS               NA             NA                NA          NA</span>
-<span class="co">#&gt; M236T543_POS                 NA             NA                NA          NA</span>
-<span class="co">#&gt; M232T937_POS                 NA             NA                NA          NA</span>
-<span class="co">#&gt; M301T277_POS            300.194       C16H28O5              even      [M+H]+</span>
-<span class="co">#&gt; M301T277_POS            300.194       C16H28O5               odd      [M+H]+</span>
-<span class="co">#&gt;                       score ppm_error</span>
-<span class="co">#&gt;                   &lt;numeric&gt; &lt;numeric&gt;</span>
-<span class="co">#&gt; M136T55_2_POS            NA        NA</span>
-<span class="co">#&gt; M79T35_POS               NA        NA</span>
-<span class="co">#&gt; M307T548_POS             NA        NA</span>
-<span class="co">#&gt; M183T224_POS             NA        NA</span>
-<span class="co">#&gt; M349T47_POS              NA        NA</span>
-<span class="co">#&gt; ...                     ...       ...</span>
-<span class="co">#&gt; M343T707_2_POS           NA        NA</span>
-<span class="co">#&gt; M236T543_POS             NA        NA</span>
-<span class="co">#&gt; M232T937_POS             NA        NA</span>
-<span class="co">#&gt; M301T277_POS   -0.000767133   2.54691</span>
-<span class="co">#&gt; M301T277_POS   -0.000767133   2.54691</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/MetaboAnnotation/man/Matched.html" class="external-link">matchedData</a></span><span class="op">(</span><span class="va">matched_features</span><span class="op">)</span></span>
+<span><span class="co">#&gt; DataFrame with 1238 rows and 11 columns</span></span>
+<span><span class="co">#&gt;                   feature_id        mz     rtime target_headgroup target_name</span></span>
+<span><span class="co">#&gt;                  &lt;character&gt; &lt;numeric&gt; &lt;numeric&gt;      &lt;character&gt; &lt;character&gt;</span></span>
+<span><span class="co">#&gt; M136T55_2_POS  M136T55_2_...  136.0614   54.9790               NA          NA</span></span>
+<span><span class="co">#&gt; M79T35_POS        M79T35_POS   79.0539   35.3655               NA          NA</span></span>
+<span><span class="co">#&gt; M307T548_POS   M307T548_P...  307.1403  547.5664               NA          NA</span></span>
+<span><span class="co">#&gt; M183T224_POS   M183T224_P...  183.0621  224.3278               NA          NA</span></span>
+<span><span class="co">#&gt; M349T47_POS    M349T47_PO...  349.0158   47.0026               NA          NA</span></span>
+<span><span class="co">#&gt; ...                      ...       ...       ...              ...         ...</span></span>
+<span><span class="co">#&gt; M343T707_2_POS M343T707_2...   343.339   707.297               NA          NA</span></span>
+<span><span class="co">#&gt; M236T543_POS   M236T543_P...   236.172   542.567               NA          NA</span></span>
+<span><span class="co">#&gt; M232T937_POS   M232T937_P...   231.986   936.608               NA          NA</span></span>
+<span><span class="co">#&gt; M301T277_POS   M301T277_P...   301.200   277.116               FA  FA 16:2;O3</span></span>
+<span><span class="co">#&gt; M301T277_POS   M301T277_P...   301.200   277.116               MG   MG 13:2;O</span></span>
+<span><span class="co">#&gt;                target_exactmass target_formula target_chain_type      adduct</span></span>
+<span><span class="co">#&gt;                       &lt;numeric&gt;    &lt;character&gt;       &lt;character&gt; &lt;character&gt;</span></span>
+<span><span class="co">#&gt; M136T55_2_POS                NA             NA                NA          NA</span></span>
+<span><span class="co">#&gt; M79T35_POS                   NA             NA                NA          NA</span></span>
+<span><span class="co">#&gt; M307T548_POS                 NA             NA                NA          NA</span></span>
+<span><span class="co">#&gt; M183T224_POS                 NA             NA                NA          NA</span></span>
+<span><span class="co">#&gt; M349T47_POS                  NA             NA                NA          NA</span></span>
+<span><span class="co">#&gt; ...                         ...            ...               ...         ...</span></span>
+<span><span class="co">#&gt; M343T707_2_POS               NA             NA                NA          NA</span></span>
+<span><span class="co">#&gt; M236T543_POS                 NA             NA                NA          NA</span></span>
+<span><span class="co">#&gt; M232T937_POS                 NA             NA                NA          NA</span></span>
+<span><span class="co">#&gt; M301T277_POS            300.194       C16H28O5              even      [M+H]+</span></span>
+<span><span class="co">#&gt; M301T277_POS            300.194       C16H28O5               odd      [M+H]+</span></span>
+<span><span class="co">#&gt;                       score ppm_error</span></span>
+<span><span class="co">#&gt;                   &lt;numeric&gt; &lt;numeric&gt;</span></span>
+<span><span class="co">#&gt; M136T55_2_POS            NA        NA</span></span>
+<span><span class="co">#&gt; M79T35_POS               NA        NA</span></span>
+<span><span class="co">#&gt; M307T548_POS             NA        NA</span></span>
+<span><span class="co">#&gt; M183T224_POS             NA        NA</span></span>
+<span><span class="co">#&gt; M349T47_POS              NA        NA</span></span>
+<span><span class="co">#&gt; ...                     ...       ...</span></span>
+<span><span class="co">#&gt; M343T707_2_POS           NA        NA</span></span>
+<span><span class="co">#&gt; M236T543_POS             NA        NA</span></span>
+<span><span class="co">#&gt; M232T937_POS             NA        NA</span></span>
+<span><span class="co">#&gt; M301T277_POS   -0.000767133   2.54691</span></span>
+<span><span class="co">#&gt; M301T277_POS   -0.000767133   2.54691</span></span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="session-information">
+<div class="section level2">
+<h2 id="session-information">
 <strong>Session information</strong><a class="anchor" aria-label="anchor" href="#session-information"></a>
-</h1>
+</h2>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; R version 4.1.2 (2021-11-01)</span>
-<span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>
-<span class="co">#&gt; Running under: macOS Big Sur 10.16</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Matrix products: default</span>
-<span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib</span>
-<span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; locale:</span>
-<span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; attached base packages:</span>
-<span class="co">#&gt; [1] stats4    parallel  stats     graphics  grDevices utils     datasets </span>
-<span class="co">#&gt; [8] methods   base     </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt;  [1] MetaboAnnotation_1.1.0      SummarizedExperiment_1.22.0</span>
-<span class="co">#&gt;  [3] Biobase_2.52.0              GenomicRanges_1.44.0       </span>
-<span class="co">#&gt;  [5] GenomeInfoDb_1.28.1         IRanges_2.26.0             </span>
-<span class="co">#&gt;  [7] S4Vectors_0.30.0            BiocGenerics_0.38.0        </span>
-<span class="co">#&gt;  [9] MatrixGenerics_1.4.2        matrixStats_0.60.0         </span>
-<span class="co">#&gt; [11] BiocManager_1.30.16         forcats_0.5.1              </span>
-<span class="co">#&gt; [13] stringr_1.4.0               dplyr_1.0.7                </span>
-<span class="co">#&gt; [15] purrr_0.3.4                 readr_2.0.0                </span>
-<span class="co">#&gt; [17] tidyr_1.1.3                 tibble_3.1.3               </span>
-<span class="co">#&gt; [19] tidyverse_1.3.1             ggplot2_3.3.5              </span>
-<span class="co">#&gt; [21] magrittr_2.0.1              masstools_0.99.13          </span>
-<span class="co">#&gt; [23] massdataset_1.0.5          </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;   [1] readxl_1.3.1                backports_1.2.1            </span>
-<span class="co">#&gt;   [3] circlize_0.4.14             systemfonts_1.0.2          </span>
-<span class="co">#&gt;   [5] plyr_1.8.6                  lazyeval_0.2.2             </span>
-<span class="co">#&gt;   [7] BiocParallel_1.26.1         Rdisop_1.52.0              </span>
-<span class="co">#&gt;   [9] digest_0.6.27               foreach_1.5.1              </span>
-<span class="co">#&gt;  [11] htmltools_0.5.2             fansi_0.5.0                </span>
-<span class="co">#&gt;  [13] memoise_2.0.0               cluster_2.1.2              </span>
-<span class="co">#&gt;  [15] doParallel_1.0.16           tzdb_0.1.2                 </span>
-<span class="co">#&gt;  [17] openxlsx_4.2.4              limma_3.48.1               </span>
-<span class="co">#&gt;  [19] ComplexHeatmap_2.8.0        modelr_0.1.8               </span>
-<span class="co">#&gt;  [21] pkgdown_2.0.1               colorspace_2.0-2           </span>
-<span class="co">#&gt;  [23] rvest_1.0.1                 textshaping_0.3.6          </span>
-<span class="co">#&gt;  [25] haven_2.4.1                 xfun_0.31                  </span>
-<span class="co">#&gt;  [27] crayon_1.4.1                RCurl_1.98-1.3             </span>
-<span class="co">#&gt;  [29] jsonlite_1.7.2              impute_1.66.0              </span>
-<span class="co">#&gt;  [31] iterators_1.0.13            glue_1.4.2                 </span>
-<span class="co">#&gt;  [33] gtable_0.3.0                zlibbioc_1.38.0            </span>
-<span class="co">#&gt;  [35] XVector_0.32.0              GetoptLong_1.0.5           </span>
-<span class="co">#&gt;  [37] DelayedArray_0.18.0         shape_1.4.6                </span>
-<span class="co">#&gt;  [39] MetaboCoreUtils_1.0.0       scales_1.1.1               </span>
-<span class="co">#&gt;  [41] vsn_3.60.0                  DBI_1.1.1                  </span>
-<span class="co">#&gt;  [43] Rcpp_1.0.7                  mzR_2.26.1                 </span>
-<span class="co">#&gt;  [45] viridisLite_0.4.0           clue_0.3-59                </span>
-<span class="co">#&gt;  [47] gridGraphics_0.5-1          preprocessCore_1.54.0      </span>
-<span class="co">#&gt;  [49] MsCoreUtils_1.9.0           htmlwidgets_1.5.3          </span>
-<span class="co">#&gt;  [51] httr_1.4.2                  RColorBrewer_1.1-2         </span>
-<span class="co">#&gt;  [53] ellipsis_0.3.2              pkgconfig_2.0.3            </span>
-<span class="co">#&gt;  [55] XML_3.99-0.6                sass_0.4.0                 </span>
-<span class="co">#&gt;  [57] dbplyr_2.1.1                utf8_1.2.2                 </span>
-<span class="co">#&gt;  [59] ggplotify_0.0.8             tidyselect_1.1.1           </span>
-<span class="co">#&gt;  [61] rlang_0.4.11                munsell_0.5.0              </span>
-<span class="co">#&gt;  [63] cellranger_1.1.0            tools_4.1.2                </span>
-<span class="co">#&gt;  [65] cachem_1.0.5                cli_3.0.1                  </span>
-<span class="co">#&gt;  [67] QFeatures_1.2.0             generics_0.1.0             </span>
-<span class="co">#&gt;  [69] broom_0.7.9                 evaluate_0.14              </span>
-<span class="co">#&gt;  [71] fastmap_1.1.0               mzID_1.30.0                </span>
-<span class="co">#&gt;  [73] yaml_2.2.1                  ragg_1.1.3                 </span>
-<span class="co">#&gt;  [75] knitr_1.33                  fs_1.5.0                   </span>
-<span class="co">#&gt;  [77] zip_2.2.0                   AnnotationFilter_1.16.0    </span>
-<span class="co">#&gt;  [79] ncdf4_1.17                  pbapply_1.4-3              </span>
-<span class="co">#&gt;  [81] xml2_1.3.2                  compiler_4.1.2             </span>
-<span class="co">#&gt;  [83] rstudioapi_0.13             plotly_4.9.4.1             </span>
-<span class="co">#&gt;  [85] png_0.1-7                   affyio_1.62.0              </span>
-<span class="co">#&gt;  [87] reprex_2.0.0                bslib_0.3.1                </span>
-<span class="co">#&gt;  [89] stringi_1.7.3               desc_1.3.0                 </span>
-<span class="co">#&gt;  [91] MSnbase_2.18.0              lattice_0.20-45            </span>
-<span class="co">#&gt;  [93] ProtGenerics_1.27.2         Matrix_1.3-4               </span>
-<span class="co">#&gt;  [95] ggsci_2.9                   vctrs_0.3.8                </span>
-<span class="co">#&gt;  [97] pillar_1.6.2                lifecycle_1.0.0            </span>
-<span class="co">#&gt;  [99] jquerylib_0.1.4             MALDIquant_1.20            </span>
-<span class="co">#&gt; [101] GlobalOptions_0.1.2         data.table_1.14.0          </span>
-<span class="co">#&gt; [103] bitops_1.0-7                R6_2.5.0                   </span>
-<span class="co">#&gt; [105] pcaMethods_1.84.0           affy_1.70.0                </span>
-<span class="co">#&gt; [107] codetools_0.2-18            MASS_7.3-54                </span>
-<span class="co">#&gt; [109] assertthat_0.2.1            rprojroot_2.0.2            </span>
-<span class="co">#&gt; [111] rjson_0.2.20                withr_2.4.2                </span>
-<span class="co">#&gt; [113] GenomeInfoDbData_1.2.6      MultiAssayExperiment_1.18.0</span>
-<span class="co">#&gt; [115] hms_1.1.0                   grid_4.1.2                 </span>
-<span class="co">#&gt; [117] rmarkdown_2.14              rvcheck_0.1.8              </span>
-<span class="co">#&gt; [119] Cairo_1.5-12.2              Spectra_1.7.0              </span>
-<span class="co">#&gt; [121] lubridate_1.7.10</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; R version 4.2.1 (2022-06-23)</span></span>
+<span><span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span></span>
+<span><span class="co">#&gt; Running under: macOS Big Sur ... 10.16</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Matrix products: default</span></span>
+<span><span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib</span></span>
+<span><span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; locale:</span></span>
+<span><span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; attached base packages:</span></span>
+<span><span class="co">#&gt; [1] stats4    stats     graphics  grDevices utils     datasets  methods  </span></span>
+<span><span class="co">#&gt; [8] base     </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; other attached packages:</span></span>
+<span><span class="co">#&gt;  [1] MetaboAnnotation_1.0.0      SummarizedExperiment_1.26.1</span></span>
+<span><span class="co">#&gt;  [3] Biobase_2.56.0              GenomicRanges_1.48.0       </span></span>
+<span><span class="co">#&gt;  [5] GenomeInfoDb_1.32.2         IRanges_2.30.0             </span></span>
+<span><span class="co">#&gt;  [7] S4Vectors_0.34.0            BiocGenerics_0.42.0        </span></span>
+<span><span class="co">#&gt;  [9] MatrixGenerics_1.8.1        matrixStats_0.62.0         </span></span>
+<span><span class="co">#&gt; [11] BiocManager_1.30.18         forcats_0.5.1.9000         </span></span>
+<span><span class="co">#&gt; [13] stringr_1.4.0               dplyr_1.0.9                </span></span>
+<span><span class="co">#&gt; [15] purrr_0.3.4                 readr_2.1.2                </span></span>
+<span><span class="co">#&gt; [17] tidyr_1.2.0                 tibble_3.1.7               </span></span>
+<span><span class="co">#&gt; [19] tidyverse_1.3.1             ggplot2_3.3.6              </span></span>
+<span><span class="co">#&gt; [21] magrittr_2.0.3              masstools_1.0.2            </span></span>
+<span><span class="co">#&gt; [23] massdataset_1.0.12         </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
+<span><span class="co">#&gt;   [1] readxl_1.4.0                backports_1.4.1            </span></span>
+<span><span class="co">#&gt;   [3] circlize_0.4.15             systemfonts_1.0.4          </span></span>
+<span><span class="co">#&gt;   [5] igraph_1.3.2                plyr_1.8.7                 </span></span>
+<span><span class="co">#&gt;   [7] lazyeval_0.2.2              BiocParallel_1.30.3        </span></span>
+<span><span class="co">#&gt;   [9] Rdisop_1.56.0               digest_0.6.29              </span></span>
+<span><span class="co">#&gt;  [11] foreach_1.5.2               yulab.utils_0.0.5          </span></span>
+<span><span class="co">#&gt;  [13] htmltools_0.5.2             fansi_1.0.3                </span></span>
+<span><span class="co">#&gt;  [15] memoise_2.0.1               cluster_2.1.3              </span></span>
+<span><span class="co">#&gt;  [17] doParallel_1.0.17           tzdb_0.3.0                 </span></span>
+<span><span class="co">#&gt;  [19] openxlsx_4.2.5              limma_3.52.2               </span></span>
+<span><span class="co">#&gt;  [21] ComplexHeatmap_2.12.0       modelr_0.1.8               </span></span>
+<span><span class="co">#&gt;  [23] vroom_1.5.7                 pkgdown_2.0.5              </span></span>
+<span><span class="co">#&gt;  [25] colorspace_2.0-3            rvest_1.0.2                </span></span>
+<span><span class="co">#&gt;  [27] textshaping_0.3.6           haven_2.5.0                </span></span>
+<span><span class="co">#&gt;  [29] xfun_0.31                   crayon_1.5.1               </span></span>
+<span><span class="co">#&gt;  [31] RCurl_1.98-1.7              jsonlite_1.8.0             </span></span>
+<span><span class="co">#&gt;  [33] impute_1.70.0               iterators_1.0.14           </span></span>
+<span><span class="co">#&gt;  [35] glue_1.6.2                  gtable_0.3.0               </span></span>
+<span><span class="co">#&gt;  [37] zlibbioc_1.42.0             XVector_0.36.0             </span></span>
+<span><span class="co">#&gt;  [39] GetoptLong_1.0.5            DelayedArray_0.22.0        </span></span>
+<span><span class="co">#&gt;  [41] shape_1.4.6                 MetaboCoreUtils_1.4.0      </span></span>
+<span><span class="co">#&gt;  [43] scales_1.2.0                vsn_3.64.0                 </span></span>
+<span><span class="co">#&gt;  [45] DBI_1.1.3                   Rcpp_1.0.8.3               </span></span>
+<span><span class="co">#&gt;  [47] mzR_2.30.0                  viridisLite_0.4.0          </span></span>
+<span><span class="co">#&gt;  [49] clue_0.3-61                 gridGraphics_0.5-1         </span></span>
+<span><span class="co">#&gt;  [51] bit_4.0.4                   preprocessCore_1.58.0      </span></span>
+<span><span class="co">#&gt;  [53] MsCoreUtils_1.8.0           htmlwidgets_1.5.4          </span></span>
+<span><span class="co">#&gt;  [55] httr_1.4.3                  RColorBrewer_1.1-3         </span></span>
+<span><span class="co">#&gt;  [57] ellipsis_0.3.2              pkgconfig_2.0.3            </span></span>
+<span><span class="co">#&gt;  [59] XML_3.99-0.10               sass_0.4.1                 </span></span>
+<span><span class="co">#&gt;  [61] dbplyr_2.2.1                utf8_1.2.2                 </span></span>
+<span><span class="co">#&gt;  [63] ggplotify_0.1.0             tidyselect_1.1.2           </span></span>
+<span><span class="co">#&gt;  [65] rlang_1.0.3                 munsell_0.5.0              </span></span>
+<span><span class="co">#&gt;  [67] cellranger_1.1.0            tools_4.2.1                </span></span>
+<span><span class="co">#&gt;  [69] cachem_1.0.6                cli_3.3.0                  </span></span>
+<span><span class="co">#&gt;  [71] QFeatures_1.6.0             generics_0.1.3             </span></span>
+<span><span class="co">#&gt;  [73] broom_1.0.0                 evaluate_0.15              </span></span>
+<span><span class="co">#&gt;  [75] fastmap_1.1.0               mzID_1.34.0                </span></span>
+<span><span class="co">#&gt;  [77] yaml_2.3.5                  ragg_1.2.2                 </span></span>
+<span><span class="co">#&gt;  [79] bit64_4.0.5                 knitr_1.39                 </span></span>
+<span><span class="co">#&gt;  [81] fs_1.5.2                    zip_2.2.0                  </span></span>
+<span><span class="co">#&gt;  [83] AnnotationFilter_1.20.0     ncdf4_1.19                 </span></span>
+<span><span class="co">#&gt;  [85] pbapply_1.5-0               xml2_1.3.3                 </span></span>
+<span><span class="co">#&gt;  [87] compiler_4.2.1              rstudioapi_0.13            </span></span>
+<span><span class="co">#&gt;  [89] plotly_4.10.0               png_0.1-7                  </span></span>
+<span><span class="co">#&gt;  [91] affyio_1.66.0               reprex_2.0.1               </span></span>
+<span><span class="co">#&gt;  [93] bslib_0.3.1                 stringi_1.7.6              </span></span>
+<span><span class="co">#&gt;  [95] desc_1.4.1                  MSnbase_2.22.0             </span></span>
+<span><span class="co">#&gt;  [97] lattice_0.20-45             ProtGenerics_1.28.0        </span></span>
+<span><span class="co">#&gt;  [99] Matrix_1.4-1                ggsci_2.9                  </span></span>
+<span><span class="co">#&gt; [101] vctrs_0.4.1                 pillar_1.7.0               </span></span>
+<span><span class="co">#&gt; [103] lifecycle_1.0.1             jquerylib_0.1.4            </span></span>
+<span><span class="co">#&gt; [105] MALDIquant_1.21             GlobalOptions_0.1.2        </span></span>
+<span><span class="co">#&gt; [107] data.table_1.14.2           bitops_1.0-7               </span></span>
+<span><span class="co">#&gt; [109] R6_2.5.1                    pcaMethods_1.88.0          </span></span>
+<span><span class="co">#&gt; [111] affy_1.74.0                 codetools_0.2-18           </span></span>
+<span><span class="co">#&gt; [113] MASS_7.3-57                 assertthat_0.2.1           </span></span>
+<span><span class="co">#&gt; [115] rprojroot_2.0.3             rjson_0.2.21               </span></span>
+<span><span class="co">#&gt; [117] withr_2.5.0                 GenomeInfoDbData_1.2.8     </span></span>
+<span><span class="co">#&gt; [119] MultiAssayExperiment_1.22.0 parallel_4.2.1             </span></span>
+<span><span class="co">#&gt; [121] hms_1.1.1                   grid_4.2.1                 </span></span>
+<span><span class="co">#&gt; [123] rmarkdown_2.14              Spectra_1.6.0              </span></span>
+<span><span class="co">#&gt; [125] lubridate_1.8.0</span></span></code></pre></div>
 </div>
   </div>
 
@@ -558,8 +561,7 @@ RforMassSpectrometry for annotation.</p>
 
       <footer><div class="copyright">
   <p></p>
-<p>massdataset Developed by Xiaotao Shen. <br> from
-<i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
+<p>massdataset Developed by Xiaotao Shen. <br> from <i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
 </div>
 
 <div class="pkgdown">

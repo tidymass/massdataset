@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
       </span>
     </div>
 
@@ -158,19 +158,24 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">check_column_name</span><span class="op">(</span><span class="va">df</span>, <span class="va">column.name</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">check_column_name</span><span class="op">(</span><span class="va">df</span>, <span class="va">column.name</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>df</dt>
 <dd><p>A data frame.</p></dd>
+
+
 <dt>column.name</dt>
 <dd><p>new column name</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A column name</p>
+    
+
+<p>A column name</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -180,16 +185,16 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">df</span> <span class="op">&lt;-</span> </span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, y <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span>, y.1 <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">df</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> </span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, y <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span>, y.1 <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">df</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   x y y.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2   3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 3   4</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">check_column_name</span><span class="op">(</span>df <span class="op">=</span> <span class="va">df</span>, column.name <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">check_column_name</span><span class="op">(</span>df <span class="op">=</span> <span class="va">df</span>, column.name <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "y.2"</span>
-<span class="r-in"><span class="fu">check_column_name</span><span class="op">(</span>df <span class="op">=</span> <span class="va">df</span>, column.name <span class="op">=</span> <span class="st">"y.1"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">check_column_name</span><span class="op">(</span>df <span class="op">=</span> <span class="va">df</span>, column.name <span class="op">=</span> <span class="st">"y.1"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "y.1.2"</span>
 </code></pre></div>
     </div>
@@ -201,8 +206,7 @@
 
 
       <footer><div class="copyright">
-  <p></p><p>massdataset Developed by Xiaotao Shen. <br> from
-<i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
+  <p></p><p>massdataset Developed by Xiaotao Shen. <br> from <i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
 </div>
 
 <div class="pkgdown">

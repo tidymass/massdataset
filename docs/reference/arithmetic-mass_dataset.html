@@ -54,7 +54,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
       </span>
     </div>
 
@@ -244,6 +244,21 @@ scale(x, center = TRUE, scale = TRUE)
 # S4 method for mass_dataset,numeric
 /(e1, e2)
 
+# S4 method for mass_dataset,numeric
+&amp;gt;(e1, e2)
+
+# S4 method for mass_dataset,numeric
+&amp;gt;=(e1, e2)
+
+# S4 method for mass_dataset,numeric
+&amp;lt;(e1, e2)
+
+# S4 method for mass_dataset,numeric
+&amp;lt;=(e1, e2)
+
+# S4 method for mass_dataset,numeric
+==(e1, e2)
+
 # S4 method for mass_dataset
 colSums(x, na.rm = FALSE, dims = 1)
 
@@ -261,35 +276,89 @@ rowMeans(x, na.rm = FALSE, dims = 1)</code></pre></div>
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>x</p></dd>
+
+
 <dt>base</dt>
 <dd><p>base</p></dd>
+
+
 <dt>center</dt>
 <dd><p>center</p></dd>
+
+
 <dt>scale</dt>
 <dd><p>scale</p></dd>
+
+
 <dt>e1</dt>
 <dd><p>a mass_dataset class object</p></dd>
+
+
 <dt>e2</dt>
 <dd><p>numeric</p></dd>
+
+
 <dt>na.rm</dt>
 <dd><p>na.rm</p></dd>
+
+
 <dt>dims</dt>
 <dd><p>dims</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>mass_dataset object
-mass_dataset object
-mass_dataset object
-mass_dataset object
-mass_dataset object
-mass_dataset object
-mass_dataset object
-mass_dataset object
-result
-vector object
-vector object
-vector object</p>
+    
+
+<p>mass_dataset object</p>
+
+
+<p>mass_dataset object</p>
+
+
+<p>mass_dataset object</p>
+
+
+<p>mass_dataset object</p>
+
+
+<p>mass_dataset object</p>
+
+
+<p>mass_dataset object</p>
+
+
+<p>mass_dataset object</p>
+
+
+<p>mass_dataset object</p>
+
+
+<p>A logical data.frame</p>
+
+
+<p>A logical data.frame</p>
+
+
+<p>A logical data.frame</p>
+
+
+<p>A logical data.frame</p>
+
+
+<p>A logical data.frame</p>
+
+
+<p>result</p>
+
+
+<p>vector object</p>
+
+
+<p>vector object</p>
+
+
+<p>vector object</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -316,8 +385,7 @@ rowMeans(x@expression_data, na.rm = na.rm, dims = dims)</p>
 
 
       <footer><div class="copyright">
-  <p></p><p>massdataset Developed by Xiaotao Shen. <br> from
-<i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
+  <p></p><p>massdataset Developed by Xiaotao Shen. <br> from <i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
 </div>
 
 <div class="pkgdown">

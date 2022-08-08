@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
       </span>
     </div>
 
@@ -158,68 +158,103 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for ms2_data</span>
-<span class="fu">ms2_plot</span><span class="op">(</span>
-  <span class="va">spectrum1</span>,
-  <span class="va">spectrum2</span>,
-  spectrum1_name <span class="op">=</span> <span class="st">"spectrum1"</span>,
-  spectrum2_name <span class="op">=</span> <span class="st">"spectrum2"</span>,
-  <span class="va">range.mz</span>,
-  ppm.tol <span class="op">=</span> <span class="fl">30</span>,
-  mz.ppm.thr <span class="op">=</span> <span class="fl">400</span>,
-  xlab <span class="op">=</span> <span class="st">"Mass to charge ratio (m/z)"</span>,
-  ylab <span class="op">=</span> <span class="st">"Relative intensity"</span>,
-  col1 <span class="op">=</span> <span class="st">"red"</span>,
-  col2 <span class="op">=</span> <span class="st">"black"</span>,
-  title.size <span class="op">=</span> <span class="fl">15</span>,
-  lab.size <span class="op">=</span> <span class="fl">15</span>,
-  axis.text.size <span class="op">=</span> <span class="fl">15</span>,
-  legend.title.size <span class="op">=</span> <span class="fl">15</span>,
-  legend.text.size <span class="op">=</span> <span class="fl">15</span>,
-  interactive_plot <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for ms2_data</span></span>
+<span><span class="fu">ms2_plot</span><span class="op">(</span></span>
+<span>  <span class="va">spectrum1</span>,</span>
+<span>  <span class="va">spectrum2</span>,</span>
+<span>  spectrum1_name <span class="op">=</span> <span class="st">"spectrum1"</span>,</span>
+<span>  spectrum2_name <span class="op">=</span> <span class="st">"spectrum2"</span>,</span>
+<span>  <span class="va">range.mz</span>,</span>
+<span>  ppm.tol <span class="op">=</span> <span class="fl">30</span>,</span>
+<span>  mz.ppm.thr <span class="op">=</span> <span class="fl">400</span>,</span>
+<span>  xlab <span class="op">=</span> <span class="st">"Mass to charge ratio (m/z)"</span>,</span>
+<span>  ylab <span class="op">=</span> <span class="st">"Relative intensity"</span>,</span>
+<span>  col1 <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>  col2 <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  title.size <span class="op">=</span> <span class="fl">15</span>,</span>
+<span>  lab.size <span class="op">=</span> <span class="fl">15</span>,</span>
+<span>  axis.text.size <span class="op">=</span> <span class="fl">15</span>,</span>
+<span>  legend.title.size <span class="op">=</span> <span class="fl">15</span>,</span>
+<span>  legend.text.size <span class="op">=</span> <span class="fl">15</span>,</span>
+<span>  interactive_plot <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>spectrum1</dt>
 <dd><p>ms2_data</p></dd>
+
+
 <dt>spectrum2</dt>
 <dd><p>Spectrum 2.</p></dd>
+
+
 <dt>spectrum1_name</dt>
 <dd><p>Name of spectrum1</p></dd>
+
+
 <dt>spectrum2_name</dt>
 <dd><p>Name of spectrum2</p></dd>
+
+
 <dt>range.mz</dt>
 <dd><p>range.mz</p></dd>
+
+
 <dt>ppm.tol</dt>
 <dd><p>ppm.tol</p></dd>
+
+
 <dt>mz.ppm.thr</dt>
 <dd><p>mz.ppm.thr</p></dd>
+
+
 <dt>xlab</dt>
 <dd><p>xlab.</p></dd>
+
+
 <dt>ylab</dt>
 <dd><p>ylab.</p></dd>
+
+
 <dt>col1</dt>
 <dd><p>Color 1.</p></dd>
+
+
 <dt>col2</dt>
 <dd><p>Color 2.</p></dd>
+
+
 <dt>title.size</dt>
 <dd><p>title.size</p></dd>
+
+
 <dt>lab.size</dt>
 <dd><p>lab.size</p></dd>
+
+
 <dt>axis.text.size</dt>
 <dd><p>axis.text.size.</p></dd>
+
+
 <dt>legend.title.size</dt>
 <dd><p>legend.title.size</p></dd>
+
+
 <dt>legend.text.size</dt>
 <dd><p>legend.text.size</p></dd>
+
+
 <dt>interactive_plot</dt>
 <dd><p>Interactive plot or not.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>ms2 matching plot</p>
+    
+
+<p>ms2 matching plot</p>
     </div>
 
   </div>
@@ -230,8 +265,7 @@
 
 
       <footer><div class="copyright">
-  <p></p><p>massdataset Developed by Xiaotao Shen. <br> from
-<i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
+  <p></p><p>massdataset Developed by Xiaotao Shen. <br> from <i class="fa fa-university"></i> Stanford University <br><i class="fa fa-clinic-medical"></i>School of Medicine <br><i class="fa fa-dna"></i> Genetics Department</p>
 </div>
 
 <div class="pkgdown">
