@@ -45,8 +45,9 @@ summarise_samples.mass_dataset <-
     expression_data <-
       extract_expression_data(object)
     
-    if (!group_by %in% colnames(sample_info)) {
-      stop(group_by, " must be in the sample_info.")
+    if (!any(group_by %in% colnames(sample_info))) {
+      stop(paste(group_by, collapse = ", "),
+           " must be in the sample_info.")
     }
     
     what <-
@@ -55,14 +56,24 @@ summarise_samples.mass_dataset <-
     variable_id <- get_variable_id(object)
     sample_id <- get_sample_id(object)
     
+    # sample_id2 <-
+    #   sample_info %>%
+    #   dplyr::pull(group_by) %>%
+    #   as.character()
+    #
     sample_id2 <-
       sample_info %>%
-      dplyr::pull(group_by) %>%
-      as.character()
+      dplyr::select(group_by)
     
     if (sum(is.na(sample_id2)) > 0) {
-      stop(group_by, " contains NA.")
+      stop(paste(group_by, collapse = ", "), " contains NA.")
     }
+    
+    sample_id2 <-
+      sample_id2 %>%
+      apply(1, function(x) {
+        paste(x, collapse = "_")
+      })
     
     expression_data2 <-
       unique(sample_id2) %>%

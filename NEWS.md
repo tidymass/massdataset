@@ -67,4 +67,8 @@
 
 * Improve rbind function.
 
+# Version 1.0.14
+
+* Improve summarize_samples() function.
+
 
