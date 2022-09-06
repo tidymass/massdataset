@@ -18,7 +18,7 @@ A column name
 check_column_name
 }
 \examples{
-df <- 
+df <-
   data.frame(x = 1:2, y = 2:3, y.1 = 3:4)
 df
 

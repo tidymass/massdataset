@@ -1,5 +1,6 @@
 
 
+
 msg <- function(..., startup = FALSE) {
   if (startup) {
     if (!isTRUE(getOption("massdataset.quiet"))) {
@@ -74,25 +75,25 @@ style_grey <- function(level, ...) {
 #' @return A column name
 #' @export
 #' @examples
-#' df <- 
+#' df <-
 #'   data.frame(x = 1:2, y = 2:3, y.1 = 3:4)
 #' df
-#' 
+#'
 #' check_column_name(df = df, column.name = "y")
 #' check_column_name(df = df, column.name = "y.1")
 
 
 check_column_name <-
   function(df, column.name) {
-    if(column.name %in% colnames(df)){
-      old_index <- 
-      grep(column.name, colnames(df), value = TRUE) %>% 
-        stringr::str_extract("\\.[0-9]{1,2}") %>% 
+    if (column.name %in% colnames(df)) {
+      old_index <-
+        grep(column.name, colnames(df), value = TRUE) %>%
+        stringr::str_extract("\\.[0-9]{1,2}") %>%
         stringr::str_replace("\\.", "")
       old_index[is.na(old_index)] <- 0
       new_index <- max(as.numeric(old_index)) + 1
       paste(column.name, new_index, sep = ".")
-    }else{
+    } else{
       column.name
     }
   }

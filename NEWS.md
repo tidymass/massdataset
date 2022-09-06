@@ -71,4 +71,8 @@
 
 * Improve summarize_samples() function.
 
+# Version 1.0.15
+
+* Load core packages.
+
 
