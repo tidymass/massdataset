@@ -10,7 +10,7 @@
   #   x <- massdataset_conflicts()
   #   msg(massdataset_conflict_message(x), startup = TRUE)
   # }
-  packageStartupMessage(paste0("massstat ", massdataset_version, " (", update_date, ')'))
+  packageStartupMessage(paste0("massdataset ", massdataset_version, " (", update_date, ')'))
 }
 
 is_attached <- function(x) {
