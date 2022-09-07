@@ -15,14 +15,14 @@ count.mass_dataset <-
       stop("activate you object using activate_mass_dataset first.\n")
     }
     
-    x =
+    x <-
       slot(object = x, name = x@activated)
     
-    count(x,
-          !!!dots,
-          wt = !!enquo(wt),
-          sort = sort,
-          name = name)
+    dplyr::count(x,
+                 !!!dots,
+                 wt = !!enquo(wt),
+                 sort = sort,
+                 name = name)
   }
 
 
@@ -37,7 +37,6 @@ tally.mass_dataset <-
            wt = NULL,
            sort = FALSE,
            name = NULL) {
-
     if (length(x@activated) == 0) {
       stop("activate you object using activate_mass_dataset first.\n")
     }

@@ -12,7 +12,8 @@ pull.mass_dataset <- function(.data, var = -1, ...) {
   
   temp_slot =
     slot(object = .data, name = .data@activated)
-    pull(temp_slot, !! var, ...)
+  
+  dplyr::pull(temp_slot, !!var, ...)
 }
 
 #' @importFrom dplyr pull

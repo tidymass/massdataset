@@ -15,7 +15,7 @@ arrange.mass_dataset <-
     slot(object = .data, name = .data@activated)
   
   x <-
-    arrange(x, !!!dots)
+    dplyr::arrange(x, !!!dots)
   
   slot(object = .data, name = .data@activated) = x
   

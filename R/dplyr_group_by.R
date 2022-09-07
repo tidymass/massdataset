@@ -11,22 +11,22 @@ group_by.mass_dataset <-
       stop("activate you object using activate_mass_dataset first.\n")
     }
     
-    x =
+    x <-
       slot(object = .data, name = .data@activated)
     
-    x =
-      group_by(x, !!!dots)
+    x <-
+      dplyr::group_by(x, !!!dots)
     
     slot(object = .data, name = .data@activated) = x
     
     if (.data@activated == "sample_info") {
-      .data@expression_data <- 
+      .data@expression_data <-
         .data@expression_data[, x$sample_id, drop = FALSE]
     }
     
     if (.data@activated == "variable_info") {
-      .data@expression_data <- 
-        .data@expression_data[x$variable_id, ]
+      .data@expression_data <-
+        .data@expression_data[x$variable_id,]
     }
     
     return(.data)

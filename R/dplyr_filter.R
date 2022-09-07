@@ -14,7 +14,7 @@ filter.mass_dataset <- function(.data, ..., .preserve = FALSE) {
     slot(object = .data, name = .data@activated)
   
   x <-
-    filter(x, !!!dots, .preserve = .preserve)
+    dplyr::filter(x, !!!dots, .preserve = .preserve)
   
   slot(object = .data, name = .data@activated) = x
   
@@ -22,7 +22,7 @@ filter.mass_dataset <- function(.data, ..., .preserve = FALSE) {
     if (nrow(.data@annotation_table) > 0) {
       annotation_table <- .data@annotation_table
       .data@variable_info <- .data@variable_info %>%
-        filter(variable_id %in% annotation_table$variable_id)
+        dplyr::filter(variable_id %in% annotation_table$variable_id)
       .data@expression_data <-
         .data@expression_data[.data@variable_info$variable_id, , drop = FALSE]
     }

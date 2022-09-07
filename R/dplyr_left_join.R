@@ -36,7 +36,7 @@ dplyr::left_join
 #' @param keep keep, see ?_left_join
 #' @param ... Other arguments, see ?_left_join
 #' @return a mass_dataset class object.
-#' @export 
+#' @export
 #' @importFrom dplyr left_join
 #' @export
 left_join_mass_dataset <-
@@ -59,12 +59,12 @@ left_join_mass_dataset <-
       slot(object = x, name = x@activated)
     
     new_x <-
-      left_join(new_x,
-                y,
-                by = by,
-                copy = copy,
-                suffix = suffix,
-                ...)
+      dplyr::left_join(new_x,
+                       y,
+                       by = by,
+                       copy = copy,
+                       suffix = suffix,
+                       ...)
     
     slot(object = x, name = x@activated) <- new_x
     
@@ -86,6 +86,3 @@ left_join_mass_dataset <-
     x <- update_variable_info(x)
     return(x)
   }
-
-
-

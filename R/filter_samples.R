@@ -50,7 +50,7 @@
 #' 
 #' object2
 
-filter_samples =
+filter_samples <-
   function(object,
            flist,
            prune = TRUE,

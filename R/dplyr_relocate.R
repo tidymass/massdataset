@@ -10,7 +10,6 @@ relocate.mass_dataset <-
            ...,
            .before = NULL,
            .after = NULL) {
-    
     if (length(.data@activated) == 0) {
       stop("activate you object using activate_mass_dataset first.\n")
     }
@@ -58,7 +57,7 @@ relocate.mass_dataset <-
     slot(object = .data, name = .data@activated) = out
     
     if (.data@activated == "expression_data") {
-      .data@sample_info = .data@sample_info[match(colnames(out), .data@sample_info$sample_id), ]
+      .data@sample_info = .data@sample_info[match(colnames(out), .data@sample_info$sample_id),]
     }
     
     return(.data)

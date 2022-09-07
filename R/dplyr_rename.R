@@ -15,7 +15,7 @@ rename.mass_dataset <-
       slot(object = .data, name = .data@activated)
     
     x <-
-      rename(x, !!!dots)
+      dplyr::rename(x, !!!dots)
     
     slot(object = .data, name = .data@activated) = x
     

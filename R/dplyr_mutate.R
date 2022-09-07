@@ -13,9 +13,10 @@ mutate.mass_dataset <- function(.data, ...) {
     slot(object = .data, name = .data@activated)
   
   temp_slot <-
-    mutate(temp_slot, !!!dots)
+    dplyr::mutate(temp_slot, !!!dots)
   
-  slot(object = .data, name = .data@activated) = temp_slot
+  slot(object = .data, name = .data@activated) <- 
+    temp_slot
   
   if (.data@activated == "expression_data") {
     new_sample_id =
@@ -79,7 +80,7 @@ mutate.mass_dataset <- function(.data, ...) {
       ##we need to change the same for annotation_table
       if(nrow(.data@annotation_table) > 0){
         .data@annotation_table <- 
-          mutate(.data@annotation_table, !!!dots)
+          dplyr::mutate(.data@annotation_table, !!!dots)
       }
       
       rownames(.data@expression_data) <-
