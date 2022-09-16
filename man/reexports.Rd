@@ -4,7 +4,8 @@
 %   R/dplyr_left_join.R, R/dplyr_mutate.R, R/dplyr_pull.R, R/dplyr_relocate.R,
 %   R/dplyr_rename.R, R/dplyr_select.R, R/dplyr_slice.R, R/dplyr_summarize.R,
 %   R/ggplot2_ggplot.R, R/masstools_mz_rt_match.R, R/ms2_data-methods.R,
-%   R/reexports.R, R/tidyr_drop_na.R, R/tidyr_fill.R, R/tidyr_pivot_longer.R
+%   R/ms2_plot.R, R/reexports.R, R/tidyr_drop_na.R, R/tidyr_fill.R,
+%   R/tidyr_pivot_longer.R
 \docType{import}
 \name{reexports}
 \alias{reexports}
@@ -34,6 +35,7 @@
 \alias{ggplot}
 \alias{aes}
 \alias{mz_rt_match}
+\alias{ms2_plot}
 \alias{\%>\%}
 \alias{case_when}
 \alias{summarise}
@@ -53,7 +55,7 @@ below to see their documentation.
 
   \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
 
-  \item{masstools}{\code{\link[masstools]{mz_rt_match}}}
+  \item{masstools}{\code{\link[masstools]{ms2_plot}}, \code{\link[masstools]{mz_rt_match}}}
 
   \item{tidyr}{\code{\link[tidyr]{drop_na}}, \code{\link[tidyr]{drop_na}}, \code{\link[tidyr]{fill}}, \code{\link[tidyr]{pivot_longer}}}
 }}

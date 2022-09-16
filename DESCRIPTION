@@ -1,6 +1,6 @@
 Package: massdataset
 Title: massdataset
-Version: 1.0.16
+Version: 1.0.17
 Date: 2021-11-24
 Authors@R: 
     person(given = "Xiaotao",
@@ -110,6 +110,7 @@ Collate:
     'ms2_data-methods.R'
     'ms2_data_class.R'
     'ms2_plot.R'
+    'ms2_plot_old.R'
     'mutate_mean_intensity.R'
     'mutate_median_intensity.R'
     'mutate_ms2.R'
