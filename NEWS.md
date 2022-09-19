@@ -83,4 +83,8 @@
 
 * ms2_plot.
 
+# Version 1.0.18 (2022-09-19)
+
+* Fix bugs.
+
 
