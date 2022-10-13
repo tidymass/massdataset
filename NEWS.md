@@ -87,4 +87,9 @@
 
 * Fix bugs.
 
+# Version 1.0.19 (2022-10-13)
+
+* New feature for function convert_msdial2mass_dataset.
+* variable_id must be charcter.
+
 

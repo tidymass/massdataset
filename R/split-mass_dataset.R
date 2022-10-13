@@ -23,9 +23,6 @@ split.mass_dataset <- function(x, f, drop = FALSE, ...) {
 }
 
 
-
-
-
 #' @title split_mass_dataset
 #' @description Split one mass_dataset into several mass_dataset objects.
 #' @docType methods
@@ -33,7 +30,7 @@ split.mass_dataset <- function(x, f, drop = FALSE, ...) {
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) A mass_dataset class object.
 #' @param by column name of sample_info or variable_info
-#' @param fun function used to split by. For example, mz, 
+#' @param fun function used to split by. For example, mz,
 #' should set it as > 100.
 #' @return A list of mass_dataset.
 #' @export
@@ -42,29 +39,29 @@ split.mass_dataset <- function(x, f, drop = FALSE, ...) {
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' 
+#'
 #' object =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#' 
+#'
 #' object <-
 #' activate_mass_dataset(object, what = "sample_info")
-#' 
+#'
 #' new_object <-
 #'   split_mass_dataset(object = object, by = "group")
-#' 
+#'
 #' new_object %>% lapply(dim)
 #' new_object %>% lapply(colnames)
-#' 
+#'
 #' object <-
 #'   activate_mass_dataset(object, what = "variable_info")
-#' 
+#'
 #' new_object <-
 #'   split_mass_dataset(object = object, by = "rt", fun = function(rt) rt > 600)
-#' 
+#'
 #' new_object %>% lapply(dim)
 #' plot(extract_variable_info(new_object[[1]])$rt)
 #' plot(extract_variable_info(new_object[[2]])$rt)
@@ -208,10 +205,8 @@ split_mass_dataset <-
       Class = "tidymass_parameter",
       pacakge_name = "massdataset",
       function_name = "split_mass_dataset",
-      parameter = list(
-        by = by,
-        fun = fun_argument
-      ),
+      parameter = list(by = by,
+                       fun = fun_argument),
       time = Sys.time()
     )
     
@@ -227,9 +222,9 @@ split_mass_dataset <-
         x@process_info <- process_info
         x
       })
-
-    if(is.character(split_column)){
-      names(return_object) <- 
+    
+    if (is.character(split_column)) {
+      names(return_object) <-
         unique(split_column)
     }
     

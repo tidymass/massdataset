@@ -54,6 +54,11 @@ check_mass_dataset <-
         return(check_result)
       }
       
+      if (is.numeric(variable_info$variable_id)) {
+        check_result = "error: variable_id must be character."
+        return(check_result)
+      }
+      
     }
     
     ##check sample_info format

@@ -5,10 +5,14 @@
 \alias{convert_msdial2mass_dataset}
 \title{convert_msdial2mass_dataset}
 \usage{
-convert_msdial2mass_dataset(x)
+convert_msdial2mass_dataset(x, path = ".", file_name)
 }
 \arguments{
 \item{x}{Feature table from MS-DIAL.}
+
+\item{path}{work directory.}
+
+\item{file_name}{The name of file from MS-DIAL.}
 }
 \value{
 A mass_dataset-class object.

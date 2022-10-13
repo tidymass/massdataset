@@ -1,6 +1,6 @@
 Package: massdataset
 Title: massdataset
-Version: 1.0.18
+Version: 1.0.19
 Date: 2021-11-24
 Authors@R: 
     person(given = "Xiaotao",
@@ -35,12 +35,10 @@ Imports:
     purrr,
     readr,
     rlang,
-    plyr,
     masstools (>= 1.0.8),
     ComplexHeatmap,
     grid,
     ggplotify,
-    ggsci,
     stats,
     utils,
     tidyselect,
@@ -61,73 +59,3 @@ Remotes:
     gitlab::jaspershen/masstools
 biocViews: Metabolomics, MassSpectrometry
 Config/testthat/edition: 3
-Collate: 
-    '1_massdataset_logo.R'
-    '2_all_generics.R'
-    '3_attach.R'
-    '4_conflicts.R'
-    '5_data_in_package.R'
-    '6_utils.R'
-    '7_zzz.R'
-    '8_global_variables.R'
-    'SummarizedExperiment-class.R'
-    'activate_mass_dataset.R'
-    'arithmetic-mass_dataset.R'
-    'convert_mass_dataset2mztab.R'
-    'convert_mass_dataset2summarizedexperiment.R'
-    'convert_msdial2mass_dataset.R'
-    'convert_mzmine2mass_dataset.R'
-    'convert_mztab2mass_dataset.R'
-    'data_checking.R'
-    'data_extracting.R'
-    'dplyr_arrange.R'
-    'dplyr_count.R'
-    'dplyr_filter.R'
-    'dplyr_glimpse.R'
-    'dplyr_group_by.R'
-    'dplyr_left_join.R'
-    'dplyr_mutate.R'
-    'dplyr_pull.R'
-    'dplyr_relocate.R'
-    'dplyr_rename.R'
-    'dplyr_select.R'
-    'dplyr_slice.R'
-    'dplyr_summarize.R'
-    'export_mass_dataset.R'
-    'filter_samples.R'
-    'filter_variables.R'
-    'ggplot2_ggplot.R'
-    'ggplot_mass_dataset.R'
-    'intensity_plot.R'
-    'mSet-class.R'
-    'mass_dataset-methods.R'
-    'mass_dataset_class.R'
-    'mass_dataset_metdna.R'
-    'masstools_mz_rt_match.R'
-    'merge_mass_dataset.R'
-    'methods-summarize_samples.R'
-    'missing_value_explore_plot.R'
-    'ms2_data-methods.R'
-    'ms2_data_class.R'
-    'ms2_plot.R'
-    'ms2_plot_old.R'
-    'mutate_mean_intensity.R'
-    'mutate_median_intensity.R'
-    'mutate_ms2.R'
-    'mutate_rsd.R'
-    'mutate_sample_na_number.R'
-    'mutate_variable_na_number.R'
-    'processing-mass_dataset.R'
-    'reexports.R'
-    'report_parameters.R'
-    'show_mz_rt_plot.R'
-    'split.R'
-    'subsetting-mass_dataset.R'
-    'summary-mass_dataset.R'
-    'tibble_add_column.R'
-    'tidymass_parameter-methods.R'
-    'tidymass_parameter_class.R'
-    'tidyr_drop_na.R'
-    'tidyr_fill.R'
-    'tidyr_pivot_longer.R'
-    'update_mass_dataset.R'

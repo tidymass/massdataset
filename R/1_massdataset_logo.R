@@ -8,7 +8,6 @@
 #' @importFrom grid gpar
 #' @importFrom ggplotify as.ggplot
 #' @importFrom dplyr filter mutate select everything left_join syms
-#' @importFrom plyr dlply . 
 #' @importFrom rstudioapi isAvailable hasFun getThemeInfo
 #' @importFrom utils packageDescription write.csv
 #' @importFrom cli rule symbol
@@ -21,8 +20,7 @@
 #' @import ggplot2
 #' @importFrom methods .hasSlot new is
 #' @importFrom stats p.adjust rgamma sd median time
-#' @importFrom utils data str head tail packageVersion write.table
-#' @importFrom ggsci pal_lancet
+#' @importFrom utils data str head tail packageVersion write.table read.delim
 #' @importFrom masstools read_mgf read_mzxml ms2_plot
 #' @importFrom rlang warn quo_is_null abort seq2
 #' @importFrom tibble add_column
