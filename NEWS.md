@@ -93,3 +93,8 @@
 * variable_id must be charcter.
 
 
+# Version 1.0.20 (2023-02-04)
+
+* Fix bug in function convert_msdial2mass_dataset.
+
+

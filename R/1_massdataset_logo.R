@@ -21,6 +21,7 @@
 #' @importFrom methods .hasSlot new is
 #' @importFrom stats p.adjust rgamma sd median time
 #' @importFrom utils data str head tail packageVersion write.table read.delim
+#' @importFrom utils read.table
 #' @importFrom masstools read_mgf read_mzxml ms2_plot
 #' @importFrom rlang warn quo_is_null abort seq2
 #' @importFrom tibble add_column

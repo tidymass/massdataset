@@ -21,7 +21,9 @@ A mass_dataset-class object.
 Convert MS-DIAL feature table to mass_dataset class.
 }
 \examples{
-
+##if you want to read the msdital table,
+##use this function
+## table <- read.table("msdial_table.csv", sep = ",")
 data("msdial_table")
 object =
   convert_msdial2mass_dataset(x = msdial_table)

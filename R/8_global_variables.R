@@ -33,5 +33,6 @@ globalVariables(names = c(
   "exp_mass_to_charge",
   "retention_time_in_seconds",
   "study_variable",
-  "group"
+  "group",
+  "."
 ))

@@ -11,7 +11,9 @@
 #' @importFrom stats time
 #' @export
 #' @examples
-#'
+#' ##if you want to read the msdital table,
+#' ##use this function
+#' ## table <- read.table("msdial_table.csv", sep = ",")
 #' data("msdial_table")
 #' object =
 #'   convert_msdial2mass_dataset(x = msdial_table)
@@ -26,9 +28,11 @@ convert_msdial2mass_dataset <-
         stop("Provide x or file_name")
       }
       
-      x <-
-        read.delim(file.path(path, file_name),
-                   header = FALSE)
+      # x <-
+      #   read.delim(file.path(path, file_name),
+      #              header = FALSE)
+      x <- utils::read.table(file.path(path, file_name), sep = ",")
+      
     }
     
     sample_info_idx <-
@@ -61,12 +65,20 @@ convert_msdial2mass_dataset <-
     variable_info <-
       variable_info[-1,]
     
-    if(sum(colnames(variable_info) == "1") != 0){
+    remove_idx <-
+      which(colnames(variable_info) %in% c(1:100))
+    
+    if (length(remove_idx) > 0) {
+      variable_info <-
+        variable_info[, -remove_idx]
+    }
+    
+    if (sum(colnames(variable_info) == "1") != 0) {
       variable_info <-
         variable_info %>%
-        dplyr::select(-which(colnames(variable_info) == "1"))  
+        dplyr::select(-which(colnames(variable_info) == "1"))
     }
-
+    
     # dim(expression_data)
     # dim(variable_info)
     
@@ -91,19 +103,19 @@ convert_msdial2mass_dataset <-
       sample_info %>%
       dplyr::select(sample_id, dplyr::everything())
     
-    if(any(colnames(sample_info) == "Class")){
+    if (any(colnames(sample_info) == "Class")) {
       sample_info <-
         sample_info %>%
         dplyr::rename(class = Class)
     }
     
-    if(any(colnames(sample_info) == "Injection order")){
+    if (any(colnames(sample_info) == "Injection order")) {
       sample_info <-
         sample_info %>%
         dplyr::rename(injection.order = "Injection order")
     }
     
-    if(any(colnames(sample_info) == "Batch ID")){
+    if (any(colnames(sample_info) == "Batch ID")) {
       sample_info <-
         sample_info %>%
         dplyr::rename(batch = "Batch ID")
