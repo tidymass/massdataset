@@ -10,7 +10,7 @@
 #' @importFrom dplyr filter mutate select everything left_join syms
 #' @importFrom rstudioapi isAvailable hasFun getThemeInfo
 #' @importFrom utils packageDescription write.csv
-#' @importFrom cli rule symbol
+#' @importFrom cli rule symbol cli_abort
 #' @importFrom crayon green blue col_align red black white style make_style num_colors
 #' @importFrom plotly ggplotly
 #' @importFrom openxlsx write.xlsx
@@ -23,7 +23,8 @@
 #' @importFrom utils data str head tail packageVersion write.table read.delim
 #' @importFrom utils read.table
 #' @importFrom masstools read_mgf read_mzxml ms2_plot
-#' @importFrom rlang warn quo_is_null abort seq2
+#' @importFrom rlang warn quo_is_null abort seq2 caller_env check_dots_empty
+#' @importFrom rlang as_quosure caller_arg current_env check_dots_empty0
 #' @importFrom tibble add_column
 #' @export
 #' @return logo

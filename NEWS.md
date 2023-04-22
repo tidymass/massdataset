@@ -97,4 +97,8 @@
 
 * Fix bug in function convert_msdial2mass_dataset.
 
+# Version 1.0.22 (2023-04-21)
+
+* Fix bug.
+
 

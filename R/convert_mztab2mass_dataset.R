@@ -236,7 +236,7 @@ read_mztab <-
       do.call(rbind, .) %>%
       as.data.frame()
     
-    colnames(sml_table) <- as.character(sml_table[1,])
+    colnames(sml_table) <- as.character(sml_table[1, ])
     sml_table <- sml_table[-1, , drop = FALSE]
     
     sml_table$theoretical_neutral_mass <-
@@ -260,7 +260,7 @@ read_mztab <-
       do.call(rbind, .) %>%
       as.data.frame()
     
-    colnames(smf_table) <- as.character(smf_table[1,])
+    colnames(smf_table) <- as.character(smf_table[1, ])
     smf_table <- smf_table[-1, , drop = FALSE]
     
     idx <-
@@ -281,7 +281,7 @@ read_mztab <-
       do.call(rbind, .) %>%
       as.data.frame()
     
-    colnames(sme_table) <- as.character(sme_table[1,])
+    colnames(sme_table) <- as.character(sme_table[1, ])
     sme_table <- sme_table[-1, , drop = FALSE]
     
     return_result <-
