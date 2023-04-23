@@ -6,13 +6,11 @@
 #' @importFrom stringr str_replace str_split str_replace_all str_trim
 #' @importFrom ComplexHeatmap Heatmap columnAnnotation anno_barplot
 #' @importFrom grid gpar
-#' @importFrom ggplotify as.ggplot
 #' @importFrom dplyr filter mutate select everything left_join syms
 #' @importFrom rstudioapi isAvailable hasFun getThemeInfo
 #' @importFrom utils packageDescription write.csv
 #' @importFrom cli rule symbol cli_abort
 #' @importFrom crayon green blue col_align red black white style make_style num_colors
-#' @importFrom plotly ggplotly
 #' @importFrom openxlsx write.xlsx
 #' @importFrom purrr map map2
 #' @importFrom readr write_csv read_csv

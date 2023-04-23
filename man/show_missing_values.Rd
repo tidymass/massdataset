@@ -19,6 +19,7 @@ show_missing_values(
   variable_na_cutoff = 50,
   only_outlier_samples = FALSE,
   only_outlier_variables = FALSE,
+  return_as_ggplot = FALSE,
   ...
 )
 }
@@ -49,6 +50,8 @@ see?ComplexHeatmap::Heatmap}
 \item{only_outlier_samples}{Only show the outlier samples?}
 
 \item{only_outlier_variables}{Only show the outlier variables?}
+
+\item{return_as_ggplot}{Return plot as ggplot2 object?}
 
 \item{...}{Other parameters for ComplexHeatmap::Heatmap}
 }

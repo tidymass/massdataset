@@ -126,7 +126,11 @@ intensity_plot <-
     }
     
     if (interactive) {
-      plot <- plotly::ggplotly(plot)
+      if(requireNamespace("plotly", quietly = TRUE)){
+        plot <- plotly::ggplotly(plot) 
+      }else{
+        message("Please install plotly package first.")
+      }
     }
     
     return(plot)

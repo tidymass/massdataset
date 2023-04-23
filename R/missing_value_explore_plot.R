@@ -17,6 +17,7 @@
 #' @param variable_na_cutoff Na cutoff for variables
 #' @param only_outlier_samples Only show the outlier samples?
 #' @param only_outlier_variables Only show the outlier variables?
+#' @param return_as_ggplot Return plot as ggplot2 object?
 #' @param ... Other parameters for ComplexHeatmap::Heatmap
 #' @return A ggplot2 class object
 #' @export
@@ -76,6 +77,7 @@ show_missing_values <-
            variable_na_cutoff = 50,
            only_outlier_samples = FALSE,
            only_outlier_variables = FALSE,
+           return_as_ggplot = FALSE,
            ...) {
     massdataset::check_object_class(object = object, class = "mass_dataset")
     if (missing(column_names_rot)) {
@@ -191,8 +193,13 @@ show_missing_values <-
         )
       )
     
-    plot <- ggplotify::as.ggplot(plot)
-    
+    if(return_as_ggplot){
+      if(requireNamespace("ggplotify", quietly = TRUE)){
+        plot <- ggplotify::as.ggplot(plot)   
+      }else{
+        message("Please install ggplotify package")
+      }
+    }
     return(plot)
   }
 

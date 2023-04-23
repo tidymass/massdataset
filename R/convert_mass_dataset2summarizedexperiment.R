@@ -36,5 +36,4 @@ convert_mass_dataset2summarizedexperiment <-
       )
     
     return(new_object)
-    
   }

@@ -31,14 +31,12 @@ Imports:
     openxlsx,
     crayon,
     cli,
-    plotly,
     purrr,
     readr,
     rlang,
     masstools (>= 1.0.8),
     ComplexHeatmap,
     grid,
-    ggplotify,
     stats,
     utils,
     tidyselect (>= 1.1.2),
@@ -53,9 +51,11 @@ Suggests:
     RUnit,
     BiocGenerics,
     tidyverse,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    ggplotify,
+    plotly
 Note:
 Remotes: 
-    gitlab::jaspershen/masstools
+    gitlab::tidymass/masstools
 biocViews: Metabolomics, MassSpectrometry
 Config/testthat/edition: 3
