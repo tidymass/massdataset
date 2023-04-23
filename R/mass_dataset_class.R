@@ -1,5 +1,3 @@
-
-
 #' @title check_mass_dataset_class
 #' @description Check mass_dataset class object.
 #' @docType methods

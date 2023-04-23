@@ -1,4 +1,5 @@
 
+
 setMethod(
   f = "show",
   signature = "mass_dataset",
@@ -32,6 +33,16 @@ setMethod(
         "x",
         ncol(object@sample_info),
         "data.frame]\n")
+    if (nrow(object@sample_info) <= 5) {
+      sample_id <- object@sample_info$sample_id
+    } else{
+      sample_id <-
+        c(head(object@sample_info$sample_id, 3),"...",
+          tail(object@sample_info$sample_id, 2))
+    }
+    cat(nrow(object@sample_info), "samples:")
+    cat(sample_id)
+    cat("\n")
     cat(crayon::green("3.variable_info:"))
     cat(
       "[",
@@ -40,6 +51,16 @@ setMethod(
       ncol(object@variable_info),
       "data.frame]\n"
     )
+    if (nrow(object@variable_info) <= 5) {
+     variable_id <- object@variable_info$variable_id
+    } else{
+      variable_id <-
+        c(head(object@variable_info$variable_id, 3),"...",
+          tail(object@variable_info$variable_id, 2))
+    }
+    cat(nrow(object@variable_info), "variables:")
+    cat(variable_id)
+    cat("\n")
     cat(crayon::green("4.sample_info_note:"))
     cat(
       "[",
@@ -67,12 +88,12 @@ setMethod(
         }))),
         "MS2 spectra]\n")
     cat(crayon::yellow(paste(rep("-", 20), collapse = ""), "\n"))
-    cat(crayon::green("Processing information (extract_process_info())\n"))
+    cat(crayon::green("Processing information\n"))
     if (.hasSlot(object = object, name = "process_info") &
         length(object@process_info) != 0) {
       process_info <- object@process_info
       cat(crayon::green(length(process_info), "processings in total\n"))
-      if(length(process_info) > 5){
+      if (length(process_info) > 5) {
         cat(crayon::green("Latest 3 processings show\n"))
         process_info <- tail(process_info, 3)
       }
@@ -102,5 +123,3 @@ setMethod(
     }
   }
 )
-
-
