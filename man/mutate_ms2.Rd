@@ -35,27 +35,35 @@ Mutate MS2 spectra for each variable
 }
 \examples{
 \dontrun{
-data("expression_data")
-data("sample_info")
-data("variable_info")
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    sample_info = sample_info,
-    variable_info = variable_info,
+  data("expression_data")
+  data("sample_info")
+  data("variable_info")
+  object =
+    create_mass_dataset(
+      expression_data = expression_data,
+      sample_info = sample_info,
+      variable_info = variable_info,
+    )
+  
+  object
+  
+  dir.create("demo_data")
+  system.file("ms2_data", package = "metid")
+  file.copy(
+    file.path(
+      system.file("ms2_data", package = "massdataset"),
+      "QC_MS2_NCE25_1.mgf"
+    ),
+    to = "demo_data",
+    overwrite = TRUE
   )
-
-object
-
-dir.create("demo_data")
-system.file("ms2_data", package = "metid")
-file.copy(file.path(system.file("ms2_data", package = "massdataset"), "QC_MS2_NCE25_1.mgf"),
-          to = "demo_data", overwrite = TRUE)
-
-object =
-  mutate_ms2(object = object, column = "rp", polarity = "positive")
-
-object@ms2_data
+  
+  object =
+    mutate_ms2(object = object,
+               column = "rp",
+               polarity = "positive")
+  
+  object@ms2_data
 }
 }
 \author{

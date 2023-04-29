@@ -16,3 +16,12 @@
 is_attached <- function(x) {
   paste0("package:", x) %in% search()
 }
+
+
+convert_ms2_mzxml2mgf <- function(x) {
+  purrr::map(x, function(y) {
+    y$info <-
+      y$info[, c("mz", "rt")]
+    y
+  })
+}

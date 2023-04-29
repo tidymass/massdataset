@@ -17,6 +17,7 @@ NEWS.md
 logo.txt
 other_files
 demo_data
+demo_data/
 ^data-raw$
 pkgdown/
 vignettes/tidyverse_verse.Rmd

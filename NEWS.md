@@ -101,4 +101,8 @@
 
 * Fix bug.
 
+# Version 1.0.23 (2023-04-28)
+
+* Fix a bug in mutate_ms2 function.
+
 

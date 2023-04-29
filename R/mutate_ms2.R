@@ -13,27 +13,35 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' data("expression_data")
-#' data("sample_info")
-#' data("variable_info")
-#' object =
-#'   create_mass_dataset(
-#'     expression_data = expression_data,
-#'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'   data("expression_data")
+#'   data("sample_info")
+#'   data("variable_info")
+#'   object =
+#'     create_mass_dataset(
+#'       expression_data = expression_data,
+#'       sample_info = sample_info,
+#'       variable_info = variable_info,
+#'     )
+#'   
+#'   object
+#'   
+#'   dir.create("demo_data")
+#'   system.file("ms2_data", package = "metid")
+#'   file.copy(
+#'     file.path(
+#'       system.file("ms2_data", package = "massdataset"),
+#'       "QC_MS2_NCE25_1.mgf"
+#'     ),
+#'     to = "demo_data",
+#'     overwrite = TRUE
 #'   )
-#' 
-#' object
-#' 
-#' dir.create("demo_data")
-#' system.file("ms2_data", package = "metid")
-#' file.copy(file.path(system.file("ms2_data", package = "massdataset"), "QC_MS2_NCE25_1.mgf"),
-#'           to = "demo_data", overwrite = TRUE)
-#' 
-#' object =
-#'   mutate_ms2(object = object, column = "rp", polarity = "positive")
-#' 
-#' object@ms2_data
+#'   
+#'   object =
+#'     mutate_ms2(object = object,
+#'                column = "rp",
+#'                polarity = "positive")
+#'   
+#'   object@ms2_data
 #' }
 
 mutate_ms2 <-
@@ -76,16 +84,19 @@ mutate_ms2 <-
         temp_ms2_type <- temp_ms2_type[length(temp_ms2_type)]
         ##mzXML
         if (temp_ms2_type == "mzXML" | temp_ms2_type == "mzxml") {
-          masstools::read_mzxml(file = temp_ms2_data)
+          data <- masstools::read_mzxml(file = temp_ms2_data)
+          data <- convert_ms2_mzxml2mgf(data)
         }
         ##mzML
-        if (temp_ms2_type == "mzML" | temp_ms2_type == "mzxml") {
-          masstools::read_mzxml(file = temp_ms2_data)
+        if (temp_ms2_type == "mzML" | temp_ms2_type == "mzml") {
+          data <- masstools::read_mzxml(file = temp_ms2_data)
+          data <- convert_ms2_mzxml2mgf(data)
         }
         ##mgf
         if (temp_ms2_type == "mgf") {
-          masstools::read_mgf(file = temp_ms2_data)
+          data <- masstools::read_mgf(file = temp_ms2_data)
         }
+        return(data)
       })
     
     names(ms2_data) <- ms2_data_name
