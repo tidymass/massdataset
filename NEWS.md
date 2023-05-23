@@ -105,4 +105,8 @@
 
 * Fix a bug in mutate_ms2 function.
 
+# Version 1.0.24 (2023-05-23)
+
+* Fix a bug in update_mass_dataset.
+
 
