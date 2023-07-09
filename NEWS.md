@@ -109,4 +109,8 @@
 
 * Fix a bug in update_mass_dataset.
 
+# Version 1.0.25 (2023-07-09)
+
+* Fix a bug in create_mass_dataset.
+
 

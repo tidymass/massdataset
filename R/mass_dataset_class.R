@@ -103,7 +103,6 @@ check_mass_dataset_class <-
       }
     }
     
-    
     ###sample_info and sample_info_note
     if (nrow(object@sample_info_note) > 0) {
       if (ncol(object@sample_info) != nrow(object@sample_info_note)) {
@@ -224,7 +223,9 @@ create_mass_dataset <-
     
     process_info$create_mass_dataset = parameter
     
+    old_rownames <- rownames(expression_data)
     expression_data <- as.data.frame(expression_data)
+    rownames(expression_data) <- old_rownames
     sample_info <- as.data.frame(sample_info)
     variable_info <- as.data.frame(variable_info)
     sample_info_note <- as.data.frame(sample_info_note)
