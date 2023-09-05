@@ -30,7 +30,7 @@ NA
 #' 
 #' @description expression_data
 #' A data frame contains the expression values for each variable in each sample.
-#' @name sample_info
+#' @name expression_data
 #' @aliases expression_data
 #' @format A data frame with 1000 rows (1000 variables) and 8 columns (8 samples).
 #' @docType data

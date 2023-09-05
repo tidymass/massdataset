@@ -3,22 +3,15 @@
 \docType{data}
 \name{sample_info}
 \alias{sample_info}
-\alias{expression_data}
 \title{Sample information}
 \format{
 A data frame with 8 rows (8 samples) and 4 columns.
-
-A data frame with 1000 rows (1000 variables) and 8 columns (8 samples).
 }
 \description{
 sample_info
 A data frame contains the sample information.
-
-expression_data
-A data frame contains the expression values for each variable in each sample.
 }
 \examples{
 data(sample_info)
-data(expression_data)
 }
 \keyword{data}
