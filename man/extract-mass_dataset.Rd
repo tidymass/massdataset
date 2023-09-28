@@ -24,9 +24,9 @@ extract_expression_data(object)
 
 extract_sample_info(object)
 
-extract_variable_info(object)
+extract_variable_info(object, with_expression_data = FALSE)
 
-extract_annotation_table(object)
+extract_annotation_table(object, with_expression_data = FALSE)
 
 extract_variable_info_note(object)
 
@@ -54,6 +54,8 @@ extract_ms2_data(object)
 }
 \arguments{
 \item{object}{(required) mass_dataset class object}
+
+\item{with_expression_data}{should the extracted annotation table with expression data.}
 }
 \value{
 A data frame (expression_data).

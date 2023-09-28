@@ -67,6 +67,7 @@ extract_sample_info = function(object) {
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
+#' @param with_expression_data should the extracted annotation table with expression data.
 #' @return A data frame (variable_info).
 #' @export
 #' @examples
@@ -83,7 +84,8 @@ extract_sample_info = function(object) {
 #'  extract_variable_info(object = object)
 #'  head(variable_info2)
 
-extract_variable_info = function(object) {
+extract_variable_info = function(object,
+                                 with_expression_data = FALSE) {
   check_object_class(object = object, class = "mass_dataset")
   variable_info = object@variable_info %>%
     as.data.frame()
@@ -101,6 +103,17 @@ extract_variable_info = function(object) {
                          dplyr::select(-c(ms2_files_id:ms2_spectrum_id)),
                        by = "variable_id")
   }
+  
+  if (with_expression_data) {
+    expression_data <-
+      slot(object, "expression_data") %>%
+      tibble::rownames_to_column(var = "variable_id")
+    variable_info <-
+      variable_info %>%
+      dplyr::left_join(expression_data,
+                       by = "variable_id")
+  }
+  
   variable_info
 }
 
@@ -113,6 +126,7 @@ extract_variable_info = function(object) {
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @param object (required) mass_dataset class object.
+#' @param with_expression_data should the extracted annotation table with expression data.
 #' @return A data frame (annotation_table).
 #' @export
 #' @examples
@@ -129,10 +143,22 @@ extract_variable_info = function(object) {
 #'  extract_annotation_table(object = object)
 #'  head(annotation_table)
 
-extract_annotation_table = function(object) {
+extract_annotation_table = function(object,
+                                    with_expression_data = FALSE) {
   check_object_class(object = object, class = "mass_dataset")
-  annotation_table = object@annotation_table %>%
+  annotation_table <- object@annotation_table %>%
     as.data.frame()
+  if (nrow(annotation_table) > 0) {
+    if (with_expression_data) {
+      expression_data <-
+        slot(object, "expression_data") %>%
+        tibble::rownames_to_column(var = "variable_id")
+      annotation_table <-
+        annotation_table %>%
+        dplyr::left_join(expression_data,
+                         by = "variable_id")
+    }
+  }
   annotation_table
 }
 
