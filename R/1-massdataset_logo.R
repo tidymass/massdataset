@@ -1,8 +1,9 @@
-#' @title massdataset_logo
-#' @description Get the detailed information of massdataset package.
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' Display the MassDataset Logo
+#'
+#' This function displays the logo and version information for the massdataset package.
+#'
+#' @return None. This function is called for its side effect of printing the logo and messages.
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
 #' @importFrom stringr str_replace str_split str_replace_all str_trim
 #' @importFrom ComplexHeatmap Heatmap columnAnnotation anno_barplot
 #' @importFrom grid gpar
@@ -25,7 +26,6 @@
 #' @importFrom rlang as_quosure caller_arg current_env check_dots_empty0
 #' @importFrom tibble add_column
 #' @export
-#' @return logo
 #' @examples
 #' massdataset_logo()
 
@@ -57,15 +57,15 @@ massdataset_version <-
 
 update_date <- as.character(Sys.time())
 
-#' @title get_massdataset_version
-#' @description Get massdataset package version
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @export
-#' @return version
+#' Retrieve the Version of MassDataset Package
+#'
+#' This function retrieves the current version of the massdataset package installed in the R environment.
+#'
+#' @return A character string indicating the version of the massdataset package.
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
 #' @examples
 #' get_massdataset_version()
+#' @export
 get_massdataset_version = function() {
   return(as.character(utils::packageVersion(pkg = "massdataset")))
 }
