@@ -209,10 +209,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:41:22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 14:01:15</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">####only remain QC samples</span></span></span>
-<span class="r-in"><span><span class="va">sample_info</span> <span class="op">=</span> <span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sample_info</span> <span class="op">=</span> <span class="fu"><a href="mass_dataset-extracting.html">extract_sample_info</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">sample_info</span> <span class="op">=</span></span></span>
 <span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">sample_info</span>, <span class="va">class</span> <span class="op">==</span> <span class="st">"QC"</span><span class="op">)</span></span></span>
@@ -237,13 +237,13 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:41:22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 14:01:15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">update_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset update_mass_dataset() 2023-10-01 09:41:22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset update_mass_dataset() 2023-10-01 14:01:15</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">####only remain feature with mz &lt; 300</span></span></span>
-<span class="r-in"><span><span class="va">variable_info</span> <span class="op">=</span> <span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">variable_info</span> <span class="op">=</span> <span class="fu"><a href="mass_dataset-extracting.html">extract_variable_info</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">variable_info</span> <span class="op">=</span></span></span>
 <span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">variable_info</span>, <span class="va">mz</span> <span class="op">&lt;</span> <span class="fl">300</span><span class="op">)</span></span></span>
@@ -268,11 +268,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:41:22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 14:01:15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">update_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                       Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset update_mass_dataset() 2023-10-01 09:41:22.095291</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset update_mass_dataset() 2023-10-01 09:41:22.106125</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset update_mass_dataset() 2023-10-01 14:01:15.926352</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset update_mass_dataset()  2023-10-01 14:01:15.93766</span>
 </code></pre></div>
     </div>
   </div>

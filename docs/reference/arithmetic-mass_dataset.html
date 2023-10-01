@@ -3,6 +3,8 @@
 contained within a mass_dataset object.
 This function applies an absolute value transformation to the expression data
 contained within a mass_dataset object.
+This function takes a mass_dataset object and applies the square root transformation
+to the expression data stored in the object. It also updates the process_info attribute to log the transformation.
 #' @title colSums
 #' @method colSums mass_dataset
 #' @param x x
@@ -193,6 +195,8 @@ contained within a mass_dataset object.
 contained within a <code>mass_dataset</code> object.</p>
 <p>This function applies an absolute value transformation to the expression data
 contained within a <code>mass_dataset</code> object.</p>
+<p>This function takes a <code>mass_dataset</code> object and applies the square root transformation
+to the expression data stored in the object. It also updates the <code>process_info</code> attribute to log the transformation.</p>
 <p>#' @title colSums
 #' @method colSums mass_dataset
 #' @param x x
@@ -325,7 +329,7 @@ which corresponds to the natural logarithm.</p></dd>
 <p>Returns a <code>mass_dataset</code> object with expression data transformed to absolute values.</p>
 
 
-<p>mass_dataset object</p>
+<p>A <code>mass_dataset</code> object with updated <code>expression_data</code> and <code>process_info</code>.</p>
 
 
 <p>mass_dataset object</p>
@@ -382,7 +386,11 @@ be useful in scenarios where negative values in the dataset need to be transform
 to their positive counterparts for subsequent analyses.</p>
 <p>Additionally, the function updates the <code>process_info</code> slot of the <code>mass_dataset</code>
 object to capture details about the absolute value transformation process.</p>
-<p>colSums.mass_dataset = function(x, na.rm = FALSE, dims = 1)
+<ol><li><p>Extracts the <code>expression_data</code> from the <code>mass_dataset</code> object.</p></li>
+<li><p>Applies the square root transformation to the <code>expression_data</code>.</p></li>
+<li><p>Updates the <code>expression_data</code> in the <code>mass_dataset</code> object.</p></li>
+<li><p>Logs the transformation in the <code>process_info</code> attribute, including the package name, function name, parameters, and time.</p></li>
+</ol><p>colSums.mass_dataset = function(x, na.rm = FALSE, dims = 1)
 colSums(x@expression_data, na.rm = na.rm, dims = dims)</p>
 <p>rowSums.mass_dataset = function(x, na.rm = FALSE, dims = 1)
 rowSums(x@expression_data, na.rm = na.rm, dims = dims)</p>
@@ -394,6 +402,7 @@ rowMeans(x@expression_data, na.rm = na.rm, dims = dims)</p>
     <div id="author">
     <h2>Author</h2>
     <p>Xiaotao Shen <a href="mailto:shenxt1990@outlook.com">shenxt1990@outlook.com</a></p>
+<p>Xiaotao Shen <a href="mailto:shenxt1990@outlook.com">shenxt1990@outlook.com</a></p>
     </div>
 
     <div id="ref-examples">
@@ -404,7 +413,11 @@ rowMeans(x@expression_data, na.rm = na.rm, dims = dims)</p>
 <span class="r-in"><span><span class="co"># Assuming 'md' is a 'mass_dataset' object</span></span></span>
 <span class="r-in"><span><span class="co"># abs_transformed_md &lt;- abs.mass_dataset(md)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># Assuming 'dataset' is a mass_dataset object</span></span></span>
+<span class="r-in"><span><span class="va">transformed_dataset</span> <span class="op">&lt;-</span> <span class="fu">sqrt.mass_dataset</span><span class="op">(</span><span class="va">dataset</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

@@ -251,7 +251,7 @@ named as <code>extract_xxx()</code>, users can use them to extract data
 from <code>mass_dataset</code> calss object.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">##sample_info</span></span>
-<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   sample_id injection.order   class   group</span></span>
 <span><span class="co">#&gt; 1   Blank_3               1   Blank   Blank</span></span>
 <span><span class="co">#&gt; 2   Blank_4               2   Blank   Blank</span></span>
@@ -262,7 +262,7 @@ from <code>mass_dataset</code> calss object.</p>
 <span><span class="co">#&gt; 7     PS4P3               7 Subject Subject</span></span>
 <span><span class="co">#&gt; 8     PS4P4               8 Subject Subject</span></span>
 <span><span class="co">##variable_info</span></span>
-<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;     variable_id        mz        rt</span></span>
 <span><span class="co">#&gt; 1 M136T55_2_POS 136.06140  54.97902</span></span>
 <span><span class="co">#&gt; 2    M79T35_POS  79.05394  35.36550</span></span>
@@ -271,7 +271,7 @@ from <code>mass_dataset</code> calss object.</p>
 <span><span class="co">#&gt; 5   M349T47_POS 349.01584  47.00262</span></span>
 <span><span class="co">#&gt; 6  M182T828_POS 181.99775 828.35712</span></span>
 <span><span class="co">##expression_data</span></span>
-<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_expression_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_expression_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;               Blank_3 Blank_4      QC_1      QC_2     PS4P1     PS4P2   PS4P3</span></span>
 <span><span class="co">#&gt; M136T55_2_POS      NA      NA 1857924.8 1037763.8 1494436.1 3496912.1 1959179</span></span>
 <span><span class="co">#&gt; M79T35_POS         NA      NA 2821550.2 1304875.3 2471336.1 3333582.7 2734244</span></span>
@@ -287,26 +287,26 @@ from <code>mass_dataset</code> calss object.</p>
 <span><span class="co">#&gt; M349T47_POS   6441449.0</span></span>
 <span><span class="co">#&gt; M182T828_POS  4433034.2</span></span>
 <span><span class="co">##sample_info_note</span></span>
-<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_sample_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_sample_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> </span>
 <span><span class="co">#&gt;              name         meaning</span></span>
 <span><span class="co">#&gt; 1       sample_id       sample_id</span></span>
 <span><span class="co">#&gt; 2 injection.order injection.order</span></span>
 <span><span class="co">#&gt; 3           class           class</span></span>
 <span><span class="co">#&gt; 4           group           group</span></span>
 <span><span class="co">##variable_info_note</span></span>
-<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_variable_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> </span>
 <span><span class="co">#&gt;          name     meaning</span></span>
 <span><span class="co">#&gt; 1 variable_id variable_id</span></span>
 <span><span class="co">#&gt; 2          mz          mz</span></span>
 <span><span class="co">#&gt; 3          rt          rt</span></span>
 <span><span class="co">##ms2_data</span></span>
-<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_ms2_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_ms2_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span><span class="co">#&gt; list()</span></span>
 <span><span class="co">##process_info</span></span>
-<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_annotation_table</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_annotation_table</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span>
 <span><span class="co">##process_info</span></span>
-<span><span class="fu"><a href="../reference/extract-mass_dataset.html">extract_process_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_process_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $create_mass_dataset</span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
 <span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">pacakge_name: massdataset</span> </span></span>

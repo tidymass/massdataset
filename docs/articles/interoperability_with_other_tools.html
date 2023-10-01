@@ -386,7 +386,7 @@ RforMassSpectrometry for annotation.</p>
 <code>MetaboAnnotation</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">rowData</a></span><span class="op">(</span><span class="va">se_object</span><span class="op">)</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="../reference/extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>feature_id <span class="op">=</span> <span class="va">variable_id</span>,</span>
 <span>                rtime <span class="op">=</span> <span class="va">rt</span><span class="op">)</span></span></code></pre></div>
 <p>Metabolite annotation.</p>
