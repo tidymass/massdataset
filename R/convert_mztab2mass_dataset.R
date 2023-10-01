@@ -1,12 +1,25 @@
-#' @title convert_mztab2mass_dataset
-#' @description Convert mzTab-m format to mass_dataset class.
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param file mzTab-m file
-#' @param path where is the mzTab-m file.
-#' @return A mass_dataset-class object.
-#' @importFrom dplyr filter rename
-#' @importFrom stats time
+#' Convert mzTab Data to mass_dataset Object
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function converts mzTab data into a `mass_dataset` object.
+#' It processes the mzTab data to create a `mass_dataset` object containing expression data, sample information, and variable information.
+#'
+#' @param file The name of the mzTab file to be read.
+#' @param path The directory where the mzTab file is located. Default is the current directory.
+#'
+#' @return A `mass_dataset` object containing the processed mzTab data.
+#'
+#' @examples
+#' \dontrun{
+#' # Assuming 'mztab_file' is the name of the mzTab file
+#' mass_dataset <- convert_mztab2mass_dataset(file = mztab_file)
+#' }
+#'
+#' @details
+#' The function reads mzTab data and processes it to create a `mass_dataset` object.
+#' It extracts sample information, variable information, and expression data.
+#' It also performs checks to ensure the data is correctly formatted.
+#'
 #' @export
 
 convert_mztab2mass_dataset <-
@@ -178,18 +191,30 @@ convert_mztab2mass_dataset <-
   }
 
 
-#' @title Read mzTab-M format data
-#' @description Read mzTab-M format data
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param file File name of the mzTab-M data.
-#' @param path Where is the file? Default is .
-#' @return A list.
-#' @importFrom dplyr filter rename
-#' @importFrom stats time
-#' @importFrom readr read_csv
-#' @importFrom purrr map
-#' @importFrom stringr str_detect str_split
+#' Read mzTab Data File
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function reads an mzTab data file and returns a list containing various tables such as Metadata (MTD), Small Molecule (SML), Small Molecule Feature (SMF), and Small Molecule Evidence (SME).
+#'
+#' @param file The name of the mzTab file to be read.
+#' @param path The directory where the mzTab file is located. Default is the current directory.
+#'
+#' @return A list containing the following elements:
+#' - `mtd_table`: Metadata table
+#' - `sml_table`: Small Molecule table
+#' - `smf_table`: Small Molecule Feature table
+#' - `sme_table`: Small Molecule Evidence table
+#'
+#' @examples
+#' \dontrun{
+#' # Assuming 'mztab_file' is the name of the mzTab file
+#' mztab_data <- read_mztab(file = mztab_file)
+#' }
+#'
+#' @details
+#' The function reads an mzTab file and extracts various tables such as MTD, SML, SMF, and SME.
+#' It performs necessary data transformations and type conversions.
+#'
 #' @export
 
 read_mztab <-

@@ -1,11 +1,19 @@
-#' @title Extract expression_data from mass_dataset
-#' @description Extract expression_data from mass_dataset
-#' @docType methods
-#' @rdname extract-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @return A data frame (expression_data).
+#' Extract Expression Data from mass_dataset Object
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function extracts the expression data from an object of class "mass_dataset". It first checks if the object belongs to the class "mass_dataset" and then extracts the expression data.
+#'
+#' @param object An object of class "mass_dataset" from which the expression data will be extracted.
+#'
+#' @return A data frame containing the expression data.
+#'
+#' @details
+#' The function uses the `check_object_class` function to ensure that the object belongs to the class "mass_dataset". It then extracts the '@expression_data' slot and converts it to a data frame.
+#'
+#' @seealso
+#' \code{\link{extract_sample_info}}
+#' \code{\link{extract_variable_info}}
+#'
 #' @export
 #' @examples
 #' data("expression_data")
@@ -29,14 +37,22 @@ extract_expression_data = function(object) {
 }
 
 
-#' @title extract_sample_info
-#' @description Extract sample information.
-#' @docType methods
-#' @rdname extract-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @return A data frame (sample_info).
+#' Extract Sample Information from mass_dataset Object
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function extracts the sample information from an object of class "mass_dataset". It first checks if the object belongs to the class "mass_dataset" and then extracts the sample information.
+#'
+#' @param object An object of class "mass_dataset" from which the sample information will be extracted.
+#'
+#' @return A data frame containing the sample information.
+#'
+#'
+#' @details
+#' The function uses the `check_object_class` function to ensure that the object belongs to the class "mass_dataset". It then extracts the '@sample_info' slot and converts it to a data frame.
+#'
+#' @seealso
+#' \code{\link{check_object_class}}
+#'
 #' @export
 #' @examples
 #' data("expression_data")
@@ -60,15 +76,22 @@ extract_sample_info = function(object) {
 }
 
 
-#' @title extract_variable_info
-#' @description Extract variable information.
-#' @docType methods
-#' @rdname extract-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param with_expression_data should the extracted annotation table with expression data.
-#' @return A data frame (variable_info).
+#' Extract Variable Information from mass_dataset Object
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function extracts the variable information from an object of class "mass_dataset". It first checks if the object belongs to the class "mass_dataset" and then extracts the variable information. Optionally, it can also include expression data.
+#'
+#' @param object An object of class "mass_dataset" from which the variable information will be extracted.
+#' @param with_expression_data Logical, whether to include expression data in the output. Default is FALSE.
+#'
+#' @return A data frame containing the variable information, optionally including expression data.
+#'
+#' @details
+#' The function uses the `check_object_class` function to ensure that the object belongs to the class "mass_dataset". It then extracts the '@variable_info' slot and converts it to a data frame. If the object has an '@annotation_table', it will join this information with the variable information. If `with_expression_data` is TRUE, it will also join the expression data.
+#'
+#' @seealso
+#' \code{\link{check_object_class}}
+#'
 #' @export
 #' @examples
 #' data("expression_data")
@@ -119,17 +142,21 @@ extract_variable_info = function(object,
 
 
 
-#' @title extract_annotation_table
-#' @description Extract variable information.
-#' @rdname extract-mass_dataset
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param with_expression_data should the extracted annotation table with expression data.
-#' @return A data frame (annotation_table).
-#' @export
+#' Extract Annotation Table from mass_dataset Object
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function extracts the annotation table from an object of class "mass_dataset". It first checks if the object belongs to the class "mass_dataset" and then extracts the annotation table. Optionally, it can also include expression data.
+#'
+#' @param object An object of class "mass_dataset" from which the annotation table will be extracted.
+#' @param with_expression_data Logical, whether to include expression data in the output. Default is FALSE.
+#'
+#' @return A data frame containing the annotation table, optionally including expression data.
+#'
+#' @details
+#' The function uses the `check_object_class` function to ensure that the object belongs to the class "mass_dataset". It then extracts the '@annotation_table' slot and converts it to a data frame. If `with_expression_data` is TRUE, it will also join the expression data.
 #' @examples
+#' @examples
+#' \dontrun{
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -139,37 +166,47 @@ extract_variable_info = function(object,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info,
 #'   )
-#'  annotation_table =
-#'  extract_annotation_table(object = object)
-#'  head(annotation_table)
+#' annotation_table =
+#'   extract_annotation_table(object = object)
+#' head(annotation_table)
+#' }
 
-extract_annotation_table = function(object,
-                                    with_expression_data = FALSE) {
-  check_object_class(object = object, class = "mass_dataset")
-  annotation_table <- object@annotation_table %>%
-    as.data.frame()
-  if (nrow(annotation_table) > 0) {
-    if (with_expression_data) {
-      expression_data <-
-        slot(object, "expression_data") %>%
-        tibble::rownames_to_column(var = "variable_id")
-      annotation_table <-
-        annotation_table %>%
-        dplyr::left_join(expression_data,
-                         by = "variable_id")
+extract_annotation_table <-
+  function(object,
+           with_expression_data = FALSE) {
+    check_object_class(object = object, class = "mass_dataset")
+    annotation_table <- object@annotation_table %>%
+      as.data.frame()
+    if (nrow(annotation_table) > 0) {
+      if (with_expression_data) {
+        expression_data <-
+          slot(object, "expression_data") %>%
+          tibble::rownames_to_column(var = "variable_id")
+        annotation_table <-
+          annotation_table %>%
+          dplyr::left_join(expression_data,
+                           by = "variable_id")
+      }
     }
+    annotation_table
   }
-  annotation_table
-}
 
-#' @title extract_variable_info_note
-#' @description Extract variable information note.
-#' @docType methods
-#' @rdname extract-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @return A data frame (variable_info_note).
+#' Extract Variable Information Notes from mass_dataset Object
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function extracts the variable information notes from an object of class "mass_dataset". It first checks if the object belongs to the class "mass_dataset" and then extracts the variable information notes.
+#'
+#' @param object An object of class "mass_dataset" from which the variable information notes will be extracted.
+#'
+#' @return A data frame containing the variable information notes.
+#'
+#'
+#' @details
+#' The function uses the `check_object_class` function to ensure that the object belongs to the class "mass_dataset". It then extracts the '@variable_info_note' slot and converts it to a data frame.
+#'
+#' @seealso
+#' \code{\link{check_object_class}}
+#'
 #' @export
 #' @examples
 #' data("expression_data")
@@ -193,14 +230,22 @@ extract_variable_info_note = function(object) {
 }
 
 
-#' @title extract_sample_info_note
-#' @description Extract sample information note.
-#' @docType methods
-#' @rdname extract-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @return A data frame (sample_info_note).
+#' Extract Sample Information Notes from mass_dataset Object
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function extracts the sample information notes from an object of class "mass_dataset". It first checks if the object belongs to the class "mass_dataset" and then extracts the sample information notes.
+#'
+#' @param object An object of class "mass_dataset" from which the sample information notes will be extracted.
+#'
+#' @return A data frame containing the sample information notes.
+#'
+#'
+#' @details
+#' The function uses the `check_object_class` function to ensure that the object belongs to the class "mass_dataset". It then extracts the '@sample_info_note' slot and converts it to a data frame.
+#'
+#' @seealso
+#' \code{\link{check_object_class}}
+#'
 #' @export
 #' @examples
 #' data("expression_data")
@@ -223,14 +268,22 @@ extract_sample_info_note = function(object) {
   sample_info_note
 }
 
-#' @title Extract process information
-#' @description Extract process information
-#' @docType methods
-#' @rdname extract-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @return A list of tidymass_parameter.
+#' Extract Process Information from mass_dataset Object
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function extracts the process information from an object of class "mass_dataset". It first checks if the object belongs to the class "mass_dataset" and then extracts the process information.
+#'
+#' @param object An object of class "mass_dataset" from which the process information will be extracted.
+#'
+#' @return A list containing the process information.
+#'
+#'
+#' @details
+#' The function uses the `check_object_class` function to ensure that the object belongs to the class "mass_dataset". It then extracts the '@process_info' slot and returns it as a list.
+#'
+#' @seealso
+#' \code{\link{check_object_class}}
+#'
 #' @export
 #' @examples
 #' data("expression_data")
@@ -254,14 +307,22 @@ extract_process_info =
     return(process_info)
   }
 
-#' @title Extract ms2 data
-#' @description Extract ms2 data
-#' @docType methods
-#' @rdname extract-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @return A ms2_data class object.
+#' Extract MS2 Data from mass_dataset Object
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function extracts the MS2 data from an object of class "mass_dataset". It first checks if the object belongs to the class "mass_dataset" and then extracts the MS2 data.
+#'
+#' @param object An object of class "mass_dataset" from which the MS2 data will be extracted.
+#'
+#' @return A list containing the MS2 data.
+#'
+#'
+#' @details
+#' The function uses the `check_object_class` function to ensure that the object belongs to the class "mass_dataset". It then extracts the '@ms2_data' slot and returns it as a list.
+#'
+#' @seealso
+#' \code{\link{check_object_class}}
+#'
 #' @export
 #' @examples
 #' data("expression_data")

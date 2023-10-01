@@ -2,22 +2,34 @@
 % Please edit documentation in R/convert_mztab2mass_dataset.R
 \name{convert_mztab2mass_dataset}
 \alias{convert_mztab2mass_dataset}
-\title{convert_mztab2mass_dataset}
+\title{Convert mzTab Data to mass_dataset Object}
 \usage{
 convert_mztab2mass_dataset(file, path = ".")
 }
 \arguments{
-\item{file}{mzTab-m file}
+\item{file}{The name of the mzTab file to be read.}
 
-\item{path}{where is the mzTab-m file.}
+\item{path}{The directory where the mzTab file is located. Default is the current directory.}
 }
 \value{
-A mass_dataset-class object.
+A \code{mass_dataset} object containing the processed mzTab data.
 }
 \description{
-Convert mzTab-m format to mass_dataset class.
+This function converts mzTab data into a \code{mass_dataset} object.
+It processes the mzTab data to create a \code{mass_dataset} object containing expression data, sample information, and variable information.
+}
+\details{
+The function reads mzTab data and processes it to create a \code{mass_dataset} object.
+It extracts sample information, variable information, and expression data.
+It also performs checks to ensure the data is correctly formatted.
+}
+\examples{
+\dontrun{
+# Assuming 'mztab_file' is the name of the mzTab file
+mass_dataset <- convert_mztab2mass_dataset(file = mztab_file)
+}
+
 }
 \author{
-Xiaotao Shen
-\email{shenxt1990@outlook.com}
+Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
 }

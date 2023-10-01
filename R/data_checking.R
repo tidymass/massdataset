@@ -1,14 +1,19 @@
-#' @title check_mass_dataset
-#' @description Check data format for mass_dataset class object.
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param expression_data expression_data.
-#' @param sample_info sample_info.
-#' @param variable_info variable_info.
-#' @param sample_info_note sample_info_note.
-#' @param variable_info_note variable_info_note.
-#' @return Notice of data checking.
+#' Check Mass Dataset
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function performs various checks on the mass dataset to ensure its integrity and consistency. It checks the format and content of `expression_data`, `sample_info`, `variable_info`, `sample_info_note`, and `variable_info_note`.
+#'
+#' @param expression_data A data frame containing expression data.
+#' @param sample_info A data frame containing sample information.
+#' @param variable_info A data frame containing variable information.
+#' @param sample_info_note A data frame containing notes for sample information.
+#' @param variable_info_note A data frame containing notes for variable information.
+#'
+#' @return A string indicating the result of the checks. It returns "all good." if all checks pass, otherwise it returns an error message.
+#'
+#' @details
+#' The function performs a series of checks to validate the integrity and consistency of the mass dataset. It checks for missing data, data types, and the relationship between different components of the dataset.
+#'
 #' @export
 #' @examples
 #' data("expression_data")
@@ -188,14 +193,20 @@ check_mass_dataset <-
 
 
 
-#' @title check_object_class
-#' @description Check if one object is one specific class.
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object object
-#' @param class object should be what class
-#' @return Notice of data checking.
+#' Check Object Class
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function checks if the provided object belongs to a specified class. It supports multiple classes including "mass_dataset", "tidymass_parameter", "databaseClass", "metIdentifyClass", and "ms2_data".
+#'
+#' @param object The object to be checked.
+#' @param class A character vector specifying the class or classes to check against. Default options are "mass_dataset", "tidymass_parameter", "databaseClass", "metIdentifyClass", and "ms2_data".
+#'
+#' @return None. The function stops execution and throws an error if the object does not belong to the specified class.
+#'
+#'
+#' @details
+#' The function uses the `is` function to check if the object belongs to the specified class. If the object does not belong to the class, the function stops and returns an error message.
+#'
 #' @export
 #' @examples
 #' data("expression_data")

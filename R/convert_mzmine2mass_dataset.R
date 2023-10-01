@@ -1,13 +1,20 @@
-#' @title convet_mzmine2mass_dataset
-#' @description Convert mzmine feature table to mass_dataset class.
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param x Feature table from mzmine.
-#' @param rt_unit RT unit (minute or second) in feature table.
-#' @return A mass_dataset-class object.
-#' @importFrom dplyr filter rename
-#' @importFrom stats time
+#' Convert MZmine Data to mass_dataset Object
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function converts data from MZmine into a `mass_dataset` object.
+#' It processes the data to create a `mass_dataset` object containing expression data, sample information, and variable information.
+#'
+#' @param x A data frame containing MZmine data.
+#' @param rt_unit The unit for retention time, either "minute" or "second". Default is "minute".
+#'
+#' @return A `mass_dataset` object containing the processed MZmine data.
+#'
+#'
+#' @details
+#' The function reads MZmine data and processes it to create a `mass_dataset` object.
+#' It extracts sample information, variable information, and expression data.
+#' It also performs checks to ensure the data is correctly formatted.
+#'
 #' @export
 #' @examples
 #' data("mzmine_table")

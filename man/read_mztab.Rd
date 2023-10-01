@@ -2,22 +2,38 @@
 % Please edit documentation in R/convert_mztab2mass_dataset.R
 \name{read_mztab}
 \alias{read_mztab}
-\title{Read mzTab-M format data}
+\title{Read mzTab Data File}
 \usage{
 read_mztab(file, path = ".")
 }
 \arguments{
-\item{file}{File name of the mzTab-M data.}
+\item{file}{The name of the mzTab file to be read.}
 
-\item{path}{Where is the file? Default is .}
+\item{path}{The directory where the mzTab file is located. Default is the current directory.}
 }
 \value{
-A list.
+A list containing the following elements:
+\itemize{
+\item \code{mtd_table}: Metadata table
+\item \code{sml_table}: Small Molecule table
+\item \code{smf_table}: Small Molecule Feature table
+\item \code{sme_table}: Small Molecule Evidence table
+}
 }
 \description{
-Read mzTab-M format data
+This function reads an mzTab data file and returns a list containing various tables such as Metadata (MTD), Small Molecule (SML), Small Molecule Feature (SMF), and Small Molecule Evidence (SME).
+}
+\details{
+The function reads an mzTab file and extracts various tables such as MTD, SML, SMF, and SME.
+It performs necessary data transformations and type conversions.
+}
+\examples{
+\dontrun{
+# Assuming 'mztab_file' is the name of the mzTab file
+mztab_data <- read_mztab(file = mztab_file)
+}
+
 }
 \author{
-Xiaotao Shen
-\email{shenxt1990@outlook.com}
+Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
 }

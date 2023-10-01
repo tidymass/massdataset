@@ -1,14 +1,20 @@
-#' @title convert_msdial2mass_dataset
-#' @description Convert MS-DIAL feature table to mass_dataset class.
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param x Feature table from MS-DIAL.
-#' @param path work directory.
-#' @param file_name The name of file from MS-DIAL.
-#' @return A mass_dataset-class object.
-#' @importFrom dplyr filter rename
-#' @importFrom stats time
+#' Convert MS-Dial Data to mass_dataset Object
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function converts data from MS-Dial into a `mass_dataset` object.
+#' It reads the data either from a given data frame or from a file and processes it to create a `mass_dataset` object.
+#'
+#' @param x A data frame containing MS-Dial data. If missing, the function will read from a file.
+#' @param path The directory where the file is located. Default is the current directory.
+#' @param file_name The name of the file to read if `x` is missing.
+#'
+#' @return A `mass_dataset` object containing the processed MS-Dial data.
+#'
+#' @details
+#' The function reads MS-Dial data and processes it to create a `mass_dataset` object.
+#' It extracts sample information, variable information, and expression data.
+#' It also performs checks to ensure the data is correctly formatted.
+#'
 #' @export
 #' @examples
 #' ##if you want to read the msdital table,

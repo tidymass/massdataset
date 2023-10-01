@@ -1,12 +1,26 @@
-#' @title convert_mass_dataset2mztab
-#' @description Convert mass_dataset class to mzTab-m format.
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object mass_dataset class object.
-#' @param path The path to save the mzTab-m file.
-#' @return A mzTab-m file.
-#' @importFrom dplyr filter rename
-#' @importFrom stats time
+#' Convert mass_dataset to mzTab Format
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function converts a `mass_dataset` object to mzTab format. The function creates
+#' mzTab-compatible tables including metadata (MTD), small molecule (SML), small molecule feature (SMF),
+#' and small molecule evidence (SME) tables.
+#'
+#' @param object A `mass_dataset` object containing the `expression_data`, `sample_info`, and `other_files`.
+#' @param path A string specifying the directory where the mzTab file will be saved. Default is the current directory.
+#'
+#' @return Writes an mzTab file to the specified directory.
+#'
+#' @examples
+#' \dontrun{
+#' # Assuming 'dataset' is a mass_dataset object
+#' convert_mass_dataset2mztab(dataset, path = "./mzTabFiles/")
+#' }
+#'
+#' @details
+#' The function first checks if the `mass_dataset` object contains the necessary mzTab tables (MTD, SML, SMF, SME).
+#' If not, it generates these tables based on the `expression_data` and `sample_info` in the `mass_dataset` object.
+#' The function then writes these tables to an mzTab file in the specified directory.
+#'
 #' @export
 
 convert_mass_dataset2mztab <-

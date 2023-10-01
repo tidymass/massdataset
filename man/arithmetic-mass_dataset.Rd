@@ -77,7 +77,7 @@ Returns a \code{mass_dataset} object with log-transformed expression data.
 
 Returns a \code{mass_dataset} object with expression data transformed to absolute values.
 
-mass_dataset object
+A \code{mass_dataset} object with updated \code{expression_data} and \code{process_info}.
 
 mass_dataset object
 
@@ -113,6 +113,9 @@ contained within a \code{mass_dataset} object.
 
 This function applies an absolute value transformation to the expression data
 contained within a \code{mass_dataset} object.
+
+This function takes a \code{mass_dataset} object and applies the square root transformation
+to the expression data stored in the object. It also updates the \code{process_info} attribute to log the transformation.
 
 #' @title colSums
 #' @method colSums mass_dataset
@@ -165,6 +168,13 @@ to their positive counterparts for subsequent analyses.
 Additionally, the function updates the \code{process_info} slot of the \code{mass_dataset}
 object to capture details about the absolute value transformation process.
 
+\enumerate{
+\item Extracts the \code{expression_data} from the \code{mass_dataset} object.
+\item Applies the square root transformation to the \code{expression_data}.
+\item Updates the \code{expression_data} in the \code{mass_dataset} object.
+\item Logs the transformation in the \code{process_info} attribute, including the package name, function name, parameters, and time.
+}
+
 colSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
 colSums(x@expression_data, na.rm = na.rm, dims = dims)
 }
@@ -188,7 +198,14 @@ rowMeans(x@expression_data, na.rm = na.rm, dims = dims)
 # Assuming 'md' is a 'mass_dataset' object
 # abs_transformed_md <- abs.mass_dataset(md)
 
+\dontrun{
+# Assuming 'dataset' is a mass_dataset object
+transformed_dataset <- sqrt.mass_dataset(dataset)
+}
+
 }
 \author{
 Xiaotao Shen \email{shenxt1990@outlook.com}
+
+Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
 }

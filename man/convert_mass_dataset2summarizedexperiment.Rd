@@ -2,21 +2,32 @@
 % Please edit documentation in R/convert_mass_dataset2summarizedexperiment.R
 \name{convert_mass_dataset2summarizedexperiment}
 \alias{convert_mass_dataset2summarizedexperiment}
-\title{convert_mass_dataset2summarizedexperiment}
+\title{Convert mass_dataset to SummarizedExperiment Object}
 \usage{
 convert_mass_dataset2summarizedexperiment(object)
 }
 \arguments{
-\item{object}{mass_dataset class object.}
+\item{object}{A \code{mass_dataset} object containing \code{sample_info}, \code{variable_info}, and \code{expression_data}.}
 }
 \value{
-A SummarizedExperiment file.
+A \code{SummarizedExperiment} object containing the same data as the input \code{mass_dataset} object.
 }
 \description{
-Convert mass_dataset class to SummarizedExperiment from
-SummarizedExperiment package.
+This function converts a \code{mass_dataset} object to a \code{SummarizedExperiment} object.
+It extracts the \code{sample_info}, \code{variable_info}, and \code{expression_data} from the \code{mass_dataset} object
+and constructs a new \code{SummarizedExperiment} object.
+}
+\details{
+The function checks if the input object is of class \code{mass_dataset}. If it is, it extracts the \code{sample_info},
+\code{variable_info}, and \code{expression_data} and uses these to create a new \code{SummarizedExperiment} object.
+}
+\examples{
+\dontrun{
+# Assuming 'dataset' is a mass_dataset object
+summarized_experiment <- convert_mass_dataset2summarizedexperiment(dataset)
+}
+
 }
 \author{
-Xiaotao Shen
-\email{shenxt1990@outlook.com}
+Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
 }

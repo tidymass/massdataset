@@ -2,22 +2,35 @@
 % Please edit documentation in R/convert_mass_dataset2mztab.R
 \name{convert_mass_dataset2mztab}
 \alias{convert_mass_dataset2mztab}
-\title{convert_mass_dataset2mztab}
+\title{Convert mass_dataset to mzTab Format}
 \usage{
 convert_mass_dataset2mztab(object, path = ".")
 }
 \arguments{
-\item{object}{mass_dataset class object.}
+\item{object}{A \code{mass_dataset} object containing the \code{expression_data}, \code{sample_info}, and \code{other_files}.}
 
-\item{path}{The path to save the mzTab-m file.}
+\item{path}{A string specifying the directory where the mzTab file will be saved. Default is the current directory.}
 }
 \value{
-A mzTab-m file.
+Writes an mzTab file to the specified directory.
 }
 \description{
-Convert mass_dataset class to mzTab-m format.
+This function converts a \code{mass_dataset} object to mzTab format. The function creates
+mzTab-compatible tables including metadata (MTD), small molecule (SML), small molecule feature (SMF),
+and small molecule evidence (SME) tables.
+}
+\details{
+The function first checks if the \code{mass_dataset} object contains the necessary mzTab tables (MTD, SML, SMF, SME).
+If not, it generates these tables based on the \code{expression_data} and \code{sample_info} in the \code{mass_dataset} object.
+The function then writes these tables to an mzTab file in the specified directory.
+}
+\examples{
+\dontrun{
+# Assuming 'dataset' is a mass_dataset object
+convert_mass_dataset2mztab(dataset, path = "./mzTabFiles/")
+}
+
 }
 \author{
-Xiaotao Shen
-\email{shenxt1990@outlook.com}
+Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
 }

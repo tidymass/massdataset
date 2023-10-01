@@ -103,12 +103,29 @@ abs.mass_dataset = function(x) {
 }
 
 
-#' @title sqrt
-#' @method sqrt mass_dataset
-#' @param x x
-#' @export
+#' Square Root Transformation for mass_dataset
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @description This function takes a `mass_dataset` object and applies the square root transformation
+#' to the expression data stored in the object. It also updates the `process_info` attribute to log the transformation.
+#' 
+#' @param x A `mass_dataset` object containing the `expression_data` and `process_info` attributes.
+#' 
+#' @return A `mass_dataset` object with updated `expression_data` and `process_info`.
+#' 
+#' @examples
+#' \dontrun{
+#' # Assuming 'dataset' is a mass_dataset object
+#' transformed_dataset <- sqrt.mass_dataset(dataset)
+#' }
+#' 
+#' @details
+#' 1. Extracts the `expression_data` from the `mass_dataset` object.
+#' 2. Applies the square root transformation to the `expression_data`.
+#' 3. Updates the `expression_data` in the `mass_dataset` object.
+#' 4. Logs the transformation in the `process_info` attribute, including the package name, function name, parameters, and time.
 #' @rdname arithmetic-mass_dataset
-#' @return mass_dataset object
+
 
 sqrt.mass_dataset = function(x) {
   expression_data = x@expression_data

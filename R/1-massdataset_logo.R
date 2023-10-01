@@ -25,6 +25,8 @@
 #' @importFrom rlang warn quo_is_null abort seq2 caller_env check_dots_empty
 #' @importFrom rlang as_quosure caller_arg current_env check_dots_empty0
 #' @importFrom tibble add_column
+#' @importClassesFrom S4Vectors DFrame
+#' @importClassesFrom SummarizedExperiment SummarizedExperiment SimpleAssays
 #' @export
 #' @examples
 #' massdataset_logo()
