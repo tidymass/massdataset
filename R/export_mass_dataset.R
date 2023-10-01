@@ -1,14 +1,25 @@
-#' @title export_mass_dataset
-#' @description Export mass_dataset class object to csv/xlsx files
-#' @docType methods
+#' @title Export mass_dataset Object to Files
+#' 
+#' @description
+#' Exports the contents of a \code{mass_dataset} object to files. The files can be in CSV or XLSX format.
+#' Additionally, MS2 data can be exported in MSP or MGF format.
+#'
+#' @param object A \code{mass_dataset} object to be exported.
+#' @param file_type The type of file to export the data to. Options are "csv" or "xlsx". Default is "csv".
+#' @param ms2_file_type The type of file to export the MS2 data to. Options are "msp" or "mgf". Default is "msp".
+#' @param path The directory where the exported files will be saved. Default is the current directory.
+#' 
+#' @return No return value. The function writes files to disk.
+#' 
+#' @examples
+#' \dontrun{
+#' # Assuming 'data' is a mass_dataset object
+#' export_mass_dataset(data, file_type = "csv", path = "output/")
+#' }
+#' 
+#' @export
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param file_type (required) csv or xlsx
-#' @param ms2_file_type (required) msp or mgf
-#' @param path (required) work directory.
-#' @return csv or xlsx files.
-#' @export
 
 export_mass_dataset <-
   function(object,
@@ -85,16 +96,29 @@ export_mass_dataset <-
   }
 
 
-#' @title export_ms2_data
-#' @description Export mass_dataset's ms2_data to mgf/msp
-#' @docType methods
+#' @title Export MS2 Data from mass_dataset Object
+#' 
+#' @description
+#' Exports the MS2 data contained in a \code{mass_dataset} object to files. 
+#' The files can be in MGF or MSP format.
+#'
+#' @param object A \code{mass_dataset} object containing MS2 data to be exported.
+#' @param file_type The type of file to export the MS2 data to. Options are "mgf" or "msp". Default is "mgf".
+#' @param path The directory where the exported MS2 data files will be saved. Default is the current directory.
+#' 
+#' @return No return value. The function writes MS2 data files to disk. 
+#' Returns NULL and a warning if no MS2 data is present in the object.
+#' 
+#' @examples
+#' \dontrun{
+#' # Assuming 'data' is a mass_dataset object with MS2 data
+#' export_ms2_data(data, file_type = "mgf", path = "output/")
+#' }
+#'
+#' 
+#' @export
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param file_type (required) mgf, msp
-#' @param path (required) work directory.
-#' @return mgf, msp files
-#' @export
 
 export_ms2_data <-
   function(object,

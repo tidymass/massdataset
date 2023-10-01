@@ -1,13 +1,38 @@
-#' @title export_mass_dataset4metdna
-#' @description Export mass_dataset to MetDNA require data format.
+#' Export mass_dataset Object for MetDNA Analysis
+#'
+#' @description
+#' This function exports a \code{\link[massdataset]{mass_dataset}} object into a format suitable for MetDNA analysis.
+#' It generates a Peak_Table.csv, sample_info.csv, and MS2 data in MGF format.
+#'
+#' @param object An object of class \code{mass_dataset}.
+#' @param path A character string indicating the directory where the exported files will be saved. Default is the current directory.
+#'
+#' @return
+#' This function writes the Peak_Table.csv, sample_info.csv, and MS2 data files to the specified directory.
+#'
+#' @seealso
+#' \code{\link[massdataset]{mass_dataset}} for the class that this function exports.
+#' \code{\link[massdataset]{export_ms2_data}} for exporting MS2 data.
+#'
+#' @examples
+#' \dontrun{
+#' # Create a new mass_dataset object
+#' new_data <- create_mass_dataset(
+#'   expression_data = data.frame(),
+#'   sample_info = data.frame(),
+#'   variable_info = data.frame(),
+#'   sample_info_note = data.frame(),
+#'   variable_info_note = data.frame()
+#' )
+#'
+#' # Export the data for MetDNA analysis
+#' export_mass_dataset4metdna(new_data, path = "MetDNA_data/")
+#' }
+#'
+#' @export
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object mass_dataset class object.
-#' @param path The path to save the mzTab-m file.
-#' @return csv files
-#' @importFrom dplyr filter rename
-#' @importFrom stats time
-#' @export
+
 
 export_mass_dataset4metdna <-
   function(object, path = ".") {

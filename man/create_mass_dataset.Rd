@@ -3,7 +3,7 @@
 \docType{methods}
 \name{create_mass_dataset}
 \alias{create_mass_dataset}
-\title{create_mass_dataset}
+\title{Create a New mass_dataset Object}
 \usage{
 create_mass_dataset(
   expression_data,
@@ -31,10 +31,11 @@ Columns are samples and rows are variables.
 \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}}
 }
 \value{
-A mass_dataset-class object.
+An object of class \code{mass_dataset}.
 }
 \description{
-Create the mass_dataset object.
+This function creates a new \code{\link[massdataset]{mass_dataset}} object
+by taking in various data frames and performing checks on them.
 }
 \examples{
 data("expression_data")

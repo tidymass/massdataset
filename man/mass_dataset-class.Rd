@@ -3,33 +3,56 @@
 \docType{class}
 \name{mass_dataset-class}
 \alias{mass_dataset-class}
-\title{An S4 class that stores the MS dataset}
+\title{S4 Class Representing a mass_dataset}
 \description{
-An S4 class that stores the MS dataset
+The \code{mass_dataset} class is designed to hold various types of data
+related to mass spectrometry experiments, including expression data,
+MS2 data, annotation tables, and other related information.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{expression_data}}{expression data}
+\item{\code{expression_data}}{A data.frame containing the expression data.}
 
-\item{\code{ms2_data}}{ms2 data}
+\item{\code{ms2_data}}{A list containing MS2 data.}
 
-\item{\code{annotation_table}}{annotation table}
+\item{\code{annotation_table}}{A data.frame containing annotation information.}
 
-\item{\code{sample_info}}{sample info}
+\item{\code{sample_info}}{A data.frame containing sample information.}
 
-\item{\code{variable_info}}{variable info}
+\item{\code{variable_info}}{A data.frame containing variable information.}
 
-\item{\code{sample_info_note}}{sample info note}
+\item{\code{sample_info_note}}{A data.frame containing notes about the sample information.}
 
-\item{\code{variable_info_note}}{variable info note}
+\item{\code{variable_info_note}}{A data.frame containing notes about the variable information.}
 
-\item{\code{process_info}}{process info}
+\item{\code{process_info}}{A list containing information about the data processing steps.}
 
-\item{\code{other_files}}{Other files}
+\item{\code{other_files}}{A list containing other related files.}
 
-\item{\code{version}}{version}
+\item{\code{version}}{A character string indicating the version of the dataset.}
 
-\item{\code{activated}}{activated}
+\item{\code{activated}}{A character string indicating which slot is currently activated for manipulation.}
 }}
 
+\examples{
+\dontrun{
+# Create a new mass_dataset object
+new_data <- new("mass_dataset", 
+                expression_data = data.frame(),
+                ms2_data = list(),
+                annotation_table = data.frame(),
+                sample_info = data.frame(),
+                variable_info = data.frame(),
+                sample_info_note = data.frame(),
+                variable_info_note = data.frame(),
+                process_info = list(),
+                other_files = list(),
+                version = "1.0",
+                activated = "expression_data")
+}
+
+}
+\seealso{
+\code{\link[package_name]{other_related_class}} for related classes.
+}

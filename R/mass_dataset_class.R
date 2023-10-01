@@ -1,10 +1,16 @@
-#' @title check_mass_dataset_class
-#' @description Check mass_dataset class object.
+#' Check the Validity of a mass_dataset Object
+#'
+#' @description
+#' This function checks the validity of a \code{\link[massdataset]{mass_dataset}} object.
+#' It performs various checks on the object's slots to ensure they meet the required criteria.
+#'
 #' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object mass_dataset class.
-#' @return Notice of data checking.
+#' @param object An object of class \code{mass_dataset}.
+#' @return
+#' Returns \code{TRUE} if the object is valid, otherwise returns a character vector of error messages.
+#'
 #' @export
 #' @examples
 #' data("expression_data")
@@ -139,9 +145,73 @@ check_mass_dataset_class <-
       errors
   }
 
+#' @title S4 Class Representing a mass_dataset
+#' 
+#' @description
+#' The \code{mass_dataset} class is designed to hold various types of data 
+#' related to mass spectrometry experiments, including expression data, 
+#' MS2 data, annotation tables, and other related information.
+#'
+#' @slot expression_data A data.frame containing the expression data.
+#' @slot ms2_data A list containing MS2 data.
+#' @slot annotation_table A data.frame containing annotation information.
+#' @slot sample_info A data.frame containing sample information.
+#' @slot variable_info A data.frame containing variable information.
+#' @slot sample_info_note A data.frame containing notes about the sample information.
+#' @slot variable_info_note A data.frame containing notes about the variable information.
+#' @slot process_info A list containing information about the data processing steps.
+#' @slot other_files A list containing other related files.
+#' @slot version A character string indicating the version of the dataset.
+#' @slot activated A character string indicating which slot is currently activated for manipulation.
+#'
+#' @seealso \code{\link[package_name]{other_related_class}} for related classes.
+#' 
+#' @examples
+#' \dontrun{
+#' # Create a new mass_dataset object
+#' new_data <- new("mass_dataset", 
+#'                 expression_data = data.frame(),
+#'                 ms2_data = list(),
+#'                 annotation_table = data.frame(),
+#'                 sample_info = data.frame(),
+#'                 variable_info = data.frame(),
+#'                 sample_info_note = data.frame(),
+#'                 variable_info_note = data.frame(),
+#'                 process_info = list(),
+#'                 other_files = list(),
+#'                 version = "1.0",
+#'                 activated = "expression_data")
+#' }
+#'
+#' @name mass_dataset-class
+#' @rdname mass_dataset-class
+#' @docType class
+#' @exportClass mass_dataset
 
-#' @title create_mass_dataset
-#' @description Create the mass_dataset object.
+setClass(
+  Class = "mass_dataset",
+  representation(
+    expression_data = "data.frame",
+    ms2_data = "list",
+    annotation_table = "data.frame",
+    sample_info = "data.frame",
+    variable_info = "data.frame",
+    sample_info_note = "data.frame",
+    variable_info_note = "data.frame",
+    process_info = "list",
+    other_files = "list",
+    version = "character",
+    activated = "character"
+  ),
+  validity = check_mass_dataset_class
+)
+
+
+#' Create a New mass_dataset Object
+#' @description
+#' This function creates a new \code{\link[massdataset]{mass_dataset}} object 
+#' by taking in various data frames and performing checks on them.
+#'
 #' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
@@ -156,7 +226,7 @@ check_mass_dataset_class <-
 #' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
 #' @param variable_info_note Sample information name.
 #' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
-#' @return A mass_dataset-class object.
+#' @return An object of class \code{mass_dataset}.
 #' @export
 #' @examples
 #' data("expression_data")
@@ -247,36 +317,3 @@ create_mass_dataset <-
   }
 
 
-##S4 class for function mass_dataset-class
-#' An S4 class that stores the MS dataset
-#' @docType class
-#' @slot expression_data expression data
-#' @slot ms2_data ms2 data
-#' @slot annotation_table annotation table
-#' @slot sample_info sample info
-#' @slot variable_info variable info
-#' @slot sample_info_note sample info note
-#' @slot variable_info_note variable info note
-#' @slot process_info process info
-#' @slot other_files Other files
-#' @slot version version
-#' @slot activated activated
-#' @exportClass mass_dataset
-
-setClass(
-  Class = "mass_dataset",
-  representation(
-    expression_data = "data.frame",
-    ms2_data = "list",
-    annotation_table = "data.frame",
-    sample_info = "data.frame",
-    variable_info = "data.frame",
-    sample_info_note = "data.frame",
-    variable_info_note = "data.frame",
-    process_info = "list",
-    other_files = "list",
-    version = "character",
-    activated = "character"
-  ),
-  validity = check_mass_dataset_class
-)

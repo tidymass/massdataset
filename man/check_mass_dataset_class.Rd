@@ -3,18 +3,19 @@
 \docType{methods}
 \name{check_mass_dataset_class}
 \alias{check_mass_dataset_class}
-\title{check_mass_dataset_class}
+\title{Check the Validity of a mass_dataset Object}
 \usage{
 check_mass_dataset_class(object)
 }
 \arguments{
-\item{object}{mass_dataset class.}
+\item{object}{An object of class \code{mass_dataset}.}
 }
 \value{
-Notice of data checking.
+Returns \code{TRUE} if the object is valid, otherwise returns a character vector of error messages.
 }
 \description{
-Check mass_dataset class object.
+This function checks the validity of a \code{\link[massdataset]{mass_dataset}} object.
+It performs various checks on the object's slots to ensure they meet the required criteria.
 }
 \examples{
 data("expression_data")

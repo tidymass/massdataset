@@ -2,20 +2,41 @@
 % Please edit documentation in R/mass_dataset_metdna.R
 \name{export_mass_dataset4metdna}
 \alias{export_mass_dataset4metdna}
-\title{export_mass_dataset4metdna}
+\title{Export mass_dataset Object for MetDNA Analysis}
 \usage{
 export_mass_dataset4metdna(object, path = ".")
 }
 \arguments{
-\item{object}{mass_dataset class object.}
+\item{object}{An object of class \code{mass_dataset}.}
 
-\item{path}{The path to save the mzTab-m file.}
+\item{path}{A character string indicating the directory where the exported files will be saved. Default is the current directory.}
 }
 \value{
-csv files
+This function writes the Peak_Table.csv, sample_info.csv, and MS2 data files to the specified directory.
 }
 \description{
-Export mass_dataset to MetDNA require data format.
+This function exports a \code{\link[massdataset]{mass_dataset}} object into a format suitable for MetDNA analysis.
+It generates a Peak_Table.csv, sample_info.csv, and MS2 data in MGF format.
+}
+\examples{
+\dontrun{
+# Create a new mass_dataset object
+new_data <- create_mass_dataset(
+  expression_data = data.frame(),
+  sample_info = data.frame(),
+  variable_info = data.frame(),
+  sample_info_note = data.frame(),
+  variable_info_note = data.frame()
+)
+
+# Export the data for MetDNA analysis
+export_mass_dataset4metdna(new_data, path = "MetDNA_data/")
+}
+
+}
+\seealso{
+\code{\link[massdataset]{mass_dataset}} for the class that this function exports.
+\code{\link[massdataset]{export_ms2_data}} for exporting MS2 data.
 }
 \author{
 Xiaotao Shen
