@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.27</span>
       </span>
     </div>
 
@@ -230,23 +230,25 @@ object is returned instead.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.4</span></span></span>
 <span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 2 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 samples:QC_1 QC_2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:33:03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:58</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">filter_samples ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package    Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_samples() 2022-08-07 19:33:03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_samples() 2023-10-01 09:40:58</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">filter_samples</span><span class="op">(</span><span class="va">object</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.4</span></span></span>
@@ -267,33 +269,37 @@ object is returned instead.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object2</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 4 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 4 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 samples:Blank_3 Blank_4 QC_1 QC_2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:33:03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:58</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">filter_samples ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package    Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_samples() 2022-08-07 19:33:03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_samples() 2023-10-01 09:40:58</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Attaching packages</span> ─────────────────────────────────────── tidyverse 1.3.1 ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2</span> 3.3.6          <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr  </span> 0.3.4     </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble </span> 3.1.7          <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr  </span> 1.0.9     </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr  </span> 1.2.0          <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr</span> 1.4.0     </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr  </span> 2.1.2          <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats</span> 0.5.1.<span style="color: #BB0000;">9000</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Attaching core tidyverse packages</span> ──────────────────────── tidyverse 2.0.0 ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats  </span> 1.0.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr  </span> 1.5.0</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.2.1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.0.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.0</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.4     </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">tibble</span>::<span style="color: #00BB00;">add_column()</span> masks <span style="color: #0000BB;">massdataset</span>::add_column()</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span>      masks <span style="color: #0000BB;">massdataset</span>::filter(), <span style="color: #0000BB;">stats</span>::filter()</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>         masks <span style="color: #0000BB;">stats</span>::lag()</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">tidyr</span>::<span style="color: #00BB00;">extract()</span>   masks <span style="color: #0000BB;">magrittr</span>::extract()</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span>    masks <span style="color: #0000BB;">massdataset</span>::filter(), <span style="color: #0000BB;">stats</span>::filter()</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>       masks <span style="color: #0000BB;">stats</span>::lag()</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">purrr</span>::<span style="color: #00BB00;">set_names()</span> masks <span style="color: #0000BB;">magrittr</span>::set_names()</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Use the conflicted package (<span style="color: #0000BB; font-style: italic;">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span></span>
@@ -306,20 +312,22 @@ object is returned instead.</p>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:33:04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:58</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">####Filter variables which have more than 50% MVs in all samples.</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></span>
@@ -337,23 +345,25 @@ object is returned instead.</p>
 <span class="r-in"><span><span class="op">}</span>,</span></span>
 <span class="r-in"><span>prune <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 422 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 422 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 422 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M236T543_POS M232T937_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:33:04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:58</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">filter_variables ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package      Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2022-08-07 19:33:04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2023-10-01 09:40:58</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">####Filter variables which have more than 50% MVs in only QC samples.</span></span></span>
 <span class="r-in"><span><span class="fu">filter_variables</span><span class="op">(</span></span></span>
@@ -366,23 +376,25 @@ object is returned instead.</p>
 <span class="r-in"><span>    <span class="fu"><a href="summary-mass_dataset.html">get_sample_id</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">$</span><span class="va">class</span> <span class="op">==</span> <span class="st">"QC"</span><span class="op">]</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 496 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 496 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 496 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M361T681_POS M236T543_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:33:04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:58</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">filter_variables ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package      Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2022-08-07 19:33:04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2023-10-01 09:40:58</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">####Filter variables which have more than 50% MVs in QC or subject samples.</span></span></span>
 <span class="r-in"><span><span class="va">idx1</span> <span class="op">=</span></span></span>
@@ -414,23 +426,25 @@ object is returned instead.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object2</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 642 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 642 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 642 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:33:04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:58</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">subset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset             [ 2022-08-07 19:33:04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset             [ 2023-10-01 09:40:58</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">####filter variables with RSD (in QC samples) &lt; 30</span></span></span>
 <span class="r-in"><span><span class="va">object3</span> <span class="op">=</span></span></span>
@@ -448,23 +462,25 @@ object is returned instead.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object3</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 328 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 328 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 328 variables:M307T548_POS M299T359_POS M344T471_POS ... M361T681_POS M236T543_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:33:04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:58</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">filter_variables ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package      Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2022-08-07 19:33:04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset filter_variables() 2023-10-01 09:40:58</span>
 </code></pre></div>
     </div>
   </div>

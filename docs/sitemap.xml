@@ -88,6 +88,9 @@
     <loc>https://tidymass.github.io/massdataset/reference/add_new_column-mass_dataset.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massdataset/reference/annotation_table.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massdataset/reference/arithmetic-mass_dataset.html</loc>
   </url>
   <url>
@@ -290,6 +293,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/parse_tidymass_parameter.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massdataset/reference/process_info.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massdataset/reference/processing-mass_dataset.html</loc>

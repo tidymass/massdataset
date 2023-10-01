@@ -24,7 +24,7 @@ and other packages that you have loaded."><meta property="og:image" content="htt
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.27</span>
       </span>
     </div>
 
@@ -150,7 +150,7 @@ and other packages that you have loaded."><meta property="og:image" content="htt
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Conflicts between the massdataset and other packages</h1>
-    <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/4_conflicts.R" class="external-link"><code>R/4_conflicts.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/4-conflicts.R" class="external-link"><code>R/4-conflicts.R</code></a></small>
     <div class="hidden name"><code>massdataset_conflicts.Rd</code></div>
     </div>
 
@@ -181,17 +181,18 @@ existing code.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">massdataset_conflicts</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Conflicts</span> ──────────────────────────────────────── massdataset_conflicts() ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">tibble</span>::<span style="color: #00BB00;">add_column()</span>     masks <span style="color: #0000BB;">massdataset</span>::add_column()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">apply()</span>     masks <span style="color: #0000BB;">base</span>::apply()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">methods</span>::<span style="color: #00BB00;">body&lt;-()</span>        masks <span style="color: #0000BB;">base</span>::body&lt;-()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">colMeans()</span>  masks <span style="color: #0000BB;">base</span>::colMeans()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">colSums()</span>   masks <span style="color: #0000BB;">base</span>::colSums()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span>          masks <span style="color: #0000BB;">massdataset</span>::filter(), <span style="color: #0000BB;">stats</span>::filter()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">intersect()</span> masks <span style="color: #0000BB;">base</span>::intersect()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">methods</span>::<span style="color: #00BB00;">kronecker()</span>     masks <span style="color: #0000BB;">base</span>::kronecker()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>             masks <span style="color: #0000BB;">stats</span>::lag()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">rowMeans()</span>  masks <span style="color: #0000BB;">base</span>::rowMeans()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">rowSums()</span>   masks <span style="color: #0000BB;">base</span>::rowSums()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">apply()</span>    masks <span style="color: #0000BB;">base</span>::apply()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">methods</span>::<span style="color: #00BB00;">body&lt;-()</span>       masks <span style="color: #0000BB;">base</span>::body&lt;-()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">colMeans()</span> masks <span style="color: #0000BB;">base</span>::colMeans()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">colSums()</span>  masks <span style="color: #0000BB;">base</span>::colSums()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">tidyr</span>::<span style="color: #00BB00;">extract()</span>        masks <span style="color: #0000BB;">magrittr</span>::extract()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span>         masks <span style="color: #0000BB;">massdataset</span>::filter(), <span style="color: #0000BB;">stats</span>::filter()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">lubridate</span>::<span style="color: #00BB00;">intersect()</span>  masks <span style="color: #0000BB;">massdataset</span>::intersect(), <span style="color: #0000BB;">base</span>::intersect()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">methods</span>::<span style="color: #00BB00;">kronecker()</span>    masks <span style="color: #0000BB;">base</span>::kronecker()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>            masks <span style="color: #0000BB;">stats</span>::lag()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">rowMeans()</span> masks <span style="color: #0000BB;">base</span>::rowMeans()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">rowSums()</span>  masks <span style="color: #0000BB;">base</span>::rowSums()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">purrr</span>::<span style="color: #00BB00;">set_names()</span>      masks <span style="color: #0000BB;">magrittr</span>::set_names()</span>
 </code></pre></div>
     </div>
   </div>

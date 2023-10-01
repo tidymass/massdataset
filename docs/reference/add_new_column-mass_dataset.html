@@ -4,6 +4,10 @@ Add median intensity for each feature to variable_info
 Calculate RSD for features
 Add NA number for each sample to sample_info.
 Add NA frequency for each sample to sample_info
+Add NA number for each sample to sample_info.
+Add NA frequency for each sample to sample_info
+Add NA number for each feature to variable_info
+Add NA number for each feature to variable_info
 Add NA number for each feature to variable_info
 Add NA number for each feature to variable_info"><meta property="og:image" content="https://tidymass.github.io/massdataset/logo.png"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -29,7 +33,7 @@ Add NA number for each feature to variable_info"><meta property="og:image" conte
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.27</span>
       </span>
     </div>
 
@@ -155,7 +159,7 @@ Add NA number for each feature to variable_info"><meta property="og:image" conte
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Add mean intensity for each feature to variable_info</h1>
-    <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/mutate_mean_intensity.R" class="external-link"><code>R/mutate_mean_intensity.R</code></a>, <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/mutate_median_intensity.R" class="external-link"><code>R/mutate_median_intensity.R</code></a>, <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/mutate_rsd.R" class="external-link"><code>R/mutate_rsd.R</code></a>, and 2 more</small>
+    <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/mutate_mean_intensity.R" class="external-link"><code>R/mutate_mean_intensity.R</code></a>, <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/mutate_median_intensity.R" class="external-link"><code>R/mutate_median_intensity.R</code></a>, <a href="https://github.com/tidymass/massdataset/blob/HEAD/R/mutate_rsd.R" class="external-link"><code>R/mutate_rsd.R</code></a>, and 4 more</small>
     <div class="hidden name"><code>add_new_column-mass_dataset.Rd</code></div>
     </div>
 
@@ -165,6 +169,10 @@ Add NA number for each feature to variable_info"><meta property="og:image" conte
 <p>Calculate RSD for features</p>
 <p>Add NA number for each sample to sample_info.</p>
 <p>Add NA frequency for each sample to sample_info</p>
+<p>Add NA number for each sample to sample_info.</p>
+<p>Add NA frequency for each sample to sample_info</p>
+<p>Add NA number for each feature to variable_info</p>
+<p>Add NA number for each feature to variable_info</p>
 <p>Add NA number for each feature to variable_info</p>
 <p>Add NA number for each feature to variable_info</p>
     </div>
@@ -180,9 +188,17 @@ Add NA number for each feature to variable_info"><meta property="og:image" conte
 <span></span>
 <span><span class="fu">mutate_sample_na_freq</span><span class="op">(</span><span class="va">object</span>, according_to_variables <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">mutate_sample_zero_number</span><span class="op">(</span><span class="va">object</span>, according_to_variables <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">mutate_sample_zero_freq</span><span class="op">(</span><span class="va">object</span>, according_to_variables <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">mutate_variable_na_number</span><span class="op">(</span><span class="va">object</span>, according_to_samples <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">mutate_variable_na_freq</span><span class="op">(</span><span class="va">object</span>, according_to_samples <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">mutate_variable_na_freq</span><span class="op">(</span><span class="va">object</span>, according_to_samples <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">mutate_variable_zero_number</span><span class="op">(</span><span class="va">object</span>, according_to_samples <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">mutate_variable_zero_freq</span><span class="op">(</span><span class="va">object</span>, according_to_samples <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -230,6 +246,18 @@ want to use only several variables, provide their names as a vector.</p></dd>
 
 
 <p>A mass_dataset class object</p>
+
+
+<p>A mass_dataset class object</p>
+
+
+<p>A mass_dataset class object</p>
+
+
+<p>A mass_dataset class object</p>
+
+
+<p>A mass_dataset class object</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -252,20 +280,22 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##calculate mean intensity according to all the samples</span></span></span>
 <span class="r-in"><span><span class="va">object2</span> <span class="op">=</span></span></span>
@@ -273,23 +303,25 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object2</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_mean_intensity ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package           Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_mean_intensity() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_mean_intensity() 2023-10-01 09:40:51</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     variable_id        mz        rt</span>
@@ -316,24 +348,26 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object3</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 5 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 5 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_mean_intensity ---------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Package           Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_mean_intensity() 2022-08-07 19:32:58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_mean_intensity() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package           Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_mean_intensity() 2023-10-01 09:40:51.108995</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_mean_intensity() 2023-10-01 09:40:51.136084</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 variable_id        mz        rt mean_intensity mean_intensity.1</span>
@@ -373,33 +407,35 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object4</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 144 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 144 x 6 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144 variables:M317T1035_POS M355T511_POS M270T586_POS ... M159T907_POS M172T916_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 6 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_mean_intensity ---------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Package           Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_mean_intensity() 2022-08-07 19:32:58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_mean_intensity() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package           Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_mean_intensity() 2023-10-01 09:40:51.154586</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_mean_intensity() 2023-10-01 09:40:51.162609</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate ---------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Package Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset      mutate() 2022-08-07 19:32:58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset      mutate() 2022-08-07 19:32:58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 massdataset      mutate() 2022-08-07 19:32:58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 massdataset      mutate() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset      mutate() 2023-10-01 09:40:51.172706</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset      mutate() 2023-10-01 09:40:51.175482</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 massdataset      mutate() 2023-10-01 09:40:51.178178</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 massdataset      mutate() 2023-10-01 09:40:51.180972</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">filter ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset      filter() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset      filter() 2023-10-01 09:40:51</span>
 <span class="r-in"><span><span class="va">object4</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                     variable_id        mz         rt mean_intensity</span>
@@ -705,20 +741,22 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##calculate median intensity according to all the samples</span></span></span>
 <span class="r-in"><span><span class="va">object2</span> <span class="op">=</span></span></span>
@@ -726,23 +764,25 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object2</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_median_intensity ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package             Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_median_intensity() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_median_intensity() 2023-10-01 09:40:51</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     variable_id        mz        rt</span>
@@ -769,24 +809,26 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object3</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 5 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 5 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_median_intensity ---------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Package             Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_median_intensity() 2022-08-07 19:32:58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_median_intensity() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package             Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_median_intensity() 2023-10-01 09:40:51.261859</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_median_intensity() 2023-10-01 09:40:51.311869</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 variable_id        mz        rt median_intensity</span>
@@ -816,20 +858,22 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##calculate RSDs according to all the samples</span></span></span>
 <span class="r-in"><span><span class="va">object</span> <span class="op">=</span></span></span>
@@ -837,23 +881,25 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_rsd ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset  mutate_rsd() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset  mutate_rsd() 2023-10-01 09:40:51</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 variable_id        mz        rt       rsd</span>
@@ -872,24 +918,26 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 5 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 5 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_rsd ---------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Package Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset  mutate_rsd() 2022-08-07 19:32:58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset  mutate_rsd() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset  mutate_rsd() 2023-10-01 09:40:51.366432</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset  mutate_rsd() 2023-10-01 09:40:51.401249</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 variable_id        mz        rt       rsd    rsd.1</span>
@@ -912,20 +960,22 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##calculate NA number according to all the variables</span></span></span>
 <span class="r-in"><span><span class="va">object2</span> <span class="op">=</span></span></span>
@@ -957,24 +1007,26 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object3</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 6 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 6 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_sample_na_number ---------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Package             Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_sample_na_number() 2022-08-07 19:32:58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_sample_na_number() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package             Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_sample_na_number() 2023-10-01 09:40:51.426326</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_sample_na_number() 2023-10-01 09:40:51.440111</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   sample_id injection.order   class   group na_number na_number.1</span>
@@ -997,20 +1049,22 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##calculate NA frequency according to all the variables</span></span></span>
 <span class="r-in"><span><span class="va">object2</span> <span class="op">=</span></span></span>
@@ -1046,24 +1100,26 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object3</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 6 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 6 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_sample_na_freq ---------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Package           Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_sample_na_freq() 2022-08-07 19:32:58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_sample_na_freq() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package           Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_sample_na_freq() 2023-10-01 09:40:51.471039</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_sample_na_freq() 2023-10-01 09:40:51.483764</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   sample_id injection.order   class   group na_freq na_freq.1</span>
@@ -1081,25 +1137,209 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span>  <span class="fu"><a href="create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span></span>
 <span class="r-in"><span>    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span></span>
+<span class="r-in"><span>    variable_info <span class="op">=</span> <span class="va">variable_info</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">##calculate NA number according to all the variables</span></span></span>
+<span class="r-in"><span><span class="va">object2</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu">mutate_sample_zero_number</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "sample_id"       "injection.order" "class"           "group"          </span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "sample_id"       "injection.order" "class"           "group"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "zero_number"    </span>
+<span class="r-in"><span><span class="va">object2</span><span class="op">@</span><span class="va">sample_info_note</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              name         meaning</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       sample_id       sample_id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 injection.order injection.order</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3           class           class</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4           group           group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     zero_number     zero_number</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">##calculate NA number according to only variables with mz &gt; 100</span></span></span>
+<span class="r-in"><span><span class="va">variable_id</span> <span class="op">=</span></span></span>
+<span class="r-in"><span><span class="va">object2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">mz</span> <span class="op">&gt;</span> <span class="fl">100</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">variable_id</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object3</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu">mutate_sample_zero_number</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object2</span>,</span></span>
+<span class="r-in"><span>                according_to_variables <span class="op">=</span> <span class="va">variable_id</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object3</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 6 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 6 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_sample_zero_number ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package               Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_sample_zero_number() 2023-10-01 09:40:51.511779</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_sample_zero_number() 2023-10-01 09:40:51.523797</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object3</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   sample_id injection.order   class   group zero_number zero_number.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Blank_3               1   Blank   Blank          NA            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Blank_4               2   Blank   Blank          NA            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      QC_1               3      QC      QC          NA            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      QC_2               4      QC      QC          NA            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     PS4P1               5 Subject Subject          NA            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     PS4P2               6 Subject Subject          NA            NA</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span></span>
+<span class="r-in"><span>    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span></span>
+<span class="r-in"><span>    variable_info <span class="op">=</span> <span class="va">variable_info</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">##calculate NA frequency according to all the variables</span></span></span>
+<span class="r-in"><span><span class="va">object2</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu">mutate_sample_zero_freq</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   sample_id injection.order   class   group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Blank_3               1   Blank   Blank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Blank_4               2   Blank   Blank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      QC_1               3      QC      QC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      QC_2               4      QC      QC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     PS4P1               5 Subject Subject</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     PS4P2               6 Subject Subject</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   sample_id injection.order   class   group zero_freq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Blank_3               1   Blank   Blank        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Blank_4               2   Blank   Blank        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      QC_1               3      QC      QC        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      QC_2               4      QC      QC        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     PS4P1               5 Subject Subject        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     PS4P2               6 Subject Subject        NA</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">##calculate NA frequency according to only variables with mz &gt; 100</span></span></span>
+<span class="r-in"><span><span class="va">variable_id</span> <span class="op">=</span></span></span>
+<span class="r-in"><span><span class="va">object2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">mz</span> <span class="op">&gt;</span> <span class="fl">100</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">variable_id</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object3</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu">mutate_sample_zero_freq</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object2</span>,</span></span>
+<span class="r-in"><span>                according_to_variables <span class="op">=</span> <span class="va">variable_id</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object3</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 6 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 6 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_sample_zero_freq ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package             Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_sample_zero_freq() 2023-10-01 09:40:51.551463</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_sample_zero_freq()  2023-10-01 09:40:51.56344</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object3</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   sample_id injection.order   class   group zero_freq zero_freq.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Blank_3               1   Blank   Blank        NA          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Blank_4               2   Blank   Blank        NA          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      QC_1               3      QC      QC        NA          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      QC_2               4      QC      QC        NA          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     PS4P1               5 Subject Subject        NA          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     PS4P2               6 Subject Subject        NA          NA</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span></span>
+<span class="r-in"><span>    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span></span>
 <span class="r-in"><span>    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##calculate NA number according to all the samples</span></span></span>
 <span class="r-in"><span><span class="va">object2</span> <span class="op">=</span></span></span>
@@ -1124,24 +1364,26 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object3</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 5 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 5 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_variable_na_number ---------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Package               Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_variable_na_number() 2022-08-07 19:32:58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_variable_na_number() 2022-08-07 19:32:58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package               Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_variable_na_number() 2023-10-01 09:40:51.605257</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_variable_na_number() 2023-10-01 09:40:51.612774</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "variable_id" "mz"          "rt"          "na_number"   "na_number.1"</span>
@@ -1165,20 +1407,22 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##calculate NA frequency according to all the samples</span></span></span>
 <span class="r-in"><span><span class="va">object2</span> <span class="op">=</span></span></span>
@@ -1209,24 +1453,26 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object3</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 5 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 5 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:32:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_variable_na_freq ---------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Package             Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_variable_na_freq() 2022-08-07 19:32:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_variable_na_freq() 2022-08-07 19:32:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package             Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_variable_na_freq() 2023-10-01 09:40:51.640542</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_variable_na_freq() 2023-10-01 09:40:51.649692</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     variable_id        mz        rt na_freq na_freq.1</span>
@@ -1236,6 +1482,178 @@ want to use only several variables, provide their names as a vector.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4  M183T224_POS 183.06209 224.32777   0.750       1.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5   M349T47_POS 349.01584  47.00262   0.250       0.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6  M182T828_POS 181.99775 828.35712   0.125       0.5</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span></span>
+<span class="r-in"><span>    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span></span>
+<span class="r-in"><span>    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">##calculate NA number according to all the samples</span></span></span>
+<span class="r-in"><span><span class="va">object2</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu">mutate_variable_zero_number</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "variable_id" "mz"          "rt"         </span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "variable_id" "mz"          "rt"          "zero_number"</span>
+<span class="r-in"><span><span class="va">object2</span><span class="op">@</span><span class="va">variable_info_note</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          name     meaning</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 variable_id variable_id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2          mz          mz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3          rt          rt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 zero_number zero_number</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">##calculate NA number according to only QC samples</span></span></span>
+<span class="r-in"><span><span class="va">object3</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="fu">mutate_variable_zero_number</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object2</span>,</span></span>
+<span class="r-in"><span>                according_to_samples <span class="op">=</span></span></span>
+<span class="r-in"><span>              <span class="fu"><a href="summary-mass_dataset.html">get_sample_id</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">$</span><span class="va">class</span> <span class="op">==</span> <span class="st">"QC"</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object3</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 5 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 5 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_variable_zero_number ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package                 Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_variable_zero_number() 2023-10-01 09:40:51.678922</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_variable_zero_number() 2023-10-01 09:40:51.686402</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object3</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "variable_id"   "mz"            "rt"            "zero_number"  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "zero_number.1"</span>
+<span class="r-in"><span><span class="va">object3</span><span class="op">@</span><span class="va">variable_info_note</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            name       meaning</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   variable_id   variable_id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2            mz            mz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3            rt            rt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   zero_number   zero_number</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 zero_number.1 zero_number.1</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span></span>
+<span class="r-in"><span>    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span></span>
+<span class="r-in"><span>    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">##calculate NA frequency according to all the samples</span></span></span>
+<span class="r-in"><span><span class="va">object2</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu">mutate_variable_zero_freq</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     variable_id        mz        rt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 M136T55_2_POS 136.06140  54.97902</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    M79T35_POS  79.05394  35.36550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  M307T548_POS 307.14035 547.56641</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  M183T224_POS 183.06209 224.32777</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   M349T47_POS 349.01584  47.00262</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  M182T828_POS 181.99775 828.35712</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     variable_id        mz        rt zero_freq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 M136T55_2_POS 136.06140  54.97902        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    M79T35_POS  79.05394  35.36550        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  M307T548_POS 307.14035 547.56641        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  M183T224_POS 183.06209 224.32777        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   M349T47_POS 349.01584  47.00262        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  M182T828_POS 181.99775 828.35712        NA</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">##calculate NA number according to only QC samples</span></span></span>
+<span class="r-in"><span><span class="va">object3</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu">mutate_variable_zero_freq</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object2</span>,</span></span>
+<span class="r-in"><span>                according_to_samples <span class="op">=</span></span></span>
+<span class="r-in"><span>              <span class="fu"><a href="summary-mass_dataset.html">get_sample_id</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="extract-mass_dataset.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">$</span><span class="va">class</span> <span class="op">==</span> <span class="st">"QC"</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object3</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 5 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 5 x 2 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2 processings in total</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:51</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">mutate_variable_zero_freq ---------- </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Package               Function.used                       Time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset mutate_variable_zero_freq() 2023-10-01 09:40:51.711548</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 massdataset mutate_variable_zero_freq() 2023-10-01 09:40:51.718574</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="extract-mass_dataset.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object3</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     variable_id        mz        rt zero_freq zero_freq.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 M136T55_2_POS 136.06140  54.97902        NA           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    M79T35_POS  79.05394  35.36550        NA           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  M307T548_POS 307.14035 547.56641        NA           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  M183T224_POS 183.06209 224.32777        NA          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   M349T47_POS 349.01584  47.00262        NA           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  M182T828_POS 181.99775 828.35712        NA          NA</span>
 </code></pre></div>
     </div>
   </div>

@@ -48,7 +48,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.27</span>
       </span>
     </div>
 
@@ -197,7 +197,7 @@
 (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
             <h4 data-toc-skip class="date">Created on 2022-02-18 and
-updated on 2022-08-07</h4>
+updated on 2023-10-01</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/based_on_mass_dataset.Rmd" class="external-link"><code>vignettes/based_on_mass_dataset.Rmd</code></a></small>
       <div class="hidden name"><code>based_on_mass_dataset.Rmd</code></div>
@@ -397,8 +397,8 @@ mass_dataset</strong><a class="anchor" aria-label="anchor" href="#make-functions
 <span><span class="co">#' @rdname summary-mass_dataset</span></span>
 <span><span class="co">#' @return result</span></span>
 <span></span>
-<span><span class="kw">setMethod</span><span class="op">(</span>f <span class="op">=</span> <span class="st">"apply"</span>,</span>
-<span>          <span class="fu">signature</span><span class="op">(</span>X <span class="op">=</span> <span class="st">"mass_dataset"</span><span class="op">)</span>,</span>
+<span><span class="kw"><a href="https://rdrr.io/r/methods/setMethod.html" class="external-link">setMethod</a></span><span class="op">(</span>f <span class="op">=</span> <span class="st">"apply"</span>,</span>
+<span>          <span class="fu"><a href="https://rdrr.io/r/methods/GenericFunctions.html" class="external-link">signature</a></span><span class="op">(</span>X <span class="op">=</span> <span class="st">"mass_dataset"</span><span class="op">)</span>,</span>
 <span>          <span class="kw">function</span> <span class="op">(</span><span class="va">X</span>, <span class="va">MARGIN</span>, <span class="va">FUN</span>, <span class="va">...</span>, <span class="va">simplify</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">{</span></span>
 <span>            <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">X</span><span class="op">@</span><span class="va">expression_data</span><span class="op">)</span>,</span>
 <span>                  <span class="va">MARGIN</span>, <span class="va">FUN</span>, <span class="va">...</span>, simplify <span class="op">=</span> <span class="va">simplify</span><span class="op">)</span></span>

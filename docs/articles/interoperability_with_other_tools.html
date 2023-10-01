@@ -48,7 +48,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.27</span>
       </span>
     </div>
 
@@ -197,7 +197,7 @@
 (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
             <h4 data-toc-skip class="date">Created on 2022-05-16 and
-updated on 2022-08-07</h4>
+updated on 2023-10-01</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/interoperability_with_other_tools.Rmd" class="external-link"><code>vignettes/interoperability_with_other_tools.Rmd</code></a></small>
       <div class="hidden name"><code>interoperability_with_other_tools.Rmd</code></div>
@@ -283,12 +283,12 @@ to convert <code>mass_dataset</code> to
 <code>SummarizedExperiment</code> class.</p>
 <p>Please install <code>SummarizedExperiment</code> first.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va">BiocManager</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.github.io/BiocManager/" class="external-link">BiocManager</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">SummarizedExperiment</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
-<span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"SummarizedExperiment"</span><span class="op">)</span></span>
+<span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://bioconductor.github.io/BiocManager/reference/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"SummarizedExperiment"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">SummarizedExperiment</a></span><span class="op">)</span></span>
@@ -340,15 +340,15 @@ example how to use the <code>MetaboAnnotation</code> in
 RforMassSpectrometry for annotation.</p>
 <p>Please install <code>MetaboAnnotation</code> first.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va">BiocManager</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.github.io/BiocManager/" class="external-link">BiocManager</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RforMassSpectrometry/MetaboAnnotation" class="external-link">MetaboAnnotation</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
-<span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"MetaboAnnotation"</span><span class="op">)</span></span>
+<span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va">MetaboAnnotation</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://bioconductor.github.io/BiocManager/reference/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"MetaboAnnotation"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RforMassSpectrometry/MetaboAnnotation" class="external-link">MetaboAnnotation</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">MetaboAnnotation</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/SummarizedExperiment" class="external-link">SummarizedExperiment</a></span><span class="op">)</span></span></code></pre></div>
 <p>Convert <code>mass_dataset</code> class to
 <code>SummarizedExperiment</code> class object.</p>
@@ -392,20 +392,20 @@ RforMassSpectrometry for annotation.</p>
 <p>Metabolite annotation.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">parm</span> <span class="op">&lt;-</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/MetaboAnnotation/man/matchValues.html" class="external-link">Mass2MzParam</a></span><span class="op">(</span></span>
+<span>  <span class="fu">Mass2MzParam</span><span class="op">(</span></span>
 <span>    adducts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"[M+H]+"</span>, <span class="st">"[M+Na]+"</span><span class="op">)</span>,</span>
 <span>    tolerance <span class="op">=</span> <span class="fl">0.005</span>,</span>
 <span>    ppm <span class="op">=</span> <span class="fl">0</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="va">matched_features</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/MetaboAnnotation/man/matchValues.html" class="external-link">matchValues</a></span><span class="op">(</span><span class="va">se_object</span>, <span class="va">target_df</span>, param <span class="op">=</span> <span class="va">parm</span><span class="op">)</span></span>
+<span>  <span class="fu">matchValues</span><span class="op">(</span><span class="va">se_object</span>, <span class="va">target_df</span>, param <span class="op">=</span> <span class="va">parm</span><span class="op">)</span></span>
 <span><span class="va">matched_features</span></span>
 <span><span class="co">#&gt; Object of class Matched </span></span>
 <span><span class="co">#&gt; Total number of matches: 455 </span></span>
 <span><span class="co">#&gt; Number of query objects: 1000 (217 matched)</span></span>
 <span><span class="co">#&gt; Number of target objects: 57599 (375 matched)</span></span></code></pre></div>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/MetaboAnnotation/man/Matched.html" class="external-link">matchedData</a></span><span class="op">(</span><span class="va">matched_features</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu">matchedData</span><span class="op">(</span><span class="va">matched_features</span><span class="op">)</span></span>
 <span><span class="co">#&gt; DataFrame with 1238 rows and 11 columns</span></span>
 <span><span class="co">#&gt;                   feature_id        mz     rtime target_headgroup target_name</span></span>
 <span><span class="co">#&gt;                  &lt;character&gt; &lt;numeric&gt; &lt;numeric&gt;      &lt;character&gt; &lt;character&gt;</span></span>

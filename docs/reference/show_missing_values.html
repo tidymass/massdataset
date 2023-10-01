@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.27</span>
       </span>
     </div>
 
@@ -172,6 +172,7 @@
 <span>  variable_na_cutoff <span class="op">=</span> <span class="fl">50</span>,</span>
 <span>  only_outlier_samples <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  only_outlier_variables <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  return_as_ggplot <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -231,6 +232,10 @@ see?ComplexHeatmap::Heatmap</p></dd>
 <dd><p>Only show the outlier variables?</p></dd>
 
 
+<dt>return_as_ggplot</dt>
+<dd><p>Return plot as ggplot2 object?</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Other parameters for ComplexHeatmap::Heatmap</p></dd>
 
@@ -262,20 +267,22 @@ see?ComplexHeatmap::Heatmap</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:33:12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:41:09</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##show missing values plot</span></span></span>
 <span class="r-in"><span><span class="fu">show_missing_values</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></span>

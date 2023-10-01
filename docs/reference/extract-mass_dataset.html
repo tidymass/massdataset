@@ -30,7 +30,7 @@ Extract ms2 data"><meta property="og:image" content="https://tidymass.github.io/
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.27</span>
       </span>
     </div>
 
@@ -176,9 +176,9 @@ Extract ms2 data"><meta property="og:image" content="https://tidymass.github.io/
 <span></span>
 <span><span class="fu">extract_sample_info</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">extract_variable_info</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="fu">extract_variable_info</span><span class="op">(</span><span class="va">object</span>, with_expression_data <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">extract_annotation_table</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="fu">extract_annotation_table</span><span class="op">(</span><span class="va">object</span>, with_expression_data <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">extract_variable_info_note</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span></span>
@@ -192,16 +192,16 @@ Extract ms2 data"><meta property="og:image" content="https://tidymass.github.io/
 <span><span class="fu"><a href="sample_info.html">sample_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S4 method for mass_dataset</span></span>
-<span><span class="fu"><a href="sample_info.html">expression_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="fu"><a href="expression_data.html">expression_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S4 method for mass_dataset</span></span>
 <span><span class="fu"><a href="variable_info.html">variable_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S4 method for mass_dataset</span></span>
-<span><span class="fu">process_info</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="fu"><a href="process_info.html">process_info</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S4 method for mass_dataset</span></span>
-<span><span class="fu">ms2_data</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span><span class="fu"><a href="ms2_data.html">ms2_data</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S4 method for mass_dataset</span></span>
 <span><span class="fu"><a href="sample_info_note.html">sample_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
@@ -210,13 +210,17 @@ Extract ms2 data"><meta property="og:image" content="https://tidymass.github.io/
 <span><span class="fu"><a href="variable_info_note.html">variable_info_note</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S4 method for mass_dataset</span></span>
-<span><span class="fu">annotation_table</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="annotation_table.html">annotation_table</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>(required) mass_dataset class object</p></dd>
+
+
+<dt>with_expression_data</dt>
+<dd><p>should the extracted annotation table with expression data.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -401,26 +405,28 @@ Extract ms2 data"><meta property="og:image" content="https://tidymass.github.io/
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2022-08-07 19:33:03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2023-10-01 09:40:58</span>
 <span class="r-in"><span><span class="fu">extract_process_info</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $create_mass_dataset</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">pacakge_name: massdataset</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">function_name: create_mass_dataset()</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">time: 2022-08-07 19:33:03</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">time: 2023-10-01 09:40:58.118454</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">parameters:</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">no : no</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>

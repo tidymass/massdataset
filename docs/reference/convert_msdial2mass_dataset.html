@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.12</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.27</span>
       </span>
     </div>
 
@@ -158,13 +158,21 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">convert_msdial2mass_dataset</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">convert_msdial2mass_dataset</span><span class="op">(</span><span class="va">x</span>, path <span class="op">=</span> <span class="st">"."</span>, <span class="va">file_name</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>Feature table from MS-DIAL.</p></dd>
+
+
+<dt>path</dt>
+<dd><p>work directory.</p></dd>
+
+
+<dt>file_name</dt>
+<dd><p>The name of file from MS-DIAL.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -181,26 +189,30 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">##if you want to read the msdital table,</span></span></span>
+<span class="r-in"><span><span class="co">##use this function</span></span></span>
+<span class="r-in"><span><span class="co">## table &lt;- read.table("msdial_table.csv", sep = ",")</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"msdial_table"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">object</span> <span class="op">=</span></span></span>
 <span class="r-in"><span>  <span class="fu">convert_msdial2mass_dataset</span><span class="op">(</span>x <span class="op">=</span> <span class="va">msdial_table</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">object</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.12 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 1.0.27 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1.expression_data:</span>[ 3751 x 20 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">2.sample_info:</span>[ 20 x 5 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 samples:W03.01 W03.02 W03.03 ... W30.09 W30.10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">3.variable_info:</span>[ 3751 x 32 data.frame]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3751 variables:0 1 2 ... 6716 6717</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">4.sample_info_note:</span>[ 5 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">5.variable_info_note:</span>[ 32 x 2 data.frame]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">create_mass_dataset ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package                 Function.used                Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset convert_msdial2mass_dataset() 2022-08-07 19:33:01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset convert_msdial2mass_dataset() 2023-10-01 09:40:55</span>
 </code></pre></div>
     </div>
   </div>
