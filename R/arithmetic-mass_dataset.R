@@ -1,12 +1,29 @@
-#' @title log
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @method log mass_dataset
-#' @param x x
-#' @param base base
+#' Log-transform Expression Data in `mass_dataset` Object
+#'
+#' This function applies a log transformation to the expression data
+#' contained within a `mass_dataset` object.
+#'
+#' @param x A `mass_dataset` object containing the expression data.
+#' @param base The base of the logarithm. The default is `exp(1)`, 
+#'   which corresponds to the natural logarithm.
+#'
+#' @details
+#' The `log.mass_dataset` function takes a `mass_dataset` object as its input, 
+#' and applies a log transformation to its expression data. This can be useful
+#' for various downstream analyses that assume or benefit from log-transformed data.
+#' The function also updates the `process_info` slot of the `mass_dataset` 
+#' object to include information about the log transformation.
+#'
+#' @return
+#' Returns a `mass_dataset` object with log-transformed expression data.
+#'
+#' @examples
+#' # Assuming 'md' is a 'mass_dataset' object
+#' # log_transformed_md <- log(md, base = 2)
+#'
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return mass_dataset object
 
 log.mass_dataset = function(x, base = exp(1)) {
   expression_data = x@expression_data
@@ -30,12 +47,32 @@ log.mass_dataset = function(x, base = exp(1)) {
 }
 
 
-#' @title abs
-#' @method abs mass_dataset
-#' @param x x
+#' Absolute Value Transformation of Expression Data in `mass_dataset` Object
+#'
+#' This function applies an absolute value transformation to the expression data
+#' contained within a `mass_dataset` object.
+#'
+#' @param x A `mass_dataset` object containing the expression data to be transformed.
+#'
+#' @details
+#' The `abs.mass_dataset` function takes a `mass_dataset` object as its input 
+#' and applies an absolute value transformation to its expression data. This can 
+#' be useful in scenarios where negative values in the dataset need to be transformed 
+#' to their positive counterparts for subsequent analyses.
+#' 
+#' Additionally, the function updates the `process_info` slot of the `mass_dataset` 
+#' object to capture details about the absolute value transformation process.
+#'
+#' @return
+#' Returns a `mass_dataset` object with expression data transformed to absolute values.
+#'
+#' @examples
+#' # Assuming 'md' is a 'mass_dataset' object
+#' # abs_transformed_md <- abs.mass_dataset(md)
+#'
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return mass_dataset object
 
 abs.mass_dataset = function(x) {
   expression_data = x@expression_data

@@ -18,7 +18,7 @@
 \alias{rowSums,mass_dataset-method}
 \alias{colMeans,mass_dataset-method}
 \alias{rowMeans,mass_dataset-method}
-\title{log}
+\title{Log-transform Expression Data in \code{mass_dataset} Object}
 \usage{
 \method{log}{mass_dataset}(x, base = exp(1))
 
@@ -57,7 +57,8 @@
 \arguments{
 \item{x}{x}
 
-\item{base}{base}
+\item{base}{The base of the logarithm. The default is \code{exp(1)},
+which corresponds to the natural logarithm.}
 
 \item{center}{center}
 
@@ -72,9 +73,9 @@
 \item{dims}{dims}
 }
 \value{
-mass_dataset object
+Returns a \code{mass_dataset} object with log-transformed expression data.
 
-mass_dataset object
+Returns a \code{mass_dataset} object with expression data transformed to absolute values.
 
 mass_dataset object
 
@@ -107,6 +108,12 @@ vector object
 vector object
 }
 \description{
+This function applies a log transformation to the expression data
+contained within a \code{mass_dataset} object.
+
+This function applies an absolute value transformation to the expression data
+contained within a \code{mass_dataset} object.
+
 #' @title colSums
 #' @method colSums mass_dataset
 #' @param x x
@@ -144,6 +151,20 @@ vector object
 #' @return vector object
 }
 \details{
+The \code{log.mass_dataset} function takes a \code{mass_dataset} object as its input,
+and applies a log transformation to its expression data. This can be useful
+for various downstream analyses that assume or benefit from log-transformed data.
+The function also updates the \code{process_info} slot of the \code{mass_dataset}
+object to include information about the log transformation.
+
+The \code{abs.mass_dataset} function takes a \code{mass_dataset} object as its input
+and applies an absolute value transformation to its expression data. This can
+be useful in scenarios where negative values in the dataset need to be transformed
+to their positive counterparts for subsequent analyses.
+
+Additionally, the function updates the \code{process_info} slot of the \code{mass_dataset}
+object to capture details about the absolute value transformation process.
+
 colSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
 colSums(x@expression_data, na.rm = na.rm, dims = dims)
 }
@@ -160,7 +181,14 @@ rowMeans.mass_dataset = function(x, na.rm = FALSE, dims = 1){
 rowMeans(x@expression_data, na.rm = na.rm, dims = dims)
 }
 }
+\examples{
+# Assuming 'md' is a 'mass_dataset' object
+# log_transformed_md <- log(md, base = 2)
+
+# Assuming 'md' is a 'mass_dataset' object
+# abs_transformed_md <- abs.mass_dataset(md)
+
+}
 \author{
-Xiaotao Shen
-\email{shenxt1990@outlook.com}
+Xiaotao Shen \email{shenxt1990@outlook.com}
 }

@@ -1,13 +1,27 @@
-#' @title activate_mass_dataset
-#' @description Determine the context of subsequent manipulations
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param .data (required) A mass_dataset class object
-#' @param what (required) What should get be activated?
-#' Possible values are `sample_info`,
-#' `expression_data`, `variable_info`, or `annotation_table`
-#' @return A mass_dataset class object
+#' Activate a Specific Dataset
+#'
+#' Activates a dataset within the mass dataset object for further analysis.
+#'
+#' @param .data A `mass_dataset` object.
+#' @param what A character string specifying which dataset to activate.
+#'   The available options are:
+#'   \itemize{
+#'     \item "sample_info": Activates the sample information dataset.
+#'     \item "variable_info": Activates the variable information dataset.
+#'     \item "expression_data": Activates the expression data.
+#'     \item "annotation_table": Activates the annotation table.
+#'   }
+#'   By default, it activates the "sample_info" dataset.
+#'
+#' @details 
+#' This function allows users to activate a specific dataset within the 
+#' `mass_dataset` object. The activated dataset can be then used in subsequent
+#' analysis steps.
+#'
+#' @return 
+#' Returns the `mass_dataset` object with the specified dataset activated.
+#'
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
 #' @export
 #' @examples
 #' data("expression_data")
