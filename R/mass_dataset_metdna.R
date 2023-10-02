@@ -1,7 +1,7 @@
 #' Export mass_dataset Object for MetDNA Analysis
 #'
 #' @description
-#' This function exports a \code{\link[massdataset]{mass_dataset}} object into a format suitable for MetDNA analysis.
+#' This function exports a mass_dataset object into a format suitable for MetDNA analysis.
 #' It generates a Peak_Table.csv, sample_info.csv, and MS2 data in MGF format.
 #'
 #' @param object An object of class \code{mass_dataset}.

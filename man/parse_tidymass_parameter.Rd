@@ -3,18 +3,18 @@
 \docType{methods}
 \name{parse_tidymass_parameter}
 \alias{parse_tidymass_parameter}
-\title{parse_tidymass_parameter}
+\title{Parse tidymass_parameter Object to Data Frame}
 \usage{
 parse_tidymass_parameter(object)
 }
 \arguments{
-\item{object}{(required) tidymass_parameters class object.}
+\item{object}{A \code{tidymass_parameter} object to be parsed.}
 }
 \value{
-html report
+A data frame containing the package name, function name, parameters, and the time when the function was called.
 }
 \description{
-parse_tidymass_parameter
+This function takes a \code{tidymass_parameter} object and converts it into a data frame for easier manipulation and reporting.
 }
 \examples{
 data("expression_data")

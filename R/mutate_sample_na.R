@@ -1,14 +1,15 @@
-#' @title Add NA number for each sample to sample_info
-#' @description Add NA number for each sample to sample_info.
-#' @docType methods
-#' @rdname add_new_column-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param according_to_variables (required) What variables used to calculate
-#' NA number or percentage. Default is "all". If you
-#' want to use only several variables, provide their names as a vector.
-#' @return A mass_dataset class object
+#' Mutate Sample NA Count in mass_dataset Object
+#'
+#' This function adds a new column to the `sample_info` slot of a mass_dataset object,
+#' which contains the count of NA (Not Available) values for each sample according to the variables specified.
+#' @param object A mass_dataset object.
+#' @param according_to_variables A character vector specifying the variable IDs to consider when
+#'                              calculating the count of NA values. Default is "all", which considers all variables.
+#'
+#' @return A modified mass_dataset object with an updated `sample_info` slot.
+#'
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
 #' @export
 #' @examples
 #' data("expression_data")
@@ -131,17 +132,19 @@ mutate_sample_na_number <-
   }
 
 
-#' @title Add NA frequency for each sample to sample_info
-#' @description Add NA frequency for each sample to sample_info
-#' @docType methods
-#' @rdname add_new_column-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param according_to_variables (required) What variables used to calculate
-#' NA number or percentage. Default is "all". If you
-#' want to use only several variables, provide their names as a vector.
-#' @return A mass_dataset class object
+#' Mutate Sample NA Frequency in mass_dataset Object
+#'
+#' This function adds a new column to the `sample_info` slot of a mass_dataset object,
+#' which contains the frequency of NA (Not Available) values for each sample according to the variables specified.
+#'
+#' @param object A mass_dataset object.
+#' @param according_to_variables A character vector specifying the variable IDs to consider when
+#'                              calculating the frequency of NA values. Default is "all", which considers all variables.
+#'
+#' @return A modified mass_dataset object with an updated `sample_info` slot.
+#'
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
 #' @export
 #' @examples
 #' data("expression_data")

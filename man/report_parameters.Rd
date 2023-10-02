@@ -3,20 +3,20 @@
 \docType{methods}
 \name{report_parameters}
 \alias{report_parameters}
-\title{report_parameters}
+\title{Generate Parameter Report for mass_dataset Object}
 \usage{
 report_parameters(object, path = ".")
 }
 \arguments{
-\item{object}{(required) mass_dataset class object.}
+\item{object}{A \code{mass_dataset} object for which the parameter report is to be generated.}
 
-\item{path}{working directory}
+\item{path}{The directory where the parameter report will be saved. Default is the current working directory.}
 }
 \value{
-html report
+An HTML report summarizing the parameters used in the processing of the \code{mass_dataset} object. The report is saved in the specified directory.
 }
 \description{
-Export the parameters of mass_dataset object as a html file.
+This function generates an HTML report summarizing the parameters used in the processing of a \code{mass_dataset} object. The report is saved in a specified directory.
 }
 \examples{
 \dontrun{

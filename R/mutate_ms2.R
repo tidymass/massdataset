@@ -1,15 +1,18 @@
-#' @title Mutate MS2 spectra for each variable
-#' @description Mutate MS2 spectra for each variable
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param column rp or hilic.
-#' @param polarity positive or negative
-#' @param ms1.ms2.match.mz.tol default is 15 ppm.
-#' @param ms1.ms2.match.rt.tol default is 30 seconds.
-#' @param path work directory. In this path, please provide MS2 msp data.
-#' @return A mass_dataset object with new added ms2 data.
+#' Mutate MS2 Data in mass_dataset Object
+#'
+#' This function adds MS2 data to a mass_dataset object. It reads MS2 files from a specified path,
+#' matches them with MS1 data in the object, and stores the matched MS2 data in the object.
+#'
+#' @param object A mass_dataset object.
+#' @param column A character vector specifying the column types. Default is c("rp", "hilic").
+#' @param polarity A character vector specifying the polarity. Default is c("positive", "negative").
+#' @param ms1.ms2.match.mz.tol Numeric, the m/z tolerance for matching MS1 and MS2. Default is 15.
+#' @param ms1.ms2.match.rt.tol Numeric, the retention time tolerance for matching MS1 and MS2. Default is 30.
+#' @param path Character, the directory path where MS2 files are located. Default is the current directory.
+#'
+#' @return A modified mass_dataset object with added MS2 data.
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
 #' @export
 #' @examples
 #' \dontrun{

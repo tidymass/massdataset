@@ -3,23 +3,25 @@
 \docType{methods}
 \name{split_mass_dataset}
 \alias{split_mass_dataset}
-\title{split_mass_dataset}
+\title{Split and Update mass_dataset Object Based on Criteria}
 \usage{
 split_mass_dataset(object, by, fun)
 }
 \arguments{
-\item{object}{(required) A mass_dataset class object.}
+\item{object}{A \code{mass_dataset} object to be split.}
 
-\item{by}{column name of sample_info or variable_info}
+\item{by}{The column name in \code{sample_info} or \code{variable_info} used for splitting.}
 
-\item{fun}{function used to split by. For example, mz,
-should set it as > 100.}
+\item{fun}{A function to apply when \code{by} is numeric. This function should return a logical vector.}
 }
 \value{
-A list of mass_dataset.
+A list of subsetted \code{mass_dataset} objects.
 }
 \description{
-Split one mass_dataset into several mass_dataset objects.
+This function splits a \code{mass_dataset} object into multiple
+subsets based on a specified column in either \code{sample_info}
+or \code{variable_info}. It also updates the \code{process_info} slot with
+the splitting parameters.
 }
 \examples{
 data("expression_data")

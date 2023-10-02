@@ -1,16 +1,25 @@
-#' @title Create a ggplot object from mass_dataset class
-#' @description Create a ggplot object from mass_dataset class
-#' @docType methods
-#' @rdname graphics-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param direction variable or sample
-#' @param variable_index variable index
-#' @param variable_id variable ID
-#' @param sample_index sample index
-#' @param sample_id sample ID
-#' @return A ggplot class
+#' Create ggplot2 Visualization for a mass_dataset Object
+#'
+#' This function generates a ggplot2 visualization for a mass_dataset object. 
+#' You can choose the direction of the visualization (either "variable" or "sample"), 
+#' specify the variable or sample of interest, and create various plots based on 
+#' the chosen direction and data.
+#'
+#' @param object A mass_dataset object.
+#' @param direction A character vector specifying the direction of the visualization. 
+#'   It can be either "variable" or "sample". Default is "variable".
+#' @param variable_index An integer specifying the index of the variable of interest.
+#'   If not provided, you can use 'variable_id' to specify the variable by its ID.
+#' @param variable_id A character string specifying the ID of the variable of interest.
+#'   If provided, 'variable_index' will be ignored.
+#' @param sample_index An integer specifying the index of the sample of interest.
+#'   If not provided, you can use 'sample_id' to specify the sample by its ID.
+#' @param sample_id A character string specifying the ID of the sample of interest.
+#'   If provided, 'sample_index' will be ignored.
+#'
+#' @return A ggplot2 plot object.
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
 #' @import ggplot2
 #' @export
 #' @examples

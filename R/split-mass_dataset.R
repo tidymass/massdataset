@@ -23,16 +23,21 @@ split.mass_dataset <- function(x, f, drop = FALSE, ...) {
 }
 
 
-#' @title split_mass_dataset
-#' @description Split one mass_dataset into several mass_dataset objects.
+#' Split and Update mass_dataset Object Based on Criteria
+#'
+#' This function splits a `mass_dataset` object into multiple 
+#' subsets based on a specified column in either `sample_info` 
+#' or `variable_info`. It also updates the `process_info` slot with 
+#' the splitting parameters.
+#'
 #' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) A mass_dataset class object.
-#' @param by column name of sample_info or variable_info
-#' @param fun function used to split by. For example, mz,
-#' should set it as > 100.
-#' @return A list of mass_dataset.
+#' @param object A `mass_dataset` object to be split.
+#' @param by The column name in `sample_info` or `variable_info` used for splitting.
+#' @param fun A function to apply when `by` is numeric. This function should return a logical vector.
+#'
+#' @return A list of subsetted `mass_dataset` objects.
 #' @export
 #' @importFrom purrr map
 #' @examples

@@ -2,10 +2,10 @@
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @method cbind mass_dataset
-#' @param ... mass_dataset objects
-#' @param deparse.level deparse.level
+#' @param ... One or more `mass_dataset` objects to be column bound.
+#' @param deparse.level Integer controlling the construction of labels in the case of non-matrix-like arguments. Default is 1.
+#'
 #' @export
-#' @rdname processing-mass_dataset
 #' @return mass_dataset
 
 cbind.mass_dataset <-
@@ -22,11 +22,11 @@ cbind.mass_dataset <-
 #' @title cbind mass_data class
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param x mass_dataset objects
-#' @param y mass_dataset objects
-#' @param deparse.level deparse.level
+#' @param x A `mass_dataset` object.
+#' @param y Another `mass_dataset` object to be column bound with `x`.
+#' @param deparse.level Integer controlling the construction of labels in the case of non-matrix-like arguments. Default is 1.
+#'
 #' @export
-#' @rdname processing-mass_dataset
 #' @return mass_dataset
 
 cbind_mass_dataset <-
@@ -159,10 +159,10 @@ cbind_mass_dataset <-
 
 #' @title rbind
 #' @method rbind mass_dataset
-#' @param ... mass_datasets
-#' @param deparse.level deparse.level
+#' @param ... One or more `mass_dataset` objects to be row bound.
+#' @param deparse.level Integer controlling the construction of labels in the case of non-matrix-like arguments. Default is 1.
+#'
 #' @export
-#' @rdname processing-mass_dataset
 #' @return mass_dataset
 
 rbind.mass_dataset <-
@@ -179,13 +179,26 @@ rbind.mass_dataset <-
 
 
 
-#' @title rbind mass_dataset
-#' @param x mass_dataset
-#' @param y mass_dataset
-#' @param deparse.level deparse.level
+#' Row-wise Binding of mass_dataset Objects
+#'
+#' This function combines two mass_dataset objects by rows. It checks for
+#' compatibility in terms of sample information, variable information, and other
+#' attributes before performing the row-wise binding.
+#'
+#' @param x A mass_dataset object. If missing, the function returns `y`.
+#' @param y A mass_dataset object. If missing, the function returns `x`.
+#' @param deparse.level Not used, for compatibility only.
+#'
+#' @return A new mass_dataset object that is the row-wise combination of `x` and `y`.
+#'
+#' @examples
+#' \dontrun{
+#' # Assuming mass_dataset1 and mass_dataset2 are two mass_dataset objects
+#' result <- rbind_mass_dataset(mass_dataset1, mass_dataset2)
+#' }
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
 #' @export
-#' @rdname processing-mass_dataset
-#' @return mass_dataset
 
 rbind_mass_dataset <-
   function(x, y, deparse.level = 1) {
@@ -403,8 +416,8 @@ rbind_mass_dataset <-
 #' @title head
 #' @method head mass_dataset
 #' @param x x
+#' @param ... Additional parameters.
 #' @export
-#' @rdname processing-mass_dataset
 #' @return mass_dataset class object
 
 head.mass_dataset = function(x, ...) {
@@ -417,8 +430,8 @@ head.mass_dataset = function(x, ...) {
 #' @title tail
 #' @method tail mass_dataset
 #' @param x x
+#' @param ... Additional parameters.
 #' @export
-#' @rdname processing-mass_dataset
 #' @return mass_dataset class object
 
 tail.mass_dataset = function(x, ...) {

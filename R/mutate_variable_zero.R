@@ -1,14 +1,14 @@
-#' @title Add NA number for each feature to variable_info
-#' @description Add NA number for each feature to variable_info
-#' @docType methods
-#' @rdname add_new_column-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param according_to_samples (required) What samples used to calculate
-#' NA number or percentage. Default is "all". If you
-#' want to use only several samples, provide their names as a vector.
-#' @return A mass_dataset class object
+#' Mutate Variable Zero Number in mass_dataset Object
+#'
+#' This function adds a new column to the `variable_info` slot of a mass_dataset object,
+#' which contains the number of zeros for each variable according to the samples specified.
+#' @param object A mass_dataset object.
+#' @param according_to_samples A character vector specifying the sample IDs to consider when
+#'                            counting zeros. Default is "all", which considers all samples.
+#'
+#' @return A modified mass_dataset object with an updated `variable_info` slot.
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
 #' @export
 #' @examples
 #' data("expression_data")
@@ -119,17 +119,18 @@ mutate_variable_zero_number <-
 
 
 
-#' @title Add NA number for each feature to variable_info
-#' @description Add NA number for each feature to variable_info
-#' @docType methods
-#' @rdname add_new_column-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param according_to_samples (required) What samples used to calculate
-#' NA number or percentage. Default is "all". If you
-#' want to use only several samples, provide their names as a vector.
-#' @return A mass_dataset class object
+#' Mutate Variable Zero Frequency in mass_dataset Object
+#'
+#' This function adds a new column to the `variable_info` slot of a mass_dataset object,
+#' which contains the frequency of zeros for each variable according to the samples specified.
+#'
+#' @param object A mass_dataset object.
+#' @param according_to_samples A character vector specifying the sample IDs to consider when
+#'                            calculating zero frequency. Default is "all", which considers all samples.
+#'
+#' @return A modified mass_dataset object with an updated `variable_info` slot.
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
 #' @export
 #' @examples
 #' data("expression_data")

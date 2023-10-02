@@ -48,7 +48,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massdataset</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.27</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.28</span>
       </span>
     </div>
 
@@ -242,7 +242,7 @@ information to <code>mass_dataset</code> class.</p>
 <span><span class="co">###add NA frequency (%) in sample_info</span></span>
 <span><span class="va">object2</span> <span class="op">=</span></span>
 <span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="../reference/add_new_column-mass_dataset.html">mutate_sample_na_freq</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/mutate_sample_na_freq.html">mutate_sample_na_freq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   sample_id injection.order   class   group na_freq</span></span>
@@ -256,7 +256,7 @@ information to <code>mass_dataset</code> class.</p>
 <span><span class="co">###add NA number (%) in sample_info</span></span>
 <span><span class="va">object2</span> <span class="op">=</span></span>
 <span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="../reference/add_new_column-mass_dataset.html">mutate_sample_na_number</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/mutate_sample_na_number.html">mutate_sample_na_number</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   sample_id injection.order   class   group na_number</span></span>
@@ -278,7 +278,7 @@ just provide the variable IDs.</p>
 <span></span>
 <span><span class="va">object2</span> <span class="op">=</span></span>
 <span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="../reference/add_new_column-mass_dataset.html">mutate_sample_na_number</a></span><span class="op">(</span>according_to_variables <span class="op">=</span> <span class="va">variable_id</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/mutate_sample_na_number.html">mutate_sample_na_number</a></span><span class="op">(</span>according_to_variables <span class="op">=</span> <span class="va">variable_id</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_sample_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   sample_id injection.order   class   group na_number</span></span>
@@ -348,7 +348,7 @@ So we can just use the <code><a href="https://dplyr.tidyverse.org/reference/muta
 <span><span class="co">###add mean intensity in variable_info</span></span>
 <span><span class="va">object2</span> <span class="op">=</span></span>
 <span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="../reference/add_new_column-mass_dataset.html">mutate_mean_intensity</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/mutate_mean_intensity.html">mutate_mean_intensity</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                 variable_id        mz        rt mean_intensity</span></span>
@@ -362,7 +362,7 @@ So we can just use the <code><a href="https://dplyr.tidyverse.org/reference/muta
 <span><span class="co">###add median intensity in variable_info</span></span>
 <span><span class="va">object2</span> <span class="op">=</span></span>
 <span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="../reference/add_new_column-mass_dataset.html">mutate_median_intensity</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/mutate_median_intensity.html">mutate_median_intensity</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                 variable_id        mz        rt median_intensity</span></span>
@@ -384,7 +384,7 @@ just provide the sample IDs.</p>
 <span></span>
 <span><span class="va">object2</span> <span class="op">=</span></span>
 <span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="../reference/add_new_column-mass_dataset.html">mutate_mean_intensity</a></span><span class="op">(</span>according_to_samples <span class="op">=</span> <span class="va">qc_id</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/mutate_mean_intensity.html">mutate_mean_intensity</a></span><span class="op">(</span>according_to_samples <span class="op">=</span> <span class="va">qc_id</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                 variable_id        mz        rt mean_intensity</span></span>
@@ -398,7 +398,7 @@ just provide the sample IDs.</p>
 <code class="sourceCode R"><span><span class="co">###add RSD for each variable</span></span>
 <span><span class="va">object2</span> <span class="op">=</span></span>
 <span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="../reference/add_new_column-mass_dataset.html">mutate_rsd</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/mutate_rsd.html">mutate_rsd</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                 variable_id        mz        rt       rsd</span></span>
@@ -412,7 +412,7 @@ just provide the sample IDs.</p>
 <code class="sourceCode R"><span><span class="co">###add na</span></span>
 <span><span class="va">object2</span> <span class="op">=</span></span>
 <span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="../reference/add_new_column-mass_dataset.html">mutate_sample_na_freq</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/mutate_sample_na_freq.html">mutate_sample_na_freq</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;     variable_id        mz        rt</span></span>
@@ -426,7 +426,7 @@ just provide the sample IDs.</p>
 <span><span class="co">###add na</span></span>
 <span><span class="va">object2</span> <span class="op">=</span></span>
 <span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="../reference/add_new_column-mass_dataset.html">mutate_sample_na_number</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/mutate_sample_na_number.html">mutate_sample_na_number</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/mass_dataset-extracting.html">extract_variable_info</a></span><span class="op">(</span><span class="va">object2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;     variable_id        mz        rt</span></span>

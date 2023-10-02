@@ -2,12 +2,9 @@
 % Please edit documentation in R/subsetting-mass_dataset.R
 \name{[.mass_dataset}
 \alias{[.mass_dataset}
-\alias{$.mass_dataset}
 \title{[ method}
 \usage{
 \method{[}{mass_dataset}(x, i, j, drop = FALSE, ...)
-
-\method{$}{mass_dataset}(x, name)
 }
 \arguments{
 \item{x}{x}
@@ -19,16 +16,12 @@
 \item{drop}{drop}
 
 \item{...}{Other parameters}
-
-\item{name}{A \link{name} or a string.}
 }
 \value{
 mass_dataset
 }
 \description{
 [ method
-
-$ method
 }
 \author{
 Xiaotao Shen

@@ -1,17 +1,27 @@
-#' @title intensity_plot
-#' @description Get intensity distributation plot for one specific feature.
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) A mass_dataset object.
-#' @param variable_id Variable id.
-#' @param variable_index Variable index. You need to provide this or variable_id.
-#' @param color_by which column (in variable_info) is used to color variables
-#' @param order_by which column (in variable_info) is used to order variables
-#' @param desc Descend the order? TRUE or FALSE.
-#' @param interactive Interactive plot or not. TRUE or FALSE.
+#' Create Intensity Plot for a Variable in a mass_dataset Object
+#'
+#' This function generates an intensity plot for a specific variable in a mass_dataset object. 
+#' You can specify the variable either by its ID or its index. Additionally, you can customize 
+#' the color of data points based on a specific attribute and order the samples accordingly.
+#'
+#' @param object A mass_dataset object.
+#' @param variable_id A character string specifying the ID of the variable of interest. 
+#'   If provided, 'variable_index' will be ignored.
+#' @param variable_index An integer specifying the index of the variable of interest.
+#'   If not provided, you can use 'variable_id' to specify the variable by its ID.
+#' @param color_by A character string specifying the attribute to color data points. 
+#'   Default is "no", meaning no coloring.
+#' @param order_by A character string specifying the attribute to order the samples. 
+#'   Default is "sample_id". If set to "na", no specific order is applied.
+#' @param desc A logical value indicating whether to order the samples in descending order.
+#'   Default is FALSE.
+#' @param interactive A logical value indicating whether to create an interactive plot using plotly. 
+#'   Default is TRUE.
+#'
+#' @return A ggplot2 or plotly plot object.
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
 #' @export
-#' @return A ggplot2 class object.
 #' @examples
 #' data("expression_data")
 #' data("sample_info")

@@ -164,7 +164,6 @@ check_mass_dataset_class <-
 #' @slot version A character string indicating the version of the dataset.
 #' @slot activated A character string indicating which slot is currently activated for manipulation.
 #'
-#' @seealso \code{\link[package_name]{other_related_class}} for related classes.
 #' 
 #' @examples
 #' \dontrun{

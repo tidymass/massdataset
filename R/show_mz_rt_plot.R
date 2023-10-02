@@ -1,11 +1,14 @@
-#' @title mz and rt plot
-#' @description mz and rt plot of one mass_dataset class object.
+#' Generate mz-rt Plot for mass_dataset Object
+#'
+#' This function generates a plot of mass-to-charge ratio (m/z) against retention time (rt) for a `mass_dataset` object. The plot can be either a hexbin plot or a scatter plot based on the `hex` parameter.
+#'
 #' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param hex hex or not.
-#' @return A ggplot2 object
+#' @param object A `mass_dataset` object for which the mz-rt plot is to be generated.
+#' @param hex Logical. If TRUE, a hexbin plot is generated; otherwise, a scatter plot is generated. Default is FALSE.
+#'
+#' @return A ggplot object representing the mz-rt plot.
 #' @export
 #' @examples
 #' data("expression_data")

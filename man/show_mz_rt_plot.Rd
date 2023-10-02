@@ -3,20 +3,20 @@
 \docType{methods}
 \name{show_mz_rt_plot}
 \alias{show_mz_rt_plot}
-\title{mz and rt plot}
+\title{Generate mz-rt Plot for mass_dataset Object}
 \usage{
 show_mz_rt_plot(object, hex = FALSE)
 }
 \arguments{
-\item{object}{(required) mass_dataset class object.}
+\item{object}{A \code{mass_dataset} object for which the mz-rt plot is to be generated.}
 
-\item{hex}{hex or not.}
+\item{hex}{Logical. If TRUE, a hexbin plot is generated; otherwise, a scatter plot is generated. Default is FALSE.}
 }
 \value{
-A ggplot2 object
+A ggplot object representing the mz-rt plot.
 }
 \description{
-mz and rt plot of one mass_dataset class object.
+This function generates a plot of mass-to-charge ratio (m/z) against retention time (rt) for a \code{mass_dataset} object. The plot can be either a hexbin plot or a scatter plot based on the \code{hex} parameter.
 }
 \examples{
 data("expression_data")

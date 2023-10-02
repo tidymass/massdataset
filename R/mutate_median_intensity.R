@@ -1,15 +1,15 @@
-#' @title Add median intensity for each feature to variable_info
-#' @description Add median intensity for each feature to variable_info
-#' @docType methods
-#' @rdname add_new_column-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param according_to_samples (required) What samples used to calculate median
-#' intensity. Default is "all". If you
-#' want to use only several samples, provide their names as a vector.
-#' @param na.rm na.rm
-#' @return A mass_dataset class object
+#' Add Median Intensity to mass_dataset Object
+#'
+#' This function calculates the median intensity for each variable in the mass_dataset object
+#' based on the specified samples and adds it as a new column to the variable information.
+#' @param object A mass_dataset object.
+#' @param according_to_samples A character vector specifying the samples to consider for the median calculation. Default is "all".
+#' @param na.rm Logical, whether to remove NA values before calculating the median. Default is TRUE.
+#'
+#' @return A modified mass_dataset object with added median intensity information.
+#'
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
 #' @export
 #' @examples
 #' data("expression_data")

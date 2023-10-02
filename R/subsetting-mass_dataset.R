@@ -8,7 +8,6 @@
 #' @param drop drop
 #' @param ... Other parameters
 #' @export
-#' @rdname subsetting-mass_dataset
 #' @return mass_dataset
 `[.mass_dataset` <-
   function(x, i, j, drop = FALSE, ...) {
@@ -128,8 +127,8 @@
 
 #' @title $ method
 #' @method $ mass_dataset
+#' @param x A mass_dataset class
 #' @param name A [name] or a string.
-#' @rdname subsetting-mass_dataset
 #' @export
 `$.mass_dataset` <- function(x, name) {
   out <- .subset2(x@expression_data, name)

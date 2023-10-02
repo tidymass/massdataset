@@ -15,7 +15,7 @@ export_mass_dataset4metdna(object, path = ".")
 This function writes the Peak_Table.csv, sample_info.csv, and MS2 data files to the specified directory.
 }
 \description{
-This function exports a \code{\link[massdataset]{mass_dataset}} object into a format suitable for MetDNA analysis.
+This function exports a mass_dataset object into a format suitable for MetDNA analysis.
 It generates a Peak_Table.csv, sample_info.csv, and MS2 data in MGF format.
 }
 \examples{
@@ -33,10 +33,6 @@ new_data <- create_mass_dataset(
 export_mass_dataset4metdna(new_data, path = "MetDNA_data/")
 }
 
-}
-\seealso{
-\code{\link[massdataset]{mass_dataset}} for the class that this function exports.
-\code{\link[massdataset]{export_ms2_data}} for exporting MS2 data.
 }
 \author{
 Xiaotao Shen

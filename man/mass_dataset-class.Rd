@@ -53,6 +53,3 @@ new_data <- new("mass_dataset",
 }
 
 }
-\seealso{
-\code{\link[package_name]{other_related_class}} for related classes.
-}

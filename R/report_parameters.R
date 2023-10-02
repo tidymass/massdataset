@@ -1,11 +1,15 @@
-#' @title report_parameters
-#' @description Export the parameters of mass_dataset object as a html file.
+#' Generate Parameter Report for mass_dataset Object
+#'
+#' This function generates an HTML report summarizing the parameters used in the processing of a `mass_dataset` object. The report is saved in a specified directory.
+#'
 #' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param path working directory
-#' @return html report
+#' @param object A `mass_dataset` object for which the parameter report is to be generated.
+#' @param path The directory where the parameter report will be saved. Default is the current working directory.
+#'
+#' @return An HTML report summarizing the parameters used in the processing of the `mass_dataset` object. The report is saved in the specified directory.
+#'
 #' @export
 #' @examples
 #' \dontrun{
@@ -119,13 +123,17 @@ report_parameters <-
   }
 
 
-#' @title parse_tidymass_parameter
-#' @description parse_tidymass_parameter
+#' Parse tidymass_parameter Object to Data Frame
+#'
+#' This function takes a `tidymass_parameter` object and converts it into a data frame for easier manipulation and reporting.
+#'
 #' @docType methods
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) tidymass_parameters class object.
-#' @return html report
+#' @param object A `tidymass_parameter` object to be parsed.
+#'
+#' @return A data frame containing the package name, function name, parameters, and the time when the function was called.
+#'
 #' @export
 #' @examples
 #' data("expression_data")

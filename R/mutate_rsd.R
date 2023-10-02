@@ -1,14 +1,15 @@
-#' @title Calculate RSD for features
-#' @description Calculate RSD for features
-#' @docType methods
-#' @rdname add_new_column-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @param according_to_samples (required) What samples used to calcualte RSDs.
-#' Default is "all". If you
-#' want to use only several samples, provide they names as a vector.
-#' @return A mass_data class object.
+#' Mutate Relative Standard Deviation (RSD) in mass_dataset Object
+#'
+#' This function adds a new column to the `variable_info` slot of a mass_dataset object,
+#' which contains the relative standard deviation (RSD) for each variable according to the samples specified.
+#' @param object A mass_dataset object.
+#' @param according_to_samples A character vector specifying the sample IDs to consider when
+#'                            calculating the RSD. Default is "all", which considers all samples.
+#'
+#' @return A modified mass_dataset object with an updated `variable_info` slot.
+#'
+#'
+#' @author Xiaotao Shen <shenxt1990@outlook.com>
 #' @export
 #' @examples
 #' data("expression_data")
