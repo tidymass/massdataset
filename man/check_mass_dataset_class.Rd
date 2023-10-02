@@ -14,7 +14,7 @@ check_mass_dataset_class(object)
 Returns \code{TRUE} if the object is valid, otherwise returns a character vector of error messages.
 }
 \description{
-This function checks the validity of a \code{\link[massdataset]{mass_dataset}} object.
+This function checks the validity of a mass_dataset object.
 It performs various checks on the object's slots to ensure they meet the required criteria.
 }
 \examples{

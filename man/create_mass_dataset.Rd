@@ -34,7 +34,7 @@ Columns are samples and rows are variables.
 An object of class \code{mass_dataset}.
 }
 \description{
-This function creates a new \code{\link[massdataset]{mass_dataset}} object
+This function creates a new mass_dataset object
 by taking in various data frames and performing checks on them.
 }
 \examples{

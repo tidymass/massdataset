@@ -49,7 +49,6 @@
 #' #' used to enforce them.
 #' #' @include mass_dataset_class.R
 #' #' @export
-#' #' @rdname summary-mass_dataset
 #' #' @return mass_dataset class
 #' 
 #' setMethod(f = "add_column",

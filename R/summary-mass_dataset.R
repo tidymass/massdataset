@@ -1,13 +1,15 @@
-#' @title get_sample_number
-#' @description Number of samples
-#' @docType methods
-#' @rdname summary-mass_dataset
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) A mass_dataset class object.
-#' @return A numeric.
+#' Get Some Information of a mass_dataset Object
+#'
+#' These functions returns the information of a mass_dataset object.
+#' @rdname mass_dataset-summary
+#' @param object A mass_dataset object.
+#'
+#'
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#'
 #' @export
 #' @examples
+#' ###get_sample_number
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -27,14 +29,17 @@ get_sample_number = function(object) {
 }
 
 
-#' @title get_variable_number
-#' @description Number of variables
-#' @docType methods
-#' @rdname summary-mass_dataset
-#' @param object (required) mass_dataset class object.
-#' @return A numeric.
+#' Get the Number of Variables in a mass_dataset Object
+#'
+#' @rdname mass_dataset-summary
+#' @param object A mass_dataset object.
+#'
+#'
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#'
 #' @export
 #' @examples
+#' ###get_variable_number
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -56,14 +61,17 @@ get_variable_number = function(object) {
 
 
 
-#' @title get_sample_id
-#' @description Sample IDs
-#' @docType methods
-#' @rdname summary-mass_dataset
-#' @param object (required) mass_dataset class object.
-#' @return A character vector.
+#' Get the Sample IDs from a mass_dataset Object
+#'
+#' @param object A mass_dataset object.
+#'
+#'
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#'
 #' @export
+#' @rdname mass_dataset-summary
 #' @examples
+#' ###get_sample_id
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -83,14 +91,17 @@ get_sample_id = function(object) {
 }
 
 
-#' @title get_variable_id
-#' @description Variable IDs
-#' @docType methods
-#' @rdname summary-mass_dataset
-#' @param object (required) mass_dataset class object.
-#' @return A character vector.
+#' Get the Variable IDs from a mass_dataset Object
+#'
+#' @rdname mass_dataset-summary
+#' @param object A mass_dataset object.
+#'
+#'
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#'
 #' @export
 #' @examples
+#' ###get_variable_id
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -110,17 +121,19 @@ get_variable_id = function(object) {
 }
 
 
-#' @title get_mv_number
-#' @description Get missing value number/percentage in expression data.
-#' @docType methods
-#' @rdname summary-mass_dataset
-#' @param object (required) mass_dataset class object.
-#' @param by total: Missing value number in total. sample: Missing value number in each sample.
-#' variable: Missing value number in each variable.
-#' @param show_by number: missing value number. percentage: missing value percentage.
-#' @return A numeric (vector).
+#' Get the Number of Missing Values in a mass_dataset Object
+#' @rdname mass_dataset-summary
+#' @param object A mass_dataset object.
+#' @param by A character string specifying how to count missing values. 
+#'           Options are "total", "sample", or "variable". Default is "total".
+#' @param show_by A character string specifying the format to show the result. 
+#'                Options are "number" or "percentage". Default is "number".
+#'
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#'
 #' @export
 #' @examples
+#' ###get_mv_number
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -189,10 +202,10 @@ get_mv_number =
 
 #' @title dim
 #' @method dim mass_dataset
-#' @param x x
+#' @param x A mass_dataset object.
 #' @export
-#' @rdname summary-mass_dataset
-#' @return message
+#' @return A named integer vector with the dimensions of the mass_dataset object. 
+#' The names of the dimensions are "variables" and "samples".
 dim.mass_dataset <- function(x) {
   # info <-
   #   paste0(
@@ -209,10 +222,10 @@ dim.mass_dataset <- function(x) {
 
 #' @title nrow
 #' @method nrow mass_dataset
-#' @param x x
+#' @param x A mass_dataset object.
 #' @export
-#' @rdname summary-mass_dataset
-#' @return message
+#' @return A named integer representing the number of variables in the mass_dataset object.
+#' The name of the integer is "variables".
 nrow.mass_dataset <- function(x) {
   info <-
     nrow(x@expression_data)
@@ -222,10 +235,10 @@ nrow.mass_dataset <- function(x) {
 
 #' @title ncol
 #' @method ncol mass_dataset
-#' @param x x
+#' @param x A mass_dataset object.
 #' @export
-#' @rdname summary-mass_dataset
-#' @return message
+#' @return A named integer representing the number of samples in the mass_dataset object.
+#' The name of the integer is "samples".
 ncol.mass_dataset <- function(x) {
   info <-
     ncol(x@expression_data)
@@ -236,10 +249,10 @@ ncol.mass_dataset <- function(x) {
 
 #' @title colnames
 #' @method colnames mass_dataset
-#' @param x x
+#' @param x A mass_dataset object.
 #' @export
-#' @rdname summary-mass_dataset
-#' @return message
+#' @return A character vector containing the column names (sample IDs) of the 
+#' expression_data slot in the mass_dataset object.
 
 colnames.mass_dataset =
   function(x) {
@@ -249,10 +262,10 @@ colnames.mass_dataset =
 
 #' @title rownames
 #' @method rownames mass_dataset
-#' @param x x
+#' @param x A mass_dataset object.
 #' @export
-#' @rdname summary-mass_dataset
-#' @return message
+#' @return A character vector containing the row names (variable IDs) of 
+#' the expression_data slot in the mass_dataset object.
 
 rownames.mass_dataset =
   function(x) {
@@ -268,7 +281,7 @@ rownames.mass_dataset =
 #' #' @param ... ...
 #' #' @param simplify simplify
 #' #' @export
-#' #' @rdname summary-mass_dataset
+#' #' @rdname mass_dataset-summary
 #' #' @return result
 #'
 #' apply.mass_dataset =
@@ -278,14 +291,17 @@ rownames.mass_dataset =
 
 #' @title apply
 #' @method apply mass_dataset
-#' @param X X
-#' @param MARGIN MARGIN
-#' @param FUN FUN
-#' @param ... ...
-#' @param simplify simplify
+#' @param X A mass_dataset object.
+#' @param MARGIN An integer vector indicating which margins should be "swept out". 
+#' 1 indicates rows, 2 indicates columns.
+#' @param FUN The function to be applied. This function should take a data vector 
+#' argument and return a result of length one.
+#' @param ... Additional arguments to FUN.
+#' @param simplify Logical; should the result be simplified to 
+#' a vector or matrix if possible?
 #' @export
-#' @rdname summary-mass_dataset
-#' @return result
+#' @return The result of applying FUN to the margins of X. If simplify is TRUE, 
+#' then the result may be a vector or matrix.
 
 setMethod(f = "apply",
           signature(X = "mass_dataset"),
@@ -300,7 +316,6 @@ setMethod(f = "apply",
 #' #' @param x x
 #' #' @param y y
 #' #' @export
-#' #' @rdname summary-mass_dataset
 #' #' @return result
 #'
 #' intersect.mass_dataset = function(x, y){
@@ -312,11 +327,11 @@ setMethod(f = "apply",
 
 #' @title intersect
 #' @method intersect mass_dataset
-#' @param x x
-#' @param y y
+#' @param x A mass_dataset object.
+#' @param y Another mass_dataset object.
 #' @export
-#' @rdname summary-mass_dataset
-#' @return result
+#' @return A vector containing the common sample IDs between the 
+#' two mass_dataset objects.
 
 setMethod(f = "intersect",
           signature(x = "mass_dataset",
@@ -329,9 +344,9 @@ setMethod(f = "intersect",
 
 #' @title summary
 #' @method summary mass_dataset
-#' @param object object
-#' @param ... other parameters
-#' @rdname summary-mass_dataset
+#' @param object A mass_dataset object.
+#' @param ... Additional arguments to be passed to the `summary` 
+#' function for the expression data.
 #' @export
 summary.mass_dataset <- function(object, ...) {
   summary(object@expression_data, ...)
@@ -339,10 +354,11 @@ summary.mass_dataset <- function(object, ...) {
 
 #' @title length
 #' @method length mass_dataset
-#' @param x x
+#' @param x A `mass_dataset` object whose `expression_data` slot's length 
+#' you want to find.
 #' @export
-#' @rdname summary-mass_dataset
-#' @return vector object
+#' @return The length of the `expression_data` slot in the 
+#' `mass_dataset` object.
 
 length.mass_dataset = function(x) {
   length(x@expression_data)
@@ -351,10 +367,11 @@ length.mass_dataset = function(x) {
 
 #' @title names
 #' @method names mass_dataset
-#' @param x x
+#' @param x A `mass_dataset` object whose `expression_data` 
+#' slot's names you want to retrieve.
 #' @export
-#' @rdname summary-mass_dataset
-#' @return vector object
+#' @return The names of the elements in the `expression_data`
+#'  slot of the `mass_dataset` object.
 
 names.mass_dataset = function(x) {
   names(x@expression_data)
@@ -362,10 +379,11 @@ names.mass_dataset = function(x) {
 
 #' @title dimnames
 #' @method dimnames mass_dataset
-#' @param x x
+#' @param x A `mass_dataset` object whose `expression_data` slot's dimension 
+#' names you want to retrieve.
 #' @export
-#' @rdname summary-mass_dataset
-#' @return vector object
+#' @return The dimension names (row and column names) of 
+#' the `expression_data` slot in the `mass_dataset` object.
 
 dimnames.mass_dataset = function(x) {
   dimnames(x@expression_data)
@@ -376,10 +394,12 @@ dimnames.mass_dataset = function(x) {
 
 #' @title is.na
 #' @method is.na mass_dataset
-#' @param x x
+#' @param x A `mass_dataset` object whose `expression_data` 
+#' slot you want to check for missing values.
+#' 
 #' @export
-#' @rdname summary-mass_dataset
-#' @return message
+#' @return A logical matrix of the same dimensions as `expression_data`, 
+#' indicating the presence of missing values.
 is.na.mass_dataset <- function(x) {
   is.na(x@expression_data)
 }

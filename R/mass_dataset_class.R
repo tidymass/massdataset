@@ -1,7 +1,7 @@
 #' Check the Validity of a mass_dataset Object
 #'
 #' @description
-#' This function checks the validity of a \code{\link[massdataset]{mass_dataset}} object.
+#' This function checks the validity of a mass_dataset object.
 #' It performs various checks on the object's slots to ensure they meet the required criteria.
 #'
 #' @docType methods
@@ -209,7 +209,7 @@ setClass(
 
 #' Create a New mass_dataset Object
 #' @description
-#' This function creates a new \code{\link[massdataset]{mass_dataset}} object 
+#' This function creates a new mass_dataset object 
 #' by taking in various data frames and performing checks on them.
 #'
 #' @docType methods

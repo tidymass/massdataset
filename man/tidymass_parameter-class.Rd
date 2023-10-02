@@ -3,19 +3,22 @@
 \docType{class}
 \name{tidymass_parameter-class}
 \alias{tidymass_parameter-class}
-\title{An S4 class that stores the parameters}
+\title{tidymass_parameter S4 Class}
 \description{
-An S4 class that stores the parameters
+An S4 class to represent the parameters used in tidymass functions.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{pacakge_name}}{pacakge_name}
+\item{\code{pacakge_name}}{A character vector representing the name of the package where the function resides.}
 
-\item{\code{function_name}}{function_name}
+\item{\code{function_name}}{A character vector representing the name of the function that uses these parameters.}
 
-\item{\code{parameter}}{parameter}
+\item{\code{parameter}}{A list containing the parameters used in the function.}
 
-\item{\code{time}}{time}
+\item{\code{time}}{A POSIXct object representing the time when the function was called.}
 }}
 
+\author{
+Xiaotao Shen \email{shenxt1990@outlook.com}
+}

@@ -1,10 +1,14 @@
-##S4 class for parameter
-#' An S4 class that stores the parameters
+#' tidymass_parameter S4 Class
+#'
+#' An S4 class to represent the parameters used in tidymass functions.
 #' @docType class
-#' @slot pacakge_name pacakge_name
-#' @slot function_name function_name
-#' @slot parameter parameter
-#' @slot time time
+#' @slot pacakge_name A character vector representing the name of the package where the function resides.
+#' @slot function_name A character vector representing the name of the function that uses these parameters.
+#' @slot parameter A list containing the parameters used in the function.
+#' @slot time A POSIXct object representing the time when the function was called.
+#'
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#'
 #' @exportClass tidymass_parameter
 
 setClass(

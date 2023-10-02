@@ -10,10 +10,6 @@
 #' @return
 #' This function writes the Peak_Table.csv, sample_info.csv, and MS2 data files to the specified directory.
 #'
-#' @seealso
-#' \code{\link[massdataset]{mass_dataset}} for the class that this function exports.
-#' \code{\link[massdataset]{export_ms2_data}} for exporting MS2 data.
-#'
 #' @examples
 #' \dontrun{
 #' # Create a new mass_dataset object

@@ -1,11 +1,14 @@
-#' @title translate_tidymass_parameter
-#' @description translate tidymass_parameter to data.frame.
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) tidymass_parameters class object.
-#' @rdname tidymass_parameters-class
-#' @return A data.frame
+#' Translate tidymass_parameter Object to Data Frame
+#'
+#' This function takes a `tidymass_parameter` object and translates its slots into a data frame.
+#' It is particularly useful for converting the parameter information into a more readable format.
+#'
+#' @param object A `tidymass_parameter` object that you want to translate.
+#'
+#' @return A data frame containing the package name, function name, parameters, and time of the `tidymass_parameter` object.
+#'
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#'
 #' @export
 #' @examples
 #' data("expression_data")

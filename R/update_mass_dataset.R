@@ -1,10 +1,15 @@
-#' @title Update mass_dataset class object after give the one new item
-#' @description Update mass_dataset class object after give the one new item
-#' @docType methods
+#' Update a mass_dataset Object
+#'
+#' This function updates the slots of a `mass_dataset` object to ensure consistency
+#' among `sample_info`, `variable_info`, and `expression_data`. It also logs the
+#' update process.
+#'
+#' @param object A `mass_dataset` object that you want to update.
+#'
+#' @return A `mass_dataset` object with updated slots and process information.
+#'
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @return A mass_dataset class object.
 #' @export
 #' @examples
 #' data("expression_data")
@@ -95,13 +100,23 @@ update_mass_dataset <-
   }
 
 
-#' @title update_variable_info
-#' @description update_variable_info
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @return A mass_dataset class object.
+#' Update Variable Information in a mass_dataset Object
+#'
+#' This function updates the `variable_info` and `variable_info_note` slots of a `mass_dataset` object.
+#' It ensures that the columns in `variable_info` are consistent with the names in `variable_info_note`.
+#'
+#' @param object A `mass_dataset` object whose `variable_info` and `variable_info_note` slots you want to update.
+#'
+#' @return A `mass_dataset` object with updated `variable_info` and `variable_info_note` slots.
+#'
+#' @author Xiaotao Shen \email{shenxt1990@outlook.com}
+#'
+#' @examples
+#' \dontrun{
+#' # Assuming `md` is a mass_dataset object
+#' updated_md <- update_variable_info(md)
+#' }
+#'
 #' @export
 
 update_variable_info <-
@@ -139,13 +154,23 @@ update_variable_info <-
   }
 
 
-#' @title update_sample_info
-#' @description update_sample_info
-#' @docType methods
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
-#' @param object (required) mass_dataset class object.
-#' @return A mass_dataset class object.
+#' Update Sample Information in a mass_dataset Object
+#'
+#' This function updates the `sample_info` and `sample_info_note` slots of a `mass_dataset` object.
+#' It ensures that the columns in `sample_info` are consistent with the names in `sample_info_note`.
+#'
+#' @param object A `mass_dataset` object whose `sample_info` and `sample_info_note` slots you want to update.
+#'
+#' @return A `mass_dataset` object with updated `sample_info` and `sample_info_note` slots.
+#'
+#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#'
+#' @examples
+#' \dontrun{
+#' # Assuming `md` is a mass_dataset object
+#' updated_md <- update_sample_info(md)
+#' }
+#'
 #' @export
 
 update_sample_info <-
