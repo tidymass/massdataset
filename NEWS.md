@@ -117,4 +117,8 @@
 
 * Update documents.
 
+# Version 1.0.29 (2023-12-04)
+
+* Support dplyr::rename_with function.
+
 

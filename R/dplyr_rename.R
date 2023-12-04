@@ -39,3 +39,46 @@ rename.mass_dataset <-
 #' @importFrom dplyr rename
 #' @export
 dplyr::rename
+
+
+#' @method rename_with mass_dataset
+#' @docType methods
+#' @importFrom rlang quos !!!
+#' @importFrom dplyr rename_with
+#' @export
+rename_with.mass_dataset <-
+  function(.data, .fn, .cols = everything(), ...) {
+    dots <- rlang::quos(...)
+    
+    if (length(.data@activated) == 0) {
+      stop("activate you object using activate_mass_dataset first.\n")
+    }
+    
+    x <-
+      slot(object = .data, name = .data@activated)
+    
+    x <-
+      dplyr::rename_with(x, .fn = .fn, .cols = .cols, !!!dots)
+    
+    slot(object = .data, name = .data@activated) <- x
+    
+    if (.data@activated == "expression_data") {
+      .data@sample_info$sample_id = colnames(x)
+    }
+    
+    if (.data@activated == "sample_info") {
+      .data@sample_info_note$name <-
+        colnames(.data@sample_info)
+    }
+    
+    if (.data@activated == "variable_info") {
+      .data@variable_info_note$name <-
+        colnames(.data@variable_info)
+    }
+    
+    return(.data)
+  }
+
+#' @importFrom dplyr rename_with
+#' @export
+dplyr::rename_with

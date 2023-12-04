@@ -7,7 +7,7 @@
 #' @importFrom stringr str_replace str_split str_replace_all str_trim
 #' @importFrom ComplexHeatmap Heatmap columnAnnotation anno_barplot
 #' @importFrom grid gpar
-#' @importFrom dplyr filter mutate select everything left_join syms
+#' @importFrom dplyr filter mutate select everything left_join syms rename rename_with
 #' @importFrom rstudioapi isAvailable hasFun getThemeInfo
 #' @importFrom utils packageDescription write.csv
 #' @importFrom cli rule symbol cli_abort
