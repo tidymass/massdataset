@@ -57,5 +57,4 @@ Suggests:
 Note:
 Remotes: 
     github::tidymass/masstools
-biocViews: Metabolomics, MassSpectrometry
 Config/testthat/edition: 3
