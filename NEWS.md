@@ -121,4 +121,8 @@
 
 * Support dplyr::rename_with function.
 
+# Version 1.0.30 (2024-05-18)
+
+* Fix one bug.
+
 

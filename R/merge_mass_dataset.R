@@ -243,7 +243,7 @@ merge_mass_dataset <-
     object <- new(
       Class = "mass_dataset",
       expression_data = expression_data,
-      ms2_data = c(x@ms2_data, x@ms2_data),
+      ms2_data = c(x@ms2_data, y@ms2_data),
       sample_info = sample_info,
       variable_info = variable_info,
       sample_info_note = sample_info_note,
