@@ -125,4 +125,8 @@
 
 * Fix one bug.
 
+# Version 1.0.31 (2024-09-04)
+
+* Add function adjust_confounder.
+
 
