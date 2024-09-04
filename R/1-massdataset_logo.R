@@ -18,7 +18,7 @@
 #' @importFrom methods slot slot<-
 #' @import ggplot2
 #' @importFrom methods .hasSlot new is
-#' @importFrom stats p.adjust rgamma sd median time
+#' @importFrom stats p.adjust rgamma sd median time as.formula lm residuals
 #' @importFrom utils data str head tail packageVersion write.table read.delim
 #' @importFrom utils read.table
 #' @importFrom masstools read_mgf read_mzxml ms2_plot
