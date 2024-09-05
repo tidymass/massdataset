@@ -72,6 +72,12 @@ adjust_confounder <-
       do.call(rbind, .) %>%
       as.data.frame()
     
+    colnames(expression_data_new) <-
+      colnames(expression_data)
+    
+    rownames(expression_data_new) <-
+      rownames(expression_data)
+    
     object@expression_data <-
       expression_data_new
     
