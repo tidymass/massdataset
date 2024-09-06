@@ -25,21 +25,5 @@ The result of applying FUN to the margins of X. If simplify is TRUE,
 then the result may be a vector or matrix.
 }
 \description{
-###old version
-#' @title apply
-#' @method apply mass_dataset
-#' @param X X
-#' @param MARGIN MARGIN
-#' @param FUN FUN
-#' @param ... ...
-#' @param simplify simplify
-#' @export
-#' @rdname mass_dataset-summary
-#' @return result
-}
-\details{
-apply.mass_dataset =
-function(X, MARGIN, FUN, ..., simplify = TRUE){
-apply(as.matrix(X@expression_data), MARGIN, FUN, ..., simplify = simplify)
-}
+apply
 }

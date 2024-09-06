@@ -61,13 +61,14 @@ adjust_confounder <-
       formula_str <- paste("y ~", paste(c(colnames(x)), collapse = " + "))
       
       fit <- lm(as.formula(formula_str), data = data.frame(x, y))
-      residuals(fit)
+      residuals(fit) + mean(y)
     }
     
     expression_data_new <-
       seq_len(nrow(expression_data)) %>%
       purrr::map(function(i) {
-        get_adjsuted_y(x = sample_info[, confounder_name_list], y = as.numeric(expression_data[i, ]))
+        get_adjsuted_y(x = sample_info[, confounder_name_list, drop = FALSE], 
+                       y = as.numeric(expression_data[i, ]))
       }) %>%
       do.call(rbind, .) %>%
       as.data.frame()

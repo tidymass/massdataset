@@ -116,42 +116,6 @@ contained within a \code{mass_dataset} object.
 
 This function takes a \code{mass_dataset} object and applies the square root transformation
 to the expression data stored in the object. It also updates the \code{process_info} attribute to log the transformation.
-
-#' @title colSums
-#' @method colSums mass_dataset
-#' @param x x
-#' @param na.rm na.rm
-#' @param dims dims
-#' @export
-#' @rdname arithmetic-mass_dataset
-#' @return vector object
-
-#' @title rowSums
-#' @method rowSums mass_dataset
-#' @param x x
-#' @param na.rm na.rm
-#' @param dims dims
-#' @export
-#' @rdname arithmetic-mass_dataset
-#' @return vector object
-
-#' @title colMeans
-#' @method colMeans mass_dataset
-#' @param x x
-#' @param na.rm na.rm
-#' @param dims dims
-#' @export
-#' @rdname arithmetic-mass_dataset
-#' @return vector object
-
-#' @title rowMeans
-#' @method rowMeans mass_dataset
-#' @param x x
-#' @param na.rm na.rm
-#' @param dims dims
-#' @export
-#' @rdname arithmetic-mass_dataset
-#' @return vector object
 }
 \details{
 The \code{log.mass_dataset} function takes a \code{mass_dataset} object as its input,
@@ -173,22 +137,6 @@ object to capture details about the absolute value transformation process.
 \item Applies the square root transformation to the \code{expression_data}.
 \item Updates the \code{expression_data} in the \code{mass_dataset} object.
 \item Logs the transformation in the \code{process_info} attribute, including the package name, function name, parameters, and time.
-}
-
-colSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
-colSums(x@expression_data, na.rm = na.rm, dims = dims)
-}
-
-rowSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
-rowSums(x@expression_data, na.rm = na.rm, dims = dims)
-}
-
-colMeans.mass_dataset = function(x, na.rm = FALSE, dims = 1){
-colMeans(x@expression_data, na.rm = na.rm, dims = dims)
-}
-
-rowMeans.mass_dataset = function(x, na.rm = FALSE, dims = 1){
-rowMeans(x@expression_data, na.rm = na.rm, dims = dims)
 }
 }
 \examples{

@@ -129,7 +129,11 @@
 
 * Add function adjust_confounder.
 
-# Version 1.0.31 (2024-09-05)
+# Version 1.0.32 (2024-09-05)
+
+* Fix a big in adjust_confounder.
+
+# Version 1.0.33 (2024-09-06)
 
 * Fix a big in adjust_confounder.
 

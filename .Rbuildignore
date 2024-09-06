@@ -26,3 +26,4 @@ vignettes/*cache
 vignettes/*.png
 man/figures
 vignettes/
+^LICENSE\.md$

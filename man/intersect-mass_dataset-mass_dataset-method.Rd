@@ -16,16 +16,5 @@ A vector containing the common sample IDs between the
 two mass_dataset objects.
 }
 \description{
-#' @title intersect
-#' @method intersect mass_dataset
-#' @param x x
-#' @param y y
-#' @export
-#' @return result
-}
-\details{
-intersect.mass_dataset = function(x, y){
-intersect(x@sample_info$sample_id,
-y@sample_info$sample_id)
-}
+intersect
 }

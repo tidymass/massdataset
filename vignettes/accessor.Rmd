@@ -12,8 +12,8 @@ output:
 vignette: >
   %\VignetteIndexEntry{accessor}
   %\VignettePackage{massdataset}
-  % \VignetteEngine{knitr::rmarkdown}
-  % \usepackage[utf8]{inputenc}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
   %\VignetteEncoding{UTF-8}
 ---
 

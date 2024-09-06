@@ -397,18 +397,18 @@ setMethod(f = "==",
             e1@expression_data == e2
           })
 
-#' #' @title colSums
-#' #' @method colSums mass_dataset
-#' #' @param x x
-#' #' @param na.rm na.rm
-#' #' @param dims dims
-#' #' @export
-#' #' @rdname arithmetic-mass_dataset
-#' #' @return vector object
-#'
-#' colSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
-#'   colSums(x@expression_data, na.rm = na.rm, dims = dims)
-#' }
+# #' @title colSums
+# #' @method colSums mass_dataset
+# #' @param x x
+# #' @param na.rm na.rm
+# #' @param dims dims
+# #' @export
+# #' @rdname arithmetic-mass_dataset
+# #' @return vector object
+#
+# colSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
+#   colSums(x@expression_data, na.rm = na.rm, dims = dims)
+# }
 
 
 
@@ -427,18 +427,18 @@ setMethod(f = "colSums",
             colSums(x@expression_data, na.rm = na.rm, dims = dims)
           })
 
-#' #' @title rowSums
-#' #' @method rowSums mass_dataset
-#' #' @param x x
-#' #' @param na.rm na.rm
-#' #' @param dims dims
-#' #' @export
-#' #' @rdname arithmetic-mass_dataset
-#' #' @return vector object
-#'
-#' rowSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
-#'   rowSums(x@expression_data, na.rm = na.rm, dims = dims)
-#' }
+# #' @title rowSums
+# #' @method rowSums mass_dataset
+# #' @param x x
+# #' @param na.rm na.rm
+# #' @param dims dims
+# #' @export
+# #' @rdname arithmetic-mass_dataset
+# #' @return vector object
+#
+# rowSums.mass_dataset = function(x, na.rm = FALSE, dims = 1){
+#   rowSums(x@expression_data, na.rm = na.rm, dims = dims)
+# }
 
 
 
@@ -459,18 +459,18 @@ setMethod(f = "rowSums",
 
 
 
-#' #' @title colMeans
-#' #' @method colMeans mass_dataset
-#' #' @param x x
-#' #' @param na.rm na.rm
-#' #' @param dims dims
-#' #' @export
-#' #' @rdname arithmetic-mass_dataset
-#' #' @return vector object
-#'
-#' colMeans.mass_dataset = function(x, na.rm = FALSE, dims = 1){
-#'   colMeans(x@expression_data, na.rm = na.rm, dims = dims)
-#' }
+# #' @title colMeans
+# #' @method colMeans mass_dataset
+# #' @param x x
+# #' @param na.rm na.rm
+# #' @param dims dims
+# #' @export
+# #' @rdname arithmetic-mass_dataset
+# #' @return vector object
+# 
+# colMeans.mass_dataset = function(x, na.rm = FALSE, dims = 1){
+#   colMeans(x@expression_data, na.rm = na.rm, dims = dims)
+# }
 
 
 #' @title colMeans
@@ -490,18 +490,18 @@ setMethod(f = "colMeans",
 
 
 
-#' #' @title rowMeans
-#' #' @method rowMeans mass_dataset
-#' #' @param x x
-#' #' @param na.rm na.rm
-#' #' @param dims dims
-#' #' @export
-#' #' @rdname arithmetic-mass_dataset
-#' #' @return vector object
-#'
-#' rowMeans.mass_dataset = function(x, na.rm = FALSE, dims = 1){
-#'   rowMeans(x@expression_data, na.rm = na.rm, dims = dims)
-#' }
+# #' @title rowMeans
+# #' @method rowMeans mass_dataset
+# #' @param x x
+# #' @param na.rm na.rm
+# #' @param dims dims
+# #' @export
+# #' @rdname arithmetic-mass_dataset
+# #' @return vector object
+#
+# rowMeans.mass_dataset = function(x, na.rm = FALSE, dims = 1){
+#   rowMeans(x@expression_data, na.rm = na.rm, dims = dims)
+# }
 
 
 

@@ -272,22 +272,22 @@ rownames.mass_dataset =
     rownames(x@expression_data)
   }
 
-#' ###old version
-#' #' @title apply
-#' #' @method apply mass_dataset
-#' #' @param X X
-#' #' @param MARGIN MARGIN
-#' #' @param FUN FUN
-#' #' @param ... ...
-#' #' @param simplify simplify
-#' #' @export
-#' #' @rdname mass_dataset-summary
-#' #' @return result
-#'
-#' apply.mass_dataset =
-#'   function(X, MARGIN, FUN, ..., simplify = TRUE){
-#'     apply(as.matrix(X@expression_data), MARGIN, FUN, ..., simplify = simplify)
-#'   }
+###old version
+# #' @title apply
+# #' @method apply mass_dataset
+# #' @param X X
+# #' @param MARGIN MARGIN
+# #' @param FUN FUN
+# #' @param ... ...
+# #' @param simplify simplify
+# #' @export
+# #' @rdname mass_dataset-summary
+# #' @return result
+#
+# apply.mass_dataset =
+#   function(X, MARGIN, FUN, ..., simplify = TRUE){
+#     apply(as.matrix(X@expression_data), MARGIN, FUN, ..., simplify = simplify)
+#   }
 
 #' @title apply
 #' @method apply mass_dataset
@@ -311,17 +311,17 @@ setMethod(f = "apply",
           })
 
 
-#' #' @title intersect
-#' #' @method intersect mass_dataset
-#' #' @param x x
-#' #' @param y y
-#' #' @export
-#' #' @return result
-#'
-#' intersect.mass_dataset = function(x, y){
-#'   intersect(x@sample_info$sample_id,
-#'             y@sample_info$sample_id)
-#' }
+# #' @title intersect
+# #' @method intersect mass_dataset
+# #' @param x x
+# #' @param y y
+# #' @export
+# #' @return result
+# 
+# intersect.mass_dataset = function(x, y){
+#   intersect(x@sample_info$sample_id,
+#             y@sample_info$sample_id)
+# }
 
 
 
@@ -388,8 +388,6 @@ names.mass_dataset = function(x) {
 dimnames.mass_dataset = function(x) {
   dimnames(x@expression_data)
 }
-
-
 
 
 #' @title is.na
