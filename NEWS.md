@@ -137,4 +137,8 @@
 
 * Fix a big in adjust_confounder.
 
+# Version 1.0.33 (2024-09-10)
+
+* Add new function mutate_annotation_table.
+
 

@@ -1,7 +1,7 @@
 Package: massdataset
 Title: massdataset
-Version: 1.0.33
-Date: 2024-09-06
+Version: 1.0.34
+Date: 2024-09-10
 Authors@R: 
     person(given = "Xiaotao",
            family = "Shen",

@@ -34,5 +34,8 @@ globalVariables(names = c(
   "retention_time_in_seconds",
   "study_variable",
   "group",
-  "."
+  ".",
+  "Level",
+  "Total.score",
+  "candidate.num"
 ))
