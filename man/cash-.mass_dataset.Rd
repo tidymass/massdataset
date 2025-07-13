@@ -12,5 +12,5 @@
 \item{name}{A \link{name} or a string.}
 }
 \description{
-$ method
+$ method of mass_dataset
 }

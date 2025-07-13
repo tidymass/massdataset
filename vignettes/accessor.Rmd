@@ -10,7 +10,7 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{accessor}
+  %\VignetteIndexEntry{Accessor}
   %\VignettePackage{massdataset}
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}

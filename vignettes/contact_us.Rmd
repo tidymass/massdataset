@@ -7,13 +7,13 @@ date: "Created on 2020-03-28 and updated on `r Sys.Date()`"
 output:
   html_document:
     df_print: paged
-    toc: false
+    toc: no
   pdf_document:
-    toc: false
+    toc: no
 pkgdown:
   as_is: false
 vignette: >
-  %\VignetteIndexEntry{contact_us}
+  %\VignetteIndexEntry{Contact us}
   %\VignettePackage{massdatabase}
   % \VignetteEngine{knitr::rmarkdown}
   % \usepackage[utf8]{inputenc}
