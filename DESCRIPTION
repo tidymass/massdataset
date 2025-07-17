@@ -6,7 +6,7 @@ Authors@R:
     person(given = "Xiaotao",
            family = "Shen",
            role = c("aut", "cre"),
-           email = "shenxt1990@outlook.com",
+           email = "xiaotao.shen@outlook.com",
            comment = c(ORCID = "0000-0002-9608-9964"))
 Description: massdata provide a uniform and stanford data structure of mass spectrometry experimental
     data. Which can be used to storage the metabolomics and lipidomics data. All the packages in tidymass
