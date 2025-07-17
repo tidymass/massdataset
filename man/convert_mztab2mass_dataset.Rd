@@ -24,10 +24,17 @@ It extracts sample information, variable information, and expression data.
 It also performs checks to ensure the data is correctly formatted.
 }
 \examples{
-\dontrun{
-# Assuming 'mztab_file' is the name of the mzTab file
-mass_dataset <- convert_mztab2mass_dataset(file = mztab_file)
-}
+# Path to the example mzTab file
+mzTab_file <- system.file("extdata", "data.mzTab", package = "massdataset")
+
+# Convert mzTab to mass_dataset object
+mass_dataset_object <- convert_mztab2mass_dataset(
+  file = "data.mzTab",
+  path = dirname(mzTab_file)
+)
+
+# View summary of the object
+summary(mass_dataset_object)
 
 }
 \author{
