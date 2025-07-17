@@ -28,6 +28,4 @@ vignettes/*.png
 ^vignettes/.*_files/
 man/figures
 ^LICENSE\.md$
-doc
-^doc$
 ^Meta$

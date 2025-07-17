@@ -11,12 +11,16 @@ Authors@R:
 Description: massdata provide a uniform and stanford data structure of mass spectrometry experimental
     data. Which can be used to storage the metabolomics and lipidomics data. All the packages in tidymass
     support this class.
+BiocViews: Software, DataImport, DataRepresentation, Visualization, 
+           MassSpectrometry, Metabolomics, Lipidomics, QualityControl, 
+           Preprocessing, StatisticalMethod, Infrastructure, 
+           DataManipulation, VisualizationMethods
 URL: https://github.com/tidymass/massdataset
 BugReports: https://github.com/tidymass/massdataset/issues
 Depends: R (>= 4.1)
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
