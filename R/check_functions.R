@@ -8,10 +8,31 @@
 #' The function returns a message indicating that the `annotation_table` meets the required format, or it stops with an error message if any checks fail.
 #'
 #' @examples
-#' \dontrun{
-#' # Assuming `my_annotation_table` is the table to validate:
-#' check_annotation_table(my_annotation_table)
-#' }
+#' # Create a valid annotation table
+#' annotation_table <- data.frame(
+#'   variable_id = c("feature1", "feature2"),
+#'   ms2_files_id = c("file1", "file2"),
+#'   ms2_spectrum_id = c("spec1", "spec2"),
+#'   Compound.name = c("Glucose", "Fructose"),
+#'   CAS.ID = c("50-99-7", "57-48-7"),
+#'   HMDB.ID = c("HMDB0000122", "HMDB0000660"),
+#'   KEGG.ID = c("C00031", "C00095"),
+#'   Lab.ID = c("Lab001", "Lab002"),
+#'   Adduct = c("[M+H]+", "[M+Na]+"),
+#'   mz.error = c(0.001, 0.002),
+#'   mz.match.score = c(0.95, 0.96),
+#'   RT.error = c(0.1, 0.2),
+#'   RT.match.score = c(0.9, 0.92),
+#'   CE = c(20, 30),
+#'   SS = c("MS2_001", "MS2_002"),
+#'   Total.score = c(0.85, 0.88),
+#'   Database = c("HMDB", "KEGG"),
+#'   Level = c("Level 1", "Level 2"),
+#'   stringsAsFactors = FALSE
+#' )
+#'
+#' # Validate the table
+#' check_annotation_table(annotation_table)
 #'
 #'
 #' @export
