@@ -7,6 +7,7 @@
 #'
 #' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
 #'
+#' @return the number of columns (samples) in expression_data
 #' @export
 #' @examples
 #' ###get_sample_number
@@ -37,6 +38,7 @@ get_sample_number = function(object) {
 #'
 #' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
 #'
+#' @return the number of rows (variables) in expression_data
 #' @export
 #' @examples
 #' ###get_variable_number
@@ -67,6 +69,7 @@ get_variable_number = function(object) {
 #'
 #'
 #' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @return sample IDs from expression_data column names
 #'
 #' @export
 #' @rdname mass_dataset-summary
@@ -98,6 +101,7 @@ get_sample_id = function(object) {
 #'
 #'
 #' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @return variable IDs from expression_data row names
 #'
 #' @export
 #' @examples
@@ -347,6 +351,7 @@ setMethod(f = "intersect",
 #' @param object A mass_dataset object.
 #' @param ... Additional arguments to be passed to the `summary` 
 #' function for the expression data.
+#' @return summary of the expression_data slot
 #' @export
 summary.mass_dataset <- function(object, ...) {
   summary(object@expression_data, ...)

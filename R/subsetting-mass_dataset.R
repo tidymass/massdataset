@@ -131,6 +131,7 @@
 #' @method $ mass_dataset
 #' @param x A mass_dataset class
 #' @param name A [name] or a string.
+#' @return a column from expression_data by name if it exists
 #' @export
 `$.mass_dataset` <- function(x, name) {
   out <- .subset2(x@expression_data, name)
