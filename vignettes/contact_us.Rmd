@@ -64,5 +64,7 @@ leaflet::leaflet(width = "100%") %>%
   )
 ```
 
-
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
+```
 
