@@ -44,6 +44,9 @@
 \alias{fill}
 \alias{pivot_longer}
 \title{Objects exported from other packages}
+\value{
+\code{NULL} No return value. This page is only for documentation purposes.
+}
 \keyword{internal}
 \description{
 These objects are imported from other packages. Follow the links

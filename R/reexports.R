@@ -1,3 +1,5 @@
+#' @return `NULL` No return value. This page is only for documentation purposes.
+
 ##' @importFrom magrittr %>%
 ##' @export
 magrittr::`%>%`
