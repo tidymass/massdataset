@@ -39,11 +39,78 @@ are not present in the \code{sample_info}.
 }
 
 \examples{
-\dontrun{
-# Assuming `mass_object` is a valid mass_dataset object and `confounders` is a vector
-# of column names from the sample_info slot.
-adjusted_object <- adjust_confounder(object = mass_object, confounder_name_list = confounders)
-}
+library(magrittr)
+
+# Expression data (3 features × 3 samples)
+expression_data <- data.frame(
+  sample1 = c(1.2, 3.4, 5.6),
+  sample2 = c(2.3, 3.5, 6.1),
+  sample3 = c(1.9, 3.2, 5.9),
+  row.names = paste0("feature", 1:3)
+)
+
+# Sample information including sample_id, batch, age, and class
+sample_info <- data.frame(
+  sample_id = c("sample1", "sample2", "sample3"),
+  batch = c(1, 1, 2),
+  age = c(30, 35, 32),
+  class = c("QC", "QC", "QC"),
+  row.names = c("sample1", "sample2", "sample3")
+)
+
+# Sample info note: matches sample_info columns
+sample_info_note <- data.frame(
+  name = colnames(sample_info),
+  meaning = c("sample name", "batch ID", "subject age", "sample class"),
+  row.names = colnames(sample_info)
+)
+
+# Variable information
+variable_info <- data.frame(
+  variable_id = rownames(expression_data),
+  row.names = rownames(expression_data)
+)
+
+# Variable info note: matches variable_info columns
+variable_info_note <- data.frame(
+  name = colnames(variable_info),
+  meaning = "feature ID",
+  row.names = colnames(variable_info)
+)
+
+# Construct the mass_dataset object
+mass_object <- new(
+  Class = "mass_dataset",
+  expression_data = expression_data,
+  sample_info = sample_info,
+  variable_info = variable_info,
+  sample_info_note = sample_info_note,
+  variable_info_note = variable_info_note,
+  ms2_data = list(),
+  annotation_table = data.frame(),
+  process_info = list(),
+  other_files = list(),
+  version = "1.0.0",
+  activated = "expression_data"
+)
+
+# Optional: check validity of the dataset
+check_mass_dataset(
+  expression_data = expression_data,
+  sample_info = sample_info,
+  variable_info = variable_info,
+  sample_info_note = sample_info_note,
+  variable_info_note = variable_info_note
+)
+
+# Adjust for confounders
+adjusted_object <- adjust_confounder(
+  object = mass_object,
+  confounder_name_list = c("batch", "age")
+)
+
+# View adjusted expression matrix
+adjusted_object@expression_data
 
 
 }

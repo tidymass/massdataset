@@ -26,7 +26,7 @@ cbind.mass_dataset <-
 #' @param y Another `mass_dataset` object to be column bound with `x`.
 #' @param deparse.level Integer controlling the construction of labels in the case of non-matrix-like arguments. Default is 1.
 #' @example
-#' #' library(magrittr)
+#' library(magrittr)
 #'
 #' # Create first mass_dataset object
 #' expression_data_x <- data.frame(
