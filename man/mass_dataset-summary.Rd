@@ -31,6 +31,15 @@ Options are "total", "sample", or "variable". Default is "total".}
 \item{show_by}{A character string specifying the format to show the result.
 Options are "number" or "percentage". Default is "number".}
 }
+\value{
+the number of columns (samples) in expression_data
+
+the number of rows (variables) in expression_data
+
+sample IDs from expression_data column names
+
+variable IDs from expression_data row names
+}
 \description{
 These functions returns the information of a mass_dataset object.
 }

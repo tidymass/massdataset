@@ -11,6 +11,9 @@
 
 \item{name}{A \link{name} or a string.}
 }
+\value{
+a column from expression_data by name if it exists
+}
 \description{
 $ method of mass_dataset
 }
