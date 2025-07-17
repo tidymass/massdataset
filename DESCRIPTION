@@ -13,8 +13,7 @@ Description: massdata provide a uniform and stanford data structure of mass spec
     support this class.
 BiocViews: Software, DataImport, DataRepresentation, Visualization, 
            MassSpectrometry, Metabolomics, Lipidomics, QualityControl, 
-           Preprocessing, StatisticalMethod, Infrastructure, 
-           DataManipulation, VisualizationMethods
+           Preprocessing, StatisticalMethod, Infrastructure
 URL: https://github.com/tidymass/massdataset
 BugReports: https://github.com/tidymass/massdataset/issues
 Depends: R (>= 4.1)
