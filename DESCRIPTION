@@ -61,4 +61,8 @@ Suggests:
     kableExtra,
     htmlwidgets,
     htmltools 
+NOTE:
+Note:
+Remotes: 
+    github::tidymass/masstools
 Config/testthat/edition: 3
