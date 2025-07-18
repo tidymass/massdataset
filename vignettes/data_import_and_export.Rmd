@@ -37,31 +37,33 @@ Let's first prepare the data objects according to the attached figure for each f
 
 The columns `sample_id` (sample ID), `injection.order` (injection order of samples), `class` (Blank, QC, Subject, etc), `group` (case, control, etc) are required.
 
-![](figures/1.png)
+![](../man/figures/1.png)
 
 ## 2. `variable_info` (required)
 
 The columns `variable_id` (variable ID), `mz` (mass to charge ratio), `rt` (retention time, unit is second) are required.
 
-![](figures/2.png) \## 3. `expression_data` (required)
+![](../man/figures/2.png) 
+
+## 3. `expression_data` (required)
 
 Columns are samples are rows are features (variables).
 
 > The column names of expression_data should be completely same with sample_id in `sample_info`, and the row names of expression_data should be completely same with variable_id in `variable_info`.
 
-![](figures/3.png)
+![](../man/figures/3.png)
 
 ## 4. `sample_info_note` (optional)
 
 This is the metadata for `sample_info`.
 
-![](figures/4.png)
+![](../man/figures/4.png)
 
 ## 5. `variable_info_note` (optional)
 
 This is the metadata for `variable_info`.
 
-![](figures/5.png)
+![](../man/figures/5.png)
 
 # **Download demo data**
 
@@ -171,7 +173,7 @@ export_mass_dataset(object = object_pos,
 
 Then all the data will be in the `demo_data_pos` folder.
 
-![](figures/6.png)
+![](../man/figures/6.png)
 
 # **mzMine feature table to `mass_dataset` class**
 
