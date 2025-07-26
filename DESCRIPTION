@@ -37,7 +37,7 @@ Imports:
     purrr,
     readr,
     rlang,
-    masstools (>= 1.0.8),
+    masstools,
     ComplexHeatmap,
     grid,
     stats,
