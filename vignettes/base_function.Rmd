@@ -10,7 +10,7 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{base_function}
+  %\VignetteIndexEntry{R base functions for mass_dataset}
   %\VignettePackage{massdataset}
   % \VignetteEngine{knitr::rmarkdown}
   % \usepackage[utf8]{inputenc}

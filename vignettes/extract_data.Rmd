@@ -10,10 +10,10 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{extract_data}
+  %\VignetteIndexEntry{Extract data from mass_dataset}
   %\VignettePackage{massdataset}
-  % \VignetteEngine{knitr::rmarkdown}
-  % \usepackage[utf8]{inputenc}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
   %\VignetteEncoding{UTF-8}
 ---
 

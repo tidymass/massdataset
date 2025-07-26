@@ -10,7 +10,7 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{data_import_and_export}
+  %\VignetteIndexEntry{Data import and export}
   %\VignettePackage{massdataset}
   % \VignetteEngine{knitr::rmarkdown}
   % \usepackage[utf8]{inputenc}
@@ -27,7 +27,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 # **Data preparation**
 
 The `massdataset` class object can be used to store the untargeted metabolomics data.
@@ -38,32 +37,33 @@ Let's first prepare the data objects according to the attached figure for each f
 
 The columns `sample_id` (sample ID), `injection.order` (injection order of samples), `class` (Blank, QC, Subject, etc), `group` (case, control, etc) are required.
 
-![](../man/figures/Screen Shot 2021-12-27 at 2.56.52 PM.png)
+![](../man/figures/1.png)
 
 ## 2. `variable_info` (required)
 
 The columns `variable_id` (variable ID), `mz` (mass to charge ratio), `rt` (retention time, unit is second) are required.
 
-![](../man/figures/Screen Shot 2021-12-27 at 3.00.14 PM.png)
+![](../man/figures/2.png) 
+
 ## 3. `expression_data` (required)
 
-Columns are samples are rows are features (variables). 
+Columns are samples are rows are features (variables).
 
 > The column names of expression_data should be completely same with sample_id in `sample_info`, and the row names of expression_data should be completely same with variable_id in `variable_info`.
 
-![](../man/figures/Screen Shot 2021-12-27 at 3.02.18 PM.png)
+![](../man/figures/3.png)
 
 ## 4. `sample_info_note` (optional)
 
-This is the metadata for `sample_info`. 
+This is the metadata for `sample_info`.
 
-![](../man/figures/Screen Shot 2021-12-27 at 3.09.42 PM.png)
+![](../man/figures/4.png)
 
 ## 5. `variable_info_note` (optional)
 
 This is the metadata for `variable_info`.
 
-![](../man/figures/Screen Shot 2021-12-27 at 3.09.42 PM.png)
+![](../man/figures/5.png)
 
 # **Download demo data**
 
@@ -115,7 +115,6 @@ colnames(expression_data_neg) == sample_info_neg$sample_id
 
 The orders of `sample_id` in `sample_info` and column names of `expression_data` are different.
 
-
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
 expression_data_pos = 
   expression_data_pos[,sample_info_pos$sample_id]
@@ -126,7 +125,6 @@ expression_data_neg =
 colnames(expression_data_pos) == sample_info_pos$sample_id
 colnames(expression_data_neg) == sample_info_neg$sample_id
 ```
-
 
 # **Create `mass_data` class object**
 
@@ -165,7 +163,6 @@ save(object_pos, file = "feature_table/object_pos")
 save(object_neg, file = "feature_table/object_neg")
 ```
 
-
 # **Export `mass_dataset` class object to csv for xlsx**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
@@ -176,7 +173,7 @@ export_mass_dataset(object = object_pos,
 
 Then all the data will be in the `demo_data_pos` folder.
 
-![](../man/figures/Screen Shot 2021-12-27 at 3.33.20 PM.png)
+![](../man/figures/6.png)
 
 # **mzMine feature table to `mass_dataset` class**
 
@@ -184,14 +181,17 @@ We can also directory convert feature table from [mzMine](http://mzmine.github.i
 
 An example feature table from mzMine.
 
-```{r,eval=TRUE, echo=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE, echo=FALSE,warning=FALSE, R.options="",message=FALSE, cache=TRUE}
+
 data("mzmine_table")
+head_mzmine_table <- head(mzmine_table)
 library(kableExtra)
 library(magrittr)
-kbl(mzmine_table) %>%
+kbl(head_mzmine_table) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
-                fixed_thead = TRUE) %>% 
+                fixed_thead = TRUE) %>%
   scroll_box(width = "100%", height = "600px")
+
 ```
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
@@ -201,7 +201,6 @@ object =
 object
 ```
 
-
 # **MS-DIAL feature table to `mass_dataset` class**
 
 We can also directory convert feature table from [MS-DIAL](http://prime.psc.riken.jp/compms/msdial/main.html) to `mass_dataset` class.
@@ -210,9 +209,10 @@ An example feature table from MS-DIAL.
 
 ```{r,eval=TRUE, echo=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 data("msdial_table")
+head_msdial_table <- msdial_table[1:7,]
 library(kableExtra)
 library(magrittr)
-kbl(msdial_table) %>%
+kbl(head_msdial_table) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
                 fixed_thead = TRUE) %>% 
   scroll_box(width = "100%", height = "600px")

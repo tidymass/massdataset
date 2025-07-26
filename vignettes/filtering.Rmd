@@ -10,7 +10,7 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{filtering}
+  %\VignetteIndexEntry{Filtering samples/variables}
   %\VignettePackage{massdataset}
   % \VignetteEngine{knitr::rmarkdown}
   % \usepackage[utf8]{inputenc}

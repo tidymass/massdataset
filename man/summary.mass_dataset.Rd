@@ -12,6 +12,9 @@
 \item{...}{Additional arguments to be passed to the \code{summary}
 function for the expression data.}
 }
+\value{
+summary of the expression_data slot
+}
 \description{
 summary
 }

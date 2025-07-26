@@ -1,22 +1,25 @@
 Package: massdataset
 Title: massdataset
-Version: 1.0.34
+Version: 0.99.0
 Date: 2024-09-10
 Authors@R: 
     person(given = "Xiaotao",
            family = "Shen",
            role = c("aut", "cre"),
-           email = "shenxt1990@outlook.com",
+           email = "xiaotao.shen@outlook.com",
            comment = c(ORCID = "0000-0002-9608-9964"))
 Description: massdata provide a uniform and stanford data structure of mass spectrometry experimental
     data. Which can be used to storage the metabolomics and lipidomics data. All the packages in tidymass
     support this class.
+biocViews: Software, DataImport, DataRepresentation, Visualization, 
+           MassSpectrometry, Metabolomics, Lipidomics, QualityControl, 
+           Preprocessing, StatisticalMethod, Infrastructure
 URL: https://github.com/tidymass/massdataset
 BugReports: https://github.com/tidymass/massdataset/issues
 Depends: R (>= 4.1)
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
@@ -34,7 +37,7 @@ Imports:
     purrr,
     readr,
     rlang,
-    masstools (>= 1.0.8),
+    masstools,
     ComplexHeatmap,
     grid,
     stats,
@@ -53,7 +56,12 @@ Suggests:
     tidyverse,
     testthat (>= 3.0.0),
     ggplotify,
-    plotly
+    plotly,
+    leaflet,
+    kableExtra,
+    htmlwidgets,
+    htmltools 
+NOTE:
 Note:
 Remotes: 
     github::tidymass/masstools

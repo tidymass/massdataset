@@ -1,0 +1,18 @@
+MTD	mzTab-version	1.0.0
+MTD	mzTab-ID	test_mztab
+MTD	study_variable[1]	GroupA
+MTD	study_variable[1]-assay_refs	assay[1]|assay[2]
+MTD	assay[1]-ms_run_ref	ms_run[1]
+MTD	assay[2]-ms_run_ref	ms_run[2]
+
+SMH	SML_ID	SMF_ID_REFS	theoretical_neutral_mass	abundance_assay[1]	abundance_assay[2]
+SML	feature1	smf1	100.1	12345	67890
+SML	feature2	smf2	150.2	23456	34567
+
+SFH	SMF_ID	SME_ID_REFS	exp_mass_to_charge	retention_time_in_seconds
+SMF	smf1	sme1	100.1	120.0
+SMF	smf2	sme2	150.2	180.0
+
+SEH	SME_ID	database_identifier	chemical_formula
+SME	sme1	null	null
+SME	sme2	null	null

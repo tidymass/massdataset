@@ -27,9 +27,6 @@ write_ms2_data <-
            recursive = TRUE,
            force = TRUE)
     
-    sink(file = file.path(path, file_name),
-         append = TRUE)
-    
     purrr::walk(
       .x = seq_along(object@variable_id),
       .f = function(temp_idx) {
@@ -59,15 +56,14 @@ write_ms2_data <-
         
         result =
           c("BEGIN IONS", result, single_spectra, "END IONS", "", "")
-        cat(
-          result,
-          file = file.path(path, file_name),
-          append = TRUE,
-          sep = "\n"
+        writeLines(
+          text = result,
+          con = file.path(path, file_name),
+          sep = "\n",
+          useBytes = TRUE
         )
       }
     )
-    sink()
   }
 
 

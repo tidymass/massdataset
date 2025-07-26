@@ -24,6 +24,9 @@ vignettes/tidyverse_verse.Rmd
 vignettes/example.Rmd
 vignettes/*cache
 vignettes/*.png
+^vignettes/.*\.html$
+^vignettes/.*_files/
 man/figures
-vignettes/
 ^LICENSE\.md$
+^Meta$
+^doc$

@@ -21,7 +21,7 @@
 mass_dataset
 }
 \description{
-[ method
+Subsetting method for mass_dataset using [ operator. This allows extracting rows (variables) and columns (samples) from the object.
 }
 \author{
 Xiaotao Shen

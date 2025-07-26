@@ -1,4 +1,5 @@
 #' @title [ method
+#' @description Subsetting method for mass_dataset using [ operator. This allows extracting rows (variables) and columns (samples) from the object.
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
 #' @method [ mass_dataset
@@ -126,9 +127,11 @@
 
 
 #' @title $ method
+#' @description $ method of mass_dataset
 #' @method $ mass_dataset
 #' @param x A mass_dataset class
 #' @param name A [name] or a string.
+#' @return a column from expression_data by name if it exists
 #' @export
 `$.mass_dataset` <- function(x, name) {
   out <- .subset2(x@expression_data, name)

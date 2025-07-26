@@ -1,3 +1,12 @@
+#' Extraction Functions for mass_dataset Objects
+#'
+#' This set of functions extracts various components from `mass_dataset` objects,
+#' such as expression data, sample information, variable information, annotation table, etc.
+#'
+#' @name mass_dataset-extracting
+NULL
+
+
 #' Extract Components from mass_dataset Object
 #'
 #' @author Xiaotao Shen <shenxt1990@outlook.com>
@@ -283,7 +292,7 @@ extract_ms2_data =
 ###sample_info
 #' @method sample_info mass_dataset
 #' @docType methods
-#' @rdname extract-mass_dataset
+#' @rdname mass_dataset-extracting
 #' @param object (required) mass_dataset class object
 #' @return A data.frame (sample_info)
 
@@ -297,7 +306,7 @@ setMethod(
 ##expression_data
 #' @method expression_data mass_dataset
 #' @docType methods
-#' @rdname extract-mass_dataset
+#' @rdname mass_dataset-extracting
 #' @param object (required) mass_dataset class object
 #' @return A data.frame (expression_data)
 
@@ -311,7 +320,7 @@ setMethod(
 ##variable_info
 #' @method variable_info mass_dataset
 #' @docType methods
-#' @rdname extract-mass_dataset
+#' @rdname mass_dataset-extracting
 #' @param object (required) mass_dataset class object
 #' @return A data.frame (variable_info)
 setMethod(
@@ -325,7 +334,7 @@ setMethod(
 ##process_info
 #' @method process_info mass_dataset
 #' @docType methods
-#' @rdname extract-mass_dataset
+#' @rdname mass_dataset-extracting
 #' @param object (required) mass_dataset class object
 #' @return A list of tidymass_parameter class objects
 setMethod(
@@ -338,7 +347,7 @@ setMethod(
 ##ms2_data
 #' @method ms2_data mass_dataset
 #' @docType methods
-#' @rdname extract-mass_dataset
+#' @rdname mass_dataset-extracting
 #' @param object (required) mass_dataset class object
 #' @return A ms2_data class object.
 setMethod(
@@ -351,7 +360,7 @@ setMethod(
 ##sample_info_note
 #' @method sample_info_note mass_dataset
 #' @docType methods
-#' @rdname extract-mass_dataset
+#' @rdname mass_dataset-extracting
 #' @param object (required) mass_dataset class object
 #' @return A data.frame (sample_info_note)
 setMethod(
@@ -365,7 +374,7 @@ setMethod(
 ##variable_info_note
 #' @method variable_info_note mass_dataset
 #' @docType methods
-#' @rdname extract-mass_dataset
+#' @rdname mass_dataset-extracting
 #' @param object (required) mass_dataset class object
 #' @return A data.frame (variable_info_note)
 setMethod(
@@ -379,7 +388,7 @@ setMethod(
 ##annotation_table
 #' @method annotation_table mass_dataset
 #' @docType methods
-#' @rdname extract-mass_dataset
+#' @rdname mass_dataset-extracting
 #' @param object (required) mass_dataset class object
 #' @return A data.frame (annotation_table)
 setMethod(

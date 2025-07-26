@@ -17,10 +17,70 @@ This function updates the \code{variable_info} and \code{variable_info_note} slo
 It ensures that the columns in \code{variable_info} are consistent with the names in \code{variable_info_note}.
 }
 \examples{
-\dontrun{
-# Assuming `md` is a mass_dataset object
-updated_md <- update_variable_info(md)
-}
+library(methods)
+
+# Simulate expression data matrix
+expression_data <- data.frame(
+  sample1 = c(1.2, 3.4),
+  sample2 = c(2.1, 4.3),
+  row.names = c("feature1", "feature2")
+)
+
+# Define variable information
+variable_info <- data.frame(
+  variable_id = c("feature1", "feature2"),
+  mz = c(100.1, 200.2),
+  rt = c(300, 400),
+  row.names = c("feature1", "feature2")
+)
+
+# Define sample information
+sample_info <- data.frame(
+  sample_id = c("sample1", "sample2"),
+  class = c("QC", "Subject"),
+  row.names = c("sample1", "sample2")
+)
+
+# Add notes for sample info
+sample_info_note <- data.frame(
+  name = c("sample_id", "class"),
+  meaning = c("Unique sample ID", "Sample classification"),
+  row.names = c("sample_id", "class")
+)
+
+# Add notes for variable info
+variable_info_note <- data.frame(
+  name = c("variable_id", "mz", "rt"),
+  meaning = c("Feature ID", "Mass-to-charge ratio", "Retention time"),
+  row.names = c("variable_id", "mz", "rt")
+)
+
+# Empty structures for optional slots
+ms2_data <- list()
+annotation_table <- data.frame()
+process_info <- list()
+other_files <- list()
+version <- "1.0.0"
+activated <- "expression_data"
+
+# Create a new mass_dataset object
+object <- new(
+  Class = "mass_dataset",
+  expression_data = expression_data,
+  ms2_data = ms2_data,
+  annotation_table = annotation_table,
+  sample_info = sample_info,
+  variable_info = variable_info,
+  sample_info_note = sample_info_note,
+  variable_info_note = variable_info_note,
+  process_info = process_info,
+  other_files = other_files,
+  version = version,
+  activated = activated
+)
+
+# Update sample_info
+updated_md <- update_variable_info(object)
 
 }
 \author{
