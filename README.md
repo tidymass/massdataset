@@ -21,13 +21,13 @@ Merging separate data objects is useful for manually-imported data objects, espe
 
 # Installation
 
-You can install `massdataset` from [GitLab](https://gitlab.com/jaspershen/massdataset)
+You can install `massdataset` from [GitLab](https://gitlab.com/tidymass/massdataset)
 
 ``` r
 if(!require(remotes)){
 install.packages("remotes")
 }
-remotes::install_gitlab("jaspershen/massdataset")
+remotes::install_gitlab("tidymass/massdataset")
 ```
 or [GitHub](https://github.com/tidymass/massdataset)
 
