@@ -45,11 +45,10 @@ object =
     variable_info = variable_info
   )
 object
-object@activated
-object =
-  activate_mass_dataset(.data = object, what = "sample_info")
-object@activated
+object <- activate_mass_dataset(.data = object, what = "sample_info")
+head(dplyr::filter(object, class == "QC"))
 }
 \author{
-Xiaotao Shen \email{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

@@ -52,7 +52,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
  get_sample_number(object = object)
 ###get_variable_number
@@ -63,7 +63,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
  get_variable_number(object = object)
 ###get_sample_id
@@ -74,7 +74,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
  get_sample_id(object = object)
 ###get_variable_id
@@ -85,7 +85,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
  head(get_variable_id(object = object))
 ###get_mv_number
@@ -96,7 +96,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
 object
 head(get_variable_id(object = object))
@@ -105,5 +105,6 @@ get_mv_number(object, by = "sample")
 head(get_mv_number(object, by = "variable", "percentage"))
 }
 \author{
-Xiaotao Shen \email{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

@@ -6,7 +6,7 @@
 #'
 #' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param object An object of class \code{mass_dataset}.
 #' @return
 #' Returns \code{TRUE} if the object is valid, otherwise returns a character vector of error messages.
@@ -167,19 +167,15 @@ check_mass_dataset_class <-
 #' 
 #' @examples
 #' \dontrun{
-#' # Create a new mass_dataset object
-#' new_data <- new("mass_dataset", 
-#'                 expression_data = data.frame(),
-#'                 ms2_data = list(),
-#'                 annotation_table = data.frame(),
-#'                 sample_info = data.frame(),
-#'                 variable_info = data.frame(),
-#'                 sample_info_note = data.frame(),
-#'                 variable_info_note = data.frame(),
-#'                 process_info = list(),
-#'                 other_files = list(),
-#'                 version = "1.0",
-#'                 activated = "expression_data")
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' new_data <- create_mass_dataset(
+#'   expression_data = expression_data,
+#'   sample_info = sample_info,
+#'   variable_info = variable_info
+#' )
+#' new_data
 #' }
 #'
 #' @name mass_dataset-class
@@ -213,18 +209,18 @@ setClass(
 #'
 #' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param expression_data MS1 peak table name.
-#' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
+#' \url{https://www.tidymass.org/massdataset/articles/data_import_and_export.html}
 #' @param sample_info Sample information name.
-#' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
+#' \url{https://www.tidymass.org/massdataset/articles/data_import_and_export.html}
 #' @param variable_info MS1 peak table name.
 #' Columns are samples and rows are variables.
-#' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
+#' \url{https://www.tidymass.org/massdataset/articles/data_import_and_export.html}
 #' @param sample_info_note Sample information name.
-#' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
+#' \url{https://www.tidymass.org/massdataset/articles/data_import_and_export.html}
 #' @param variable_info_note Sample information name.
-#' \url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}
+#' \url{https://www.tidymass.org/massdataset/articles/data_import_and_export.html}
 #' @return An object of class \code{mass_dataset}.
 #' @export
 #' @examples
@@ -314,5 +310,3 @@ create_mass_dataset <-
     )
     invisible(object)
   }
-
-

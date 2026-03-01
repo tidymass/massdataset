@@ -4,7 +4,7 @@
 #'
 #' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param object A `mass_dataset` object for which the parameter report is to be generated.
 #' @param path The directory where the parameter report will be saved. Default is the current working directory.
 #'
@@ -129,7 +129,7 @@ report_parameters <-
 #'
 #' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param object A `tidymass_parameter` object to be parsed.
 #'
 #' @return A data frame containing the package name, function name, parameters, and the time when the function was called.
@@ -145,8 +145,7 @@ report_parameters <-
 #'     sample_info = sample_info,
 #'     variable_info = variable_info
 #'   )
-#' object
-#' parse_tidymass_parameter(object@process_info$create_mass_dataset)
+#' parse_tidymass_parameter(extract_process_info(object)$create_mass_dataset)
 
 
 parse_tidymass_parameter <-

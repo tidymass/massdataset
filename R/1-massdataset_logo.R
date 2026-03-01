@@ -3,7 +3,8 @@
 #' This function displays the logo and version information for the massdataset package.
 #'
 #' @return None. This function is called for its side effect of printing the logo and messages.
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @importFrom stringr str_replace str_split str_replace_all str_trim
 #' @importFrom ComplexHeatmap Heatmap columnAnnotation anno_barplot
 #' @importFrom grid gpar
@@ -21,7 +22,6 @@
 #' @importFrom stats p.adjust rgamma sd median time as.formula lm residuals
 #' @importFrom utils data str head tail packageVersion write.table read.delim
 #' @importFrom utils read.table
-#' @importFrom masstools read_mgf read_mzxml ms2_plot
 #' @importFrom rlang warn quo_is_null abort seq2 caller_env check_dots_empty
 #' @importFrom rlang as_quosure caller_arg current_env check_dots_empty0
 #' @importFrom tibble add_column
@@ -38,7 +38,7 @@ massdataset_logo <- function() {
           " (",
           update_date,
           ')')
-  message("More information: massdataset.tidymass.org")
+  message("More information: https://www.tidymass.org/massdataset/")
   cat(
     c(
       "                          _____        _                 _   ",
@@ -64,7 +64,8 @@ update_date <- as.character(Sys.time())
 #' This function retrieves the current version of the massdataset package installed in the R environment.
 #'
 #' @return A character string indicating the version of the massdataset package.
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @examples
 #' get_massdataset_version()
 #' @export

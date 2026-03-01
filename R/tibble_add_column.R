@@ -1,7 +1,7 @@
 # #' @title add_column
 # #' @description add_column. This function is from tibble.
 # #' @author Xiaotao Shen
-# #' \email{shenxt1990@@outlook.com}
+# #' \email{xiaotao.shen@outlook.com}
 # #' @importFrom tibble add_column
 # #' @include mass_dataset_class.R
 # #' @param .data mass_data class

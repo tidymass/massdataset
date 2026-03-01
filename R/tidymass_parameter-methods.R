@@ -7,21 +7,21 @@
 #'
 #' @return A data frame containing the package name, function name, parameters, and time of the `tidymass_parameter` object.
 #'
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #'
 #' @export
 #' @examples
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' object =
-#'   create_mass_dataset(
-#'     expression_data = expression_data,
-#'     sample_info = sample_info,
-#'     variable_info = variable_info
-#'   )
-#' object
-#' translate_tidymass_parameter(object@process_info[[1]])
+#' object <- create_mass_dataset(
+#'   expression_data = expression_data,
+#'   sample_info = sample_info,
+#'   variable_info = variable_info
+#' )
+#' object2 <- mutate_mean_intensity(object)
+#' translate_tidymass_parameter(extract_process_info(object2)[[1]])
 
 translate_tidymass_parameter <-
   function(object) {

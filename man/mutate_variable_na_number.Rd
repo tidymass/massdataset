@@ -28,7 +28,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
 
 object
@@ -39,7 +39,7 @@ object2 =
 
 colnames(extract_variable_info(object))
 colnames(extract_variable_info(object2))
-object2@variable_info_note
+extract_variable_info_note(object2)
 
 ##calculate NA number according to only QC samples
 object3 <-
@@ -50,8 +50,9 @@ object3 <-
 object3
 
 colnames(extract_variable_info(object3))
-object3@variable_info_note
+extract_variable_info_note(object3)
 }
 \author{
-Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

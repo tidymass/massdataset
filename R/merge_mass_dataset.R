@@ -1,9 +1,9 @@
 #' @title merge_mass_dataset
 #' @description Merge two mass_dataset objects. More information can be found
-#' here \url{https://tidymass.github.io/massdataset/articles/process_info.html}
+#' here \url{https://www.tidymass.org/massdataset/articles/process_info.html}
 #' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param x (required) A mass_dataset class object.
 #' @param y (required) A mass_dataset class object.
 #' @param sample_direction How to merge samples, should be
@@ -19,52 +19,39 @@
 #' data("sample_info")
 #' data("variable_info")
 #'
-#' object =
-#'   create_mass_dataset(
-#'     expression_data = expression_data,
-#'     sample_info = sample_info,
-#'     variable_info = variable_info,
-#'   )
+#' object <- create_mass_dataset(
+#'   expression_data = expression_data,
+#'   sample_info = sample_info,
+#'   variable_info = variable_info
+#' )
 #'
-#' x = object[1:3, 5:7]
-#' y = object[2:4, 6:8]
+#' x <- object[1:3, 5:7]
+#' y <- object[2:4, 6:8]
 #'
-#' ####full merge for samples and variables
-#' z1 =
-#' merge_mass_dataset(
+#' z1 <- merge_mass_dataset(
 #'   x = x,
 #'   y = y,
 #'   sample_direction = "full",
 #'   variable_direction = "full"
 #' )
 #'
-#' ####inner merge for samples and full merge for variables
-#' z2 =
-#'   merge_mass_dataset(
-#'     x = x,
-#'     y = y,
-#'     sample_direction = "inner",
-#'     variable_direction = "full"
-#'   )
+#' z2 <- merge_mass_dataset(
+#'   x = x,
+#'   y = y,
+#'   sample_direction = "inner",
+#'   variable_direction = "full"
+#' )
 #'
-#' extract_expression_data(x)
-#' extract_expression_data(y)
-#' extract_expression_data(z1)
-#' extract_expression_data(z2)
+#' dim(extract_expression_data(z1))
+#' dim(extract_expression_data(z2))
 #'
-#' ######combine pos and neg
-#' x = object[1:3, 5:7]
-#' y = object[4:6, 6:8]
-#'
-#' z3 =
-#'   merge_mass_dataset(
-#'     x = x,
-#'     y = y,
-#'     sample_direction = "full",
-#'     variable_direction = "full"
-#'   )
-#'
-#' extract_expression_data(z3)
+#' z3 <- merge_mass_dataset(
+#'   x = object[1:3, 5:7],
+#'   y = object[4:6, 6:8],
+#'   sample_direction = "full",
+#'   variable_direction = "full"
+#' )
+#' dim(extract_expression_data(z3))
 
 merge_mass_dataset <-
   function(x,

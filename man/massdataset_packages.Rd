@@ -7,10 +7,12 @@
 massdataset_packages(include_self = TRUE)
 }
 \arguments{
-\item{include_self}{Include massdataset in the list?}
+\item{include_self}{Logical; if \code{TRUE}, include \code{massdataset} itself in the
+returned package names.}
 }
 \value{
-massdataset packages
+A character vector of package names used by the \code{massdataset}
+workflow.
 }
 \description{
 List all packages in the massdataset

@@ -1,15 +1,19 @@
 #' @title [ method
-#' @description Subsetting method for mass_dataset using [ operator. This allows extracting rows (variables) and columns (samples) from the object.
+#' @description Subsets a `mass_dataset` object by variables (`i`) and samples
+#'   (`j`) using the `[` operator. The method updates the corresponding slots
+#'   in the returned object to keep the data internally consistent.
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @method [ mass_dataset
-#' @param x x
-#' @param i i
-#' @param j j
-#' @param drop drop
-#' @param ... Other parameters
+#' @param x A `mass_dataset` object.
+#' @param i Row indices or variable identifiers to keep.
+#' @param j Column indices or sample identifiers to keep.
+#' @param drop Logical; if `TRUE`, allow base subsetting to simplify the
+#'   extracted `expression_data`.
+#' @param ... Additional arguments passed to base subsetting.
 #' @export
-#' @return mass_dataset
+#' @return A subsetted `mass_dataset` object, or a simplified extracted object
+#'   if base subsetting returns a non-data-frame result.
 `[.mass_dataset` <-
   function(x, i, j, drop = FALSE, ...) {
     if (missing(i) & missing(j)) {
@@ -127,11 +131,12 @@
 
 
 #' @title $ method
-#' @description $ method of mass_dataset
+#' @description Extracts a column from the `expression_data` slot of a
+#'   `mass_dataset` object by name.
 #' @method $ mass_dataset
-#' @param x A mass_dataset class
-#' @param name A [name] or a string.
-#' @return a column from expression_data by name if it exists
+#' @param x A `mass_dataset` object.
+#' @param name A column name from `expression_data`.
+#' @return The requested column from `expression_data`, if it exists.
 #' @export
 `$.mass_dataset` <- function(x, name) {
   out <- .subset2(x@expression_data, name)

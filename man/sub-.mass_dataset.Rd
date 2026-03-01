@@ -7,23 +7,27 @@
 \method{[}{mass_dataset}(x, i, j, drop = FALSE, ...)
 }
 \arguments{
-\item{x}{x}
+\item{x}{A \code{mass_dataset} object.}
 
-\item{i}{i}
+\item{i}{Row indices or variable identifiers to keep.}
 
-\item{j}{j}
+\item{j}{Column indices or sample identifiers to keep.}
 
-\item{drop}{drop}
+\item{drop}{Logical; if \code{TRUE}, allow base subsetting to simplify the
+extracted \code{expression_data}.}
 
-\item{...}{Other parameters}
+\item{...}{Additional arguments passed to base subsetting.}
 }
 \value{
-mass_dataset
+A subsetted \code{mass_dataset} object, or a simplified extracted object
+if base subsetting returns a non-data-frame result.
 }
 \description{
-Subsetting method for mass_dataset using [ operator. This allows extracting rows (variables) and columns (samples) from the object.
+Subsets a \code{mass_dataset} object by variables (\code{i}) and samples
+(\code{j}) using the \code{[} operator. The method updates the corresponding slots
+in the returned object to keep the data internally consistent.
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

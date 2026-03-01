@@ -4,10 +4,14 @@
 \alias{colnames.mass_dataset}
 \title{colnames}
 \usage{
-\method{colnames}{mass_dataset}(x)
+\method{colnames}{mass_dataset}(x, do.NULL = TRUE, prefix = "col")
 }
 \arguments{
 \item{x}{A mass_dataset object.}
+
+\item{do.NULL}{Passed through for compatibility with \code{base::colnames()}.}
+
+\item{prefix}{Passed through for compatibility with \code{base::colnames()}.}
 }
 \value{
 A character vector containing the column names (sample IDs) of the

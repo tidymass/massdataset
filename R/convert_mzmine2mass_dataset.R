@@ -1,6 +1,7 @@
 #' Convert MZmine Data to mass_dataset Object
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @description This function converts data from MZmine into a `mass_dataset` object.
 #' It processes the data to create a `mass_dataset` object containing expression data, sample information, and variable information.
 #'

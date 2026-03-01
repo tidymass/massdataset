@@ -36,5 +36,5 @@ export_mass_dataset4metdna(new_data, path = "MetDNA_data/")
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

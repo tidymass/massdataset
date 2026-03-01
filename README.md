@@ -13,7 +13,7 @@
 
 # About
 
-`massdataset` provide the `mass_dataset` class which is specifically developed and designed to organize the rectangular **metabolomics data sets** into a standard structure. `massdataset` package also provide a lot of base processing functions to process and operate the `mass_dataset` class. In additional, the `mass_dataset` class can be processed by all the packages from [`tidymass`](https://tidymass.github.io/tidymass/).
+`massdataset` provides the `mass_dataset` class for organizing rectangular **metabolomics datasets** in a standard structure. It also provides core processing utilities for working with `mass_dataset` objects. The class is designed to interoperate with the broader [`tidymass`](https://www.tidymass.org/) ecosystem.
 
 <img src="man/figures/Figure.png" align="middle" alt="" width = "100%"/>
 
@@ -21,21 +21,16 @@ Merging separate data objects is useful for manually-imported data objects, espe
 
 # Installation
 
-You can install `massdataset` from [GitLab](https://gitlab.com/tidymass/massdataset)
+You can install the development version of `massdataset` from [GitHub](https://github.com/tidymass/massdataset).
 
 ``` r
 if(!require(remotes)){
 install.packages("remotes")
 }
-remotes::install_gitlab("tidymass/massdataset")
-```
-or [GitHub](https://github.com/tidymass/massdataset)
-
-``` r
 remotes::install_github("tidymass/massdataset")
 ```
 
-More information can be found [here](https://massdataset.tidymass.org/articles/massdataset_install.html).
+More information can be found [here](https://www.tidymass.org/massdataset/articles/massdataset_install.html).
 
 # Get started
 
@@ -44,19 +39,15 @@ Please see the `Help documents`.
 # Need help?
 
 If you have any questions about `massdataset`, please don’t hesitate to
-email me (<shenxt@stanford.edu>) or reach out me via the social medias below.
+email me (<xiaotao.shen@outlook.com>) or reach out via the social media links below.
 
 <i class="fa fa-weixin"></i>
-[shenxt1990](https://www.shenxt.info/files/wechat_QR.jpg)
+WeChat: shenxt1990
 
-<i class="fa fa-envelope"></i> <shenxt@stanford.edu>
+<i class="fa fa-envelope"></i> <xiaotao.shen@outlook.com>
 
 <i class="fa fa-twitter"></i>
 [Twitter](https://twitter.com/JasperShen1990)
-
-<i class="fa fa-map-marker-alt"></i> [M339, Alway Buidling, Cooper Lane,
-Palo Alto, CA
-94304](https://www.google.com/maps/place/Alway+Building/@37.4322345,-122.1770883,17z/data=!3m1!4b1!4m5!3m4!1s0x808fa4d335c3be37:0x9057931f3b312c29!8m2!3d37.4322345!4d-122.1748996)
 
 # Citation
 

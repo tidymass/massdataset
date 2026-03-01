@@ -38,5 +38,6 @@ summary(mass_dataset_object)
 
 }
 \author{
-Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

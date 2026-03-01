@@ -1,7 +1,7 @@
 ---
 title: "Data import and export"
 author:
-- name: Xiaotao Shen (https://www.shenxt.info/)
+- name: Xiaotao Shen
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
 output:
   html_document:
@@ -67,13 +67,13 @@ This is the metadata for `variable_info`.
 
 # **Download demo data**
 
-Here we use the demo data from `masssprocesser` package. The demo data can be [downloaded here.](https://drive.google.com/file/d/1sFIkiX7EQsEeXZ2p6cZZGJHeLibzvPIs/view?usp=sharing)
+Here we use the demo data bundled with the vignette source tree.
 
 Download this data and uncompress it. And then set the path where you put the folder as working directory.
 
 Then prepare data.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
 library(tidyverse)
 peak_table_pos = readr::read_csv("feature_table/Peak_table_pos.csv")
 peak_table_neg = readr::read_csv("feature_table/Peak_table_neg.csv")
@@ -84,7 +84,7 @@ sample_info_neg = readr::read_csv("feature_table/sample_info_neg.csv")
 
 Variable information and expression data are in the peak table. Let's separate them.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
 expression_data_pos = 
   peak_table_pos %>% 
   dplyr::select(-c(variable_id:rt)) %>% 
@@ -115,7 +115,7 @@ colnames(expression_data_neg) == sample_info_neg$sample_id
 
 The orders of `sample_id` in `sample_info` and column names of `expression_data` are different.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
 expression_data_pos = 
   expression_data_pos[,sample_info_pos$sample_id]
 
@@ -130,7 +130,7 @@ colnames(expression_data_neg) == sample_info_neg$sample_id
 
 Then we can create `mass_data` class object using `create_mass_dataset()` function.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
 library(massdataset)
 
 object_pos =
@@ -145,7 +145,7 @@ object_pos
 
 Then negative mode.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
 object_neg =
   create_mass_dataset(
     expression_data = expression_data_neg,
@@ -158,14 +158,14 @@ object_neg
 
 Then save them for next analysis.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
 save(object_pos, file = "feature_table/object_pos")
 save(object_neg, file = "feature_table/object_neg")
 ```
 
 # **Export `mass_dataset` class object to csv for xlsx**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
 export_mass_dataset(object = object_pos,
                     file_type = "xlsx",
                     path = "demo_data_pos")
@@ -181,7 +181,7 @@ We can also directory convert feature table from [mzMine](http://mzmine.github.i
 
 An example feature table from mzMine.
 
-```{r,eval=TRUE, echo=FALSE,warning=FALSE, R.options="",message=FALSE, cache=TRUE}
+```{r,eval=TRUE, echo=FALSE,warning=FALSE, R.options="",message=FALSE, cache=FALSE}
 
 data("mzmine_table")
 head_mzmine_table <- head(mzmine_table)
@@ -194,7 +194,7 @@ kbl(head_mzmine_table) %>%
 
 ```
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
 data("mzmine_table")
 object =
    convet_mzmine2mass_dataset(x = mzmine_table)
@@ -203,11 +203,11 @@ object
 
 # **MS-DIAL feature table to `mass_dataset` class**
 
-We can also directory convert feature table from [MS-DIAL](http://prime.psc.riken.jp/compms/msdial/main.html) to `mass_dataset` class.
+We can also directly convert feature tables from MS-DIAL to a `mass_dataset` object.
 
 An example feature table from MS-DIAL.
 
-```{r,eval=TRUE, echo=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE, echo=FALSE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 data("msdial_table")
 head_msdial_table <- msdial_table[1:7,]
 library(kableExtra)
@@ -218,7 +218,7 @@ kbl(head_msdial_table) %>%
   scroll_box(width = "100%", height = "600px")
 ```
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
 data("msdial_table")
 object =
    convert_msdial2mass_dataset(x = msdial_table)
@@ -227,6 +227,6 @@ object
 
 # **Session information**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
 sessionInfo()
 ```

@@ -27,7 +27,7 @@
 #'
 #' @export
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 
 
 export_mass_dataset4metdna <-

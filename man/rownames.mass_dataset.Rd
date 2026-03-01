@@ -4,10 +4,14 @@
 \alias{rownames.mass_dataset}
 \title{rownames}
 \usage{
-\method{rownames}{mass_dataset}(x)
+\method{rownames}{mass_dataset}(x, do.NULL = TRUE, prefix = "row")
 }
 \arguments{
 \item{x}{A mass_dataset object.}
+
+\item{do.NULL}{Passed through for compatibility with \code{base::rownames()}.}
+
+\item{prefix}{Passed through for compatibility with \code{base::rownames()}.}
 }
 \value{
 A character vector containing the row names (variable IDs) of

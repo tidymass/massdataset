@@ -7,7 +7,8 @@
 #' @slot parameter A list containing the parameters used in the function.
 #' @slot time A POSIXct object representing the time when the function was called.
 #'
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #'
 #' @exportClass tidymass_parameter
 

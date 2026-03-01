@@ -41,19 +41,14 @@ data("expression_data")
 data("sample_info")
 data("variable_info")
 
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    sample_info = sample_info,
-    variable_info = variable_info,
-  )
+object <- create_mass_dataset(
+  expression_data = expression_data,
+  sample_info = sample_info,
+  variable_info = variable_info
+)
 
-object
-
-##show missing values plot
 show_variable_missing_values(object)
 show_variable_missing_values(object, color_by = "mz")
-library(ggplot2)
 show_variable_missing_values(object, color_by = "rt") +
   ggplot2::scale_color_gradient(low = "skyblue", high = "red")
 
@@ -65,5 +60,5 @@ show_variable_missing_values(object, color_by = "mz",
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

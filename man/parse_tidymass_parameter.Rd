@@ -26,10 +26,9 @@ object =
     sample_info = sample_info,
     variable_info = variable_info
   )
-object
-parse_tidymass_parameter(object@process_info$create_mass_dataset)
+parse_tidymass_parameter(extract_process_info(object)$create_mass_dataset)
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

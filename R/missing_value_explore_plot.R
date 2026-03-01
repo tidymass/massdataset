@@ -2,7 +2,7 @@
 #' @description Show the missing value distributation.
 #' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param object (required) mass_dataset class object.
 #' @param show_row_names show row names or not. see?ComplexHeatmap::Heatmap
 #' @param show_column_names show column names or not.
@@ -26,33 +26,25 @@
 #' data("sample_info")
 #' data("variable_info")
 #'
-#' object =
-#'   create_mass_dataset(
-#'     expression_data = expression_data,
-#'     sample_info = sample_info,
-#'     variable_info = variable_info,
-#'   )
+#' object <- create_mass_dataset(
+#'   expression_data = expression_data,
+#'   sample_info = sample_info,
+#'   variable_info = variable_info
+#' )
 #'
-#' object
-#'
-#' ##show missing values plot
 #' show_missing_values(object)
-#'
 #' show_missing_values(object[1:10,], cell_color = "white")
 #'
-#' ###only show subject samples
 #' object %>%
 #'   activate_mass_dataset(what = "sample_info") %>%
 #'   filter(class == "Subject") %>%
 #'   show_missing_values()
 #'
-#' ###only show QC samples
 #' object %>%
 #'   activate_mass_dataset(what = "expression_data") %>%
 #'   dplyr::select(contains("QC")) %>%
 #'   show_missing_values()
 #'
-#' ###only show features with mz < 100
 #' object %>%
 #'   activate_mass_dataset(what = "variable_info") %>%
 #'   dplyr::filter(mz < 100) %>%
@@ -209,7 +201,7 @@ show_missing_values <-
 #' @description show missing values for each sample
 #' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param object (required) A mass_dataset class object.
 #' @param color_by which column (in sample_info) is used to color samples
 #' @param order_by which column (in sample_info) is used to order samples
@@ -224,16 +216,12 @@ show_missing_values <-
 #' data("sample_info")
 #' data("variable_info")
 #'
-#' object =
-#'   create_mass_dataset(
-#'     expression_data = expression_data,
-#'     sample_info = sample_info,
-#'     variable_info = variable_info,
-#'   )
+#' object <- create_mass_dataset(
+#'   expression_data = expression_data,
+#'   sample_info = sample_info,
+#'   variable_info = variable_info
+#' )
 #'
-#' object
-#'
-#' ##show missing values plot
 #' show_sample_missing_values(object)
 #' show_sample_missing_values(object, color_by = "class")
 #' show_sample_missing_values(object, color_by = "class", order_by = "na")
@@ -362,7 +350,7 @@ show_sample_missing_values <-
 #' @description show missing values for each variable
 #' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param object (required) mass_dataset class object.
 #' @param color_by which column (in variable_info) is used to color variables
 #' @param order_by which column (in variable_info) is used to order variables
@@ -377,19 +365,14 @@ show_sample_missing_values <-
 #' data("sample_info")
 #' data("variable_info")
 #'
-#' object =
-#'   create_mass_dataset(
-#'     expression_data = expression_data,
-#'     sample_info = sample_info,
-#'     variable_info = variable_info,
-#'   )
+#' object <- create_mass_dataset(
+#'   expression_data = expression_data,
+#'   sample_info = sample_info,
+#'   variable_info = variable_info
+#' )
 #'
-#' object
-#'
-#' ##show missing values plot
 #' show_variable_missing_values(object)
 #' show_variable_missing_values(object, color_by = "mz")
-#' library(ggplot2)
 #' show_variable_missing_values(object, color_by = "rt") +
 #'   ggplot2::scale_color_gradient(low = "skyblue", high = "red")
 #'

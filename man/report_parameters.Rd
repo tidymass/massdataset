@@ -57,5 +57,5 @@ report_parameters(object = object, path = "demo_data")
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

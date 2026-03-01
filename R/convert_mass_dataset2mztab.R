@@ -1,6 +1,7 @@
 #' Convert mass_dataset to mzTab Format
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @description This function converts a `mass_dataset` object to mzTab format. The function creates
 #' mzTab-compatible tables including metadata (MTD), small molecule (SML), small molecule feature (SMF),
 #' and small molecule evidence (SME) tables.

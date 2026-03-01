@@ -55,22 +55,22 @@
 \S4method{rowMeans}{mass_dataset}(x, na.rm = FALSE, dims = 1)
 }
 \arguments{
-\item{x}{x}
+\item{x}{A \code{mass_dataset} object.}
 
 \item{base}{The base of the logarithm. The default is \code{exp(1)},
 which corresponds to the natural logarithm.}
 
-\item{center}{center}
+\item{center}{Logical or numeric value passed to \code{\link[base:scale]{base::scale()}} to control centering.}
 
-\item{scale}{scale}
+\item{scale}{Logical or numeric value passed to \code{\link[base:scale]{base::scale()}} to control scaling.}
 
-\item{e1}{a mass_dataset class object}
+\item{e1}{A \code{mass_dataset} object.}
 
-\item{e2}{numeric}
+\item{e2}{A numeric value to compare against.}
 
-\item{na.rm}{na.rm}
+\item{na.rm}{Logical; should missing values be removed before averaging?}
 
-\item{dims}{dims}
+\item{dims}{Integer passed to \code{\link[base:colSums]{base::rowMeans()}} for compatibility.}
 }
 \value{
 Returns a \code{mass_dataset} object with log-transformed expression data.
@@ -79,33 +79,33 @@ Returns a \code{mass_dataset} object with expression data transformed to absolut
 
 A \code{mass_dataset} object with updated \code{expression_data} and \code{process_info}.
 
-mass_dataset object
+A \code{mass_dataset} object with scaled \code{expression_data}.
 
-mass_dataset object
+A \code{mass_dataset} object with updated \code{expression_data}.
 
-mass_dataset object
+A \code{mass_dataset} object with updated \code{expression_data}.
 
-mass_dataset object
+A \code{mass_dataset} object with updated \code{expression_data}.
 
-mass_dataset object
+A \code{mass_dataset} object with updated \code{expression_data}.
 
-A logical data.frame
+A logical matrix-like object indicating which values are greater than \code{e2}.
 
-A logical data.frame
+A logical matrix-like object indicating which values are greater than or equal to \code{e2}.
 
-A logical data.frame
+A logical matrix-like object indicating which values are less than \code{e2}.
 
-A logical data.frame
+A logical matrix-like object indicating which values are less than or equal to \code{e2}.
 
-A logical data.frame
+A logical matrix-like object indicating which values are equal to \code{e2}.
 
-result
+A numeric vector containing the sums of each sample column.
 
-vector object
+A numeric vector containing the sums of each feature row.
 
-vector object
+A numeric vector containing the means of each sample column.
 
-vector object
+A numeric vector containing the means of each feature row.
 }
 \description{
 This function applies a log transformation to the expression data
@@ -153,7 +153,6 @@ transformed_dataset <- sqrt.mass_dataset(dataset)
 
 }
 \author{
-Xiaotao Shen \email{shenxt1990@outlook.com}
-
-Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

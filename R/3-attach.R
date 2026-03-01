@@ -1,4 +1,4 @@
-core <- c("masstools", "ggplot2", "dplyr", "magrittr")
+core <- c("ggplot2", "dplyr", "magrittr")
 
 massdataset_core_unloaded <- function() {
   search <- paste0("package:", core)

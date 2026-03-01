@@ -9,14 +9,15 @@ NULL
 
 #' Extract Components from mass_dataset Object
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @description This function extracts the components from an object 
 #' of class "mass_dataset". It first checks if the object belongs to the 
 #' class "mass_dataset" and then extracts the expression data.
 #'
 #' @param object An object of class "mass_dataset" from which the expression data will be extracted.
 #'
-#' @return A data frame containing the expression data or other componets in mass_dataset class.
+#' @return A data frame containing the `expression_data` slot.
 #'
 #' @export
 #' @rdname mass_dataset-extracting
@@ -43,7 +44,8 @@ extract_expression_data = function(object) {
 }
 
 
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @param object An object of class "mass_dataset" from which the sample information will be extracted.
 #'
 #' @export
@@ -57,7 +59,7 @@ extract_expression_data = function(object) {
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'  sample_info2 =
 #'  extract_sample_info(object = object)
@@ -72,7 +74,8 @@ extract_sample_info = function(object) {
 
 
 
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #'
 #' @param object An object of class "mass_dataset" from which the variable information will be extracted.
 #' @param with_expression_data Logical, whether to include expression data in the output. Default is FALSE.
@@ -88,7 +91,7 @@ extract_sample_info = function(object) {
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'  variable_info2 =
 #'  extract_variable_info(object = object)
@@ -129,7 +132,8 @@ extract_variable_info = function(object,
 
 
 
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @param object An object of class "mass_dataset" from which the annotation table will be extracted.
 #' @param with_expression_data Logical, whether to include expression data in the output. Default is FALSE.
 #' 
@@ -144,7 +148,7 @@ extract_variable_info = function(object,
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #' annotation_table =
 #'   extract_annotation_table(object = object)
@@ -171,7 +175,8 @@ extract_annotation_table <-
   }
 
 
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #'
 #' @param object An object of class "mass_dataset" from which the variable information notes will be extracted.
 #'
@@ -186,7 +191,7 @@ extract_annotation_table <-
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'  test =
 #'  extract_variable_info_note(object = object)
@@ -201,7 +206,8 @@ extract_variable_info_note = function(object) {
 
 
 
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @param object An object of class "mass_dataset" from which the sample information notes will be extracted.
 #'
 #' @export
@@ -215,7 +221,7 @@ extract_variable_info_note = function(object) {
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'  test =
 #'  extract_sample_info_note(object = object)
@@ -229,7 +235,8 @@ extract_sample_info_note = function(object) {
 }
 
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #'
 #' @param object An object of class "mass_dataset" from which the process information will be extracted.
 #'
@@ -245,7 +252,7 @@ extract_sample_info_note = function(object) {
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'
 #' object
@@ -259,7 +266,8 @@ extract_process_info =
   }
 
 
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @param object An object of class "mass_dataset" from which the MS2 data will be extracted.
 #'
 #'
@@ -274,7 +282,7 @@ extract_process_info =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'  test =
 #'  extract_ms2_data(object = object)

@@ -12,9 +12,9 @@ An S4 class that stores the MS dataset from MetaboAnalystR (Prof. Jeff Xia)
 \describe{
 \item{\code{rawfiles}}{character}
 
-\item{\code{rawOnDisk}}{rawOnDisk}
+\item{\code{rawOnDisk}}{Raw MS data stored on disk.}
 
-\item{\code{rawInMemory}}{rawInMemory}
+\item{\code{rawInMemory}}{Raw MS data stored in memory.}
 
 \item{\code{params}}{params}
 

@@ -4,7 +4,7 @@
 #'
 #' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param object A `mass_dataset` object for which the mz-rt plot is to be generated.
 #' @param hex Logical. If TRUE, a hexbin plot is generated; otherwise, a scatter plot is generated. Default is FALSE.
 #'
@@ -15,17 +15,15 @@
 #' data("sample_info")
 #' data("variable_info")
 #' 
-#' object =
-#'   create_mass_dataset(
-#'     expression_data = expression_data,
-#'     sample_info = sample_info,
-#'     variable_info = variable_info,
-#'   )
-#' 
-#'   show_mz_rt_plot(object)
-#'   show_mz_rt_plot(log(object, 10))
-#' 
-#'   show_mz_rt_plot(object, hex = TRUE)
+#' object <- create_mass_dataset(
+#'   expression_data = expression_data,
+#'   sample_info = sample_info,
+#'   variable_info = variable_info
+#' )
+#'
+#' show_mz_rt_plot(object)
+#' show_mz_rt_plot(log(object, 10))
+#' show_mz_rt_plot(object, hex = TRUE)
 
 show_mz_rt_plot <-
   function(object,

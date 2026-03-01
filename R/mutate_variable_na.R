@@ -9,7 +9,8 @@
 #' @return A modified mass_dataset object with an updated `variable_info` slot.
 #'
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @export
 #' @examples
 #' data("expression_data")
@@ -20,7 +21,7 @@
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'
 #' object
@@ -31,7 +32,7 @@
 #'
 #' colnames(extract_variable_info(object))
 #' colnames(extract_variable_info(object2))
-#' object2@variable_info_note
+#' extract_variable_info_note(object2)
 #'
 #' ##calculate NA number according to only QC samples
 #' object3 <-
@@ -42,7 +43,7 @@
 #' object3
 #'
 #' colnames(extract_variable_info(object3))
-#' object3@variable_info_note
+#' extract_variable_info_note(object3)
 
 mutate_variable_na_number <-
   function(object,
@@ -133,7 +134,8 @@ mutate_variable_na_number <-
 #' @return A modified mass_dataset object with an updated `variable_info` slot.
 #'
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @export
 #' @examples
 #' data("expression_data")
@@ -144,7 +146,7 @@ mutate_variable_na_number <-
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'
 #' object

@@ -21,7 +21,8 @@
 #' # Assuming 'md' is a 'mass_dataset' object
 #' # log_transformed_md <- log(md, base = 2)
 #'
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @export
 #' @rdname arithmetic-mass_dataset
 
@@ -70,7 +71,8 @@ log.mass_dataset = function(x, base = exp(1)) {
 #' # Assuming 'md' is a 'mass_dataset' object
 #' # abs_transformed_md <- abs.mass_dataset(md)
 #'
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @export
 #' @rdname arithmetic-mass_dataset
 
@@ -105,7 +107,8 @@ abs.mass_dataset = function(x) {
 
 #' Square Root Transformation for mass_dataset
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @description This function takes a `mass_dataset` object and applies the square root transformation
 #' to the expression data stored in the object. It also updates the `process_info` attribute to log the transformation.
 #' 
@@ -157,12 +160,12 @@ sqrt.mass_dataset = function(x) {
 
 #' @title scale
 #' @method scale mass_dataset
-#' @param x x
-#' @param center center
-#' @param scale scale
+#' @param x A `mass_dataset` object.
+#' @param center Logical or numeric value passed to [base::scale()] to control centering.
+#' @param scale Logical or numeric value passed to [base::scale()] to control scaling.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return mass_dataset object
+#' @return A `mass_dataset` object with scaled `expression_data`.
 
 scale.mass_dataset =
   function(x, center = TRUE, scale = TRUE) {
@@ -200,11 +203,11 @@ scale.mass_dataset =
 
 #' @title +
 #' @method + mass_dataset
-#' @param e1 a mass_dataset class object
-#' @param e2 numeric
+#' @param e1 A `mass_dataset` object.
+#' @param e2 A numeric value added to every element of `expression_data`.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return mass_dataset object
+#' @return A `mass_dataset` object with updated `expression_data`.
 
 setMethod(f = "+",
           signature(e1 = "mass_dataset", e2 = "numeric"),
@@ -234,11 +237,11 @@ setMethod(f = "+",
 
 #' @title -
 #' @method - mass_dataset
-#' @param e1 a mass_dataset class object
-#' @param e2 numeric
+#' @param e1 A `mass_dataset` object.
+#' @param e2 A numeric value subtracted from every element of `expression_data`.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return mass_dataset object
+#' @return A `mass_dataset` object with updated `expression_data`.
 
 setMethod(f = "-",
           signature(e1 = "mass_dataset", e2 = "numeric"), function (e1, e2) {
@@ -266,11 +269,11 @@ setMethod(f = "-",
 
 #' @title *
 #' @method * mass_dataset
-#' @param e1 a mass_dataset class object
-#' @param e2 numeric
+#' @param e1 A `mass_dataset` object.
+#' @param e2 A numeric value multiplied with every element of `expression_data`.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return mass_dataset object
+#' @return A `mass_dataset` object with updated `expression_data`.
 
 setMethod(f = "*",
           signature(e1 = "mass_dataset", e2 = "numeric"), function (e1, e2) {
@@ -298,11 +301,11 @@ setMethod(f = "*",
 
 #' @title /
 #' @method / mass_dataset
-#' @param e1 a mass_dataset class object
-#' @param e2 numeric
+#' @param e1 A `mass_dataset` object.
+#' @param e2 A numeric value used to divide every element of `expression_data`.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return mass_dataset object
+#' @return A `mass_dataset` object with updated `expression_data`.
 
 setMethod(f = "/",
           signature(e1 = "mass_dataset", e2 = "numeric"), function (e1, e2) {
@@ -329,11 +332,11 @@ setMethod(f = "/",
 
 #' @title `>`
 #' @method > mass_dataset
-#' @param e1 a mass_dataset class object
-#' @param e2 numeric
+#' @param e1 A `mass_dataset` object.
+#' @param e2 A numeric threshold.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return A logical data.frame
+#' @return A logical matrix-like object indicating which values are greater than `e2`.
 
 setMethod(f = ">",
           signature(e1 = "mass_dataset", e2 = "numeric"),
@@ -343,11 +346,11 @@ setMethod(f = ">",
 
 #' @title `>=`
 #' @method >= mass_dataset
-#' @param e1 a mass_dataset class object
-#' @param e2 numeric
+#' @param e1 A `mass_dataset` object.
+#' @param e2 A numeric threshold.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return A logical data.frame
+#' @return A logical matrix-like object indicating which values are greater than or equal to `e2`.
 
 setMethod(f = ">=",
           signature(e1 = "mass_dataset", e2 = "numeric"),
@@ -357,11 +360,11 @@ setMethod(f = ">=",
 
 #' @title <
 #' @method < mass_dataset
-#' @param e1 a mass_dataset class object
-#' @param e2 numeric
+#' @param e1 A `mass_dataset` object.
+#' @param e2 A numeric threshold.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return A logical data.frame
+#' @return A logical matrix-like object indicating which values are less than `e2`.
 
 setMethod(f = "<",
           signature(e1 = "mass_dataset", e2 = "numeric"),
@@ -371,11 +374,11 @@ setMethod(f = "<",
 
 #' @title <=
 #' @method <= mass_dataset
-#' @param e1 a mass_dataset class object
-#' @param e2 numeric
+#' @param e1 A `mass_dataset` object.
+#' @param e2 A numeric threshold.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return A logical data.frame
+#' @return A logical matrix-like object indicating which values are less than or equal to `e2`.
 
 setMethod(f = "<=",
           signature(e1 = "mass_dataset", e2 = "numeric"),
@@ -385,11 +388,11 @@ setMethod(f = "<=",
 
 #' @title ==
 #' @method == mass_dataset
-#' @param e1 a mass_dataset class object
-#' @param e2 numeric
+#' @param e1 A `mass_dataset` object.
+#' @param e2 A numeric value to compare against.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return A logical data.frame
+#' @return A logical matrix-like object indicating which values are equal to `e2`.
 
 setMethod(f = "==",
           signature(e1 = "mass_dataset", e2 = "numeric"),
@@ -414,12 +417,12 @@ setMethod(f = "==",
 
 #' @title colSums
 #' @method colSums mass_dataset
-#' @param x x
-#' @param na.rm na.rm
-#' @param dims dims
+#' @param x A `mass_dataset` object.
+#' @param na.rm Logical; should missing values be removed before summation?
+#' @param dims Integer passed to [base::colSums()] for compatibility.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return result
+#' @return A numeric vector containing the sums of each sample column.
 
 setMethod(f = "colSums",
           signature(x = "mass_dataset"),
@@ -444,12 +447,12 @@ setMethod(f = "colSums",
 
 #' @title rowSums
 #' @method rowSums mass_dataset
-#' @param x x
-#' @param na.rm na.rm
-#' @param dims dims
+#' @param x A `mass_dataset` object.
+#' @param na.rm Logical; should missing values be removed before summation?
+#' @param dims Integer passed to [base::rowSums()] for compatibility.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return vector object
+#' @return A numeric vector containing the sums of each feature row.
 
 setMethod(f = "rowSums",
           signature(x = "mass_dataset"),
@@ -475,12 +478,12 @@ setMethod(f = "rowSums",
 
 #' @title colMeans
 #' @method colMeans mass_dataset
-#' @param x x
-#' @param na.rm na.rm
-#' @param dims dims
+#' @param x A `mass_dataset` object.
+#' @param na.rm Logical; should missing values be removed before averaging?
+#' @param dims Integer passed to [base::colMeans()] for compatibility.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return vector object
+#' @return A numeric vector containing the means of each sample column.
 
 setMethod(f = "colMeans",
           signature(x = "mass_dataset"),
@@ -507,12 +510,12 @@ setMethod(f = "colMeans",
 
 #' @title rowMeans
 #' @method rowMeans mass_dataset
-#' @param x x
-#' @param na.rm na.rm
-#' @param dims dims
+#' @param x A `mass_dataset` object.
+#' @param na.rm Logical; should missing values be removed before averaging?
+#' @param dims Integer passed to [base::rowMeans()] for compatibility.
 #' @export
 #' @rdname arithmetic-mass_dataset
-#' @return vector object
+#' @return A numeric vector containing the means of each feature row.
 
 setMethod(f = "rowMeans",
           signature(x = "mass_dataset"),

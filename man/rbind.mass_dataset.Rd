@@ -12,7 +12,7 @@
 \item{deparse.level}{Integer controlling the construction of labels in the case of non-matrix-like arguments. Default is 1.}
 }
 \value{
-mass_dataset
+A \code{mass_dataset} object created by row-binding the supplied objects.
 }
 \description{
 rbind

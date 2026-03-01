@@ -1,7 +1,7 @@
 ---
 title: "Add MS2 spectra data into mass_dataset class object"
 author:
-- name: Xiaotao Shen (https://www.shenxt.info/)
+- name: Xiaotao Shen
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
 output:
   html_document:
@@ -33,28 +33,25 @@ knitr::opts_chunk$set(
 
 ## mass_data class object
 
-We need to create a `mass_data` class object first, [see this document](https://tidymass.github.io/massdataset/articles/data_import_and_export.html). And here we use the data from this step as examples.
+We need to create a `mass_data` class object first; see [this document](https://www.tidymass.org/massdataset/articles/data_import_and_export.html). Here we use the data from that step as examples.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 load("feature_table/object_pos")
 load("feature_table/object_neg")
 ```
 
 ## MS2 data
 
-The MS2 raw data should be converted to mgf format data. Please [refer this document](https://tidymass.github.io/metid/articles/database_construction.html).
+The MS2 raw data should be converted to mgf format data. Please refer to [this document](https://www.tidymass.org/metid/articles/database_construction.html).
 
-Here we use the demo data for `tidymass`, please download it and put it in the `feature_table` folder.
-
-[Download linke is here.](https://drive.google.com/file/d/1lDf9i49jQQ-Ar98EMdj0EwhlmtDBbG0g/view?usp=sharing)
-
-Then uncompress it.
+Here we use the demo data prepared alongside this vignette in the `feature_table`
+folder.
 
 # **Add MS2 to `mass_dataset` class object**
 
 Positive mode.
 
-```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 object_pos2 =
   mutate_ms2(
     object = object_pos,
@@ -68,7 +65,7 @@ object_pos2 =
 
 Negative mode.
 
-```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 object_neg2 =
   mutate_ms2(
     object = object_neg,
@@ -82,6 +79,6 @@ object_neg2 =
 
 # **Session information**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 sessionInfo()
 ```

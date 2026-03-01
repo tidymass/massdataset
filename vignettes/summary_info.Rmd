@@ -1,7 +1,7 @@
 ---
 title: "Summary information"
 author:
-- name: Xiaotao Shen (https://www.shenxt.info/)
+- name: Xiaotao Shen
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
 output:
   html_document:
@@ -31,7 +31,7 @@ For one `mass_dataset` class object, we can get the summary information of it.
 
 # **Data preparation**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 library(massdataset)
 library(tidyverse)
 
@@ -51,14 +51,14 @@ object =
 
 Just type this object in the R session.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 object
 ```
 We can just basic information of the object.
 
 # **Use functions to get the summary information**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 ##dim of object
 dim(object)
 ##row number
@@ -71,7 +71,7 @@ get_sample_number(object)
 get_variable_number(object)
 ```
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 ##sample id
 colnames(object)
 ##variable id
@@ -86,7 +86,7 @@ get_variable_id(object) %>%
 
 # **Explore**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 ###show mz rt plot
 object %>%
   show_mz_rt_plot()
@@ -102,7 +102,7 @@ object %>%
 
 # **Missing values**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 ##show missing values plot
 show_missing_values(object)
 
@@ -153,6 +153,6 @@ show_variable_missing_values(object, color_by = "mz",
 
 # **Session information**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 sessionInfo()
 ```

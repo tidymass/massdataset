@@ -16,5 +16,6 @@ This function displays the logo and version information for the massdataset pack
 massdataset_logo()
 }
 \author{
-Xiaotao Shen \email{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

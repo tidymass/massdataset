@@ -1,6 +1,7 @@
 #' Convert mzTab Data to mass_dataset Object
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @description This function converts mzTab data into a `mass_dataset` object.
 #' It processes the mzTab data to create a `mass_dataset` object containing expression data, sample information, and variable information.
 #'
@@ -200,7 +201,8 @@ convert_mztab2mass_dataset <-
 
 #' Read mzTab Data File
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @description This function reads an mzTab data file and returns a list containing various tables such as Metadata (MTD), Small Molecule (SML), Small Molecule Feature (SMF), and Small Molecule Evidence (SME).
 #'
 #' @param file The name of the mzTab file to be read.

@@ -41,16 +41,12 @@ data("expression_data")
 data("sample_info")
 data("variable_info")
 
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    sample_info = sample_info,
-    variable_info = variable_info,
-  )
+object <- create_mass_dataset(
+  expression_data = expression_data,
+  sample_info = sample_info,
+  variable_info = variable_info
+)
 
-object
-
-##show missing values plot
 show_sample_missing_values(object)
 show_sample_missing_values(object, color_by = "class")
 show_sample_missing_values(object, color_by = "class", order_by = "na")
@@ -59,5 +55,5 @@ show_sample_missing_values(object, color_by = "class", order_by = "na",
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

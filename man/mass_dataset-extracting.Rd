@@ -59,7 +59,7 @@ extract_ms2_data(object)
 \item{with_expression_data}{Logical, whether to include expression data in the output. Default is FALSE.}
 }
 \value{
-A data frame containing the expression data or other componets in mass_dataset class.
+A data frame containing the \code{expression_data} slot.
 
 A data.frame (sample_info)
 
@@ -107,7 +107,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
  sample_info2 =
  extract_sample_info(object = object)
@@ -120,7 +120,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
  variable_info2 =
  extract_variable_info(object = object)
@@ -133,7 +133,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
 annotation_table =
   extract_annotation_table(object = object)
@@ -146,7 +146,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
  test =
  extract_variable_info_note(object = object)
@@ -159,7 +159,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
  test =
  extract_sample_info_note(object = object)
@@ -173,7 +173,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
 
 object
@@ -186,11 +186,12 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
  test =
  extract_ms2_data(object = object)
 }
 \author{
-Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

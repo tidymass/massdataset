@@ -8,7 +8,8 @@
 #'
 #' @return A modified mass_dataset object with an updated `sample_info` slot.
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @export
 #' @examples
 #' data("expression_data")
@@ -30,7 +31,7 @@
 #'
 #' colnames(extract_sample_info(object))
 #' colnames(extract_sample_info(object2))
-#' object2@sample_info_note
+#' extract_sample_info_note(object2)
 #'
 #' ##calculate NA number according to only variables with mz > 100
 #' variable_id =
@@ -142,7 +143,8 @@ mutate_sample_zero_number <-
 #' @return A modified mass_dataset object with an updated `sample_info` slot.
 #'
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @export
 #' @examples
 #' data("expression_data")

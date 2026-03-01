@@ -52,7 +52,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
  
 filter_samples(object, function(x) {
@@ -84,7 +84,7 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
 object
 
@@ -159,5 +159,5 @@ object3
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

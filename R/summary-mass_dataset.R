@@ -5,7 +5,8 @@
 #' @param object A mass_dataset object.
 #'
 #'
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #'
 #' @return the number of columns (samples) in expression_data
 #' @export
@@ -18,7 +19,7 @@
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'  get_sample_number(object = object)
 
@@ -36,7 +37,8 @@ get_sample_number = function(object) {
 #' @param object A mass_dataset object.
 #'
 #'
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #'
 #' @return the number of rows (variables) in expression_data
 #' @export
@@ -49,7 +51,7 @@ get_sample_number = function(object) {
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'  get_variable_number(object = object)
 
@@ -68,7 +70,8 @@ get_variable_number = function(object) {
 #' @param object A mass_dataset object.
 #'
 #'
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @return sample IDs from expression_data column names
 #'
 #' @export
@@ -82,7 +85,7 @@ get_variable_number = function(object) {
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'  get_sample_id(object = object)
 
@@ -100,7 +103,8 @@ get_sample_id = function(object) {
 #' @param object A mass_dataset object.
 #'
 #'
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @return variable IDs from expression_data row names
 #'
 #' @export
@@ -113,7 +117,7 @@ get_sample_id = function(object) {
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'  head(get_variable_id(object = object))
 
@@ -133,7 +137,8 @@ get_variable_id = function(object) {
 #' @param show_by A character string specifying the format to show the result. 
 #'                Options are "number" or "percentage". Default is "number".
 #'
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #'
 #' @export
 #' @examples
@@ -145,7 +150,7 @@ get_variable_id = function(object) {
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #' object
 #' head(get_variable_id(object = object))
@@ -254,12 +259,14 @@ ncol.mass_dataset <- function(x) {
 #' @title colnames
 #' @method colnames mass_dataset
 #' @param x A mass_dataset object.
+#' @param do.NULL Passed through for compatibility with `base::colnames()`.
+#' @param prefix Passed through for compatibility with `base::colnames()`.
 #' @export
 #' @return A character vector containing the column names (sample IDs) of the 
 #' expression_data slot in the mass_dataset object.
 
 colnames.mass_dataset =
-  function(x) {
+  function(x, do.NULL = TRUE, prefix = "col") {
     colnames(x@expression_data)
   }
 
@@ -267,12 +274,14 @@ colnames.mass_dataset =
 #' @title rownames
 #' @method rownames mass_dataset
 #' @param x A mass_dataset object.
+#' @param do.NULL Passed through for compatibility with `base::rownames()`.
+#' @param prefix Passed through for compatibility with `base::rownames()`.
 #' @export
 #' @return A character vector containing the row names (variable IDs) of 
 #' the expression_data slot in the mass_dataset object.
 
 rownames.mass_dataset =
-  function(x) {
+  function(x, do.NULL = TRUE, prefix = "row") {
     rownames(x@expression_data)
   }
 

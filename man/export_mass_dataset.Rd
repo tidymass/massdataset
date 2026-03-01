@@ -29,12 +29,19 @@ Additionally, MS2 data can be exported in MSP or MGF format.
 }
 \examples{
 \dontrun{
-# Assuming 'data' is a mass_dataset object
-export_mass_dataset(data, file_type = "csv", path = "output/")
+data("expression_data")
+data("sample_info")
+data("variable_info")
+object <- create_mass_dataset(
+  expression_data = expression_data,
+  sample_info = sample_info,
+  variable_info = variable_info
+)
+export_mass_dataset(object, file_type = "csv", path = tempdir())
 }
 
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

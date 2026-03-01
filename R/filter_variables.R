@@ -25,7 +25,7 @@
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #' object
 #'

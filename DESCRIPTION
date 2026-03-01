@@ -1,16 +1,17 @@
 Package: massdataset
-Title: massdataset
-Version: 0.99.0
-Date: 2024-09-10
+Title: Data Structures and Core Utilities for Mass Spectrometry Data
+Version: 0.99.1
 Authors@R: 
     person(given = "Xiaotao",
            family = "Shen",
            role = c("aut", "cre"),
            email = "xiaotao.shen@outlook.com",
            comment = c(ORCID = "0000-0002-9608-9964"))
-Description: massdata provide a uniform and stanford data structure of mass spectrometry experimental
-    data. Which can be used to storage the metabolomics and lipidomics data. All the packages in tidymass
-    support this class.
+Description: Provides a structured data container for mass spectrometry
+    experiments, with a focus on metabolomics and lipidomics workflows.
+    The package includes core utilities for storing, accessing, combining,
+    summarizing, and converting rectangular MS datasets in a consistent
+    format that can be used across the 'tidymass' ecosystem.
 biocViews: Software, DataImport, DataRepresentation, Visualization, 
            MassSpectrometry, Metabolomics, Lipidomics, QualityControl, 
            Preprocessing, StatisticalMethod, Infrastructure
@@ -21,7 +22,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: false
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr
 Imports: 
     dplyr,
@@ -35,9 +36,9 @@ Imports:
     crayon,
     cli,
     purrr,
+    pbapply,
     readr,
     rlang,
-    masstools,
     ComplexHeatmap,
     grid,
     stats,
@@ -55,14 +56,11 @@ Suggests:
     BiocGenerics,
     tidyverse,
     testthat (>= 3.0.0),
+    MSnbase,
     ggplotify,
     plotly,
     leaflet,
     kableExtra,
     htmlwidgets,
     htmltools 
-NOTE:
-Note:
-Remotes: 
-    github::tidymass/masstools
 Config/testthat/edition: 3

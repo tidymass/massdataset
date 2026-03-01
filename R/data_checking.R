@@ -1,6 +1,7 @@
 #' Check Mass Dataset
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @description This function performs various checks on the mass dataset to ensure its integrity and consistency. It checks the format and content of `expression_data`, `sample_info`, `variable_info`, `sample_info_note`, and `variable_info_note`.
 #'
 #' @param expression_data A data frame containing expression data.
@@ -22,8 +23,9 @@
 #'   check_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
+
 
 check_mass_dataset <-
   function(expression_data,
@@ -195,7 +197,8 @@ check_mass_dataset <-
 
 #' Check Object Class
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @description This function checks if the provided object belongs to a specified class. It supports multiple classes including "mass_dataset", "tidymass_parameter", "databaseClass", "metIdentifyClass", and "ms2_data".
 #'
 #' @param object The object to be checked.
@@ -216,7 +219,7 @@ check_mass_dataset <-
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #' check_object_class(object, "mass_dataset")
 

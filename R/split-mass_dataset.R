@@ -32,7 +32,7 @@ split.mass_dataset <- function(x, f, drop = FALSE, ...) {
 #'
 #' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param object A `mass_dataset` object to be split.
 #' @param by The column name in `sample_info` or `variable_info` used for splitting.
 #' @param fun A function to apply when `by` is numeric. This function should return a logical vector.
@@ -49,7 +49,7 @@ split.mass_dataset <- function(x, f, drop = FALSE, ...) {
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'
 #' object <-

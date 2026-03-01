@@ -1,7 +1,7 @@
 ---
 title: "Filtering samples/variables"
 author:
-- name: Xiaotao Shen (https://www.shenxt.info/)
+- name: Xiaotao Shen
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
 output:
   html_document:
@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
 
 # **Data preparation**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 library(massdataset)
 library(tidyverse)
 
@@ -55,7 +55,7 @@ object
 
 ## **filter_samples()**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 ###only remain the samples with NA number < 4 in all variables
 filter_samples(object, function(x) {
   sum(is.na(x)) / length(x) < 0.4
@@ -70,7 +70,7 @@ filter_samples(object, function(x) {
 
 ## **dplyr::filter() function**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 ###only remain the "QC" samples
 object %>% 
   activate_mass_dataset(what = "sample_info") %>% 
@@ -79,7 +79,7 @@ object %>%
 
 ## **dplyr::select() function**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 ###only remain samples whose names contain "QC"
 object2 = 
 object %>% 
@@ -100,7 +100,7 @@ colnames(object2)
 
 ## **filter_variables() function**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 ####Filter variables which have more than 50% MVs in all samples.
 filter_variables(object, function(x) {
   sum(is.na(x)) / length(x) < 0.5
@@ -115,7 +115,7 @@ prune = TRUE)
 
 ## **dplyr::filter() function**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 ####Filter variables which mz > 500
 object %>% 
   activate_mass_dataset(what = "variable_info") %>% 
@@ -129,6 +129,6 @@ object %>%
 
 # **Session information**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 sessionInfo()
 ```

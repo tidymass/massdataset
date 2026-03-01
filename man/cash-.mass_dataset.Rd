@@ -7,13 +7,14 @@
 \method{$}{mass_dataset}(x, name)
 }
 \arguments{
-\item{x}{A mass_dataset class}
+\item{x}{A \code{mass_dataset} object.}
 
-\item{name}{A \link{name} or a string.}
+\item{name}{A column name from \code{expression_data}.}
 }
 \value{
-a column from expression_data by name if it exists
+The requested column from \code{expression_data}, if it exists.
 }
 \description{
-$ method of mass_dataset
+Extracts a column from the \code{expression_data} slot of a
+\code{mass_dataset} object by name.
 }

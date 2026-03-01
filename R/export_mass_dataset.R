@@ -13,13 +13,20 @@
 #' 
 #' @examples
 #' \dontrun{
-#' # Assuming 'data' is a mass_dataset object
-#' export_mass_dataset(data, file_type = "csv", path = "output/")
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object <- create_mass_dataset(
+#'   expression_data = expression_data,
+#'   sample_info = sample_info,
+#'   variable_info = variable_info
+#' )
+#' export_mass_dataset(object, file_type = "csv", path = tempdir())
 #' }
 #' 
 #' @export
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 
 export_mass_dataset <-
   function(object,
@@ -111,14 +118,27 @@ export_mass_dataset <-
 #' 
 #' @examples
 #' \dontrun{
-#' # Assuming 'data' is a mass_dataset object with MS2 data
-#' export_ms2_data(data, file_type = "mgf", path = "output/")
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object <- create_mass_dataset(
+#'   expression_data = expression_data,
+#'   sample_info = sample_info,
+#'   variable_info = variable_info
+#' )
+#' object <- mutate_ms2(
+#'   object = object,
+#'   column = "rp",
+#'   polarity = "positive",
+#'   path = system.file("ms2_data", package = "massdataset")
+#' )
+#' export_ms2_data(object, file_type = "mgf", path = tempdir())
 #' }
 #'
 #' 
 #' @export
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 
 export_ms2_data <-
   function(object,

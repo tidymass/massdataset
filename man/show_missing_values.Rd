@@ -66,33 +66,25 @@ data("expression_data")
 data("sample_info")
 data("variable_info")
 
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    sample_info = sample_info,
-    variable_info = variable_info,
-  )
+object <- create_mass_dataset(
+  expression_data = expression_data,
+  sample_info = sample_info,
+  variable_info = variable_info
+)
 
-object
-
-##show missing values plot
 show_missing_values(object)
-
 show_missing_values(object[1:10,], cell_color = "white")
 
-###only show subject samples
 object \%>\%
   activate_mass_dataset(what = "sample_info") \%>\%
   filter(class == "Subject") \%>\%
   show_missing_values()
 
-###only show QC samples
 object \%>\%
   activate_mass_dataset(what = "expression_data") \%>\%
   dplyr::select(contains("QC")) \%>\%
   show_missing_values()
 
-###only show features with mz < 100
 object \%>\%
   activate_mass_dataset(what = "variable_info") \%>\%
   dplyr::filter(mz < 100) \%>\%
@@ -105,5 +97,5 @@ object \%>\%
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

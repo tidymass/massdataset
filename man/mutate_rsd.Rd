@@ -24,33 +24,20 @@ data("expression_data")
 data("sample_info")
 data("variable_info")
 
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    sample_info = sample_info,
-    variable_info = variable_info,
-  )
+object <- create_mass_dataset(
+  expression_data = expression_data,
+  sample_info = sample_info,
+  variable_info = variable_info
+)
 
-object
+object2 <- mutate_rsd(object = object)
+head(extract_variable_info(object2))
 
-##calculate RSDs according to all the samples
-object =
-  mutate_rsd(object = object)
-
-object
-
-head(extract_variable_info(object))
-
-##calculate RSDs according to only QC samples
-object =
-  mutate_rsd(object = object,
-                according_to_samples =
-              get_sample_id(object)[extract_sample_info(object)$class == "QC"])
-
-object
-
-head(extract_variable_info(object))
+qc_samples <- get_sample_id(object)[extract_sample_info(object)$class == "QC"]
+object3 <- mutate_rsd(object = object2, according_to_samples = qc_samples)
+head(extract_variable_info(object3))
 }
 \author{
-Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

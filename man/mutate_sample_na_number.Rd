@@ -39,7 +39,7 @@ object2 =
 
 colnames(extract_sample_info(object))
 colnames(extract_sample_info(object2))
-object2@sample_info_note
+extract_sample_info_note(object2)
 
 ##calculate NA number according to only variables with mz > 100
 variable_id =
@@ -57,5 +57,6 @@ object3
 head(extract_sample_info(object3))
 }
 \author{
-Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

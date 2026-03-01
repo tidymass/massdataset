@@ -3,7 +3,7 @@
 #' @docType methods
 #' @rdname filter-mass_dataset
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param object (required) mass_dataset class object.
 #' @param flist (required) A function or list of functions that take a vector
 #' of abundance values and return a logical.
@@ -26,7 +26,7 @@
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'  
 #' filter_samples(object, function(x) {

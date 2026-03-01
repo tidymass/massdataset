@@ -35,5 +35,6 @@ mztab_data <- read_mztab(file = mztab_file)
 
 }
 \author{
-Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

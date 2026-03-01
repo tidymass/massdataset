@@ -54,5 +54,5 @@ Write ms2_data class object to msp or mgf
 
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

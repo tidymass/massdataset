@@ -63,5 +63,6 @@ intensity_plot(object = object, variable_index = 1)
 intensity_plot(object = object, variable_index = 1, color_by = "class")
 }
 \author{
-Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

@@ -20,7 +20,8 @@
 #'
 #' @return A ggplot2 or plotly plot object.
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @export
 #' @examples
 #' data("expression_data")

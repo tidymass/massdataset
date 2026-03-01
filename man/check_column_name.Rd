@@ -2,20 +2,22 @@
 % Please edit documentation in R/6-utils.R
 \name{check_column_name}
 \alias{check_column_name}
-\title{check_column_name}
+\title{Check Whether a Column Name Is Available}
 \usage{
 check_column_name(df, column.name)
 }
 \arguments{
 \item{df}{A data frame.}
 
-\item{column.name}{new column name}
+\item{column.name}{A proposed column name.}
 }
 \value{
-A column name
+A character scalar containing an available column name.
 }
 \description{
-check_column_name
+Returns \code{column.name} if it is not already present in \code{df}.
+If the name is already used, a numeric suffix is appended to create a
+unique column name.
 }
 \examples{
 df <-
@@ -27,5 +29,5 @@ check_column_name(df = df, column.name = "y.1")
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

@@ -32,5 +32,6 @@ convert_mass_dataset2mztab(dataset, path = "./mzTabFiles/")
 
 }
 \author{
-Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

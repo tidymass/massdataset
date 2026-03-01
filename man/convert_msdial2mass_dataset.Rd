@@ -26,14 +26,11 @@ It extracts sample information, variable information, and expression data.
 It also performs checks to ensure the data is correctly formatted.
 }
 \examples{
-##if you want to read the msdital table,
-##use this function
-## table <- read.table("msdial_table.csv", sep = ",")
 data("msdial_table")
-object =
-  convert_msdial2mass_dataset(x = msdial_table)
-object
+object <- convert_msdial2mass_dataset(x = msdial_table)
+dim(extract_expression_data(object))
 }
 \author{
-Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

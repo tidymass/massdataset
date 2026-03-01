@@ -1,6 +1,7 @@
 #' Convert MS-Dial Data to mass_dataset Object
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @description This function converts data from MS-Dial into a `mass_dataset` object.
 #' It reads the data either from a given data frame or from a file and processes it to create a `mass_dataset` object.
 #'
@@ -17,13 +18,9 @@
 #'
 #' @export
 #' @examples
-#' ##if you want to read the msdital table,
-#' ##use this function
-#' ## table <- read.table("msdial_table.csv", sep = ",")
 #' data("msdial_table")
-#' object =
-#'   convert_msdial2mass_dataset(x = msdial_table)
-#' object
+#' object <- convert_msdial2mass_dataset(x = msdial_table)
+#' dim(extract_expression_data(object))
 
 convert_msdial2mass_dataset <-
   function(x,
@@ -131,7 +128,7 @@ convert_msdial2mass_dataset <-
       sample_info$sample_id
     
     colnames(variable_info) <-
-      masstools::name_duplicated(colnames(variable_info))
+      make.unique(colnames(variable_info), sep = "_")
     
     variable_info <-
       variable_info %>%

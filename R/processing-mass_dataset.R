@@ -1,12 +1,12 @@
 #' @title cbind
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @method cbind mass_dataset
 #' @param ... One or more `mass_dataset` objects to be column bound.
 #' @param deparse.level Integer controlling the construction of labels in the case of non-matrix-like arguments. Default is 1.
 #'
 #' @export
-#' @return mass_dataset
+#' @return A `mass_dataset` object created by column-binding the supplied objects.
 
 cbind.mass_dataset <-
   function(..., deparse.level = 1) {
@@ -21,114 +21,38 @@ cbind.mass_dataset <-
 
 #' @title cbind mass_data class
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param x A `mass_dataset` object.
 #' @param y Another `mass_dataset` object to be column bound with `x`.
 #' @param deparse.level Integer controlling the construction of labels in the case of non-matrix-like arguments. Default is 1.
 #' @examples
-#' library(magrittr)
-#' 
-#' # Create first mass_dataset object
-#' expression_data_x <- data.frame(
-#'   sample1 = c(1.1, 2.2, 3.3),
-#'   sample2 = c(1.5, 2.5, 3.5),
-#'   row.names = c("feature1", "feature2", "feature3")
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object <- create_mass_dataset(
+#'   expression_data = expression_data,
+#'   sample_info = sample_info,
+#'   variable_info = variable_info
 #' )
-#' 
-#' sample_info_x <- data.frame(
-#'   sample_id = c("sample1", "sample2"),
-#'   batch = c(1, 1),
-#'   age = c(30, 32),
-#'   class = c("QC", "QC"),
-#'   row.names = c("sample1", "sample2")
+#' x <- object[, 1:2]
+#' temp_expression_data <- extract_expression_data(x)
+#' colnames(temp_expression_data) <- paste0(colnames(temp_expression_data), "_2")
+#' temp_sample_info <- extract_sample_info(x)
+#' temp_sample_info$sample_id <- colnames(temp_expression_data)
+#' rownames(temp_sample_info) <- temp_sample_info$sample_id
+#' y <- create_mass_dataset(
+#'   expression_data = temp_expression_data,
+#'   sample_info = temp_sample_info,
+#'   variable_info = extract_variable_info(x),
+#'   sample_info_note = extract_sample_info_note(x),
+#'   variable_info_note = extract_variable_info_note(x)
 #' )
-#' 
-#' sample_info_note_x <- data.frame(
-#'   name = colnames(sample_info_x),
-#'   meaning = c("Sample ID", "Batch ID", "Age", "Sample Class"),
-#'   row.names = colnames(sample_info_x)
-#' )
-#' 
-#' variable_info_x <- data.frame(
-#'   variable_id = c("feature1", "feature2", "feature3"),
-#'   row.names = c("feature1", "feature2", "feature3")
-#' )
-#' 
-#' variable_info_note_x <- data.frame(
-#'   name = colnames(variable_info_x),
-#'   meaning = "Feature ID",
-#'   row.names = colnames(variable_info_x)
-#' )
-#' 
-#' mass_x <- new(
-#'   Class = "mass_dataset",
-#'   expression_data = expression_data_x,
-#'   sample_info = sample_info_x,
-#'   sample_info_note = sample_info_note_x,
-#'   variable_info = variable_info_x,
-#'   variable_info_note = variable_info_note_x,
-#'   ms2_data = list(),
-#'   annotation_table = data.frame(),
-#'   process_info = list(),
-#'   other_files = list(),
-#'   version = "1.0.0",
-#'   activated = "expression_data"
-#' )
-#' 
-#' # Create second mass_dataset object
-#' expression_data_y <- data.frame(
-#'   sample1 = c(1.3, 2.3, 3.4),
-#'   sample2 = c(1.7, 2.7, 3.8),
-#'   row.names = c("feature4", "feature5", "feature6")
-#' )
-#' 
-#' sample_info_y <- data.frame(
-#'   sample_id = c("sample1", "sample2"),
-#'   batch = c(2, 2),
-#'   age = c(31, 34),
-#'   class = c("Subject", "Subject"),
-#'   row.names = c("sample1", "sample2")
-#' )
-#' 
-#' sample_info_note_y <- data.frame(
-#'   name = colnames(sample_info_y),
-#'   meaning = c("Sample ID", "Batch ID", "Age", "Sample Class"),
-#'   row.names = colnames(sample_info_y)
-#' )
-#' 
-#' variable_info_y <- data.frame(
-#'   variable_id = c("feature4", "feature5", "feature6"),
-#'   row.names = c("feature4", "feature5", "feature6")
-#' )
-#' 
-#' variable_info_note_y <- data.frame(
-#'   name = colnames(variable_info_y),
-#'   meaning = "Feature ID",
-#'   row.names = colnames(variable_info_y)
-#' )
-#' 
-#' mass_y <- new(
-#'   Class = "mass_dataset",
-#'   expression_data = expression_data_y,
-#'   sample_info = sample_info_y,
-#'   sample_info_note = sample_info_note_y,
-#'   variable_info = variable_info_y,
-#'   variable_info_note = variable_info_note_y,
-#'   ms2_data = list(),
-#'   annotation_table = data.frame(),
-#'   process_info = list(),
-#'   other_files = list(),
-#'   version = "1.0.0",
-#'   activated = "expression_data"
-#' )
-#' 
-#' rbind_mass_dataset_object <- rbind_mass_dataset(mass_x, mass_y)
-#' 
-#' # View result
-#' rbind_mass_dataset_object@expression_data
+#'
+#' result <- cbind_mass_dataset(x, y)
+#' dim(result)
 #'
 #' @export
-#' @return mass_dataset
+#' @return A `mass_dataset` object containing the combined samples and merged sample metadata.
 
 cbind_mass_dataset <-
   function(x, y, deparse.level = 1) {
@@ -264,7 +188,7 @@ cbind_mass_dataset <-
 #' @param deparse.level Integer controlling the construction of labels in the case of non-matrix-like arguments. Default is 1.
 #'
 #' @export
-#' @return mass_dataset
+#' @return A `mass_dataset` object created by row-binding the supplied objects.
 
 rbind.mass_dataset <-
   function(..., deparse.level = 1) {
@@ -293,107 +217,22 @@ rbind.mass_dataset <-
 #' @return A new mass_dataset object that is the row-wise combination of `x` and `y`.
 #'
 #' @examples
-#' library(magrittr)
-#' # Create first mass_dataset object
-#' expression_data_x <- data.frame(
-#'   sample1 = c(1.1, 2.2, 3.3),
-#'   sample2 = c(1.5, 2.5, 3.5),
-#'   row.names = c("feature1", "feature2", "feature3")
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object <- create_mass_dataset(
+#'   expression_data = expression_data,
+#'   sample_info = sample_info,
+#'   variable_info = variable_info
 #' )
-#' 
-#' sample_info_x <- data.frame(
-#'   sample_id = c("sample1", "sample2"),
-#'   batch = c(1, 1),
-#'   age = c(30, 32),
-#'   class = c("QC", "QC"),
-#'   row.names = c("sample1", "sample2")
-#' )
-#' 
-#' sample_info_note_x <- data.frame(
-#'   name = colnames(sample_info_x),
-#'   meaning = c("Sample ID", "Batch ID", "Age", "Sample Class"),
-#'   row.names = colnames(sample_info_x)
-#' )
-#' 
-#' variable_info_x <- data.frame(
-#'   variable_id = c("feature1", "feature2", "feature3"),
-#'   row.names = c("feature1", "feature2", "feature3")
-#' )
-#' 
-#' variable_info_note_x <- data.frame(
-#'   name = colnames(variable_info_x),
-#'   meaning = "Feature ID",
-#'   row.names = colnames(variable_info_x)
-#' )
-#' 
-#' mass_x <- new(
-#'   Class = "mass_dataset",
-#'   expression_data = expression_data_x,
-#'   sample_info = sample_info_x,
-#'   sample_info_note = sample_info_note_x,
-#'   variable_info = variable_info_x,
-#'   variable_info_note = variable_info_note_x,
-#'   ms2_data = list(),
-#'   annotation_table = data.frame(),
-#'   process_info = list(),
-#'   other_files = list(),
-#'   version = "1.0.0",
-#'   activated = "expression_data"
-#' )
-#' 
-#' # Create second mass_dataset object
-#' expression_data_y <- data.frame(
-#'   sample1 = c(1.3, 2.3, 3.4),
-#'   sample2 = c(1.7, 2.7, 3.8),
-#'   row.names = c("feature4", "feature5", "feature6")
-#' )
-#' 
-#' sample_info_y <- data.frame(
-#'   sample_id = c("sample1", "sample2"),
-#'   batch = c(2, 2),
-#'   age = c(31, 34),
-#'   class = c("Subject", "Subject"),
-#'   row.names = c("sample1", "sample2")
-#' )
-#' 
-#' sample_info_note_y <- data.frame(
-#'   name = colnames(sample_info_y),
-#'   meaning = c("Sample ID", "Batch ID", "Age", "Sample Class"),
-#'   row.names = colnames(sample_info_y)
-#' )
-#' 
-#' variable_info_y <- data.frame(
-#'   variable_id = c("feature4", "feature5", "feature6"),
-#'   row.names = c("feature4", "feature5", "feature6")
-#' )
-#' 
-#' variable_info_note_y <- data.frame(
-#'   name = colnames(variable_info_y),
-#'   meaning = "Feature ID",
-#'   row.names = colnames(variable_info_y)
-#' )
-#' 
-#' mass_y <- new(
-#'   Class = "mass_dataset",
-#'   expression_data = expression_data_y,
-#' sample_info = sample_info_y,
-#'   sample_info_note = sample_info_note_y,
-#'   variable_info = variable_info_y,
-#'   variable_info_note = variable_info_note_y,
-#'   ms2_data = list(),
-#'   annotation_table = data.frame(),
-#'   process_info = list(),
-#'   other_files = list(),
-#'   version = "1.0.0",
-#'   activated = "expression_data"
-#' )
-#' 
-#' rbind_mass_dataset_object <- rbind_mass_dataset(mass_x, mass_y)
-#' 
-#' # View result
-#' rbind_mass_dataset_object@expression_data
+#' x <- object[1:3, 1:3]
+#' y <- object[4:6, 1:3]
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' result <- rbind_mass_dataset(x, y)
+#' dim(result)
+#'
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @export
 
 rbind_mass_dataset <-
@@ -611,10 +450,11 @@ rbind_mass_dataset <-
 
 #' @title head
 #' @method head mass_dataset
-#' @param x x
+#' @param x A `mass_dataset` object.
 #' @param ... Additional parameters.
 #' @export
-#' @return mass_dataset class object
+#' @return A `mass_dataset` object containing the first rows of `expression_data`
+#' and the corresponding linked metadata.
 
 head.mass_dataset = function(x, ...) {
   x@expression_data = head(x@expression_data, ...)
@@ -625,10 +465,11 @@ head.mass_dataset = function(x, ...) {
 
 #' @title tail
 #' @method tail mass_dataset
-#' @param x x
+#' @param x A `mass_dataset` object.
 #' @param ... Additional parameters.
 #' @export
-#' @return mass_dataset class object
+#' @return A `mass_dataset` object containing the last rows of `expression_data`
+#' and the corresponding linked metadata.
 
 tail.mass_dataset = function(x, ...) {
   x@expression_data = tail(x@expression_data, ...)

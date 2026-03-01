@@ -1,7 +1,7 @@
 ---
 title: "Extract data from mass_dataset"
 author:
-- name: Xiaotao Shen (https://www.shenxt.info/)
+- name: Xiaotao Shen
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
 output:
   html_document:
@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 
 We first created a `mass_dataset` class object.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 library(massdataset)
 library(tidyverse)
 
@@ -55,7 +55,7 @@ object
 
 In `massdataset` package, there are a series of functions named as `extract_xxx()`, users can use them to extract data from `mass_dataset` calss object.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 ##sample_info
 extract_sample_info(object)
 ##variable_info
@@ -76,7 +76,7 @@ extract_process_info(object)
 
 # **Use slot()**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 slot(object = object, name = "sample_info")
 slot(object = object, name = "variable_info") %>% head()
 slot(object = object, name = "expression_data") %>% head()
@@ -91,7 +91,7 @@ slot(object = object, name = "annotation_table")
 
 `mass_data` class is a S4 object. So we can also use `@`.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 object@expression_data %>% head()
 object@sample_info
 object@variable_info %>% head()
@@ -105,6 +105,6 @@ object@annotation_table
 
 # **Session information**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 sessionInfo()
 ```

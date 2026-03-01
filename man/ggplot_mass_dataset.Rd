@@ -44,27 +44,24 @@ the chosen direction and data.
 data("expression_data")
 data("sample_info")
 data("variable_info")
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    variable_info = variable_info,
-    sample_info = sample_info
-  )
-library(ggplot2)
-ggplot_mass_dataset(object, direction = "variable", 
-                    variable_index = 1) +
-  geom_boxplot(aes(x = class, color = class)) +
-  geom_jitter(aes(x = class, color = class))
+object <- create_mass_dataset(
+  expression_data = expression_data,
+  variable_info = variable_info,
+  sample_info = sample_info
+)
+ggplot_mass_dataset(object, direction = "variable", variable_index = 1) +
+  ggplot2::geom_boxplot(ggplot2::aes(x = class, color = class)) +
+  ggplot2::geom_jitter(ggplot2::aes(x = class, color = class))
 
-object \%>\% 
-  `+`(1) \%>\% 
-  log(10) \%>\% 
-  scale() \%>\% 
-ggplot_mass_dataset(direction = "sample", 
-                    sample_index = 2) +
-  geom_boxplot(aes(x = 1)) +
-  geom_jitter(aes(x = 1, color = mz))
+object \%>\%
+  `+`(1) \%>\%
+  log(10) \%>\%
+  scale() \%>\%
+  ggplot_mass_dataset(direction = "sample", sample_index = 2) +
+  ggplot2::geom_boxplot(ggplot2::aes(x = 1)) +
+  ggplot2::geom_jitter(ggplot2::aes(x = 1, color = mz))
 }
 \author{
-Xiaotao Shen \href{mailto:shenxt1990@outlook.com}{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

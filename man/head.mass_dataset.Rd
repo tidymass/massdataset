@@ -7,12 +7,13 @@
 \method{head}{mass_dataset}(x, ...)
 }
 \arguments{
-\item{x}{x}
+\item{x}{A \code{mass_dataset} object.}
 
 \item{...}{Additional parameters.}
 }
 \value{
-mass_dataset class object
+A \code{mass_dataset} object containing the first rows of \code{expression_data}
+and the corresponding linked metadata.
 }
 \description{
 head

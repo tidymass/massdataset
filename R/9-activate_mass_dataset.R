@@ -21,7 +21,8 @@
 #' @return 
 #' Returns the `mass_dataset` object with the specified dataset activated.
 #'
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @export
 #' @examples
 #' data("expression_data")
@@ -35,10 +36,8 @@
 #'     variable_info = variable_info
 #'   )
 #' object
-#' object@activated
-#' object =
-#'   activate_mass_dataset(.data = object, what = "sample_info")
-#' object@activated
+#' object <- activate_mass_dataset(.data = object, what = "sample_info")
+#' head(dplyr::filter(object, class == "QC"))
 
 activate_mass_dataset <-
   function(.data,

@@ -9,7 +9,8 @@
 #' @return A modified mass_dataset object with added mean intensity information.
 #'
 #'
-#' @author Xiaotao Shen <shenxt1990@outlook.com>
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #' @export
 #' @examples
 #' data("expression_data")
@@ -20,7 +21,7 @@
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'
 #' object

@@ -1,9 +1,12 @@
-##S4 class for function mSet-class
+## S4 class for function mSet-class
+# This class is kept for backward compatibility, but massdataset does not
+# define or import the external MSnbase classes used in old versions.
+# Use generic slot types here so package loading/documentation does not fail.
 #' An S4 class that stores the MS dataset from MetaboAnalystR (Prof. Jeff Xia)
 #' @docType class
 #' @slot rawfiles character
-#' @slot rawOnDisk rawOnDisk
-#' @slot rawInMemory rawInMemory
+#' @slot rawOnDisk Raw MS data stored on disk.
+#' @slot rawInMemory Raw MS data stored in memory.
 #' @slot params params
 #' @slot peakpicking peakpicking
 #' @slot peakgrouping peakgrouping
@@ -21,8 +24,8 @@ setClass(
   "mSet",
   representation = representation(
     rawfiles = "character",
-    rawOnDisk = "OnDiskMSnExp",
-    rawInMemory = "MSnExp",
+    rawOnDisk = "ANY",
+    rawInMemory = "ANY",
     params = "list",
     peakpicking = "list",
     peakgrouping = "list",
@@ -37,8 +40,8 @@ setClass(
   ),
   prototype = prototype(
     rawfiles = vector("character"),
-    rawOnDisk = new("OnDiskMSnExp"),
-    rawInMemory = new("MSnExp"),
+    rawOnDisk = NULL,
+    rawInMemory = NULL,
     params = vector("list"),
     peakpicking = vector("list"),
     peakgrouping = vector("list"),

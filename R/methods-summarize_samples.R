@@ -1,77 +1,27 @@
 ####merge samples
 #' @title merge samples
-#' @param object mass_dataset
-#' @param what which you want to use
-#' @param group_by summarize samples by
-#' @param ... other params
-#' @return mass_dataset
+#' @param object A `mass_dataset` object.
+#' @param what Summary statistic used to combine samples within each group.
+#' @param group_by Character vector giving one or more columns in `sample_info`
+#' used to define the grouping structure.
+#' @param ... Additional arguments passed to downstream methods.
+#' @return A `mass_dataset` object with grouped samples collapsed into summary
+#' profiles and updated `sample_info`.
 #' @examples
-#' library(methods)
-#' 
-#' # Simulate expression matrix
-#' expression_data <- data.frame(
-#'   sample1 = c(1.2, 3.4),
-#'   sample2 = c(2.1, 4.3),
-#'   row.names = c("feature1", "feature2")
-#' )
-#' 
-#' # Variable metadata
-#' variable_info <- data.frame(
-#'   variable_id = c("feature1", "feature2"),
-#'   mz = c(100.1, 200.2),
-#'   rt = c(300, 400),
-#'   row.names = c("feature1", "feature2")
-#' )
-#' 
-#' # Sample metadata
-#' sample_info <- data.frame(
-#'   sample_id = c("sample1", "sample2"),
-#'   class = c("QC", "Subject"),
-#'   row.names = c("sample1", "sample2")
-#' )
-#' 
-#' # Sample info annotations
-#' sample_info_note <- data.frame(
-#'   name = c("sample_id", "class"),
-#'   meaning = c("Unique sample ID", "Sample classification"),
-#'   row.names = c("sample_id", "class")
-#' )
-#' 
-#' # Variable info annotations
-#' variable_info_note <- data.frame(
-#'   name = c("variable_id", "mz", "rt"),
-#'   meaning = c("Feature ID", "Mass-to-charge ratio", "Retention time"),
-#'   row.names = c("variable_id", "mz", "rt")
-#' )
-#' 
-#' # Empty slots
-#' ms2_data <- list()
-#' annotation_table <- data.frame()
-#' process_info <- list()
-#' other_files <- list()
-#' version <- "1.0.0"
-#' activated <- "expression_data"
-#' 
-#' # Construct mass_dataset object
-#' object <- new(
-#'   Class = "mass_dataset",
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object <- create_mass_dataset(
 #'   expression_data = expression_data,
-#'   ms2_data = ms2_data,
-#'   annotation_table = annotation_table,
 #'   sample_info = sample_info,
-#'   variable_info = variable_info,
-#'   sample_info_note = sample_info_note,
-#'   variable_info_note = variable_info_note,
-#'   process_info = process_info,
-#'   other_files = other_files,
-#'   version = version,
-#'   activated = activated
+#'   variable_info = variable_info
 #' )
-#' 
-#' # Summarize by 'class' using mean intensity
-#' object2 <- summarise_samples(object, what = "mean_intensity", group_by = "class")
-#' 
-#' # Inspect summarized expression and sample information
+#'
+#' object2 <- summarise_samples(
+#'   object,
+#'   what = "mean_intensity",
+#'   group_by = "class"
+#' )
 #' head(extract_expression_data(object2))
 #' head(extract_sample_info(object2))
 #' @export

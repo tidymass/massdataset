@@ -20,5 +20,6 @@ An S4 class to represent the parameters used in tidymass functions.
 }}
 
 \author{
-Xiaotao Shen \email{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

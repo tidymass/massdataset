@@ -1,7 +1,7 @@
 ---
 title: "Accessor"
 author:
-- name: Xiaotao Shen (https://www.shenxt.info/)
+- name: Xiaotao Shen
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
 output:
   html_document:
@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
 
 # **Data preparation**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 library(massdataset)
 library(tidyverse)
 
@@ -54,13 +54,13 @@ object
 
 # **Base function**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 object[1:5,]
 object[,1:5]
 object[1:10,1:5]
 ```
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 colnames(object)
 object[,"Blank_3"]
 
@@ -71,7 +71,7 @@ object["M136T55_2_POS","Blank_3"]
 ```
 If set `drop = TRUE`, then it will return a numeric vector, not a `mass_dataset`.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 head(object[,"Blank_3", drop = TRUE])
 
 unlist(object["M136T55_2_POS",,drop = TRUE] )
@@ -81,12 +81,12 @@ object["M136T55_2_POS","Blank_3",drop = TRUE]
 
 We can also get the values from one `mass_dataset` class use `$` like a `data.frame`.
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 head(object$Blank_3, 20)
 ```
 
 # **Session information**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
 sessionInfo()
 ```

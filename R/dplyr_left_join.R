@@ -27,7 +27,7 @@ dplyr::left_join
 #' @title Left join for mass_dataset
 #' @description Left join for mass_dataset
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param x (required) mass_dataset class object.
 #' @param y A data frame.
 #' @param by by, see ?_left_join

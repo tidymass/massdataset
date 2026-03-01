@@ -12,12 +12,12 @@
 \item{deparse.level}{Integer controlling the construction of labels in the case of non-matrix-like arguments. Default is 1.}
 }
 \value{
-mass_dataset
+A \code{mass_dataset} object created by column-binding the supplied objects.
 }
 \description{
 cbind
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

@@ -37,19 +37,15 @@ MS2 data, annotation tables, and other related information.
 
 \examples{
 \dontrun{
-# Create a new mass_dataset object
-new_data <- new("mass_dataset", 
-                expression_data = data.frame(),
-                ms2_data = list(),
-                annotation_table = data.frame(),
-                sample_info = data.frame(),
-                variable_info = data.frame(),
-                sample_info_note = data.frame(),
-                variable_info_note = data.frame(),
-                process_info = list(),
-                other_files = list(),
-                version = "1.0",
-                activated = "expression_data")
+data("expression_data")
+data("sample_info")
+data("variable_info")
+new_data <- create_mass_dataset(
+  expression_data = expression_data,
+  sample_info = sample_info,
+  variable_info = variable_info
+)
+new_data
 }
 
 }

@@ -2,7 +2,7 @@
 #' @description Write ms2_data class object to msp or mgf
 #' @docType methods
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param object (required) mass_dataset class object.
 #' @param file_type (required) mgf or msp
 #' @param file_name (required) output file name.

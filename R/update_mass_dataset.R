@@ -9,7 +9,7 @@
 #' @return A `mass_dataset` object with updated slots and process information.
 #'
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @export
 #' @examples
 #' data("expression_data")
@@ -20,32 +20,19 @@
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
-#'     variable_info = variable_info,
+#'     variable_info = variable_info
 #'   )
 #'
 #' object
 #'
-#' ####only remain QC samples
-#' sample_info = extract_sample_info(object = object)
+#' qc_object <- object[, extract_sample_info(object)$class == "QC"]
+#' qc_object <- update_mass_dataset(object = qc_object)
+#' dim(qc_object)
 #'
-#' sample_info =
-#'   dplyr::filter(sample_info, class == "QC")
-#'
-#' object@sample_info = sample_info
-#'
-#' object = update_mass_dataset(object = object)
-#' object
-#'
-#' ####only remain feature with mz < 300
-#' variable_info = extract_variable_info(object = object)
-#'
-#' variable_info =
-#'   dplyr::filter(variable_info, mz < 300)
-#'
-#' object@variable_info = variable_info
-#'
-#' object = update_mass_dataset(object = object)
-#' object
+#' feature_object <-
+#'   object[extract_variable_info(object)$mz < 300, ]
+#' feature_object <- update_mass_dataset(object = feature_object)
+#' dim(feature_object)
 
 update_mass_dataset <-
   function(object) {
@@ -109,73 +96,21 @@ update_mass_dataset <-
 #'
 #' @return A `mass_dataset` object with updated `variable_info` and `variable_info_note` slots.
 #'
-#' @author Xiaotao Shen \email{shenxt1990@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #'
 #' @examples
-#' library(methods)
-#'
-#' # Simulate expression data matrix
-#' expression_data <- data.frame(
-#'   sample1 = c(1.2, 3.4),
-#'   sample2 = c(2.1, 4.3),
-#'   row.names = c("feature1", "feature2")
-#' )
-#'
-#' # Define variable information
-#' variable_info <- data.frame(
-#'   variable_id = c("feature1", "feature2"),
-#'   mz = c(100.1, 200.2),
-#'   rt = c(300, 400),
-#'   row.names = c("feature1", "feature2")
-#' )
-#'
-#' # Define sample information
-#' sample_info <- data.frame(
-#'   sample_id = c("sample1", "sample2"),
-#'   class = c("QC", "Subject"),
-#'   row.names = c("sample1", "sample2")
-#' )
-#'
-#' # Add notes for sample info
-#' sample_info_note <- data.frame(
-#'   name = c("sample_id", "class"),
-#'   meaning = c("Unique sample ID", "Sample classification"),
-#'   row.names = c("sample_id", "class")
-#' )
-#'
-#' # Add notes for variable info
-#' variable_info_note <- data.frame(
-#'   name = c("variable_id", "mz", "rt"),
-#'   meaning = c("Feature ID", "Mass-to-charge ratio", "Retention time"),
-#'   row.names = c("variable_id", "mz", "rt")
-#' )
-#'
-#' # Empty structures for optional slots
-#' ms2_data <- list()
-#' annotation_table <- data.frame()
-#' process_info <- list()
-#' other_files <- list()
-#' version <- "1.0.0"
-#' activated <- "expression_data"
-#'
-#' # Create a new mass_dataset object
-#' object <- new(
-#'   Class = "mass_dataset",
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object <- create_mass_dataset(
 #'   expression_data = expression_data,
-#'   ms2_data = ms2_data,
-#'   annotation_table = annotation_table,
 #'   sample_info = sample_info,
-#'   variable_info = variable_info,
-#'   sample_info_note = sample_info_note,
-#'   variable_info_note = variable_info_note,
-#'   process_info = process_info,
-#'   other_files = other_files,
-#'   version = version,
-#'   activated = activated
+#'   variable_info = variable_info
 #' )
-#'
-#' # Update sample_info
 #' updated_md <- update_variable_info(object)
+#' head(extract_variable_info(updated_md))
+#' head(extract_variable_info_note(updated_md))
 #'
 #' @export
 
@@ -223,73 +158,21 @@ update_variable_info <-
 #'
 #' @return A `mass_dataset` object with updated `sample_info` and `sample_info_note` slots.
 #'
-#' @author Xiaotao Shen \email{shenxt1990@@outlook.com}
+#' @author Xiaotao Shen
+#' \email{xiaotao.shen@outlook.com}
 #'
 #' @examples
-#' library(methods)
-#'
-#' # Simulate expression data matrix
-#' expression_data <- data.frame(
-#'   sample1 = c(1.2, 3.4),
-#'   sample2 = c(2.1, 4.3),
-#'   row.names = c("feature1", "feature2")
-#' )
-#'
-#' # Define variable information
-#' variable_info <- data.frame(
-#'   variable_id = c("feature1", "feature2"),
-#'   mz = c(100.1, 200.2),
-#'   rt = c(300, 400),
-#'   row.names = c("feature1", "feature2")
-#' )
-#'
-#' # Define sample information
-#' sample_info <- data.frame(
-#'   sample_id = c("sample1", "sample2"),
-#'   class = c("QC", "Subject"),
-#'   row.names = c("sample1", "sample2")
-#' )
-#'
-#' # Add notes for sample info
-#' sample_info_note <- data.frame(
-#'   name = c("sample_id", "class"),
-#'   meaning = c("Unique sample ID", "Sample classification"),
-#'   row.names = c("sample_id", "class")
-#' )
-#'
-#' # Add notes for variable info
-#' variable_info_note <- data.frame(
-#'   name = c("variable_id", "mz", "rt"),
-#'   meaning = c("Feature ID", "Mass-to-charge ratio", "Retention time"),
-#'   row.names = c("variable_id", "mz", "rt")
-#' )
-#'
-#' # Empty structures for optional slots
-#' ms2_data <- list()
-#' annotation_table <- data.frame()
-#' process_info <- list()
-#' other_files <- list()
-#' version <- "1.0.0"
-#' activated <- "expression_data"
-#'
-#' # Create a new mass_dataset object
-#' object <- new(
-#'   Class = "mass_dataset",
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' object <- create_mass_dataset(
 #'   expression_data = expression_data,
-#'   ms2_data = ms2_data,
-#'   annotation_table = annotation_table,
 #'   sample_info = sample_info,
-#'   variable_info = variable_info,
-#'   sample_info_note = sample_info_note,
-#'   variable_info_note = variable_info_note,
-#'   process_info = process_info,
-#'   other_files = other_files,
-#'   version = version,
-#'   activated = activated
+#'   variable_info = variable_info
 #' )
-#'
-#' # Update sample_info
 #' updated_md <- update_sample_info(object)
+#' head(extract_sample_info(updated_md))
+#' head(extract_sample_info_note(updated_md))
 #'
 #' @export
 

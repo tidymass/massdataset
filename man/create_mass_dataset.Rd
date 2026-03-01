@@ -15,20 +15,20 @@ create_mass_dataset(
 }
 \arguments{
 \item{expression_data}{MS1 peak table name.
-\url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}}
+\url{https://www.tidymass.org/massdataset/articles/data_import_and_export.html}}
 
 \item{sample_info}{Sample information name.
-\url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}}
+\url{https://www.tidymass.org/massdataset/articles/data_import_and_export.html}}
 
 \item{variable_info}{MS1 peak table name.
 Columns are samples and rows are variables.
-\url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}}
+\url{https://www.tidymass.org/massdataset/articles/data_import_and_export.html}}
 
 \item{sample_info_note}{Sample information name.
-\url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}}
+\url{https://www.tidymass.org/massdataset/articles/data_import_and_export.html}}
 
 \item{variable_info_note}{Sample information name.
-\url{https://tidymass.github.io/massdataset/articles/data_import_and_export.html}}
+\url{https://www.tidymass.org/massdataset/articles/data_import_and_export.html}}
 }
 \value{
 An object of class \code{mass_dataset}.
@@ -55,5 +55,5 @@ object
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }

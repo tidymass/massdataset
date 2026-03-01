@@ -16,5 +16,6 @@ This function retrieves the current version of the massdataset package installed
 get_massdataset_version()
 }
 \author{
-Xiaotao Shen \email{shenxt1990@outlook.com}
+Xiaotao Shen
+\email{xiaotao.shen@outlook.com}
 }

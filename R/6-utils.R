@@ -29,9 +29,11 @@ text_col <- function(x) {
 
 #' List all packages in the massdataset
 #'
-#' @param include_self Include massdataset in the list?
+#' @param include_self Logical; if `TRUE`, include `massdataset` itself in the
+#'   returned package names.
 #' @export
-#' @return massdataset packages
+#' @return A character vector of package names used by the `massdataset`
+#'   workflow.
 #' @examples
 #' massdataset_packages()
 massdataset_packages <- function(include_self = TRUE) {
@@ -63,13 +65,15 @@ style_grey <- function(level, ...) {
 
 
 
-#' @title check_column_name
-#' @description check_column_name
+#' @title Check Whether a Column Name Is Available
+#' @description Returns `column.name` if it is not already present in `df`.
+#'   If the name is already used, a numeric suffix is appended to create a
+#'   unique column name.
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
+#' \email{xiaotao.shen@outlook.com}
 #' @param df A data frame.
-#' @param column.name new column name
-#' @return A column name
+#' @param column.name A proposed column name.
+#' @return A character scalar containing an available column name.
 #' @export
 #' @examples
 #' df <-

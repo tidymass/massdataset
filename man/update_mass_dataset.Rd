@@ -26,34 +26,21 @@ object =
   create_mass_dataset(
     expression_data = expression_data,
     sample_info = sample_info,
-    variable_info = variable_info,
+    variable_info = variable_info
   )
 
 object
 
-####only remain QC samples
-sample_info = extract_sample_info(object = object)
+qc_object <- object[, extract_sample_info(object)$class == "QC"]
+qc_object <- update_mass_dataset(object = qc_object)
+dim(qc_object)
 
-sample_info =
-  dplyr::filter(sample_info, class == "QC")
-
-object@sample_info = sample_info
-
-object = update_mass_dataset(object = object)
-object
-
-####only remain feature with mz < 300
-variable_info = extract_variable_info(object = object)
-
-variable_info =
-  dplyr::filter(variable_info, mz < 300)
-
-object@variable_info = variable_info
-
-object = update_mass_dataset(object = object)
-object
+feature_object <-
+  object[extract_variable_info(object)$mz < 300, ]
+feature_object <- update_mass_dataset(object = feature_object)
+dim(feature_object)
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@outlook.com}
+\email{xiaotao.shen@outlook.com}
 }
