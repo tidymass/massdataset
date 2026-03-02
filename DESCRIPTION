@@ -1,21 +1,22 @@
 Package: massdataset
-Title: Data Structures and Core Utilities for Mass Spectrometry Data
-Version: 0.99.1
+Title: Data Structures and Core Utilities for MS Data
+Version: 0.99.2
 Authors@R: 
     person(given = "Xiaotao",
            family = "Shen",
            role = c("aut", "cre"),
            email = "xiaotao.shen@outlook.com",
            comment = c(ORCID = "0000-0002-9608-9964"))
-Description: Provides a structured data container for mass spectrometry
-    experiments, with a focus on metabolomics and lipidomics workflows.
-    The package includes core utilities for storing, accessing, combining,
+Description: Provides a structured data container for MS experiments,
+    with a focus on small-molecule profiling workflows. The package
+    includes core utilities for storing, accessing, combining,
     summarizing, and converting rectangular MS datasets in a consistent
-    format that can be used across the 'tidymass' ecosystem.
+    format for use across the 'tidymass' ecosystem.
 biocViews: Software, DataImport, DataRepresentation, Visualization, 
            MassSpectrometry, Metabolomics, Lipidomics, QualityControl, 
            Preprocessing, StatisticalMethod, Infrastructure
-URL: https://github.com/tidymass/massdataset
+URL: https://tidymass.github.io/massdataset,
+    https://github.com/tidymass/massdataset
 BugReports: https://github.com/tidymass/massdataset/issues
 Depends: R (>= 4.1)
 License: MIT + file LICENSE
@@ -56,7 +57,6 @@ Suggests:
     BiocGenerics,
     tidyverse,
     testthat (>= 3.0.0),
-    MSnbase,
     ggplotify,
     plotly,
     leaflet,

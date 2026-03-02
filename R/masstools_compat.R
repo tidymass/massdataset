@@ -103,63 +103,25 @@ list_mgf_records <- function(file) {
 
 #' Read mzXML and mzML Files
 #'
-#' Read mzXML or mzML files and extract MS2 spectra in the legacy list format
-#' used by `massdataset`.
+#' Read mzXML or mzML files.
 #'
 #' @param file A character vector of file paths.
 #' @param threads Integer kept for compatibility with older workflows.
 #' @param mode Character string specifying whether files are read with
 #'   `"inMemory"` or `"onDisk"`.
 #'
-#' @return A list of spectra. Each element contains `info`, a data frame with
-#'   precursor metadata, and `spec`, a data frame with `mz` and `intensity`.
+#' @return This function always stops in the CRAN build of `massdataset`.
+#'   Convert mzXML or mzML files to MGF before calling [mutate_ms2()].
 #' @export
 read_mzxml <- function(file,
                        threads = 3,
                        mode = c("inMemory", "onDisk")) {
   mode <- match.arg(mode)
-  if (!requireNamespace("MSnbase", quietly = TRUE)) {
-    stop(
-      "read_mzxml() requires the optional package 'MSnbase'. ",
-      "Install it with BiocManager::install('MSnbase').",
-      call. = FALSE
-    )
-  }
-
-  message(crayon::green("Reading MS2 data..."))
-  ms2 <- MSnbase::readMSData(files = file, msLevel. = 2, mode = mode)
-  message(crayon::green("Processing..."))
-
-  new.ms2 <- MSnbase::spectra(object = ms2)
-  rm(list = c("ms2", "threads"))
-
-  seq_along(new.ms2) %>%
-    purrr::map(function(idx) {
-      temp.ms2 <- new.ms2[[idx]]
-      info <- data.frame(
-        name = paste("mz", temp.ms2@precursorMz, "rt", temp.ms2@rt, sep = ""),
-        mz = temp.ms2@precursorMz,
-        rt = temp.ms2@rt,
-        file = file[temp.ms2@fromFile],
-        stringsAsFactors = FALSE
-      )
-
-      duplicated.name <- unique(info$name[duplicated(info$name)])
-      if (length(duplicated.name) > 0) {
-        lapply(duplicated.name, function(x) {
-          info$name[which(info$name == x)] <-
-            paste(x, seq_len(sum(info$name == x)), sep = "_")
-        })
-      }
-
-      rownames(info) <- NULL
-      spec <- data.frame(
-        mz = temp.ms2@mz,
-        intensity = temp.ms2@intensity,
-        stringsAsFactors = FALSE
-      )
-      list(info = info, spec = spec)
-    })
+  stop(
+    "read_mzxml() is not available in the CRAN build of 'massdataset'. ",
+    "Convert mzXML or mzML files to MGF before calling mutate_ms2().",
+    call. = FALSE
+  )
 }
 
 #' Match Features by m/z and Retention Time

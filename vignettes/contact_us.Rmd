@@ -42,7 +42,7 @@ knitr::opts_chunk$set(
 
 <i class="fa fa-envelope"></i> xiaotao.shen@outlook.com
 
-<i class="fa fa-twitter"></i> [Twitter](https://twitter.com/JasperShen1990)
+<i class="fa fa-twitter"></i> [X](https://x.com/JasperShen1990)
 
 <hr>
 

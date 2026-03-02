@@ -73,7 +73,7 @@ usethis::create_github_token()
 
 It will open a page in browser, and create a "New personal access token" and copy it.
 
-![](../man/figures/Screen Shot 2021-12-24 at 9.28.18 PM.png)
+![GitHub page for creating a personal access token.](../man/figures/Screen Shot 2021-12-24 at 9.28.18 PM.png)
 
 2. Then type this code:
 

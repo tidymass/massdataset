@@ -1,3 +1,10 @@
+# Version 0.99.2
+
+* Remove the non-portable `MSnbase` dependency from the CRAN build.
+* Update moved social links in documentation and vignettes.
+* Refine DESCRIPTION text for CRAN incoming checks.
+* Expand tests for object updates, merging, conversion, and MS2 workflows.
+
 # Version 0.99.1
 
 * Create.
@@ -140,5 +147,4 @@
 # Version 1.0.33 (2024-09-10)
 
 * Add new function mutate_annotation_table.
-
 

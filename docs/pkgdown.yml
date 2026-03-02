@@ -1,5 +1,5 @@
-pandoc: 3.1.11
-pkgdown: 2.1.0
+pandoc: '3.9'
+pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   accessor: accessor.html
@@ -20,7 +20,7 @@ articles:
   process_info: process_info.html
   split_mass_dataset: split_mass_dataset.html
   summary_info: summary_info.html
-last_built: 2024-09-09T23:52Z
+last_built: 2026-03-02T01:26Z
 urls:
   reference: https://tidymass.github.io/massdataset/reference
   article: https://tidymass.github.io/massdataset/articles

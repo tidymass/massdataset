@@ -15,10 +15,9 @@ read_mzxml(file, threads = 3, mode = c("inMemory", "onDisk"))
 \code{"inMemory"} or \code{"onDisk"}.}
 }
 \value{
-A list of spectra. Each element contains \code{info}, a data frame with
-precursor metadata, and \code{spec}, a data frame with \code{mz} and \code{intensity}.
+This function always stops in the CRAN build of \code{massdataset}.
+Convert mzXML or mzML files to MGF before calling \code{\link[=mutate_ms2]{mutate_ms2()}}.
 }
 \description{
-Read mzXML or mzML files and extract MS2 spectra in the legacy list format
-used by \code{massdataset}.
+Read mzXML or mzML files.
 }

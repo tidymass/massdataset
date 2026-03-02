@@ -86,7 +86,10 @@ get_variable_id(object) %>%
 
 # **Explore**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE,
+fig.alt=c("Scatter plot of retention time versus m/z for the original dataset.",
+          "Scatter plot of retention time versus m/z after log transformation.",
+          "Hexbin plot of retention time versus m/z for the original dataset.")}
 ###show mz rt plot
 object %>%
   show_mz_rt_plot()
@@ -102,7 +105,21 @@ object %>%
 
 # **Missing values**
 
-```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE,
+fig.alt=c("Heatmap of missing values across the full dataset.",
+          "Heatmap of missing values for the first ten variables with white cells.",
+          "Heatmap of missing values for subject samples only.",
+          "Heatmap of missing values for QC samples only.",
+          "Heatmap of missing values for variables with m/z below 100.",
+          "Sample-level missing value summary plot.",
+          "Sample-level missing value summary plot colored by sample class.",
+          "Sample-level missing value summary plot ordered by missing value count.",
+          "Sample-level missing value summary plot ordered by missing value count in descending order.",
+          "Variable-level missing value summary plot.",
+          "Variable-level missing value summary plot colored by m/z.",
+          "Variable-level missing value summary plot colored by retention time.",
+          "Variable-level missing value summary plot colored by m/z and ordered by missing value count.",
+          "Variable-level missing value percentage plot colored by m/z and ordered by missing value count in descending order.")}
 ##show missing values plot
 show_missing_values(object)
 
