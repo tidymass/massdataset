@@ -15,7 +15,7 @@ Description: Provides a structured data container for MS experiments,
 biocViews: Software, DataImport, DataRepresentation, Visualization, 
            MassSpectrometry, Metabolomics, Lipidomics, QualityControl, 
            Preprocessing, StatisticalMethod, Infrastructure
-URL: https://tidymass.github.io/massdataset,
+URL: https://www.tidymass.org/massdataset/,
     https://github.com/tidymass/massdataset
 BugReports: https://github.com/tidymass/massdataset/issues
 Depends: R (>= 4.1)

@@ -1,6 +1,6 @@
 destination: docs
 
-url: https://tidymass.github.io/massdataset/
+url: https://www.tidymass.org/massdataset/
 
 home:
   strip_header: false
