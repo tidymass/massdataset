@@ -1,3 +1,9 @@
+# Version 0.99.3
+
+* Reduce package size below 10 MB by removing large vignette-only example files.
+* Update vignette workflows to use bundled demo data and temporary output paths.
+* Update package website URL to the current canonical tidymass site.
+
 # Version 0.99.2
 
 * Remove the non-portable `MSnbase` dependency from the CRAN build.
@@ -147,4 +153,3 @@
 # Version 1.0.33 (2024-09-10)
 
 * Add new function mutate_annotation_table.
-

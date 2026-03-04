@@ -33,25 +33,36 @@ knitr::opts_chunk$set(
 
 ## mass_data class object
 
-We need to create a `mass_data` class object first; see [this document](https://www.tidymass.org/massdataset/articles/data_import_and_export.html). Here we use the data from that step as examples.
+We need to create a `mass_data` class object first; see [this document](https://www.tidymass.org/massdataset/articles/data_import_and_export.html). Here we use the demo datasets bundled with the package.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
-load("feature_table/object_pos")
-load("feature_table/object_neg")
+library(massdataset)
+
+data("expression_data")
+data("sample_info")
+data("variable_info")
+
+object_pos <-
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info
+  )
 ```
 
 ## MS2 data
 
 The MS2 raw data should be converted to mgf format data. Please refer to [this document](https://www.tidymass.org/metid/articles/database_construction.html).
 
-Here we use the demo data prepared alongside this vignette in the `feature_table`
-folder.
+Here we use the MGF example bundled with `massdataset`.
 
 # **Add MS2 to `mass_dataset` class object**
 
 Positive mode.
 
 ```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+ms2_dir <- system.file("ms2_data", package = "massdataset")
+
 object_pos2 =
   mutate_ms2(
     object = object_pos,
@@ -59,21 +70,7 @@ object_pos2 =
     polarity = "positive",
     ms1.ms2.match.mz.tol = 10,
     ms1.ms2.match.rt.tol = 15,
-    path = "feature_table/MS2_data/POS/"
-  )
-```
-
-Negative mode.
-
-```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
-object_neg2 =
-  mutate_ms2(
-    object = object_neg,
-    column = "rp",
-    polarity = "negative",
-    ms1.ms2.match.mz.tol = 10,
-    ms1.ms2.match.rt.tol = 15,
-    path = "feature_table/MS2_data/NEG/"
+    path = ms2_dir
   )
 ```
 

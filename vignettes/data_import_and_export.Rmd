@@ -65,49 +65,30 @@ This is the metadata for `variable_info`.
 
 ![Example variable_info_note metadata table describing variable_info columns.](../man/figures/5.png)
 
-# **Download demo data**
+# **Prepare demo data**
 
-Here we use the demo data bundled with the vignette source tree.
-
-Download this data and uncompress it. And then set the path where you put the folder as working directory.
-
-Then prepare data.
+Here we use the example datasets bundled with `massdataset`. This keeps the
+workflow reproducible while still showing how the required tables fit together.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
+library(massdataset)
 library(tidyverse)
-peak_table_pos = readr::read_csv("feature_table/Peak_table_pos.csv")
-peak_table_neg = readr::read_csv("feature_table/Peak_table_neg.csv")
+data("expression_data")
+data("sample_info")
+data("sample_info_note")
+data("variable_info")
+data("variable_info_note")
 
-sample_info_pos = readr::read_csv("feature_table/sample_info_pos.csv")
-sample_info_neg = readr::read_csv("feature_table/sample_info_neg.csv")
+sample_info_pos = sample_info
+sample_info_neg = sample_info
 ```
 
-Variable information and expression data are in the peak table. Let's separate them.
+Make sure the order of samples in `sample_info` matches the columns of
+`expression_data`.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
-expression_data_pos = 
-  peak_table_pos %>% 
-  dplyr::select(-c(variable_id:rt)) %>% 
-  as.data.frame()
-
-variable_info_pos = 
-  peak_table_pos %>% 
-  dplyr::select(variable_id:rt) %>% 
-  as.data.frame()
-
-rownames(expression_data_pos) = variable_info_pos$variable_id
-
-expression_data_neg = 
-  peak_table_neg %>% 
-  dplyr::select(-c(variable_id:rt)) %>% 
-  as.data.frame()
-
-variable_info_neg = 
-  peak_table_neg %>% 
-  dplyr::select(variable_id:rt) %>% 
-  as.data.frame()
-
-rownames(expression_data_neg) = variable_info_neg$variable_id
+expression_data_pos = expression_data[, rev(seq_len(ncol(expression_data)))]
+expression_data_neg = expression_data
 
 colnames(expression_data_pos) == sample_info_pos$sample_id
 colnames(expression_data_neg) == sample_info_neg$sample_id
@@ -119,9 +100,6 @@ The orders of `sample_id` in `sample_info` and column names of `expression_data`
 expression_data_pos = 
   expression_data_pos[,sample_info_pos$sample_id]
 
-expression_data_neg = 
-  expression_data_neg[,sample_info_neg$sample_id]
-
 colnames(expression_data_pos) == sample_info_pos$sample_id
 colnames(expression_data_neg) == sample_info_neg$sample_id
 ```
@@ -131,13 +109,13 @@ colnames(expression_data_neg) == sample_info_neg$sample_id
 Then we can create `mass_data` class object using `create_mass_dataset()` function.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
-library(massdataset)
-
 object_pos =
   create_mass_dataset(
     expression_data = expression_data_pos,
     sample_info = sample_info_pos,
-    variable_info = variable_info_pos
+    variable_info = variable_info,
+    sample_info_note = sample_info_note,
+    variable_info_note = variable_info_note
   )
   
 object_pos
@@ -150,7 +128,9 @@ object_neg =
   create_mass_dataset(
     expression_data = expression_data_neg,
     sample_info = sample_info_neg,
-    variable_info = variable_info_neg
+    variable_info = variable_info,
+    sample_info_note = sample_info_note,
+    variable_info_note = variable_info_note
   )
   
 object_neg
@@ -159,19 +139,22 @@ object_neg
 Then save them for next analysis.
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
-save(object_pos, file = "feature_table/object_pos")
-save(object_neg, file = "feature_table/object_neg")
+save(object_pos, file = file.path(tempdir(), "object_pos"))
+save(object_neg, file = file.path(tempdir(), "object_neg"))
 ```
 
 # **Export `mass_dataset` class object to csv for xlsx**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=TRUE, cache=FALSE}
+export_dir <- file.path(tempdir(), "demo_data_pos")
 export_mass_dataset(object = object_pos,
                     file_type = "xlsx",
-                    path = "demo_data_pos")
+                    path = export_dir)
+
+list.files(export_dir)
 ```
 
-Then all the data will be in the `demo_data_pos` folder.
+Then all the data will be in the temporary export folder.
 
 ![Example exported mass_dataset files saved in the demo_data_pos folder.](../man/figures/6.png)
 

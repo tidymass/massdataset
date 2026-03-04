@@ -32,7 +32,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">massdataset</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.99.2</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.99.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,7 +108,7 @@
 Shen</h4>
                         
             <h4 data-toc-skip class="date">Created on 2021-12-04 and
-updated on 2026-03-02</h4>
+updated on 2026-03-04</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massdataset/blob/HEAD/vignettes/data_import_and_export.Rmd" class="external-link"><code>vignettes/data_import_and_export.Rmd</code></a></small>
       <div class="d-none name"><code>data_import_and_export.Rmd</code></div>
@@ -182,114 +182,60 @@ describing variable_info columns.</div>
 </div>
 </div>
 <div class="section level2">
-<h2 id="download-demo-data">
-<strong>Download demo data</strong><a class="anchor" aria-label="anchor" href="#download-demo-data"></a>
+<h2 id="prepare-demo-data">
+<strong>Prepare demo data</strong><a class="anchor" aria-label="anchor" href="#prepare-demo-data"></a>
 </h2>
-<p>Here we use the demo data bundled with the vignette source tree.</p>
-<p>Download this data and uncompress it. And then set the path where you
-put the folder as working directory.</p>
-<p>Then prepare data.</p>
+<p>Here we use the example datasets bundled with
+<code>massdataset</code>. This keeps the workflow reproducible while
+still showing how the required tables fit together.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.tidymass.org/massdataset/">massdataset</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; massdataset 0.99.3 (2026-03-04 12:54:01.897435)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'massdataset'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching core tidyverse packages</span> ──────────────────────── tidyverse 2.0.0 ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.1.4     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.5</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats  </span> 1.0.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr  </span> 1.5.1</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 4.0.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.3.0</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.4     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.1</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.1.0     </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.4     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.3.0</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.1.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.1</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.5</span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">tidyr</span>::<span style="color: #00BB00;">extract()</span>   masks <span style="color: #0000BB;">magrittr</span>::extract()</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span>    masks <span style="color: #0000BB;">massdataset</span>::filter(), <span style="color: #0000BB;">stats</span>::filter()</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>       masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">purrr</span>::<span style="color: #00BB00;">set_names()</span> masks <span style="color: #0000BB;">magrittr</span>::set_names()</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use the conflicted package (<span style="color: #0000BB; font-style: italic;">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors</span></span>
-<span><span class="va">peak_table_pos</span> <span class="op">=</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="st">"feature_table/Peak_table_pos.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">1612</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">39</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span>  (1): variable_id</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (38): mz, rt, bl20210902_10, bl20210902_11, bl20210902_13, bl20210902_14...</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span><span class="va">peak_table_neg</span> <span class="op">=</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="st">"feature_table/Peak_table_neg.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">5486</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">39</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span>  (1): variable_id</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (38): mz, rt, X20210902_neg04, X20210902_neg05, X20210902_neg06, X202109...</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">sample_info_pos</span> <span class="op">=</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="st">"feature_table/sample_info_pos.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">36</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">4</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span> (3): sample_id, class, group</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (1): injection.order</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span><span class="va">sample_info_neg</span> <span class="op">=</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="st">"feature_table/sample_info_neg.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">36</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">4</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span> (3): sample_id, class, group</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (1): injection.order</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre></div>
-<p>Variable information and expression data are in the peak table. Let’s
-separate them.</p>
+<span><span class="va">sample_info_pos</span> <span class="op">=</span> <span class="va">sample_info</span></span>
+<span><span class="va">sample_info_neg</span> <span class="op">=</span> <span class="va">sample_info</span></span></code></pre></div>
+<p>Make sure the order of samples in <code>sample_info</code> matches
+the columns of <code>expression_data</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">expression_data_pos</span> <span class="op">=</span> </span>
-<span>  <span class="va">peak_table_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">variable_id</span><span class="op">:</span><span class="va">rt</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">variable_info_pos</span> <span class="op">=</span> </span>
-<span>  <span class="va">peak_table_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">variable_id</span><span class="op">:</span><span class="va">rt</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">expression_data_pos</span><span class="op">)</span> <span class="op">=</span> <span class="va">variable_info_pos</span><span class="op">$</span><span class="va">variable_id</span></span>
-<span></span>
-<span><span class="va">expression_data_neg</span> <span class="op">=</span> </span>
-<span>  <span class="va">peak_table_neg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">variable_id</span><span class="op">:</span><span class="va">rt</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">variable_info_neg</span> <span class="op">=</span> </span>
-<span>  <span class="va">peak_table_neg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">variable_id</span><span class="op">:</span><span class="va">rt</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">expression_data_neg</span><span class="op">)</span> <span class="op">=</span> <span class="va">variable_info_neg</span><span class="op">$</span><span class="va">variable_id</span></span>
+<code class="sourceCode R"><span><span class="va">expression_data_pos</span> <span class="op">=</span> <span class="va">expression_data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">expression_data</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="va">expression_data_neg</span> <span class="op">=</span> <span class="va">expression_data</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">expression_data_pos</span><span class="op">)</span> <span class="op">==</span> <span class="va">sample_info_pos</span><span class="op">$</span><span class="va">sample_id</span></span>
-<span><span class="co">#&gt;  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
-<span><span class="co">#&gt; [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
-<span><span class="co">#&gt; [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE</span></span>
+<span><span class="co">#&gt; [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">expression_data_neg</span><span class="op">)</span> <span class="op">==</span> <span class="va">sample_info_neg</span><span class="op">$</span><span class="va">sample_id</span></span>
-<span><span class="co">#&gt;  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
-<span><span class="co">#&gt; [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
-<span><span class="co">#&gt; [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></span></code></pre></div>
 <p>The orders of <code>sample_id</code> in <code>sample_info</code> and
 column names of <code>expression_data</code> are different.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">expression_data_pos</span> <span class="op">=</span> </span>
 <span>  <span class="va">expression_data_pos</span><span class="op">[</span>,<span class="va">sample_info_pos</span><span class="op">$</span><span class="va">sample_id</span><span class="op">]</span></span>
 <span></span>
-<span><span class="va">expression_data_neg</span> <span class="op">=</span> </span>
-<span>  <span class="va">expression_data_neg</span><span class="op">[</span>,<span class="va">sample_info_neg</span><span class="op">$</span><span class="va">sample_id</span><span class="op">]</span></span>
-<span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">expression_data_pos</span><span class="op">)</span> <span class="op">==</span> <span class="va">sample_info_pos</span><span class="op">$</span><span class="va">sample_id</span></span>
-<span><span class="co">#&gt;  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></span>
-<span><span class="co">#&gt; [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></span>
-<span><span class="co">#&gt; [31] TRUE TRUE TRUE TRUE TRUE TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">expression_data_neg</span><span class="op">)</span> <span class="op">==</span> <span class="va">sample_info_neg</span><span class="op">$</span><span class="va">sample_id</span></span>
-<span><span class="co">#&gt;  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></span>
-<span><span class="co">#&gt; [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></span>
-<span><span class="co">#&gt; [31] TRUE TRUE TRUE TRUE TRUE TRUE</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="create-mass_data-class-object">
@@ -298,30 +244,24 @@ column names of <code>expression_data</code> are different.</p>
 <p>Then we can create <code>mass_data</code> class object using
 <code><a href="../reference/create_mass_dataset.html">create_mass_dataset()</a></code> function.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; massdataset 0.99.1 (2026-03-01 18:35:38.579125)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'massdataset'</span></span>
-<span><span class="co">#&gt; The following object is masked from 'package:stats':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     filter</span></span>
-<span></span>
-<span><span class="va">object_pos</span> <span class="op">=</span></span>
+<code class="sourceCode R"><span><span class="va">object_pos</span> <span class="op">=</span></span>
 <span>  <span class="fu"><a href="../reference/create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span></span>
 <span>    expression_data <span class="op">=</span> <span class="va">expression_data_pos</span>,</span>
 <span>    sample_info <span class="op">=</span> <span class="va">sample_info_pos</span>,</span>
-<span>    variable_info <span class="op">=</span> <span class="va">variable_info_pos</span></span>
+<span>    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span>
+<span>    sample_info_note <span class="op">=</span> <span class="va">sample_info_note</span>,</span>
+<span>    variable_info_note <span class="op">=</span> <span class="va">variable_info_note</span></span>
 <span>  <span class="op">)</span></span>
 <span>  </span>
 <span><span class="va">object_pos</span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
-<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.1 </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.3 </span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span></span>
-<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1612 x 36 data.frame]</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 36 x 4 data.frame]</span></span>
-<span><span class="co">#&gt; 36 samples:bl20210902_3 bl20210902_4 bl20210902_5 ... bl20210902_37 bl20210902_38</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1612 x 3 data.frame]</span></span>
-<span><span class="co">#&gt; 1612 variables:M86T44_POS M90T638_POS M91T631_POS ... M1197T265_POS M1198T265_POS</span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span></span>
+<span><span class="co">#&gt; 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span></span>
+<span><span class="co">#&gt; 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span></span>
@@ -330,25 +270,27 @@ column names of <code>expression_data</code> are different.</p>
 <span><span class="co"><span style="color: #00BB00;">#&gt; 1 processings in total</span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span></span>
-<span><span class="co">#&gt; 1 massdataset create_mass_dataset() 2026-03-02 09:27:49</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 massdataset create_mass_dataset() 2026-03-04 12:55:02</span></span></code></pre></div>
 <p>Then negative mode.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">object_neg</span> <span class="op">=</span></span>
 <span>  <span class="fu"><a href="../reference/create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span></span>
 <span>    expression_data <span class="op">=</span> <span class="va">expression_data_neg</span>,</span>
 <span>    sample_info <span class="op">=</span> <span class="va">sample_info_neg</span>,</span>
-<span>    variable_info <span class="op">=</span> <span class="va">variable_info_neg</span></span>
+<span>    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span>
+<span>    sample_info_note <span class="op">=</span> <span class="va">sample_info_note</span>,</span>
+<span>    variable_info_note <span class="op">=</span> <span class="va">variable_info_note</span></span>
 <span>  <span class="op">)</span></span>
 <span>  </span>
 <span><span class="va">object_neg</span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
-<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.1 </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.3 </span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span></span>
-<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 5486 x 36 data.frame]</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 36 x 4 data.frame]</span></span>
-<span><span class="co">#&gt; 36 samples:X20210902_neg03 X20210902_neg04 X20210902_neg05 ... X20210902_neg37 X20210902_neg38</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 5486 x 3 data.frame]</span></span>
-<span><span class="co">#&gt; 5486 variables:M74T229_NEG M88T115_NEG M100T631_NEG ... M1199T22_NEG M1199T180_NEG</span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span></span>
+<span><span class="co">#&gt; 8 samples:Blank_3 Blank_4 QC_1 ... PS4P3 PS4P4</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span></span>
+<span><span class="co">#&gt; 1000 variables:M136T55_2_POS M79T35_POS M307T548_POS ... M232T937_POS M301T277_POS</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span></span>
@@ -357,11 +299,11 @@ column names of <code>expression_data</code> are different.</p>
 <span><span class="co"><span style="color: #00BB00;">#&gt; 1 processings in total</span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span></span>
-<span><span class="co">#&gt; 1 massdataset create_mass_dataset() 2026-03-02 09:27:49</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 massdataset create_mass_dataset() 2026-03-04 12:55:02</span></span></code></pre></div>
 <p>Then save them for next analysis.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">object_pos</span>, file <span class="op">=</span> <span class="st">"feature_table/object_pos"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">object_neg</span>, file <span class="op">=</span> <span class="st">"feature_table/object_neg"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">object_pos</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"object_pos"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">object_neg</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"object_neg"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="export-mass_dataset-class-object-to-csv-for-xlsx">
@@ -369,11 +311,16 @@ column names of <code>expression_data</code> are different.</p>
 xlsx</strong><a class="anchor" aria-label="anchor" href="#export-mass_dataset-class-object-to-csv-for-xlsx"></a>
 </h2>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/export_mass_dataset.html">export_mass_dataset</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object_pos</span>,</span>
+<code class="sourceCode R"><span><span class="va">export_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"demo_data_pos"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/export_mass_dataset.html">export_mass_dataset</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object_pos</span>,</span>
 <span>                    file_type <span class="op">=</span> <span class="st">"xlsx"</span>,</span>
-<span>                    path <span class="op">=</span> <span class="st">"demo_data_pos"</span><span class="op">)</span></span></code></pre></div>
-<p>Then all the data will be in the <code>demo_data_pos</code>
-folder.</p>
+<span>                    path <span class="op">=</span> <span class="va">export_dir</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">export_dir</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "expression_data.xlsx"    "sample_info_note.xlsx"  </span></span>
+<span><span class="co">#&gt; [3] "sample_info.xlsx"        "variable_info_note.xlsx"</span></span>
+<span><span class="co">#&gt; [5] "variable_info.xlsx"</span></span></code></pre></div>
+<p>Then all the data will be in the temporary export folder.</p>
 <div class="float">
 <img src="../reference/figures/6.png" alt="Example exported mass_dataset files saved in the demo_data_pos folder."><div class="figcaption">Example exported mass_dataset files saved in the
 demo_data_pos folder.</div>
@@ -938,7 +885,7 @@ row retention time
 <span>   <span class="fu"><a href="../reference/convet_mzmine2mass_dataset.html">convet_mzmine2mass_dataset</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mzmine_table</span><span class="op">)</span></span>
 <span><span class="va">object</span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
-<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.1 </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.3 </span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span></span>
 <span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 3443 x 22 data.frame]</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 22 x 2 data.frame]</span></span>
@@ -953,7 +900,7 @@ row retention time
 <span><span class="co"><span style="color: #00BB00;">#&gt; 1 processings in total</span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; </span>      Package                Function.used                Time</span></span>
-<span><span class="co">#&gt; 1 massdataset convet_mzmine2mass_dataset() 2026-03-02 09:27:50</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 massdataset convet_mzmine2mass_dataset() 2026-03-04 12:55:02</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="ms-dial-feature-table-to-mass_dataset-class">
@@ -2159,7 +2106,7 @@ W03.01
 <span>   <span class="fu"><a href="../reference/convert_msdial2mass_dataset.html">convert_msdial2mass_dataset</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">msdial_table</span><span class="op">)</span></span>
 <span><span class="va">object</span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
-<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.1 </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.3 </span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span></span>
 <span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 3751 x 20 data.frame]</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 20 x 5 data.frame]</span></span>
@@ -2174,7 +2121,7 @@ W03.01
 <span><span class="co"><span style="color: #00BB00;">#&gt; 1 processings in total</span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span></span>
 <span><span class="co"><span style="color: #00BB00;">#&gt; </span>      Package                 Function.used                Time</span></span>
-<span><span class="co">#&gt; 1 massdataset convert_msdial2mass_dataset() 2026-03-02 09:27:50</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 massdataset convert_msdial2mass_dataset() 2026-03-04 12:55:03</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="session-information">
@@ -2191,7 +2138,7 @@ W03.01
 <span><span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; locale:</span></span>
-<span><span class="co">#&gt; [1] C.UTF-8/C.UTF-8/C.UTF-8/C/C.UTF-8/C.UTF-8</span></span>
+<span><span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; time zone: Asia/Singapore</span></span>
 <span><span class="co">#&gt; tzcode source: internal</span></span>
@@ -2200,10 +2147,10 @@ W03.01
 <span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; other attached packages:</span></span>
-<span><span class="co">#&gt;  [1] kableExtra_1.4.0   magrittr_2.0.3     massdataset_0.99.1 lubridate_1.9.4   </span></span>
-<span><span class="co">#&gt;  [5] forcats_1.0.0      stringr_1.5.1      dplyr_1.1.4        purrr_1.1.0       </span></span>
-<span><span class="co">#&gt;  [9] readr_2.1.5        tidyr_1.3.1        tibble_3.3.0       ggplot2_4.0.2     </span></span>
-<span><span class="co">#&gt; [13] tidyverse_2.0.0   </span></span>
+<span><span class="co">#&gt;  [1] kableExtra_1.4.0   lubridate_1.9.4    forcats_1.0.0      stringr_1.5.1     </span></span>
+<span><span class="co">#&gt;  [5] purrr_1.1.0        readr_2.1.5        tidyr_1.3.1        tibble_3.3.0      </span></span>
+<span><span class="co">#&gt;  [9] tidyverse_2.0.0    magrittr_2.0.3     dplyr_1.1.4        ggplot2_4.0.2     </span></span>
+<span><span class="co">#&gt; [13] massdataset_0.99.3</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
 <span><span class="co">#&gt;  [1] tidyselect_1.2.1            viridisLite_0.4.2          </span></span>
@@ -2214,43 +2161,42 @@ W03.01
 <span><span class="co">#&gt; [11] rlang_1.1.6                 sass_0.4.10                </span></span>
 <span><span class="co">#&gt; [13] tools_4.5.2                 yaml_2.3.10                </span></span>
 <span><span class="co">#&gt; [15] knitr_1.50                  S4Arrays_1.8.1             </span></span>
-<span><span class="co">#&gt; [17] htmlwidgets_1.6.4           bit_4.6.0                  </span></span>
-<span><span class="co">#&gt; [19] DelayedArray_0.34.1         xml2_1.4.0                 </span></span>
-<span><span class="co">#&gt; [21] RColorBrewer_1.1-3          abind_1.4-8                </span></span>
-<span><span class="co">#&gt; [23] withr_3.0.2                 BiocGenerics_0.54.0        </span></span>
-<span><span class="co">#&gt; [25] desc_1.4.3                  grid_4.5.2                 </span></span>
-<span><span class="co">#&gt; [27] stats4_4.5.2                colorspace_2.1-1           </span></span>
-<span><span class="co">#&gt; [29] scales_1.4.0                iterators_1.0.14           </span></span>
-<span><span class="co">#&gt; [31] dichromat_2.0-0.1           SummarizedExperiment_1.38.1</span></span>
-<span><span class="co">#&gt; [33] cli_3.6.5                   rmarkdown_2.29             </span></span>
-<span><span class="co">#&gt; [35] crayon_1.5.3                ragg_1.4.0                 </span></span>
-<span><span class="co">#&gt; [37] generics_0.1.4              rstudioapi_0.17.1          </span></span>
-<span><span class="co">#&gt; [39] httr_1.4.7                  tzdb_0.5.0                 </span></span>
-<span><span class="co">#&gt; [41] rjson_0.2.23                cachem_1.1.0               </span></span>
-<span><span class="co">#&gt; [43] parallel_4.5.2              XVector_0.48.0             </span></span>
-<span><span class="co">#&gt; [45] matrixStats_1.5.0           vctrs_0.6.5                </span></span>
-<span><span class="co">#&gt; [47] Matrix_1.7-4                jsonlite_2.0.0             </span></span>
-<span><span class="co">#&gt; [49] IRanges_2.42.0              hms_1.1.3                  </span></span>
-<span><span class="co">#&gt; [51] GetoptLong_1.0.5            S4Vectors_0.48.0           </span></span>
-<span><span class="co">#&gt; [53] bit64_4.6.0-1               clue_0.3-66                </span></span>
-<span><span class="co">#&gt; [55] systemfonts_1.2.3           foreach_1.5.2              </span></span>
-<span><span class="co">#&gt; [57] jquerylib_0.1.4             glue_1.8.0                 </span></span>
-<span><span class="co">#&gt; [59] pkgdown_2.1.3               codetools_0.2-20           </span></span>
-<span><span class="co">#&gt; [61] stringi_1.8.7               gtable_0.3.6               </span></span>
-<span><span class="co">#&gt; [63] shape_1.4.6.1               GenomeInfoDb_1.44.2        </span></span>
-<span><span class="co">#&gt; [65] GenomicRanges_1.60.0        UCSC.utils_1.4.0           </span></span>
-<span><span class="co">#&gt; [67] ComplexHeatmap_2.24.1       pillar_1.11.0              </span></span>
-<span><span class="co">#&gt; [69] htmltools_0.5.8.1           GenomeInfoDbData_1.2.14    </span></span>
-<span><span class="co">#&gt; [71] circlize_0.4.16             R6_2.6.1                   </span></span>
-<span><span class="co">#&gt; [73] textshaping_1.0.1           doParallel_1.0.17          </span></span>
-<span><span class="co">#&gt; [75] lattice_0.22-7              Biobase_2.68.0             </span></span>
-<span><span class="co">#&gt; [77] vroom_1.6.5                 evaluate_1.0.4             </span></span>
-<span><span class="co">#&gt; [79] png_0.1-8                   openxlsx_4.2.8             </span></span>
-<span><span class="co">#&gt; [81] bslib_0.9.0                 Rcpp_1.1.0                 </span></span>
-<span><span class="co">#&gt; [83] zip_2.3.3                   svglite_2.2.1              </span></span>
-<span><span class="co">#&gt; [85] SparseArray_1.8.1           xfun_0.53                  </span></span>
-<span><span class="co">#&gt; [87] fs_1.6.6                    MatrixGenerics_1.20.0      </span></span>
-<span><span class="co">#&gt; [89] pkgconfig_2.0.3             GlobalOptions_0.1.2</span></span></code></pre></div>
+<span><span class="co">#&gt; [17] htmlwidgets_1.6.4           DelayedArray_0.34.1        </span></span>
+<span><span class="co">#&gt; [19] xml2_1.4.0                  RColorBrewer_1.1-3         </span></span>
+<span><span class="co">#&gt; [21] abind_1.4-8                 withr_3.0.2                </span></span>
+<span><span class="co">#&gt; [23] BiocGenerics_0.54.0         desc_1.4.3                 </span></span>
+<span><span class="co">#&gt; [25] grid_4.5.2                  stats4_4.5.2               </span></span>
+<span><span class="co">#&gt; [27] colorspace_2.1-1            scales_1.4.0               </span></span>
+<span><span class="co">#&gt; [29] iterators_1.0.14            dichromat_2.0-0.1          </span></span>
+<span><span class="co">#&gt; [31] SummarizedExperiment_1.38.1 cli_3.6.5                  </span></span>
+<span><span class="co">#&gt; [33] rmarkdown_2.29              crayon_1.5.3               </span></span>
+<span><span class="co">#&gt; [35] ragg_1.4.0                  generics_0.1.4             </span></span>
+<span><span class="co">#&gt; [37] rstudioapi_0.17.1           httr_1.4.7                 </span></span>
+<span><span class="co">#&gt; [39] tzdb_0.5.0                  rjson_0.2.23               </span></span>
+<span><span class="co">#&gt; [41] cachem_1.1.0                parallel_4.5.2             </span></span>
+<span><span class="co">#&gt; [43] XVector_0.48.0              matrixStats_1.5.0          </span></span>
+<span><span class="co">#&gt; [45] vctrs_0.6.5                 Matrix_1.7-4               </span></span>
+<span><span class="co">#&gt; [47] jsonlite_2.0.0              IRanges_2.42.0             </span></span>
+<span><span class="co">#&gt; [49] hms_1.1.3                   GetoptLong_1.0.5           </span></span>
+<span><span class="co">#&gt; [51] S4Vectors_0.48.0            clue_0.3-66                </span></span>
+<span><span class="co">#&gt; [53] systemfonts_1.2.3           foreach_1.5.2              </span></span>
+<span><span class="co">#&gt; [55] jquerylib_0.1.4             glue_1.8.0                 </span></span>
+<span><span class="co">#&gt; [57] pkgdown_2.1.3               codetools_0.2-20           </span></span>
+<span><span class="co">#&gt; [59] stringi_1.8.7               shape_1.4.6.1              </span></span>
+<span><span class="co">#&gt; [61] gtable_0.3.6                GenomeInfoDb_1.44.2        </span></span>
+<span><span class="co">#&gt; [63] GenomicRanges_1.60.0        UCSC.utils_1.4.0           </span></span>
+<span><span class="co">#&gt; [65] ComplexHeatmap_2.24.1       pillar_1.11.0              </span></span>
+<span><span class="co">#&gt; [67] htmltools_0.5.8.1           GenomeInfoDbData_1.2.14    </span></span>
+<span><span class="co">#&gt; [69] circlize_0.4.16             R6_2.6.1                   </span></span>
+<span><span class="co">#&gt; [71] textshaping_1.0.1           doParallel_1.0.17          </span></span>
+<span><span class="co">#&gt; [73] evaluate_1.0.4              Biobase_2.68.0             </span></span>
+<span><span class="co">#&gt; [75] lattice_0.22-7              png_0.1-8                  </span></span>
+<span><span class="co">#&gt; [77] openxlsx_4.2.8              bslib_0.9.0                </span></span>
+<span><span class="co">#&gt; [79] Rcpp_1.1.0                  zip_2.3.3                  </span></span>
+<span><span class="co">#&gt; [81] svglite_2.2.1               SparseArray_1.8.1          </span></span>
+<span><span class="co">#&gt; [83] xfun_0.53                   fs_1.6.6                   </span></span>
+<span><span class="co">#&gt; [85] MatrixGenerics_1.20.0       pkgconfig_2.0.3            </span></span>
+<span><span class="co">#&gt; [87] GlobalOptions_0.1.2</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
